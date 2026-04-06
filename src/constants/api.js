@@ -3,7 +3,7 @@
 // Step 2: Paste your key between the quotes below (starts with sk-ant-)
 // Step 3: Re-upload this file to GitHub — Vercel will rebuild automatically
 // Cost: ~$10-30/month. You get $5 free credit to test with.
-export const ANTHROPIC_API_KEY = "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";
+export const ANTHROPIC_API_KEY = import.meta.env.VITE_ANTHROPIC_KEY || "";
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const AFFILIATE = {

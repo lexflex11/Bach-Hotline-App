@@ -17,12 +17,12 @@ import {
 } from 'firebase/firestore';
 
 export const firebaseConfig = {
-  apiKey:            "PASTE_YOUR_API_KEY_HERE",
-  authDomain:        "PASTE_YOUR_AUTH_DOMAIN_HERE",
-  projectId:         "PASTE_YOUR_PROJECT_ID_HERE",
-  storageBucket:     "PASTE_YOUR_STORAGE_BUCKET_HERE",
-  messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID_HERE",
-  appId:             "PASTE_YOUR_APP_ID_HERE",
+  apiKey:            "AIzaSyDohZPDg0g0FNLjSWm0mmEmbq3FsZg9Vto",
+  authDomain:        "bach-hotline.firebaseapp.com",
+  projectId:         "bach-hotline",
+  storageBucket:     "bach-hotline.firebasestorage.app",
+  messagingSenderId: "106310396575",
+  appId:             "1:106310396575:web:325406d9c665fdab5ad0aa",
 };
 
 export const isConfigured = !firebaseConfig.apiKey.startsWith("PASTE_");
