@@ -4,17 +4,17 @@ import { existsSync } from 'fs'
 import { fileURLToPath } from 'url'
 import path from 'path'
 
-const configDir = fileURLToPath(new URL('.', import.meta.url))
-const stubApp   = path.join(configDir, 'src', 'stubs', 'firebase-app.js')
-const stubStore = path.join(configDir, 'src', 'stubs', 'firebase-firestore.js')
-const fbPkg     = path.join(configDir, 'src', 'node_modules', 'firebase', 'package.json')
-const hasFb     = existsSync(fbPkg)
+// __dirname = /Users/lexis/BachHotline/Bach-Hotline-App/src
+const srcDir    = fileURLToPath(new URL('.', import.meta.url))
+const rootDir   = path.join(srcDir, '..')
+const stubApp   = path.join(srcDir, 'stubs', 'firebase-app.js')
+const stubStore = path.join(srcDir, 'stubs', 'firebase-firestore.js')
+const hasFb     = existsSync(path.join(srcDir, 'node_modules', 'firebase', 'package.json'))
 
 export default defineConfig({
-  root: path.join(configDir, 'src'),
   plugins: [react()],
   build: {
-    outDir: path.join(configDir, 'dist'),
+    outDir: path.join(rootDir, 'dist'),
     emptyOutDir: true,
   },
   resolve: {

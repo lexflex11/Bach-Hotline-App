@@ -1,0 +1,11 @@
+// ─── BRAND COLORS ─────────────────────────────────────────────────────────────
+export const WHITE  = "#ffffff";
+export const PAGE   = "#fdf5fa";
+export const SOFT   = "#ffe7f9";
+export const MID    = "#ffcfec";
+export const HOT    = "#e66582";
+export const PUNCH  = "#D52438";
+export const DARK   = "#2d0a18";
+export const BORDER = "#ffe0f4";
+export const GOLD   = "#c9612a";
+export const GREEN  = "#2e7d32";
