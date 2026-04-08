@@ -4,7 +4,6 @@ import { C, BP, BS, BG } from '../../constants/styles.js';
 import { DESTS } from '../../constants/data.js';
 import { expediaFlightUrl, kayakFlightUrl, skyscannerUrl, googleFlightsUrl, AFFILIATE } from '../../constants/api.js';
 import SH from '../ui/SH.jsx';
-import CommissionNote from '../ui/CommissionNote.jsx';
 
 // Common US departure airports — sorted by bachelorette trip volume
 const AIRPORTS = [
@@ -68,9 +67,6 @@ export default function FlightsTab({ groupSize }) {
   return (
     <div>
       <SH title="Group Flight Search" sub="Find real flights for your whole crew" />
-
-      {/* Affiliate earn note */}
-      <CommissionNote platform="Expedia Travel Creator" amount="2–6%" />
 
       {/* ── STEP 1 — Departure city ── */}
       <div style={{...C, marginBottom:12}}>
@@ -195,47 +191,6 @@ export default function FlightsTab({ groupSize }) {
         )}
       </div>
 
-      {/* ── AFFILIATE SETUP NOTE (only shown if no additional affiliate IDs yet) ── */}
-      {!hasAffiliate && (
-        <div style={{...C, background:"#fffbea", border:"1.5px solid #f0d060", marginBottom:14}}>
-          <div style={{fontSize:11,fontWeight:700,color:"#9a7000",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:1,marginBottom:6}}>
-            💰 Ready to earn commission on these searches?
-          </div>
-          <div style={{fontSize:12,color:DARK,fontFamily:"'DM Sans',sans-serif",marginBottom:10,opacity:0.85,lineHeight:1.5}}>
-            Sign up for free affiliate accounts — you earn 2–5% every time someone books a flight from your app. No cost to join.
-          </div>
-          <div style={{display:"flex",flexDirection:"column",gap:6}}>
-            <a href="https://www.kayak.com/affiliate-program" target="_blank" rel="noreferrer"
-              style={{...BP,fontSize:11,padding:"8px 14px",textDecoration:"none",display:"block",textAlign:"center"}}>
-              Kayak Affiliate Program →
-            </a>
-            <a href="https://www.partners.skyscanner.net" target="_blank" rel="noreferrer"
-              style={{...BS,fontSize:11,padding:"7px 14px",textDecoration:"none",display:"block",textAlign:"center"}}>
-              Skyscanner Partner Program →
-            </a>
-          </div>
-        </div>
-      )}
-
-      {/* ── HOW IT WORKS ── */}
-      <div style={{...C}}>
-        <div style={{fontSize:12,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:10}}>How group flight search works</div>
-        {[
-          ["🏠","Pick your departure city","Select the airport closest to most of your group"],
-          ["📍","Choose your destination","All 24 bach hotspots — US & international"],
-          ["📅","Add your dates (optional)","Helps the search engine show the right flights"],
-          ["🔍","Search on Kayak or Skyscanner","Opens in a new tab with your group size pre-filled"],
-          ["✈️","Book directly on the platform","Real-time prices, real seats, real booking confirmation"],
-        ].map(([icon,title,sub],i) => (
-          <div key={i} style={{display:"flex",gap:12,alignItems:"flex-start",marginBottom:i<4?12:0,paddingBottom:i<4?12:0,borderBottom:i<4?`1px solid ${SOFT}`:"none"}}>
-            <div style={{fontSize:20,flexShrink:0}}>{icon}</div>
-            <div>
-              <div style={{fontSize:12,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{title}</div>
-              <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginTop:2,opacity:0.8}}>{sub}</div>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
