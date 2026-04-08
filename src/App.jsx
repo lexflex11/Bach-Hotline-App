@@ -20,6 +20,7 @@ import AlertsTab from './components/tabs/AlertsTab.jsx';
 import DecorTab from './components/tabs/DecorTab.jsx';
 import ProfileTab from './components/tabs/ProfileTab.jsx';
 import PollsTab from './components/tabs/PollsTab.jsx';
+import ExploreTab from './components/tabs/ExploreTab.jsx';
 
 // ─── ROOT APP ─────────────────────────────────────────────────────────────────
 export default function App() {
@@ -70,6 +71,7 @@ export default function App() {
         {tab==="decor"   && <MoodTab setTab={setTab} />}
         {tab==="profile" && <ProfileTab user={user} onLogout={()=>setUser(null)} cart={cart} />}
         {tab==="polls"   && <PollsTab user={user} />}
+        {tab==="explore"  && <ExploreTab groupSize={groupSize} setTab={setTab} />}
       </div>
       {/* ── BOTTOM NAV — 5 tabs + More drawer ── */}
       <div style={{ position:"fixed", bottom:0, left:0, width:"100%", background:WHITE, borderTop:`1.5px solid ${SOFT}`, zIndex:200, boxShadow:`0 -2px 16px rgba(230,101,130,0.10)` }}>
@@ -77,7 +79,7 @@ export default function App() {
           {[
             { id:"home",  label:"Home" },
             { id:"plan",  label:"Plan" },
-            { id:"polls", label:"Polls" },
+            { id:"explore", label:"Explore" },
             { id:"shop",  label:"Shop" },
             { id:"more",  label:"More" },
           ].map(n => {
