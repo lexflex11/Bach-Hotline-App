@@ -192,7 +192,7 @@ export default function MoodTab({ setTab }) {
             <div style={{fontSize:13,fontFamily:"'DM Sans',sans-serif",color:DARK}}>{item}</div>
           </div>
         ))}
-      </div>
+      </div>}
 
       {/* Photo shots */}
       {aesthetic.shots?.length > 0 && <div style={{...C,marginBottom:12}}>
