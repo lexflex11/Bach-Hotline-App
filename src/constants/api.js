@@ -43,25 +43,36 @@ export function expediaFlightUrl(fromCode, toCode, depDate, retDate, passengers,
   return `https://www.expedia.com/Flights-Search?trip=${trip}&${legs}&passengers=adults%3A${passengers}%2Cseniors%3A0%2Cchildren%3A0&options=cabinClass%3Aeconomy&mode=search`;
 }
 
-// Kayak — backup flight search (affiliate-ready)
-export function kayakFlightUrl(fromCode, toCode, date, passengers) {
-  const d = date || new Date(Date.now() + 90*24*60*60*1000).toISOString().split("T")[0];
+// Kayak — opens directly to results with from/to/dates/passengers pre-filled
+export function kayakFlightUrl(fromCode, toCode, depDate, retDate, passengers) {
+  const dep = depDate || new Date(Date.now() + 90*24*60*60*1000).toISOString().split("T")[0];
   const tag = AFFILIATE.kayak ? `?a=${AFFILIATE.kayak}` : "";
-  return `https://www.kayak.com/flights/${fromCode}-${toCode}/${d}/${passengers}adults${tag}`;
+  if (retDate) {
+    return `https://www.kayak.com/flights/${fromCode}-${toCode}/${dep}/${retDate}/${passengers}adults${tag}`;
+  }
+  return `https://www.kayak.com/flights/${fromCode}-${toCode}/${dep}/${passengers}adults${tag}`;
 }
 
-// Skyscanner — secondary search (affiliate-ready, great international coverage)
-// Sign up at partners.skyscanner.net to get your affiliate ID
-export function skyscannerUrl(fromCode, toCode, date, passengers) {
-  const raw = date ? date.replace(/-/g,"").slice(2) : new Date(Date.now() + 90*24*60*60*1000).toISOString().split("T")[0].replace(/-/g,"").slice(2);
+// Skyscanner — opens directly to results with from/to/dates/passengers pre-filled
+export function skyscannerUrl(fromCode, toCode, depDate, retDate, passengers) {
+  const fmt = d => d.replace(/-/g,"").slice(2); // YYYY-MM-DD → YYMMDD
+  const dep = depDate ? fmt(depDate) : fmt(new Date(Date.now() + 90*24*60*60*1000).toISOString().split("T")[0]);
   const tag = AFFILIATE.skyscanner ? `&associateId=${AFFILIATE.skyscanner}` : "";
-  return `https://www.skyscanner.com/transport/flights/${fromCode.toLowerCase()}/${toCode.toLowerCase()}/${raw}/?adults=${passengers}${tag}`;
+  if (retDate) {
+    return `https://www.skyscanner.com/transport/flights/${fromCode.toLowerCase()}/${toCode.toLowerCase()}/${dep}/${fmt(retDate)}/?adults=${passengers}${tag}`;
+  }
+  return `https://www.skyscanner.com/transport/flights/${fromCode.toLowerCase()}/${toCode.toLowerCase()}/${dep}/?adults=${passengers}${tag}`;
 }
 
-// Google Flights — always-free backup, no affiliate but 100% reliable
-export function googleFlightsUrl(fromCode, toCode, date, passengers) {
-  const d = date || new Date(Date.now() + 90*24*60*60*1000).toISOString().split("T")[0];
-  return `https://www.google.com/travel/flights/search?q=flights+from+${fromCode}+to+${toCode}&hl=en`;
+// Google Flights — opens directly to results with from/to/dates pre-filled
+export function googleFlightsUrl(fromCode, toCode, depDate, retDate, passengers) {
+  if (depDate) {
+    if (retDate) {
+      return `https://www.google.com/travel/flights#flt=${fromCode}.${toCode}.${depDate}*${toCode}.${fromCode}.${retDate};c:USD;e:1;sd:1;t:h`;
+    }
+    return `https://www.google.com/travel/flights#flt=${fromCode}.${toCode}.${depDate};c:USD;e:1;sd:1;t:h`;
+  }
+  return `https://www.google.com/travel/flights#flt=${fromCode}.${toCode};c:USD;e:1;sd:1;t:h`;
 }
 
 // Used in PlanTab CTA

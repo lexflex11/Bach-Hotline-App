@@ -67,9 +67,9 @@ export default function FlightsTab({ groupSize }) {
     const toCode = selectedDest.airportCode;
     let url;
     if (platform === "expedia")     url = expediaFlightUrl(fromCode, toCode, depDate, retDate, groupSize, depTime, retTime);
-    else if (platform === "kayak")  url = kayakFlightUrl(fromCode, toCode, depDate, groupSize);
-    else if (platform === "sky")    url = skyscannerUrl(fromCode, toCode, depDate, groupSize);
-    else                            url = googleFlightsUrl(fromCode, toCode, depDate, groupSize);
+    else if (platform === "kayak")  url = kayakFlightUrl(fromCode, toCode, depDate, retDate, groupSize);
+    else if (platform === "sky")    url = skyscannerUrl(fromCode, toCode, depDate, retDate, groupSize);
+    else                            url = googleFlightsUrl(fromCode, toCode, depDate, retDate, groupSize);
     window.open(url, "_blank");
   }
 
