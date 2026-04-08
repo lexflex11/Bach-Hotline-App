@@ -46,6 +46,7 @@ const intlDests  = DESTS.filter(d =>  d.international);
 export default function FlightsTab({ groupSize }) {
   const [fromCode, setFromCode]   = useState("IAH");
   const [depDate,  setDepDate]    = useState("");
+  const [retDate,  setRetDate]    = useState("");
   const [dest,     setDest]       = useState(null);
   const [section,  setSection]    = useState("us"); // "us" | "intl"
 
@@ -56,12 +57,11 @@ export default function FlightsTab({ groupSize }) {
   function open(platform) {
     if (!selectedDest) return;
     const toCode = selectedDest.airportCode;
-    const date   = depDate || "";
     let url;
-    if (platform === "expedia")     url = expediaFlightUrl(fromCode, toCode, date, groupSize);
-    else if (platform === "kayak")  url = kayakFlightUrl(fromCode, toCode, date, groupSize);
-    else if (platform === "sky")    url = skyscannerUrl(fromCode, toCode, date, groupSize);
-    else                            url = googleFlightsUrl(fromCode, toCode, date, groupSize);
+    if (platform === "expedia")     url = expediaFlightUrl(fromCode, toCode, depDate, retDate, groupSize);
+    else if (platform === "kayak")  url = kayakFlightUrl(fromCode, toCode, depDate, groupSize);
+    else if (platform === "sky")    url = skyscannerUrl(fromCode, toCode, depDate, groupSize);
+    else                            url = googleFlightsUrl(fromCode, toCode, depDate, groupSize);
     window.open(url, "_blank");
   }
 
@@ -119,19 +119,34 @@ export default function FlightsTab({ groupSize }) {
         </div>
       </div>
 
-      {/* ── STEP 3 — Date (optional) ── */}
+      {/* ── STEP 3 — Dates ── */}
       <div style={{...C, marginBottom:14}}>
         <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:4}}>
-          📅 Step 3 — When are you going? <span style={{fontSize:10,color:"#bbb",fontFamily:"'DM Sans',sans-serif"}}>(optional but helps narrow results)</span>
+          📅 Step 3 — Trip dates <span style={{fontSize:10,color:"#bbb",fontFamily:"'DM Sans',sans-serif"}}>(optional — fills in Expedia automatically)</span>
         </div>
-        <input
-          type="date"
-          value={depDate}
-          min={minDate}
-          onChange={e => setDepDate(e.target.value)}
-          style={{width:"100%",padding:"10px 12px",borderRadius:10,border:`1.5px solid ${BORDER}`,fontFamily:"'DM Sans',sans-serif",fontSize:13,color:DARK,background:WHITE,boxSizing:"border-box"}}
-        />
-        {!depDate && <div style={{fontSize:10,color:"#bbb",fontFamily:"'DM Sans',sans-serif",marginTop:5}}>Leave blank to see all upcoming flights</div>}
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+          <div>
+            <div style={{fontSize:10,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:700,marginBottom:5,textTransform:"uppercase",letterSpacing:0.5}}>Departure</div>
+            <input
+              type="date"
+              value={depDate}
+              min={minDate}
+              onChange={e => { setDepDate(e.target.value); if(retDate && e.target.value >= retDate) setRetDate(""); }}
+              style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${depDate?HOT:BORDER}`,fontFamily:"'DM Sans',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box"}}
+            />
+          </div>
+          <div>
+            <div style={{fontSize:10,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:700,marginBottom:5,textTransform:"uppercase",letterSpacing:0.5}}>Return</div>
+            <input
+              type="date"
+              value={retDate}
+              min={depDate || minDate}
+              onChange={e => setRetDate(e.target.value)}
+              style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${retDate?HOT:BORDER}`,fontFamily:"'DM Sans',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box"}}
+            />
+          </div>
+        </div>
+        {!depDate && <div style={{fontSize:10,color:"#bbb",fontFamily:"'DM Sans',sans-serif",marginTop:6}}>Skip dates to see all available flights</div>}
       </div>
 
       {/* ── SEARCH CTA ── */}
@@ -142,7 +157,7 @@ export default function FlightsTab({ groupSize }) {
               {selectedDest.emoji} {fromCode} → {selectedDest.name}
             </div>
             <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:14,opacity:0.85}}>
-              {groupSize} travelers · {depDate || "flexible dates"} · searching real-time prices
+              {groupSize} travelers · {depDate ? `${depDate}${retDate ? ` → ${retDate}` : " (one way)"}` : "flexible dates"} · real-time prices
             </div>
 
             {/* Expedia — primary (affiliate) */}

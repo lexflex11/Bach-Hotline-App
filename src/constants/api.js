@@ -21,10 +21,30 @@ export const px = url => `https://images.weserv.nl/?url=${encodeURIComponent(url
 
 // ─── FLIGHT LINK BUILDERS ─────────────────────────────────────────────────────
 
-// Expedia — primary flight search using your affiliate link
-export function expediaFlightUrl(fromCode, toCode, date, passengers) {
-  // Your affiliate link sends users to Expedia with your tracking attached
-  return AFFILIATE.expedia || `https://www.expedia.com/Flights-Search?trip=oneway&leg1=from%3A${fromCode}%2Cto%3A${toCode}&passengers=adults%3A${passengers}&mode=search`;
+// Expedia — builds a pre-filled flight search with your affiliate tracking
+// Opens Expedia with FROM, TO, DATE, and GROUP SIZE already entered
+export function expediaFlightUrl(fromCode, toCode, depDate, retDate, passengers) {
+  // Convert YYYY-MM-DD → MMDDYYYY for Expedia's URL format
+  const fmt = d => { const [y,m,day] = d.split("-"); return `${m}${day}${y}`; };
+
+  let leg1 = `from%3A${fromCode}%2Cto%3A${toCode}`;
+  if (depDate) leg1 += `%2Cdeparture%3A${fmt(depDate)}ANYTIME`;
+
+  const trip = retDate ? "roundtrip" : "oneway";
+  let legs = `leg1=${leg1}`;
+
+  if (retDate) {
+    const leg2 = `from%3A${toCode}%2Cto%3A${fromCode}%2Cdeparture%3A${fmt(retDate)}ANYTIME`;
+    legs += `&leg2=${leg2}`;
+  }
+
+  const searchUrl = `https://www.expedia.com/Flights-Search?trip=${trip}&${legs}&passengers=adults%3A${passengers}%2Cseniors%3A0%2Cchildren%3A0&options=cabinClass%3Aeconomy&mode=search`;
+
+  // Wrap with affiliate deep link — passes your tracking + opens pre-filled search
+  if (AFFILIATE.expedia) {
+    return `${AFFILIATE.expedia}?url=${encodeURIComponent(searchUrl)}`;
+  }
+  return searchUrl;
 }
 
 // Kayak — backup flight search (affiliate-ready)
