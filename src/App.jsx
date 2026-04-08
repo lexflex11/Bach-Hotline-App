@@ -35,8 +35,8 @@ export default function App() {
   return (
     <div style={{ minHeight:"100vh", background:PAGE, color:DARK, maxWidth:430, margin:"0 auto", fontFamily:"'Playfair Display',Georgia,serif" }}>
       <div style={{ background:WHITE, borderBottom:`2px solid ${SOFT}`, position:"sticky", top:0, zIndex:100, boxShadow:`0 2px 12px rgba(230,101,130,0.08)` }}>
-        <div style={{ padding:"10px 16px 8px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-          <img src={LOGO_SRC} alt="Bach Hotline" style={{ height:70, width:"auto", objectFit:"contain" }} />
+        <div style={{ padding:"6px 16px 2px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+          <img src={LOGO_SRC} alt="Bach Hotline" style={{ height:90, width:"auto", objectFit:"contain" }} />
           <div style={{ display:"flex", gap:8, alignItems:"center" }}>
             <div onClick={()=>setTab("alerts")} style={{ position:"relative", cursor:"pointer", fontSize:22 }}>
               🔔
@@ -50,7 +50,7 @@ export default function App() {
             </div>
           </div>
         </div>
-        <div style={{ background:SOFT, padding:"5px 16px 6px", fontFamily:"'DM Sans',sans-serif", fontSize:10, color:HOT, fontWeight:600, letterSpacing:"0.5px", borderTop:`1px solid ${BORDER}` }}>
+        <div style={{ background:SOFT, padding:"3px 16px 4px", fontFamily:"'DM Sans',sans-serif", fontSize:10, color:HOT, fontWeight:600, letterSpacing:"0.5px", borderTop:`1px solid ${BORDER}` }}>
           Group of {groupSize} · {user.name.split(" ")[0]}
         </div>
       </div>
