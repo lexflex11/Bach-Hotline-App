@@ -137,13 +137,35 @@ export const RAW_PRODUCTS = [
 export const PRODUCTS = RAW_PRODUCTS.map(p => ({ ...p, image: px(p.etsy) }));
 
 // ─── DESTINATIONS ─────────────────────────────────────────────────────────────
+// featured:true = shown on Home page (top 8 only)
+// international:true = shown under the International section in Plan tab
 export const DESTS = [
-  { id:"miami",      name:"Miami",       emoji:"🌴", vibe:"Beach & Rooftops",  trend:"#1 Trending", airportCode:"MIA" },
-  { id:"nashville",  name:"Nashville",   emoji:"🎸", vibe:"Honky Tonk Heaven", trend:"Fan Fave",     airportCode:"BNA" },
-  { id:"vegas",      name:"Las Vegas",   emoji:"🎰", vibe:"24/7 Everything",   trend:"Classic",      airportCode:"LAS" },
-  { id:"scottsdale", name:"Scottsdale",  emoji:"🌵", vibe:"Desert Luxe",       trend:"Rising ⭐",    airportCode:"PHX" },
-  { id:"nola",       name:"New Orleans", emoji:"🎷", vibe:"Bourbon & Beads",   trend:"Party 🎉",    airportCode:"MSY" },
-  { id:"charleston", name:"Charleston",  emoji:"🌺", vibe:"Southern Charm",    trend:"Romantic",     airportCode:"CHS" },
+  // ── US ──────────────────────────────────────────────────────────────────────
+  { id:"miami",       name:"Miami",           emoji:"🌴", vibe:"Beach & Rooftops",        trend:"#1 Trending",       airportCode:"MIA", toFull:"Miami, FL",            featured:true  },
+  { id:"nashville",   name:"Nashville",       emoji:"🎸", vibe:"Honky Tonk Heaven",       trend:"Fan Fave",          airportCode:"BNA", toFull:"Nashville, TN",        featured:true  },
+  { id:"vegas",       name:"Las Vegas",       emoji:"🎰", vibe:"24/7 Everything",         trend:"Classic",           airportCode:"LAS", toFull:"Las Vegas, NV",        featured:true  },
+  { id:"nola",        name:"New Orleans",     emoji:"🎷", vibe:"Bourbon & Beads",         trend:"Party 🎉",         airportCode:"MSY", toFull:"New Orleans, LA",      featured:true  },
+  { id:"scottsdale",  name:"Scottsdale",      emoji:"🌵", vibe:"Desert Pool Parties",     trend:"Rising ⭐",        airportCode:"PHX", toFull:"Scottsdale, AZ",       featured:true  },
+  { id:"austin",      name:"Austin",          emoji:"🤠", vibe:"Live Music & Lake Days",  trend:"Hot Right Now",     airportCode:"AUS", toFull:"Austin, TX",           featured:true  },
+  { id:"charleston",  name:"Charleston",      emoji:"🌺", vibe:"Southern Charm",          trend:"Romantic",          airportCode:"CHS", toFull:"Charleston, SC"                       },
+  { id:"savannah",    name:"Savannah",        emoji:"🌿", vibe:"Moss & Open Cups",        trend:"Hidden Gem",        airportCode:"SAV", toFull:"Savannah, GA"                         },
+  { id:"nyc",         name:"New York City",   emoji:"🗽", vibe:"City That Never Sleeps",  trend:"Always Iconic",     airportCode:"JFK", toFull:"New York City, NY"                    },
+  { id:"chicago",     name:"Chicago",         emoji:"🌃", vibe:"Deep Dish & Nightlife",   trend:"Midwest Fave",      airportCode:"ORD", toFull:"Chicago, IL"                          },
+  { id:"sandiego",    name:"San Diego",       emoji:"🏖️", vibe:"Beach & Craft Beer",     trend:"Chill Vibes",       airportCode:"SAN", toFull:"San Diego, CA"                        },
+  { id:"palmsprings", name:"Palm Springs",    emoji:"🏜️", vibe:"Pool Glam & Desert",     trend:"Retro Cool",        airportCode:"PSP", toFull:"Palm Springs, CA"                     },
+  { id:"napa",        name:"Napa Valley",     emoji:"🍷", vibe:"Wine Country Luxe",       trend:"Bougie Pick",       airportCode:"SFO", toFull:"Napa, CA"                             },
+  { id:"keywest",     name:"Key West",        emoji:"🦜", vibe:"Sunset & Island Energy",  trend:"Tropical",          airportCode:"EYW", toFull:"Key West, FL"                         },
+  { id:"sedona",      name:"Sedona",          emoji:"🔴", vibe:"Spa & Red Rock Retreats", trend:"Wellness ✨",       airportCode:"PHX", toFull:"Sedona, AZ"                           },
+  { id:"denver",      name:"Denver / Aspen",  emoji:"⛰️", vibe:"Mountains & Brunch",     trend:"Year-Round",        airportCode:"DEN", toFull:"Denver, CO"                           },
+  { id:"houston",     name:"Houston",         emoji:"🤘", vibe:"BBQ, Nightlife & Culture",trend:"Local Fave",        airportCode:"IAH", toFull:"Houston, TX"                          },
+  // ── International ───────────────────────────────────────────────────────────
+  { id:"cabo",        name:"Cabo San Lucas",  emoji:"🌊", vibe:"Yacht Parties & Resorts", trend:"#1 International",  airportCode:"SJD", toFull:"Cabo San Lucas, Mexico",  featured:true, international:true },
+  { id:"mykonos",     name:"Mykonos",         emoji:"🪩", vibe:"Windmills & Beach Clubs", trend:"TikTok Viral",      airportCode:"JMK", toFull:"Mykonos, Greece",         featured:true, international:true },
+  { id:"cancun",      name:"Cancun / Tulum",  emoji:"🏝️", vibe:"All-Inclusive & Cenotes",trend:"Trending 🔥",      airportCode:"CUN", toFull:"Cancun, Mexico",          international:true },
+  { id:"puertorico",  name:"Puerto Rico",     emoji:"🌺", vibe:"No Passport · Old San Juan",trend:"No Passport!",   airportCode:"SJU", toFull:"San Juan, Puerto Rico",   international:true },
+  { id:"bahamas",     name:"Bahamas",         emoji:"🐚", vibe:"Crystal Water & Party Boats",trend:"2-Hr Flight",   airportCode:"NAS", toFull:"Nassau, Bahamas",         international:true },
+  { id:"barcelona",   name:"Barcelona",       emoji:"🥂", vibe:"Beach + Nightlife + Tapas",  trend:"Euro Fave",     airportCode:"BCN", toFull:"Barcelona, Spain",        international:true },
+  { id:"bali",        name:"Bali",            emoji:"🌸", vibe:"Clifftop Pools & Temples",   trend:"Up & Coming",   airportCode:"DPS", toFull:"Bali, Indonesia",         international:true },
 ];
 
 // ─── FLIGHTS ──────────────────────────────────────────────────────────────────

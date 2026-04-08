@@ -85,12 +85,28 @@ export default function PlanTab({ groupSize }) {
       {/* Step 2 — Destination */}
       <div style={{...C,marginBottom:12}}>
         <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:12}}>Where are you going?</div>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
-          {DESTS.map(d=>(
+
+        {/* US destinations */}
+        <div style={{fontSize:10,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>🇺🇸 United States</div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:16}}>
+          {DESTS.filter(d=>!d.international).map(d=>(
             <button key={d.id} onClick={()=>setDest(d.id)} style={{background:dest===d.id?SOFT:WHITE,border:dest===d.id?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,borderRadius:12,padding:"10px",cursor:"pointer",color:DARK,textAlign:"left",transition:"all 0.2s"}}>
               <div style={{fontSize:20,marginBottom:3}}>{d.emoji}</div>
               <div style={{fontSize:12,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{d.name}</div>
               <div style={{fontSize:10,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.75}}>{d.vibe}</div>
+            </button>
+          ))}
+        </div>
+
+        {/* International destinations */}
+        <div style={{fontSize:10,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>🌍 International</div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+          {DESTS.filter(d=>d.international).map(d=>(
+            <button key={d.id} onClick={()=>setDest(d.id)} style={{background:dest===d.id?SOFT:WHITE,border:dest===d.id?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,borderRadius:12,padding:"10px",cursor:"pointer",color:DARK,textAlign:"left",transition:"all 0.2s"}}>
+              <div style={{fontSize:20,marginBottom:3}}>{d.emoji}</div>
+              <div style={{fontSize:12,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{d.name}</div>
+              <div style={{fontSize:10,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.75}}>{d.vibe}</div>
+              <div style={{fontSize:9,color:"#aaa",fontFamily:"'DM Sans',sans-serif",marginTop:4}}>{d.trend}</div>
             </button>
           ))}
         </div>

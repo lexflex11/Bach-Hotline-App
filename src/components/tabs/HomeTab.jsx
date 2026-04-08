@@ -35,7 +35,7 @@ export default function HomeTab({ groupSize, setGroupSize, setTab, user }) {
       </div>
       <SH title="Trending Destinations 🔥" sub="Where bride tribes are booking right now" />
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10, marginBottom:20 }}>
-        {DESTS.map(d => (
+        {DESTS.filter(d => d.featured).map(d => (
           <button key={d.id} onClick={()=>setTab("flights")} style={{ ...C, textAlign:"left", cursor:"pointer", padding:"13px 12px", display:"block" }}>
             <div style={{ fontSize:26, marginBottom:5 }}>{d.emoji}</div>
             <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>{d.name}</div>
