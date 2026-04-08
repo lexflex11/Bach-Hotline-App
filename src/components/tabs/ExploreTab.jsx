@@ -5,25 +5,26 @@ import { viatorUrl, opentableUrl } from '../../constants/api.js';
 
 // ─── Category filters ──────────────────────────────────────────────────────
 const CATS = [
-  { id:"all",       label:"Popular",       icon:"⭐" },
-  { id:"activity",  label:"Things to Do",  icon:"🎉" },
-  { id:"food",      label:"Food & Drink",  icon:"🍾" },
-  { id:"restaurant",label:"Restaurants",   icon:"🍽️" },
-  { id:"bar",       label:"Bars",          icon:"🍸" },
-  { id:"nightlife", label:"Nightlife",     icon:"🌙" },
-  { id:"water",     label:"Boats & Water", icon:"⛵" },
-  { id:"spa",       label:"Spa & Wellness",icon:"💆" },
+  { id:"all",     label:"Popular",           icon:"⭐" },
+  { id:"todo",    label:"Things to Do",      icon:"🎉" },
+  { id:"dining",  label:"Restaurants & Bars",icon:"🍽️" },
 ];
+
+// Maps ExploreTab cat → which filter bucket it belongs to
+const CAT_GROUP = {
+  activity:   "todo",
+  water:      "todo",
+  spa:        "todo",
+  nightlife:  "todo",
+  food:       "dining",
+  restaurant: "dining",
+  bar:        "dining",
+};
 
 // ─── Gradient palettes per category (app colors) ──────────────────────────
 const GRAD = {
-  activity:   ["#E66582","#C42050"],
-  food:       ["#D52438","#E66582"],
-  restaurant: ["#C42050","#8B1A2E"],
-  bar:        ["#9B3070","#E66582"],
-  nightlife:  ["#2D0A18","#9B3070"],
-  water:      ["#006994","#00B4D8"],
-  spa:        ["#C9778A","#E8A0B0"],
+  todo:   ["#E66582","#C42050"],
+  dining: ["#C42050","#8B1A2E"],
 };
 
 // ─── Experiences data ──────────────────────────────────────────────────────
@@ -109,10 +110,13 @@ export default function ExploreTab({ groupSize }) {
 
   const filtered = EXP
     .filter(e => city === "all" || e.city === city)
-    .filter(e => cat  === "all" || e.cat  === cat);
+    .filter(e => {
+      if (cat === "all")    return e.hot === true;
+      return CAT_GROUP[e.cat] === cat;
+    });
 
   const cityName = CITIES.find(c => c.id === city)?.name || "All Cities";
-  const grad = (e) => GRAD[e.cat] || [HOT, PUNCH];
+  const grad = (e) => GRAD[CAT_GROUP[e.cat]] || [HOT, PUNCH];
 
   return (
     <div style={{ paddingBottom: 8 }}>
@@ -268,7 +272,7 @@ export default function ExploreTab({ groupSize }) {
                     </div>
                   </div>
                   <a
-                    href={e.cat === "restaurant" || e.cat === "food"
+                    href={CAT_GROUP[e.cat] === "dining"
                       ? opentableUrl(e.name, CITIES.find(c=>c.id===e.city)?.name||"")
                       : viatorUrl(e.name, CITIES.find(c=>c.id===e.city)?.name||"")}
                     target="_blank" rel="noreferrer"
