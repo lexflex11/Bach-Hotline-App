@@ -7,18 +7,13 @@ export const ANTHROPIC_API_KEY = import.meta.env.VITE_ANTHROPIC_KEY || "";
 // ─────────────────────────────────────────────────────────────────────────────
 
 // ─── YOUR AFFILIATE IDs ───────────────────────────────────────────────────────
-// Once you sign up for each program, paste your ID here and redeploy.
-// Kayak:       kayak.com/affiliate-program  (through Impact)
-// Skyscanner:  partners.skyscanner.net
-// Booking.com: booking.com/affiliate-program
-// Airbnb:      airbnb.com/d/affiliates
-// Vrbo:        vrbo.com/affiliates
 export const AFFILIATE = {
-  kayak:      "",   // e.g. "ka_bach12345"  — add yours here
-  skyscanner: "",   // e.g. "12345_your_id" — add yours here
-  booking:    "",
-  airbnb:     "",
-  vrbo:       "",
+  expedia:    "https://expedia.com/affiliate/bKcGxuS",  // ✅ Expedia Travel Creator
+  kayak:      "",   // add when ready — kayak.com/affiliate-program
+  skyscanner: "",   // add when ready — partners.skyscanner.net
+  airbnb:     "",   // add when ready — airbnb.com/d/affiliates
+  vrbo:       "",   // add when ready — vrbo.com/affiliates
+  viator:     "",   // add when ready — viator.com/partner
 };
 
 // ─── IMAGE PROXY ──────────────────────────────────────────────────────────────
@@ -26,8 +21,13 @@ export const px = url => `https://images.weserv.nl/?url=${encodeURIComponent(url
 
 // ─── FLIGHT LINK BUILDERS ─────────────────────────────────────────────────────
 
-// Kayak — primary flight search (affiliate-ready, very reliable URLs)
-// Sign up at kayak.com/affiliate-program to get your affiliate ID
+// Expedia — primary flight search using your affiliate link
+export function expediaFlightUrl(fromCode, toCode, date, passengers) {
+  // Your affiliate link sends users to Expedia with your tracking attached
+  return AFFILIATE.expedia || `https://www.expedia.com/Flights-Search?trip=oneway&leg1=from%3A${fromCode}%2Cto%3A${toCode}&passengers=adults%3A${passengers}&mode=search`;
+}
+
+// Kayak — backup flight search (affiliate-ready)
 export function kayakFlightUrl(fromCode, toCode, date, passengers) {
   const d = date || new Date(Date.now() + 90*24*60*60*1000).toISOString().split("T")[0];
   const tag = AFFILIATE.kayak ? `?a=${AFFILIATE.kayak}` : "";
@@ -48,9 +48,9 @@ export function googleFlightsUrl(fromCode, toCode, date, passengers) {
   return `https://www.google.com/travel/flights/search?q=flights+from+${fromCode}+to+${toCode}&hl=en`;
 }
 
-// Legacy — kept for PlanTab CTA button
+// Used in PlanTab CTA — sends to Expedia with affiliate tracking
 export function flightUrl(toFull, groupSize) {
-  return `https://www.kayak.com/flights/IAH-anywhere/${new Date(Date.now()+90*24*60*60*1000).toISOString().split("T")[0]}/${groupSize}adults`;
+  return AFFILIATE.expedia || `https://www.expedia.com/Flights-Search?mode=search`;
 }
 
 // Build a real Airbnb search URL

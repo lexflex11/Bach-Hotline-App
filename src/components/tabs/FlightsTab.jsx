@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SOFT, MID, HOT, PUNCH, DARK, BORDER, WHITE, GREEN } from '../../constants/colors.js';
 import { C, BP, BS, BG } from '../../constants/styles.js';
 import { DESTS } from '../../constants/data.js';
-import { kayakFlightUrl, skyscannerUrl, googleFlightsUrl, AFFILIATE } from '../../constants/api.js';
+import { expediaFlightUrl, kayakFlightUrl, skyscannerUrl, googleFlightsUrl, AFFILIATE } from '../../constants/api.js';
 import SH from '../ui/SH.jsx';
 import CommissionNote from '../ui/CommissionNote.jsx';
 
@@ -51,14 +51,15 @@ export default function FlightsTab({ groupSize }) {
 
   const selectedDest = DESTS.find(d => d.id === dest);
   const minDate      = new Date().toISOString().split("T")[0];
-  const hasAffiliate = AFFILIATE.kayak || AFFILIATE.skyscanner;
+  const hasAffiliate = AFFILIATE.expedia || AFFILIATE.kayak || AFFILIATE.skyscanner;
 
   function open(platform) {
     if (!selectedDest) return;
     const toCode = selectedDest.airportCode;
     const date   = depDate || "";
     let url;
-    if (platform === "kayak")       url = kayakFlightUrl(fromCode, toCode, date, groupSize);
+    if (platform === "expedia")     url = expediaFlightUrl(fromCode, toCode, date, groupSize);
+    else if (platform === "kayak")  url = kayakFlightUrl(fromCode, toCode, date, groupSize);
     else if (platform === "sky")    url = skyscannerUrl(fromCode, toCode, date, groupSize);
     else                            url = googleFlightsUrl(fromCode, toCode, date, groupSize);
     window.open(url, "_blank");
@@ -69,7 +70,7 @@ export default function FlightsTab({ groupSize }) {
       <SH title="Group Flight Search" sub="Find real flights for your whole crew" />
 
       {/* Affiliate earn note */}
-      <CommissionNote platform="Kayak & Skyscanner" amount="2–5%" />
+      <CommissionNote platform="Expedia Travel Creator" amount="2–6%" />
 
       {/* ── STEP 1 — Departure city ── */}
       <div style={{...C, marginBottom:12}}>
@@ -144,11 +145,16 @@ export default function FlightsTab({ groupSize }) {
               {groupSize} travelers · {depDate || "flexible dates"} · searching real-time prices
             </div>
 
-            {/* Kayak — primary */}
-            <button onClick={()=>open("kayak")} style={{...BP,width:"100%",fontSize:13,padding:"13px",marginBottom:8,display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
-              <span>🔍</span>
-              <span>Search Kayak for {groupSize} People</span>
+            {/* Expedia — primary (affiliate) */}
+            <button onClick={()=>open("expedia")} style={{...BP,width:"100%",fontSize:13,padding:"13px",marginBottom:8,display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
+              <span>✈️</span>
+              <span>Search Expedia for {groupSize} People</span>
               <span style={{fontSize:10,opacity:0.75}}>→</span>
+            </button>
+
+            {/* Kayak — secondary */}
+            <button onClick={()=>open("kayak")} style={{width:"100%",background:"linear-gradient(135deg,#FF690F,#e05500)",color:WHITE,border:"none",borderRadius:50,padding:"12px",fontFamily:"'DM Sans',sans-serif",fontSize:13,fontWeight:700,cursor:"pointer",marginBottom:8}}>
+              🔍 Search Kayak →
             </button>
 
             {/* Skyscanner */}
@@ -174,7 +180,7 @@ export default function FlightsTab({ groupSize }) {
         )}
       </div>
 
-      {/* ── AFFILIATE SETUP NOTE (only shown if no affiliate IDs yet) ── */}
+      {/* ── AFFILIATE SETUP NOTE (only shown if no additional affiliate IDs yet) ── */}
       {!hasAffiliate && (
         <div style={{...C, background:"#fffbea", border:"1.5px solid #f0d060", marginBottom:14}}>
           <div style={{fontSize:11,fontWeight:700,color:"#9a7000",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:1,marginBottom:6}}>
