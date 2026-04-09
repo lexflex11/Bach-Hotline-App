@@ -5,9 +5,11 @@ import { viatorUrl, opentableUrl } from '../../constants/api.js';
 
 // ─── Category filters ──────────────────────────────────────────────────────
 const CATS = [
-  { id:"all",     label:"Popular",           icon:"⭐" },
-  { id:"todo",    label:"Things to Do",      icon:"🎉" },
-  { id:"dining",  label:"Restaurants & Bars",icon:"🍽️" },
+  { id:"all",     label:"Popular",       icon:"⭐" },
+  { id:"todo",    label:"Things to Do",  icon:"🎉" },
+  { id:"dining",  label:"Restaurants",   icon:"🍽️" },
+  { id:"bar",     label:"Bars",          icon:"🍸" },
+  { id:"stay",    label:"Accommodations",icon:"🏠" },
 ];
 
 // Maps ExploreTab cat → which filter bucket it belongs to
@@ -18,13 +20,16 @@ const CAT_GROUP = {
   nightlife:  "todo",
   food:       "dining",
   restaurant: "dining",
-  bar:        "dining",
+  bar:        "bar",
+  stay:       "stay",
 };
 
 // ─── Gradient palettes per category (app colors) ──────────────────────────
 const GRAD = {
   todo:   ["#E66582","#C42050"],
   dining: ["#C42050","#8B1A2E"],
+  bar:    ["#9B3070","#E66582"],
+  stay:   ["#7B3F6E","#C42050"],
 };
 
 // ─── Experiences data ──────────────────────────────────────────────────────
@@ -83,6 +88,24 @@ const EXP = [
   { id:37, city:"mykonos",   name:"Windmill Sunset Cocktails",   cat:"bar",       emoji:"🌅", price:"$$$",  rating:4.9, vibe:"Iconic views · Golden hour",      badge:"Bar",        hot:true  },
   { id:38, city:"mykonos",   name:"Private Catamaran Cruise",    cat:"water",     emoji:"⛵", price:"$$$$", rating:5.0, vibe:"All-inclusive · Secluded beaches",badge:"Sailing",    hot:false },
   { id:39, city:"mykonos",   name:"Little Venice Wine Night",    cat:"bar",       emoji:"🥂", price:"$$$",  rating:4.8, vibe:"Seaside · Local wine · Sunset",   badge:"Wine Bar",   hot:false },
+
+  // Accommodations — one featured stay per city
+  { id:40, city:"miami",      name:"Faena Hotel Miami Beach",     cat:"stay", emoji:"🏨", price:"$$$$", rating:5.0, vibe:"Iconic gold · Beachfront · Full-floor suites", badge:"Hotel",    hot:true  },
+  { id:41, city:"miami",      name:"South Beach Bachelorette Villa",cat:"stay",emoji:"🌴",price:"$$$", rating:4.9, vibe:"Private pool · 4BR · Steps to beach",          badge:"Villa",    hot:false },
+  { id:42, city:"nashville",  name:"Gulch Party House",           cat:"stay", emoji:"🎸", price:"$$$", rating:4.9, vibe:"6BR · Rooftop · Minutes to Broadway",          badge:"Airbnb",   hot:true  },
+  { id:43, city:"nashville",  name:"The Thompson Nashville",      cat:"stay", emoji:"🏨", price:"$$$$",rating:4.8, vibe:"Rooftop pool · Downtown · Bar on site",         badge:"Hotel",    hot:false },
+  { id:44, city:"vegas",      name:"Cosmopolitan Suite",          cat:"stay", emoji:"🎰", price:"$$$$",rating:4.9, vibe:"Strip views · Terrace · Marquee access",        badge:"Suite",    hot:true  },
+  { id:45, city:"vegas",      name:"Palms 2-story Penthouse",     cat:"stay", emoji:"🌟", price:"$$$$",rating:5.0, vibe:"Private pool · DJ booth · 360° views",          badge:"Penthouse",hot:false },
+  { id:46, city:"nola",       name:"Garden District Mansion",     cat:"stay", emoji:"🏛️", price:"$$$", rating:4.9, vibe:"5BR · Private courtyard · Historic charm",      badge:"Mansion",  hot:true  },
+  { id:47, city:"nola",       name:"French Quarter Balcony Apt",  cat:"stay", emoji:"🎺", price:"$$",  rating:4.7, vibe:"Bourbon St views · Walk everywhere",            badge:"Airbnb",   hot:false },
+  { id:48, city:"scottsdale", name:"Desert Bachelorette Estate",  cat:"stay", emoji:"🌵", price:"$$$$",rating:5.0, vibe:"Private pool · Fire pit · Mountain views",      badge:"Estate",   hot:true  },
+  { id:49, city:"scottsdale", name:"W Scottsdale",                cat:"stay", emoji:"🏨", price:"$$$", rating:4.8, vibe:"WET pool deck · Central Old Town location",     badge:"Hotel",    hot:false },
+  { id:50, city:"austin",     name:"East Austin Party House",     cat:"stay", emoji:"🤠", price:"$$$", rating:4.8, vibe:"4BR · Hot tub · Walk to Rainey St",              badge:"Airbnb",   hot:true  },
+  { id:51, city:"austin",     name:"Lake Travis Waterfront Home", cat:"stay", emoji:"🚤", price:"$$$$",rating:4.9, vibe:"Private dock · Lake views · 5BR",               badge:"Lakehouse",hot:false },
+  { id:52, city:"cabo",       name:"Pedregal Cliffside Villa",    cat:"stay", emoji:"🌊", price:"$$$$",rating:5.0, vibe:"Infinity pool · Ocean views · Private chef",     badge:"Villa",    hot:true  },
+  { id:53, city:"cabo",       name:"Medano Beach Penthouse",      cat:"stay", emoji:"🏖️", price:"$$$", rating:4.8, vibe:"Beachfront · Rooftop terrace · 3BR",            badge:"Penthouse",hot:false },
+  { id:54, city:"mykonos",    name:"Cycladic Cliffside Villa",    cat:"stay", emoji:"🏛️", price:"$$$$",rating:5.0, vibe:"Infinity pool · Sea views · 4BR",               badge:"Villa",    hot:true  },
+  { id:55, city:"mykonos",    name:"Mykonos Town Boutique Hotel", cat:"stay", emoji:"🌅", price:"$$$", rating:4.9, vibe:"Rooftop bar · Windmill views · Walking distance",badge:"Hotel",    hot:false },
 ];
 
 const CITIES = [
@@ -97,16 +120,87 @@ const CITIES = [
   { id:"mykonos",    name:"Mykonos" },
 ];
 
+// ─── Time slot mapping ────────────────────────────────────────────────────
+const CAT_SLOT = {
+  spa:        "morning",
+  water:      "afternoon",
+  activity:   "afternoon",
+  food:       "evening",
+  restaurant: "evening",
+  bar:        "evening",
+  nightlife:  "night",
+};
+
+const SLOT_LABELS = {
+  morning:   { label:"Morning",       emoji:"☀️" },
+  afternoon: { label:"Afternoon",     emoji:"🌤️" },
+  evening:   { label:"Evening",       emoji:"🌆" },
+  night:     { label:"Night Out",     emoji:"🌙" },
+};
+
+function shuffle(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
+
+function buildItinerary(cityExps) {
+  const slots = { morning:[], afternoon:[], evening:[], night:[] };
+  cityExps.forEach(e => {
+    const s = CAT_SLOT[e.cat];
+    if (s) slots[s].push(e);
+  });
+  Object.keys(slots).forEach(k => { slots[k] = shuffle(slots[k]); });
+
+  const days = [];
+  const used = new Set();
+
+  const pick = (slot, exclude) => {
+    const item = slots[slot].find(e => !used.has(e.id) && e.id !== exclude);
+    if (item) used.add(item.id);
+    return item || null;
+  };
+
+  // Day 1
+  const d1 = [];
+  const d1m = pick("morning");   if (d1m) d1.push({ slot:"morning",   ...d1m });
+  const d1a = pick("afternoon"); if (d1a) d1.push({ slot:"afternoon", ...d1a });
+  const d1e = pick("evening");   if (d1e) d1.push({ slot:"evening",   ...d1e });
+  const d1n = pick("night");     if (d1n) d1.push({ slot:"night",     ...d1n });
+  if (d1.length) days.push(d1);
+
+  // Day 2 — use remaining items
+  const d2 = [];
+  const d2m = pick("afternoon"); if (d2m) d2.push({ slot:"morning",   ...d2m });
+  const d2a = pick("morning");   if (d2a) d2.push({ slot:"afternoon", ...d2a });
+  const d2e = pick("evening");   if (d2e) d2.push({ slot:"evening",   ...d2e });
+  const d2n = pick("night");     if (d2n) d2.push({ slot:"night",     ...d2n });
+  if (d2.length) days.push(d2);
+
+  return days;
+}
+
 export default function ExploreTab({ groupSize }) {
-  const [city, setCity]   = useState("all");
-  const [cat,  setCat]    = useState("all");
-  const [saved, setSaved] = useState(new Set());
+  const [city, setCity]       = useState("all");
+  const [cat,  setCat]        = useState("all");
+  const [saved, setSaved]     = useState(new Set());
+  const [itin,  setItin]      = useState(null);
+  const [generating, setGen]  = useState(false);
 
   const toggleSave = id => setSaved(prev => {
     const n = new Set(prev);
     n.has(id) ? n.delete(id) : n.add(id);
     return n;
   });
+
+  const handleGenerate = () => {
+    if (city === "all") { setItin("pick_city"); return; }
+    setGen(true);
+    setItin(null);
+    setTimeout(() => {
+      const cityExps = EXP.filter(e => e.city === city);
+      setItin(buildItinerary(cityExps));
+      setGen(false);
+    }, 1200);
+  };
 
   const filtered = EXP
     .filter(e => city === "all" || e.city === city)
@@ -274,7 +368,9 @@ export default function ExploreTab({ groupSize }) {
                   <a
                     href={CAT_GROUP[e.cat] === "dining"
                       ? opentableUrl(e.name, CITIES.find(c=>c.id===e.city)?.name||"")
-                      : viatorUrl(e.name, CITIES.find(c=>c.id===e.city)?.name||"")}
+                      : CAT_GROUP[e.cat] === "stay"
+                        ? `https://www.airbnb.com/s/${encodeURIComponent(CITIES.find(c=>c.id===e.city)?.name||"")}/homes?adults=${groupSize||4}`
+                        : viatorUrl(e.name, CITIES.find(c=>c.id===e.city)?.name||"")}
                     target="_blank" rel="noreferrer"
                     style={{ textDecoration:"none" }}
                   >
@@ -289,8 +385,118 @@ export default function ExploreTab({ groupSize }) {
         </div>
       )}
 
-      {/* ── BOTTOM NOTE ──────────────────────────────────────────────────── */}
-      <div style={{ textAlign:"center", padding:"20px 0 8px", fontSize:10, color:"#ccc", fontFamily:"'DM Sans',sans-serif" }}>
+      {/* ── ITINERARY GENERATOR ──────────────────────────────────────────── */}
+      <div style={{ marginTop:28, marginBottom:8 }}>
+        <div style={{ textAlign:"center", marginBottom:16 }}>
+          <div style={{ fontSize:18, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:4 }}>
+            Your Custom Itinerary
+          </div>
+          <div style={{ fontSize:12, color:HOT, fontFamily:"'DM Sans',sans-serif", opacity:0.8 }}>
+            Built from real {cityName} experiences — never cookie cutter
+          </div>
+        </div>
+
+        <button
+          onClick={handleGenerate}
+          style={{
+            width:"100%", padding:"16px", borderRadius:16, border:"none",
+            background:`linear-gradient(135deg, ${PUNCH}, ${HOT})`,
+            color:WHITE, cursor:"pointer",
+            fontFamily:"'Playfair Display',Georgia,serif",
+            fontSize:16, fontWeight:700,
+            boxShadow:`0 4px 20px rgba(213,36,56,0.35)`,
+            transition:"all 0.2s",
+          }}
+        >
+          {generating ? "✨ Building your itinerary..." : "✨ Generate My Itinerary"}
+        </button>
+
+        {/* Prompt to pick a city */}
+        {itin === "pick_city" && (
+          <div style={{ textAlign:"center", marginTop:14, padding:"14px", background:SOFT, borderRadius:14, border:`1.5px solid ${MID}` }}>
+            <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>
+              Choose a city first!
+            </div>
+            <div style={{ fontSize:11, color:HOT, fontFamily:"'DM Sans',sans-serif", marginTop:4 }}>
+              Select a destination from the dropdown above to get your personalized itinerary.
+            </div>
+          </div>
+        )}
+
+        {/* Generated days */}
+        {Array.isArray(itin) && itin.map((day, di) => (
+          <div key={di} style={{ marginTop:16 }}>
+            <div style={{
+              display:"flex", alignItems:"center", gap:10, marginBottom:10,
+            }}>
+              <div style={{ flex:1, height:1, background:BORDER }} />
+              <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:HOT, whiteSpace:"nowrap" }}>
+                Day {di + 1}
+              </div>
+              <div style={{ flex:1, height:1, background:BORDER }} />
+            </div>
+
+            {day.map((item, ii) => {
+              const sl = SLOT_LABELS[item.slot] || { label: item.slot, emoji:"📍" };
+              const isDining = CAT_GROUP[item.cat] === "dining";
+              return (
+                <div key={ii} style={{
+                  display:"flex", gap:12, alignItems:"flex-start",
+                  marginBottom:12, padding:"12px 14px",
+                  background:WHITE, borderRadius:14,
+                  border:`1.5px solid ${BORDER}`,
+                  boxShadow:"0 2px 8px rgba(45,10,24,0.07)",
+                }}>
+                  {/* Time column */}
+                  <div style={{ minWidth:60, textAlign:"center" }}>
+                    <div style={{ fontSize:18 }}>{sl.emoji}</div>
+                    <div style={{ fontSize:9, fontWeight:700, color:HOT, fontFamily:"'DM Sans',sans-serif", textTransform:"uppercase", letterSpacing:"0.5px", marginTop:2 }}>{sl.label}</div>
+                  </div>
+                  {/* Content */}
+                  <div style={{ flex:1 }}>
+                    <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:2 }}>
+                      {item.emoji} {item.name}
+                    </div>
+                    <div style={{ fontSize:10, color:HOT, fontFamily:"'DM Sans',sans-serif", opacity:0.8, marginBottom:6 }}>{item.vibe}</div>
+                    <div style={{ display:"flex", gap:8, alignItems:"center" }}>
+                      <span style={{ fontSize:9, color:"#888", fontFamily:"'DM Sans',sans-serif" }}>⭐ {item.rating} · {item.price}</span>
+                    </div>
+                  </div>
+                  {/* Book link */}
+                  <a
+                    href={isDining
+                      ? opentableUrl(item.name, cityName)
+                      : CAT_GROUP[item.cat] === "stay"
+                        ? `https://www.airbnb.com/s/${encodeURIComponent(cityName)}/homes?adults=${groupSize||4}`
+                        : viatorUrl(item.name, cityName)}
+                    target="_blank" rel="noreferrer"
+                    style={{ textDecoration:"none", alignSelf:"center" }}
+                  >
+                    <div style={{
+                      background:PUNCH, color:WHITE, borderRadius:8,
+                      padding:"6px 10px", fontSize:10, fontWeight:700,
+                      fontFamily:"'DM Sans',sans-serif", whiteSpace:"nowrap",
+                    }}>Book →</div>
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        ))}
+
+        {Array.isArray(itin) && (
+          <div style={{ textAlign:"center", marginTop:16, marginBottom:8 }}>
+            <button
+              onClick={handleGenerate}
+              style={{ background:"none", border:`1.5px solid ${HOT}`, borderRadius:10, padding:"8px 20px", color:HOT, fontSize:12, fontWeight:700, fontFamily:"'DM Sans',sans-serif", cursor:"pointer" }}
+            >
+              Shuffle Again ↺
+            </button>
+          </div>
+        )}
+      </div>
+
+      <div style={{ textAlign:"center", paddingBottom:8, fontSize:10, color:"#ccc", fontFamily:"'DM Sans',sans-serif" }}>
         {groupSize} in your group · Tap ❤️ to save favorites
       </div>
     </div>
