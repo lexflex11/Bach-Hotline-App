@@ -60,7 +60,7 @@ export default function App() {
         {tab==="flights" && <FlightsTab groupSize={groupSize} />}
         {tab==="stays"   && <StaysTab groupSize={groupSize} />}
         {tab==="eats"    && <EatsTab />}
-        {tab==="plan"    && <PlanTab groupSize={groupSize} />}
+        {tab==="plan"    && <PlanTab groupSize={groupSize} setGroupSize={setGroupSize} setTab={setTab} />}
         {tab==="budget"  && <BudgetTab groupSize={groupSize} />}
         {tab==="mood"    && <MoodTab setTab={setTab} />}
         {tab==="moh"     && <MOHTab groupSize={groupSize} />}
