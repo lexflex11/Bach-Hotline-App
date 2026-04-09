@@ -89,6 +89,84 @@ const EXP = [
   { id:38, city:"mykonos",   name:"Private Catamaran Cruise",    cat:"water",     emoji:"⛵", price:"$$$$", rating:5.0, vibe:"All-inclusive · Secluded beaches",badge:"Sailing",    hot:false },
   { id:39, city:"mykonos",   name:"Little Venice Wine Night",    cat:"bar",       emoji:"🥂", price:"$$$",  rating:4.8, vibe:"Seaside · Local wine · Sunset",   badge:"Wine Bar",   hot:false },
 
+  // Charleston
+  { id:56, city:"charleston",  name:"Horse Carriage Ghost Tour",    cat:"activity",  emoji:"🐎", price:"$$",   rating:4.8, vibe:"Haunted history · Night tour",    badge:"Tour",       hot:true  },
+  { id:57, city:"charleston",  name:"Rainbow Row Bar Crawl",        cat:"bar",       emoji:"🌈", price:"$$",   rating:4.7, vibe:"5 bars · Historic district",       badge:"Bar Crawl",  hot:true  },
+  { id:58, city:"charleston",  name:"Lowcountry Brunch",            cat:"food",      emoji:"🥞", price:"$$$",  rating:4.9, vibe:"Southern classics · Bottomless",   badge:"Brunch",     hot:false },
+  { id:59, city:"charleston",  name:"Spa at Belmond Charleston",    cat:"spa",       emoji:"💆", price:"$$$$", rating:5.0, vibe:"Historic mansion spa · Full day",  badge:"Spa",        hot:false },
+  { id:60, city:"charleston",  name:"Rooftop Sunset Cocktails",     cat:"bar",       emoji:"🌅", price:"$$$",  rating:4.8, vibe:"Harbor views · Craft cocktails",   badge:"Rooftop",    hot:false },
+
+  // Savannah
+  { id:61, city:"savannah",    name:"Haunted Pub Crawl",            cat:"bar",       emoji:"👻", price:"$$",   rating:4.9, vibe:"Ghost stories · 4 bars · 2 hrs",  badge:"Bar Tour",   hot:true  },
+  { id:62, city:"savannah",    name:"Forsyth Park Champagne Picnic",cat:"activity",  emoji:"🌿", price:"$$",   rating:4.8, vibe:"Private setup · Moss & magnolias", badge:"Activity",   hot:true  },
+  { id:63, city:"savannah",    name:"Southern Drag Brunch",         cat:"food",      emoji:"🎭", price:"$$$",  rating:4.9, vibe:"Bottomless · Live performers",     badge:"Brunch",     hot:false },
+  { id:64, city:"savannah",    name:"Riverfront Nightlife Crawl",   cat:"nightlife", emoji:"🎺", price:"$$",   rating:4.7, vibe:"River Street · Live music",        badge:"Nightlife",  hot:false },
+  { id:65, city:"savannah",    name:"Historic Trolley Tour",        cat:"activity",  emoji:"🚋", price:"$",    rating:4.6, vibe:"Landmark stops · 90 mins",         badge:"Tour",       hot:false },
+
+  // New York City
+  { id:66, city:"nyc",         name:"Drag Brunch NYC",              cat:"food",      emoji:"👑", price:"$$$",  rating:5.0, vibe:"Bottomless · Broadway energy",     badge:"Brunch",     hot:true  },
+  { id:67, city:"nyc",         name:"Rooftop Bar Hop",              cat:"bar",       emoji:"🗽", price:"$$$",  rating:4.8, vibe:"Manhattan views · 4 rooftop bars", badge:"Bar Crawl",  hot:true  },
+  { id:68, city:"nyc",         name:"Sunset Hudson River Cruise",   cat:"water",     emoji:"🚢", price:"$$$",  rating:4.9, vibe:"Champagne · Skyline · 2 hrs",      badge:"Cruise",     hot:true  },
+  { id:69, city:"nyc",         name:"Broadway Show + Dinner",       cat:"nightlife", emoji:"🎭", price:"$$$$", rating:5.0, vibe:"Front row · Pre-show dinner",       badge:"Show",       hot:false },
+  { id:70, city:"nyc",         name:"Sip & Paint Party",            cat:"activity",  emoji:"🎨", price:"$$",   rating:4.7, vibe:"Private class · BYOB · 2 hrs",     badge:"Activity",   hot:false },
+  { id:71, city:"nyc",         name:"Bliss Spa Midtown",            cat:"spa",       emoji:"💆", price:"$$$$", rating:4.8, vibe:"Full day · Award-winning spa",      badge:"Spa",        hot:false },
+
+  // Chicago
+  { id:72, city:"chicago",     name:"Architecture Boat Tour",       cat:"water",     emoji:"🏙️", price:"$$",  rating:4.9, vibe:"River · Skyline · Architecture",   badge:"Cruise",     hot:true  },
+  { id:73, city:"chicago",     name:"Deep Dish Pizza Crawl",        cat:"food",      emoji:"🍕", price:"$$",   rating:4.8, vibe:"3 iconic spots · Guided tour",     badge:"Food Tour",  hot:true  },
+  { id:74, city:"chicago",     name:"Rooftop Bar Night",            cat:"bar",       emoji:"🌃", price:"$$$",  rating:4.7, vibe:"Skyline views · Craft cocktails",  badge:"Rooftop",    hot:false },
+  { id:75, city:"chicago",     name:"Jazz & Blues Club Night",      cat:"nightlife", emoji:"🎶", price:"$$",   rating:4.9, vibe:"Live jazz · Dinner option",        badge:"Show",       hot:false },
+  { id:76, city:"chicago",     name:"Pole Dance Fitness Class",     cat:"activity",  emoji:"💃", price:"$$",   rating:4.8, vibe:"Private class · Empowering",       badge:"Activity",   hot:false },
+
+  // San Diego
+  { id:77, city:"sandiego",    name:"Sunset Catamaran Party",       cat:"water",     emoji:"⛵", price:"$$$",  rating:5.0, vibe:"Open bar · Bay views · 2 hrs",     badge:"Sailing",    hot:true  },
+  { id:78, city:"sandiego",    name:"Gaslamp Bar Crawl",            cat:"bar",       emoji:"🍸", price:"$$",   rating:4.8, vibe:"5 bars · VIP entry · Free shots",  badge:"Bar Crawl",  hot:true  },
+  { id:79, city:"sandiego",    name:"Little Italy Brunch Crawl",    cat:"food",      emoji:"🥂", price:"$$$",  rating:4.9, vibe:"3 spots · Bottomless mimosas",     badge:"Brunch",     hot:false },
+  { id:80, city:"sandiego",    name:"Surf Lesson for Groups",       cat:"activity",  emoji:"🏄", price:"$$",   rating:4.7, vibe:"2 hrs · Beginner friendly · Beach",badge:"Activity",   hot:false },
+  { id:81, city:"sandiego",    name:"Hotel Del Coronado Spa",       cat:"spa",       emoji:"💆", price:"$$$$", rating:4.9, vibe:"Iconic beachfront resort spa",     badge:"Spa",        hot:false },
+
+  // Palm Springs
+  { id:82, city:"palmsprings", name:"Ace Hotel Pool Party",         cat:"activity",  emoji:"🏊", price:"$$$",  rating:4.9, vibe:"Cabanas · DJ · Vintage poolside", badge:"Pool Party", hot:true  },
+  { id:83, city:"palmsprings", name:"Desert Spa Day",               cat:"spa",       emoji:"💆", price:"$$$$", rating:5.0, vibe:"Full day · Mineral pools · Desert",badge:"Spa",        hot:true  },
+  { id:84, city:"palmsprings", name:"Cocktails at The Parker",      cat:"bar",       emoji:"🍹", price:"$$$",  rating:4.8, vibe:"Retro glam · Iconic garden bar",   badge:"Bar",        hot:false },
+  { id:85, city:"palmsprings", name:"Desert Jeep Adventure",        cat:"activity",  emoji:"🏜️", price:"$$",  rating:4.7, vibe:"Sand dunes · Sunset views · 2 hrs",badge:"Adventure",  hot:false },
+  { id:86, city:"palmsprings", name:"Aerial Tramway Sundowner",     cat:"nightlife", emoji:"🌄", price:"$$$",  rating:4.8, vibe:"Mountain top · Views for miles",   badge:"Experience", hot:false },
+
+  // Napa Valley
+  { id:87, city:"napa",        name:"Private Wine Cave Tasting",    cat:"food",      emoji:"🍷", price:"$$$$", rating:5.0, vibe:"Exclusive cave · Paired bites",    badge:"Wine",       hot:true  },
+  { id:88, city:"napa",        name:"Vineyard Picnic & Bubbly",     cat:"activity",  emoji:"🧺", price:"$$$",  rating:4.9, vibe:"Private setup · Rolling hills",    badge:"Activity",   hot:true  },
+  { id:89, city:"napa",        name:"Spa at Solage Auberge",        cat:"spa",       emoji:"💆", price:"$$$$", rating:5.0, vibe:"Mud baths · World-class spa",      badge:"Spa",        hot:false },
+  { id:90, city:"napa",        name:"Hot Air Balloon Sunrise",      cat:"activity",  emoji:"🎈", price:"$$$$", rating:4.9, vibe:"Champagne landing · Valley views", badge:"Experience", hot:false },
+  { id:91, city:"napa",        name:"Wine Train Dinner",            cat:"food",      emoji:"🚂", price:"$$$",  rating:4.7, vibe:"Scenic route · Multi-course",      badge:"Dining",     hot:false },
+
+  // Key West
+  { id:92, city:"keywest",     name:"Sunset Sailing Cruise",        cat:"water",     emoji:"⛵", price:"$$$",  rating:5.0, vibe:"Champagne · Snorkeling · Sunset",  badge:"Sailing",    hot:true  },
+  { id:93, city:"keywest",     name:"Duval Street Bar Crawl",       cat:"bar",       emoji:"🦜", price:"$$",   rating:4.8, vibe:"8 bars · Frozen drinks · Nightlife",badge:"Bar Crawl", hot:true  },
+  { id:94, city:"keywest",     name:"Drag Show at 801 Bourbon",     cat:"nightlife", emoji:"💋", price:"$$",   rating:4.9, vibe:"Legendary Key West drag show",     badge:"Show",       hot:false },
+  { id:95, city:"keywest",     name:"Snorkel & Sea Glass Tour",     cat:"water",     emoji:"🐠", price:"$$",   rating:4.7, vibe:"Reef snorkeling · Catamaran",      badge:"Water",      hot:false },
+  { id:96, city:"keywest",     name:"Beach Bonfire Experience",     cat:"activity",  emoji:"🔥", price:"$$$",  rating:4.8, vibe:"Private beach · S'mores · Stars",  badge:"Activity",   hot:false },
+
+  // Sedona
+  { id:97,  city:"sedona",     name:"Pink Jeep Red Rock Tour",      cat:"activity",  emoji:"🔴", price:"$$",   rating:5.0, vibe:"Off-road · Iconic views · 2 hrs",  badge:"Adventure",  hot:true  },
+  { id:98,  city:"sedona",     name:"Spa at Enchantment Resort",    cat:"spa",       emoji:"💆", price:"$$$$", rating:5.0, vibe:"Red rock backdrop · Full day",     badge:"Spa",        hot:true  },
+  { id:99,  city:"sedona",     name:"Sunset Vortex Yoga",           cat:"activity",  emoji:"🧘", price:"$$",   rating:4.8, vibe:"Energy vortex · Private group",    badge:"Wellness",   hot:false },
+  { id:100, city:"sedona",     name:"Wine & Stargazing Night",      cat:"bar",       emoji:"🌟", price:"$$$",  rating:4.9, vibe:"Dark sky · Telescope · Wine",      badge:"Experience", hot:false },
+  { id:101, city:"sedona",     name:"Tlaquepaque Art & Brunch",     cat:"food",      emoji:"🎨", price:"$$",   rating:4.7, vibe:"Art village · Brunch · Shopping",  badge:"Brunch",     hot:false },
+
+  // Denver / Aspen
+  { id:102, city:"denver",     name:"Craft Brewery Crawl",          cat:"bar",       emoji:"🍺", price:"$$",   rating:4.8, vibe:"5 top breweries · Guided · Snacks",badge:"Bar Crawl",  hot:true  },
+  { id:103, city:"denver",     name:"Rocky Mountain Hike & Brunch", cat:"activity",  emoji:"⛰️", price:"$$",  rating:4.9, vibe:"Scenic trails · Brunch after",     badge:"Adventure",  hot:true  },
+  { id:104, city:"denver",     name:"Rooftop Dinner Mile High",     cat:"food",      emoji:"🌆", price:"$$$",  rating:4.8, vibe:"City views · Craft cocktails",     badge:"Dining",     hot:false },
+  { id:105, city:"denver",     name:"RiNo Art District Bar Night",  cat:"nightlife", emoji:"🎨", price:"$$",   rating:4.7, vibe:"Gallery bars · Street art · Vibes",badge:"Nightlife",  hot:false },
+  { id:106, city:"denver",     name:"Mountain Spa Retreat",         cat:"spa",       emoji:"💆", price:"$$$",  rating:4.9, vibe:"Alpine setting · Full day",        badge:"Spa",        hot:false },
+
+  // Houston
+  { id:107, city:"houston",    name:"Uptown Rooftop Bar Crawl",     cat:"bar",       emoji:"🤘", price:"$$",   rating:4.8, vibe:"4 rooftop bars · Houston skyline", badge:"Bar Crawl",  hot:true  },
+  { id:108, city:"houston",    name:"Montrose Brunch Crawl",        cat:"food",      emoji:"🍳", price:"$$$",  rating:4.9, vibe:"3 hotspot brunches · Bottomless",  badge:"Brunch",     hot:true  },
+  { id:109, city:"houston",    name:"Midtown Nightlife Tour",       cat:"nightlife", emoji:"🌃", price:"$$",   rating:4.7, vibe:"5 venues · VIP entry · DJ nights", badge:"Nightlife",  hot:false },
+  { id:110, city:"houston",    name:"Pole & Burlesque Class",       cat:"activity",  emoji:"💃", price:"$$",   rating:4.8, vibe:"Private group · Empowering",       badge:"Activity",   hot:false },
+  { id:111, city:"houston",    name:"Space Center Group Tour",      cat:"activity",  emoji:"🚀", price:"$$",   rating:4.6, vibe:"NASA · Unique bach activity",      badge:"Unique",     hot:false },
+
   // Accommodations — one featured stay per city
   { id:40, city:"miami",      name:"Faena Hotel Miami Beach",     cat:"stay", emoji:"🏨", price:"$$$$", rating:5.0, vibe:"Iconic gold · Beachfront · Full-floor suites", badge:"Hotel",    hot:true  },
   { id:41, city:"miami",      name:"South Beach Bachelorette Villa",cat:"stay",emoji:"🌴",price:"$$$", rating:4.9, vibe:"Private pool · 4BR · Steps to beach",          badge:"Villa",    hot:false },
@@ -106,18 +184,53 @@ const EXP = [
   { id:53, city:"cabo",       name:"Medano Beach Penthouse",      cat:"stay", emoji:"🏖️", price:"$$$", rating:4.8, vibe:"Beachfront · Rooftop terrace · 3BR",            badge:"Penthouse",hot:false },
   { id:54, city:"mykonos",    name:"Cycladic Cliffside Villa",    cat:"stay", emoji:"🏛️", price:"$$$$",rating:5.0, vibe:"Infinity pool · Sea views · 4BR",               badge:"Villa",    hot:true  },
   { id:55, city:"mykonos",    name:"Mykonos Town Boutique Hotel", cat:"stay", emoji:"🌅", price:"$$$", rating:4.9, vibe:"Rooftop bar · Windmill views · Walking distance",badge:"Hotel",    hot:false },
+
+  // Stays — new US cities
+  { id:112, city:"charleston",  name:"Rainbow Row Historic Home",    cat:"stay", emoji:"🌈", price:"$$$", rating:4.9, vibe:"5BR · Private courtyard · Walk everywhere",      badge:"Airbnb",    hot:true  },
+  { id:113, city:"charleston",  name:"The Spectator Hotel",          cat:"stay", emoji:"🏨", price:"$$$$",rating:4.8, vibe:"Downtown · Rooftop bar · Classic Charleston",    badge:"Hotel",     hot:false },
+  { id:114, city:"savannah",    name:"Forsyth Park Mansion",         cat:"stay", emoji:"🌿", price:"$$$", rating:5.0, vibe:"4BR · Front porch · Fountain views",             badge:"Mansion",   hot:true  },
+  { id:115, city:"savannah",    name:"River Street Loft",            cat:"stay", emoji:"🎷", price:"$$",  rating:4.7, vibe:"Riverfront views · Walk to bars",                badge:"Airbnb",    hot:false },
+  { id:116, city:"nyc",         name:"Hell's Kitchen Penthouse",     cat:"stay", emoji:"🗽", price:"$$$$",rating:4.9, vibe:"3BR · Manhattan views · Walk to Midtown",        badge:"Penthouse", hot:true  },
+  { id:117, city:"nyc",         name:"Brooklyn Brownstone",          cat:"stay", emoji:"🏙️", price:"$$$", rating:4.8, vibe:"4BR · Rooftop deck · Hip neighborhood",          badge:"Airbnb",    hot:false },
+  { id:118, city:"chicago",     name:"Gold Coast Party Penthouse",   cat:"stay", emoji:"🌃", price:"$$$$",rating:4.9, vibe:"Lake views · 3BR · Walk to bars",                badge:"Penthouse", hot:true  },
+  { id:119, city:"chicago",     name:"Wicker Park Loft",             cat:"stay", emoji:"🎨", price:"$$$", rating:4.8, vibe:"4BR · Trendy neighborhood · Hip vibes",          badge:"Airbnb",    hot:false },
+  { id:120, city:"sandiego",    name:"Pacific Beach Oceanfront Home",cat:"stay", emoji:"🏖️", price:"$$$$",rating:5.0, vibe:"4BR · Private deck · Steps to beach",           badge:"Beach Home", hot:true  },
+  { id:121, city:"sandiego",    name:"Coronado Island Bungalow",     cat:"stay", emoji:"🌴", price:"$$$", rating:4.8, vibe:"3BR · Quiet island · Del Coronado nearby",       badge:"Airbnb",    hot:false },
+  { id:122, city:"palmsprings", name:"Midcentury Pool Estate",       cat:"stay", emoji:"🏊", price:"$$$$",rating:5.0, vibe:"Private pool · 4BR · Mountain views",           badge:"Estate",    hot:true  },
+  { id:123, city:"palmsprings", name:"Desert Bungalow Resort",       cat:"stay", emoji:"🌵", price:"$$$", rating:4.8, vibe:"Boutique · Pool · Retro Palm Springs vibes",     badge:"Resort",    hot:false },
+  { id:124, city:"napa",        name:"Vineyard Guest House",         cat:"stay", emoji:"🍷", price:"$$$$",rating:5.0, vibe:"Private vineyard · Wine · 3BR",                 badge:"Estate",    hot:true  },
+  { id:125, city:"napa",        name:"Napa Valley Cottage",          cat:"stay", emoji:"🧺", price:"$$$", rating:4.9, vibe:"Cozy · Wine country · Walking distance",         badge:"Airbnb",    hot:false },
+  { id:126, city:"keywest",     name:"Old Town Conch Compound",      cat:"stay", emoji:"🦜", price:"$$$", rating:4.9, vibe:"Pool · 4BR · Walk to Duval St",                 badge:"Compound",  hot:true  },
+  { id:127, city:"keywest",     name:"Sunset Key Cottage",           cat:"stay", emoji:"🌅", price:"$$$$",rating:5.0, vibe:"Private island · All-inclusive · 3BR",           badge:"Resort",    hot:false },
+  { id:128, city:"sedona",      name:"Red Rock View Villa",          cat:"stay", emoji:"🔴", price:"$$$$",rating:5.0, vibe:"Private pool · 4BR · Panoramic vortex views",   badge:"Villa",     hot:true  },
+  { id:129, city:"sedona",      name:"Enchantment Area Casita",      cat:"stay", emoji:"🌵", price:"$$$", rating:4.8, vibe:"3BR · Boho décor · Desert serenity",             badge:"Airbnb",    hot:false },
+  { id:130, city:"denver",      name:"Capitol Hill Party House",     cat:"stay", emoji:"⛰️", price:"$$$", rating:4.9, vibe:"5BR · Hot tub · Mountain views from roof",       badge:"Airbnb",    hot:true  },
+  { id:131, city:"denver",      name:"The Crawford Hotel RiNo",      cat:"stay", emoji:"🚂", price:"$$$$",rating:4.8, vibe:"Boutique · Historic Union Station · Lively area",badge:"Hotel",     hot:false },
+  { id:132, city:"houston",     name:"Midtown Houston Party House",  cat:"stay", emoji:"🤘", price:"$$$", rating:4.8, vibe:"4BR · Pool · Walk to Montrose bars",             badge:"Airbnb",    hot:true  },
+  { id:133, city:"houston",     name:"Heights Victorian Home",       cat:"stay", emoji:"🏠", price:"$$",  rating:4.7, vibe:"3BR · Charming neighborhood · Classic HTX",      badge:"Airbnb",    hot:false },
 ];
 
 const CITIES = [
-  { id:"all",        name:"All Cities" },
-  { id:"miami",      name:"Miami" },
-  { id:"nashville",  name:"Nashville" },
-  { id:"vegas",      name:"Las Vegas" },
-  { id:"nola",       name:"New Orleans" },
-  { id:"scottsdale", name:"Scottsdale" },
-  { id:"austin",     name:"Austin" },
-  { id:"cabo",       name:"Cabo San Lucas" },
-  { id:"mykonos",    name:"Mykonos" },
+  { id:"all",         name:"All Cities" },
+  { id:"miami",       name:"Miami" },
+  { id:"nashville",   name:"Nashville" },
+  { id:"vegas",       name:"Las Vegas" },
+  { id:"nola",        name:"New Orleans" },
+  { id:"scottsdale",  name:"Scottsdale" },
+  { id:"austin",      name:"Austin" },
+  { id:"charleston",  name:"Charleston" },
+  { id:"savannah",    name:"Savannah" },
+  { id:"nyc",         name:"New York City" },
+  { id:"chicago",     name:"Chicago" },
+  { id:"sandiego",    name:"San Diego" },
+  { id:"palmsprings", name:"Palm Springs" },
+  { id:"napa",        name:"Napa Valley" },
+  { id:"keywest",     name:"Key West" },
+  { id:"sedona",      name:"Sedona" },
+  { id:"denver",      name:"Denver / Aspen" },
+  { id:"houston",     name:"Houston" },
+  { id:"cabo",        name:"Cabo San Lucas" },
+  { id:"mykonos",     name:"Mykonos" },
 ];
 
 // ─── Time slot mapping ────────────────────────────────────────────────────
@@ -230,7 +343,8 @@ export default function ExploreTab({ groupSize }) {
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <div style={{
-        background: `linear-gradient(160deg, #2D0A18 0%, ${PUNCH} 50%, ${HOT} 100%)`,
+        background: `linear-gradient(160deg, #F9D4DF 0%, #F4A7BC 40%, ${HOT} 85%, ${PUNCH} 100%)`,
+        border: `2px solid #F4A7BC`,
         borderRadius: 20,
         padding: "32px 20px 28px",
         marginBottom: 16,
@@ -239,16 +353,16 @@ export default function ExploreTab({ groupSize }) {
         overflow: "hidden",
       }}>
         {/* decorative circles */}
-        <div style={{ position:"absolute", top:-40, right:-40, width:160, height:160, borderRadius:"50%", background:"rgba(255,255,255,0.06)" }} />
-        <div style={{ position:"absolute", bottom:-30, left:-30, width:120, height:120, borderRadius:"50%", background:"rgba(255,255,255,0.04)" }} />
+        <div style={{ position:"absolute", top:-40, right:-40, width:160, height:160, borderRadius:"50%", background:"rgba(230,101,130,0.12)" }} />
+        <div style={{ position:"absolute", bottom:-30, left:-30, width:120, height:120, borderRadius:"50%", background:"rgba(213,36,56,0.08)" }} />
 
-        <div style={{ fontSize:11, color:"rgba(255,255,255,0.7)", fontFamily:"'DM Sans',sans-serif", fontWeight:700, letterSpacing:"2px", textTransform:"uppercase", marginBottom:10 }}>
+        <div style={{ fontSize:11, color:PUNCH, fontFamily:"'DM Sans',sans-serif", fontWeight:700, letterSpacing:"2px", textTransform:"uppercase", marginBottom:10 }}>
           Bach Hotline
         </div>
-        <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:26, fontWeight:900, color:WHITE, margin:"0 0 6px", lineHeight:1.2 }}>
-          Plan your next<br/><em style={{ color:"#FFD6E0" }}>epic bach trip</em>
+        <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:26, fontWeight:900, color:DARK, margin:"0 0 6px", lineHeight:1.2 }}>
+          Plan your next<br/><em style={{ color:PUNCH }}>epic bach trip</em>
         </h2>
-        <p style={{ fontSize:12, color:"rgba(255,255,255,0.75)", fontFamily:"'DM Sans',sans-serif", margin:"0 0 20px" }}>
+        <p style={{ fontSize:12, color:HOT, fontFamily:"'DM Sans',sans-serif", margin:"0 0 20px", opacity:0.85 }}>
           Experiences · Restaurants · Bars · Activities
         </p>
 
@@ -262,7 +376,7 @@ export default function ExploreTab({ groupSize }) {
               borderRadius:50, border:"none",
               fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:700,
               color:DARK, background:WHITE, cursor:"pointer",
-              appearance:"none", boxShadow:"0 4px 20px rgba(0,0,0,0.2)",
+              appearance:"none", boxShadow:`0 4px 20px rgba(213,36,56,0.18)`, border:`1.5px solid #F4A7BC`,
             }}
           >
             {CITIES.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
