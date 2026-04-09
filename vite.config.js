@@ -1,26 +1,3 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { existsSync } from 'fs'
-import { fileURLToPath } from 'url'
-import path from 'path'
-
-const configDir = fileURLToPath(new URL('.', import.meta.url))
-const stubApp   = path.join(configDir, 'src', 'stubs', 'firebase-app.js')
-const stubStore = path.join(configDir, 'src', 'stubs', 'firebase-firestore.js')
-const fbPkg     = path.join(configDir, 'src', 'node_modules', 'firebase', 'package.json')
-const hasFb     = existsSync(fbPkg)
-
-export default defineConfig({
-  root: path.join(configDir, 'src'),
-  plugins: [react()],
-  build: {
-    outDir: path.join(configDir, 'dist'),
-    emptyOutDir: true,
-  },
-  resolve: {
-    alias: hasFb ? [] : [
-      { find: 'firebase/app',       replacement: stubApp   },
-      { find: 'firebase/firestore', replacement: stubStore },
-    ],
-  },
-})
+// Build is handled from src/ — see src/vite.config.js and vercel.json
+// This file intentionally left minimal to prevent Vercel framework auto-detection conflicts.
+export default {}

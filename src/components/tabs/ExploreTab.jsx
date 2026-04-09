@@ -398,79 +398,36 @@ export default function ExploreTab({ groupSize }) {
   return (
     <div style={{ paddingBottom:8 }}>
 
-      {/* ── STEP 1: What kind of bride is she? ──────────────────────────── */}
-      <div style={{...C, marginBottom:12}}>
-        <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:4}}>
-          What kind of bride is she?
-        </div>
-        <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.8,marginBottom:12}}>
-          Every personality gets a completely different itinerary ✨
-        </div>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
-          {BRIDE_TYPES && BRIDE_TYPES.map(b=>(
-            <button key={b.id} onClick={()=>handleBrideType(b.id)} style={{
-              background:brideType===b.id?b.bg:WHITE,
-              border:brideType===b.id?`2px solid ${b.color}`:`1.5px solid ${BORDER}`,
-              borderRadius:14,padding:"12px 10px",cursor:"pointer",textAlign:"left",
-              transition:"all 0.2s",
-              boxShadow:brideType===b.id?`0 3px 12px ${b.color}33`:"none",
-            }}>
-              <div style={{fontSize:24,marginBottom:5}}>{b.emoji}</div>
-              <div style={{fontSize:12,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:brideType===b.id?b.color:DARK}}>{b.label}</div>
-              <div style={{fontSize:10,color:"#888",fontFamily:"'DM Sans',sans-serif",marginTop:3,lineHeight:1.3}}>{b.desc}</div>
-            </button>
-          ))}
-        </div>
-        {selectedBride && (
-          <div style={{marginTop:12,padding:"10px 12px",borderRadius:12,background:selectedBride.bg,border:`1.5px solid ${selectedBride.border||selectedBride.color}`}}>
-            <div style={{fontSize:11,fontWeight:700,color:selectedBride.color,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:1}}>
-              Planning for: {selectedBride.label}
-            </div>
-            <div style={{fontSize:11,color:"#555",fontFamily:"'DM Sans',sans-serif",marginTop:4}}>
-              Vibes: <em>{selectedBride.vibe || selectedBride.activities}</em>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* ── STEP 2: Where are you going? ─────────────────────────────────── */}
-      <div style={{...C, marginBottom:12}}>
-        <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:12}}>
-          Where are you going?
-        </div>
-
-        {/* Region dropdown */}
-        <div style={{position:"relative",marginBottom:10}}>
+      {/* ── CITY FILTER ───────────────────────────────────────────────────── */}
+      <div style={{display:"flex",gap:8,marginBottom:12}}>
+        <div style={{position:"relative",flex:"0 0 auto"}}>
           <select
             value={region}
             onChange={e => handleRegion(e.target.value)}
             style={{
-              width:"100%", padding:"13px 44px 13px 16px",
-              borderRadius:12, border:`1.5px solid ${BORDER}`,
-              fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:700,
+              padding:"9px 32px 9px 12px", borderRadius:10, border:`1.5px solid ${BORDER}`,
+              fontFamily:"'DM Sans',sans-serif", fontSize:12, fontWeight:700,
               color:DARK, background:WHITE, cursor:"pointer", appearance:"none",
             }}
           >
-            <option value="us">🇺🇸 United States</option>
-            <option value="intl">✈️ International</option>
+            <option value="us">🇺🇸 US</option>
+            <option value="intl">✈️ Intl</option>
           </select>
-          <span style={{position:"absolute",right:14,top:"50%",transform:"translateY(-50%)",fontSize:16,pointerEvents:"none",color:HOT}}>▾</span>
+          <span style={{position:"absolute",right:10,top:"50%",transform:"translateY(-50%)",fontSize:12,pointerEvents:"none",color:HOT}}>▾</span>
         </div>
-
-        {/* City dropdown */}
-        <div style={{position:"relative"}}>
+        <div style={{position:"relative",flex:1}}>
           <select
             value={city}
             onChange={e => setCity(e.target.value)}
             style={{
-              width:"100%", padding:"13px 44px 13px 16px",
-              borderRadius:12, border:`1.5px solid ${city !== "all" ? HOT : BORDER}`,
-              fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:700,
+              width:"100%", padding:"9px 32px 9px 12px",
+              borderRadius:10, border:city !== "all" ? `2px solid ${HOT}` : `1.5px solid ${BORDER}`,
+              fontFamily:"'DM Sans',sans-serif", fontSize:12, fontWeight:700,
               color: city !== "all" ? HOT : "#aaa",
-              background:WHITE, cursor:"pointer", appearance:"none",
+              background: city !== "all" ? SOFT : WHITE, cursor:"pointer", appearance:"none",
             }}
           >
-            <option value="all">Choose a city...</option>
+            <option value="all">All cities…</option>
             {destList.map(d => {
               const hasData = EXPLORE_CITY_IDS.has(d.id);
               return (
@@ -480,16 +437,8 @@ export default function ExploreTab({ groupSize }) {
               );
             })}
           </select>
-          <span style={{position:"absolute",right:14,top:"50%",transform:"translateY(-50%)",fontSize:16,pointerEvents:"none",color:HOT}}>▾</span>
+          <span style={{position:"absolute",right:10,top:"50%",transform:"translateY(-50%)",fontSize:12,pointerEvents:"none",color:HOT}}>▾</span>
         </div>
-
-        {/* Show selected city vibe as a hint */}
-        {city !== "all" && (
-          <div style={{marginTop:8,padding:"8px 12px",borderRadius:10,background:SOFT,border:`1px solid ${MID}`}}>
-            <span style={{fontSize:20,marginRight:8}}>{DESTS.find(d=>d.id===city)?.emoji}</span>
-            <span style={{fontSize:12,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:700}}>{DESTS.find(d=>d.id===city)?.vibe}</span>
-          </div>
-        )}
       </div>
 
       {/* ── STEP 3: What do you want to do? ──────────────────────────────── */}
@@ -499,7 +448,7 @@ export default function ExploreTab({ groupSize }) {
             What do you want to do?
           </div>
           <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:12,opacity:0.8}}>
-            {selectedBride ? `Pre-filled for your ${selectedBride.label} — adjust as needed` : "Pick all that apply — or leave blank for everything"}
+            Pick all that apply — or leave blank for everything
           </div>
           <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
             {ACT_OPTIONS.map(opt=>{
@@ -553,7 +502,7 @@ export default function ExploreTab({ groupSize }) {
       )}
       {city === "all" && (
         <div style={{textAlign:"center",fontSize:12,color:"#bbb",fontFamily:"'DM Sans',sans-serif",marginBottom:16}}>
-          {!brideType ? "👆 Pick your bride's personality first" : "👆 Now pick a destination"}
+          👆 Pick a city above to generate your itinerary
         </div>
       )}
 
