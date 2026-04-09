@@ -68,7 +68,7 @@ export default function App() {
         {tab==="split"   && <SplitTab groupSize={groupSize} />}
         {tab==="shop"    && <ShopTab cart={cart} setCart={setCart} />}
         {tab==="alerts"  && <AlertsTab />}
-        {tab==="decor"   && <MoodTab setTab={setTab} />}
+        {tab==="decor"   && <DecorTab groupSize={groupSize} />}
         {tab==="profile" && <ProfileTab user={user} onLogout={()=>setUser(null)} cart={cart} />}
         {tab==="polls"   && <PollsTab user={user} />}
         {tab==="explore"  && <ExploreTab groupSize={groupSize} setTab={setTab} />}
@@ -80,7 +80,7 @@ export default function App() {
             { id:"home",  label:"Home" },
             { id:"plan",  label:"Plan" },
             { id:"explore", label:"Explore" },
-            { id:"shop",  label:"Shop" },
+            { id:"decor", label:"Studio" },
             { id:"more",  label:"More" },
           ].map(n => {
             const isMore   = n.id === "more";
@@ -131,7 +131,7 @@ export default function App() {
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
                 {[
                   { id:"mood",    label:"Vibes",      sub:"Theme & mood board"   },
-                  { id:"decor",   label:"AI Décor",   sub:"Visualize your space"  },
+                  { id:"decor",   label:"Decor Studio", sub:"Visualize your party setup" },
                   { id:"alerts",  label:"Alerts",     sub:"Price drop alerts"     },
                   { id:"profile", label:"Profile",    sub:"Settings & trips"      },
                 ].map(item => (
