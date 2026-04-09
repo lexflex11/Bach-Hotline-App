@@ -386,9 +386,14 @@ export default function ExploreTab({ groupSize }) {
   const grad = e => GRAD[CAT_GROUP[e.cat]] || [HOT, PUNCH];
 
   // Browse cards
+  // Popular = hot:true when browsing all cities; when a city is selected show everything in that city
   const filtered = EXP
     .filter(e => city === "all" || e.city === city)
-    .filter(e => cat === "all" ? e.hot === true : CAT_GROUP[e.cat] === cat);
+    .filter(e => {
+      if (cat === "all") return city !== "all" ? true : e.hot === true;
+      return CAT_GROUP[e.cat] === cat;
+    })
+    .sort((a, b) => (b.hot ? 1 : 0) - (a.hot ? 1 : 0)); // hot items first
 
   return (
     <div style={{ paddingBottom:8 }}>
@@ -617,8 +622,15 @@ export default function ExploreTab({ groupSize }) {
       )}
 
       {/* ── BROWSE SECTION ───────────────────────────────────────────────── */}
-      <div style={{ fontSize:16, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:12 }}>
-        Browse {city !== "all" ? cityName : "All Cities"}
+      <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:16, marginTop:8 }}>
+        <div style={{ flex:1, height:1.5, background:MID, borderRadius:2 }} />
+        <div style={{ fontSize:11, fontWeight:700, color:HOT, fontFamily:"'DM Sans',sans-serif", letterSpacing:"1.5px", textTransform:"uppercase", whiteSpace:"nowrap" }}>
+          Browse Experiences
+        </div>
+        <div style={{ flex:1, height:1.5, background:MID, borderRadius:2 }} />
+      </div>
+      <div style={{ fontSize:13, color:HOT, fontFamily:"'DM Sans',sans-serif", marginBottom:14, opacity:0.8 }}>
+        {city !== "all" ? `Explore what ${cityName} has to offer` : "Top picks across all destinations"}
       </div>
 
       {/* Category chips */}
