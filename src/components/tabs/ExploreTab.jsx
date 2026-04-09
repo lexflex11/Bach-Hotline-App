@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { HOT, PUNCH, DARK, WHITE, SOFT, MID, BORDER } from '../../constants/colors.js';
-import { BP, BG } from '../../constants/styles.js';
+import { BP, BG, C } from '../../constants/styles.js';
 import { viatorUrl, opentableUrl } from '../../constants/api.js';
+import { DESTS, BRIDE_TYPES } from '../../constants/data.js';
 
 // ─── Category filters ──────────────────────────────────────────────────────
 const CATS = [
@@ -303,125 +304,355 @@ function buildItinerary(cityExps, numDays) {
   return days;
 }
 
+// ─── Activity type options for wizard step 4 ─────────────────────────────
+const ACT_OPTIONS = [
+  { id:"activity",  label:"Activities",    icon:"🎉", cats:["activity"] },
+  { id:"food",      label:"Restaurants",   icon:"🍽️", cats:["food","restaurant"] },
+  { id:"bar",       label:"Bars",          icon:"🍸", cats:["bar"] },
+  { id:"nightlife", label:"Nightlife",     icon:"🌙", cats:["nightlife"] },
+  { id:"spa",       label:"Spa",           icon:"💆", cats:["spa"] },
+  { id:"water",     label:"Boats & Water", icon:"⛵", cats:["water"] },
+];
+
+// ─── Bride type → preferred experience categories ────────────────────────
+const BRIDE_PREFS = {
+  laid_back:    ["spa","water","activity"],
+  party_animal: ["nightlife","bar","activity"],
+  foodie:       ["food","restaurant","bar"],
+  adventurous:  ["activity","water","nightlife"],
+  classy:       ["restaurant","spa","bar"],
+  chic:         ["nightlife","restaurant","spa"],
+  nature:       ["activity","water","spa"],
+  wild:         ["nightlife","bar","activity"],
+};
+
+// Cities that have EXP data
+const EXPLORE_CITY_IDS = new Set(["miami","nashville","vegas","nola","scottsdale","austin","charleston","savannah","nyc","chicago","sandiego","palmsprings","napa","keywest","sedona","denver","houston","cabo","mykonos"]);
+
 export default function ExploreTab({ groupSize }) {
-  const [city, setCity]       = useState("all");
-  const [cat,  setCat]        = useState("all");
-  const [saved, setSaved]     = useState(new Set());
-  const [itin,  setItin]      = useState(null);
-  const [generating, setGen]  = useState(false);
-  const [numDays, setNumDays] = useState(3);
+  const [brideType, setBrideType] = useState(null);      // bride personality id
+  const [region,    setRegion]    = useState("us");      // "us" | "intl"
+  const [city,      setCity]      = useState("all");
+  const [actTypes,  setActTypes]  = useState(new Set()); // selected ACT_OPTION ids
+  const [numDays,   setNumDays]   = useState(3);
+  const [itin,      setItin]      = useState(null);
+  const [generating, setGen]      = useState(false);
+  const [cat,       setCat]       = useState("all");     // browse section filter
+  const [saved,     setSaved]     = useState(new Set());
+
+  const handleBrideType = id => {
+    setBrideType(id);
+    // Pre-select activity types based on bride personality
+    const prefs = BRIDE_PREFS[id] || [];
+    const matched = new Set(
+      ACT_OPTIONS.filter(o => o.cats.some(c => prefs.includes(c))).map(o => o.id)
+    );
+    setActTypes(matched);
+  };
+
+  const handleRegion = r => { setRegion(r); setCity("all"); setItin(null); };
+
+  const toggleAct = id => setActTypes(prev => {
+    const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n;
+  });
 
   const toggleSave = id => setSaved(prev => {
-    const n = new Set(prev);
-    n.has(id) ? n.delete(id) : n.add(id);
-    return n;
+    const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n;
   });
 
   const handleGenerate = () => {
-    if (city === "all") { setItin("pick_city"); return; }
-    setGen(true);
-    setItin(null);
+    setGen(true); setItin(null);
+    let allowedCats = null;
+    if (actTypes.size > 0) {
+      allowedCats = new Set();
+      actTypes.forEach(aid => {
+        const opt = ACT_OPTIONS.find(o => o.id === aid);
+        if (opt) opt.cats.forEach(c => allowedCats.add(c));
+      });
+    }
     setTimeout(() => {
-      const cityExps = EXP.filter(e => e.city === city);
+      const cityExps = EXP.filter(e => e.city === city && (allowedCats === null || allowedCats.has(e.cat)));
       setItin(buildItinerary(cityExps, numDays));
       setGen(false);
     }, 1200);
   };
 
+  const selectedBride = BRIDE_TYPES?.find(b => b.id === brideType);
+  const usDests   = DESTS.filter(d => !d.international && EXPLORE_CITY_IDS.has(d.id));
+  const intlDests = DESTS.filter(d =>  d.international);
+  const destList  = region === "us" ? usDests : intlDests;
+
+  const cityName = DESTS.find(d => d.id === city)?.name || CITIES.find(c => c.id === city)?.name || "All Cities";
+  const grad = e => GRAD[CAT_GROUP[e.cat]] || [HOT, PUNCH];
+
+  // Browse cards
   const filtered = EXP
     .filter(e => city === "all" || e.city === city)
-    .filter(e => {
-      if (cat === "all")    return e.hot === true;
-      return CAT_GROUP[e.cat] === cat;
-    });
-
-  const cityName = CITIES.find(c => c.id === city)?.name || "All Cities";
-  const grad = (e) => GRAD[CAT_GROUP[e.cat]] || [HOT, PUNCH];
+    .filter(e => cat === "all" ? e.hot === true : CAT_GROUP[e.cat] === cat);
 
   return (
-    <div style={{ paddingBottom: 8 }}>
+    <div style={{ paddingBottom:8 }}>
 
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <div style={{
-        background: `linear-gradient(160deg, #F9D4DF 0%, #F4A7BC 40%, ${HOT} 85%, ${PUNCH} 100%)`,
-        border: `2px solid #F4A7BC`,
-        borderRadius: 20,
-        padding: "32px 20px 28px",
-        marginBottom: 16,
-        textAlign: "center",
-        position: "relative",
-        overflow: "hidden",
-      }}>
-        {/* decorative circles */}
-        <div style={{ position:"absolute", top:-40, right:-40, width:160, height:160, borderRadius:"50%", background:"rgba(230,101,130,0.12)" }} />
-        <div style={{ position:"absolute", bottom:-30, left:-30, width:120, height:120, borderRadius:"50%", background:"rgba(213,36,56,0.08)" }} />
-
-        <div style={{ fontSize:11, color:PUNCH, fontFamily:"'DM Sans',sans-serif", fontWeight:700, letterSpacing:"2px", textTransform:"uppercase", marginBottom:10 }}>
-          Bach Hotline
+      {/* ── STEP 1: What kind of bride is she? ──────────────────────────── */}
+      <div style={{...C, marginBottom:12}}>
+        <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:4}}>
+          What kind of bride is she?
         </div>
-        <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:26, fontWeight:900, color:DARK, margin:"0 0 6px", lineHeight:1.2 }}>
-          Plan your next<br/><em style={{ color:PUNCH }}>epic bach trip</em>
-        </h2>
-        <p style={{ fontSize:12, color:HOT, fontFamily:"'DM Sans',sans-serif", margin:"0 0 20px", opacity:0.85 }}>
-          Experiences · Restaurants · Bars · Activities
-        </p>
+        <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.8,marginBottom:12}}>
+          Every personality gets a completely different itinerary ✨
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+          {BRIDE_TYPES && BRIDE_TYPES.map(b=>(
+            <button key={b.id} onClick={()=>handleBrideType(b.id)} style={{
+              background:brideType===b.id?b.bg:WHITE,
+              border:brideType===b.id?`2px solid ${b.color}`:`1.5px solid ${BORDER}`,
+              borderRadius:14,padding:"12px 10px",cursor:"pointer",textAlign:"left",
+              transition:"all 0.2s",
+              boxShadow:brideType===b.id?`0 3px 12px ${b.color}33`:"none",
+            }}>
+              <div style={{fontSize:24,marginBottom:5}}>{b.emoji}</div>
+              <div style={{fontSize:12,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:brideType===b.id?b.color:DARK}}>{b.label}</div>
+              <div style={{fontSize:10,color:"#888",fontFamily:"'DM Sans',sans-serif",marginTop:3,lineHeight:1.3}}>{b.desc}</div>
+            </button>
+          ))}
+        </div>
+        {selectedBride && (
+          <div style={{marginTop:12,padding:"10px 12px",borderRadius:12,background:selectedBride.bg,border:`1.5px solid ${selectedBride.border||selectedBride.color}`}}>
+            <div style={{fontSize:11,fontWeight:700,color:selectedBride.color,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:1}}>
+              Planning for: {selectedBride.label}
+            </div>
+            <div style={{fontSize:11,color:"#555",fontFamily:"'DM Sans',sans-serif",marginTop:4}}>
+              Vibes: <em>{selectedBride.vibe || selectedBride.activities}</em>
+            </div>
+          </div>
+        )}
+      </div>
 
-        {/* City selector */}
-        <div style={{ position:"relative", display:"inline-block", width:"100%", maxWidth:280 }}>
-          <select
-            value={city}
-            onChange={e => setCity(e.target.value)}
-            style={{
-              width:"100%", padding:"14px 44px 14px 20px",
-              borderRadius:50, border:"none",
-              fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:700,
-              color:DARK, background:WHITE, cursor:"pointer",
-              appearance:"none", boxShadow:`0 4px 20px rgba(213,36,56,0.18)`, border:`1.5px solid #F4A7BC`,
-            }}
-          >
-            {CITIES.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
-          </select>
-          <span style={{ position:"absolute", right:16, top:"50%", transform:"translateY(-50%)", fontSize:16, pointerEvents:"none" }}>▾</span>
+      {/* ── STEP 2: Where are you going? ─────────────────────────────────── */}
+      <div style={{...C, marginBottom:12}}>
+        <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:12}}>
+          Where are you going?
+        </div>
+
+        {/* US / International toggle dropdown */}
+        <div style={{display:"flex",gap:8,marginBottom:14}}>
+          {[
+            { id:"us",   label:"🇺🇸 United States" },
+            { id:"intl", label:"✈️ International" },
+          ].map(r=>(
+            <button key={r.id} onClick={()=>handleRegion(r.id)} style={{
+              flex:1, padding:"9px 8px", borderRadius:10,
+              border: region===r.id?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,
+              background: region===r.id?SOFT:WHITE,
+              color: region===r.id?HOT:DARK,
+              fontWeight:700,fontSize:12,
+              fontFamily:"'DM Sans',sans-serif",
+              cursor:"pointer",transition:"all 0.15s",
+            }}>{r.label}</button>
+          ))}
+        </div>
+
+        {/* City grid */}
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+          {destList.map(d=>{
+            const hasData = EXPLORE_CITY_IDS.has(d.id);
+            return (
+              <button key={d.id} onClick={()=>hasData && setCity(d.id)} style={{
+                background:city===d.id?SOFT:WHITE,
+                border:city===d.id?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,
+                borderRadius:12,padding:"10px",cursor:hasData?"pointer":"default",
+                color:DARK,textAlign:"left",transition:"all 0.2s",
+                opacity:hasData?1:0.5,
+              }}>
+                <div style={{fontSize:20,marginBottom:3}}>{d.emoji}</div>
+                <div style={{fontSize:12,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:city===d.id?HOT:DARK}}>{d.name}</div>
+                <div style={{fontSize:10,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.75}}>{d.vibe}</div>
+                {!hasData && <div style={{fontSize:9,color:"#bbb",fontFamily:"'DM Sans',sans-serif",marginTop:2}}>Coming soon</div>}
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* ── CATEGORY FILTER CHIPS ────────────────────────────────────────── */}
-      <div style={{ display:"flex", gap:8, overflowX:"auto", paddingBottom:4, marginBottom:16, scrollbarWidth:"none" }}>
+      {/* ── STEP 3: What do you want to do? ──────────────────────────────── */}
+      {city !== "all" && (
+        <div style={{...C, marginBottom:12}}>
+          <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:4}}>
+            What do you want to do?
+          </div>
+          <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:12,opacity:0.8}}>
+            {selectedBride ? `Pre-filled for your ${selectedBride.label} — adjust as needed` : "Pick all that apply — or leave blank for everything"}
+          </div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
+            {ACT_OPTIONS.map(opt=>{
+              const sel = actTypes.has(opt.id);
+              return (
+                <button key={opt.id} onClick={()=>toggleAct(opt.id)} style={{
+                  display:"flex",alignItems:"center",gap:6,
+                  padding:"8px 14px",borderRadius:50,
+                  border:sel?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,
+                  background:sel?HOT:WHITE,
+                  color:sel?WHITE:DARK,
+                  fontSize:12,fontWeight:700,
+                  fontFamily:"'DM Sans',sans-serif",
+                  cursor:"pointer",transition:"all 0.15s",
+                }}>
+                  <span>{opt.icon}</span> {opt.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* ── STEP 4: How many days? ────────────────────────────────────────── */}
+      {city !== "all" && (
+        <div style={{...C, marginBottom:14, display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+          <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>How many days?</div>
+          <div style={{display:"flex",gap:6}}>
+            {[1,2,3,4,5,6,7].map(d=>(
+              <button key={d} onClick={()=>setNumDays(d)} style={{
+                width:36, height:36, borderRadius:8,
+                border:numDays===d?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,
+                background:numDays===d?HOT:WHITE,
+                color:numDays===d?WHITE:DARK,
+                fontWeight:700,fontSize:13,
+                fontFamily:"'DM Sans',sans-serif",
+                cursor:"pointer",transition:"all 0.15s",
+              }}>{d}</button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── GENERATE BUTTON ───────────────────────────────────────────────── */}
+      {city !== "all" && (
+        <button onClick={handleGenerate} disabled={generating} style={{
+          ...BP, width:"100%", padding:"13px", fontSize:14, borderRadius:14, marginBottom:16,
+        }}>
+          {generating ? `✨ Building your ${cityName} itinerary...` : `✨ Generate My ${numDays}-Day ${cityName} Itinerary`}
+        </button>
+      )}
+      {city === "all" && (
+        <div style={{textAlign:"center",fontSize:12,color:"#bbb",fontFamily:"'DM Sans',sans-serif",marginBottom:16}}>
+          {!brideType ? "👆 Pick your bride's personality first" : "👆 Now pick a destination"}
+        </div>
+      )}
+
+      {/* ── GENERATED ITINERARY ──────────────────────────────────────────── */}
+      {Array.isArray(itin) && (
+        <div style={{ marginBottom:20 }}>
+          <div style={{ textAlign:"center", marginBottom:14 }}>
+            <div style={{ fontSize:18, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>
+              Your {numDays}-Day {cityName} Itinerary
+            </div>
+            <div style={{ fontSize:11, color:HOT, fontFamily:"'DM Sans',sans-serif", marginTop:4, opacity:0.8 }}>
+              Built just for your group · Never cookie cutter
+            </div>
+          </div>
+
+          {itin.map((day, di) => (
+            <div key={di} style={{ marginBottom:16 }}>
+              <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:10 }}>
+                <div style={{ flex:1, height:1, background:BORDER }} />
+                <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:HOT, whiteSpace:"nowrap" }}>
+                  Day {di + 1}
+                </div>
+                <div style={{ flex:1, height:1, background:BORDER }} />
+              </div>
+
+              {day.map((item, ii) => {
+                const sl = SLOT_LABELS[item.slot] || { label:item.slot, emoji:"📍" };
+                const isDining = CAT_GROUP[item.cat] === "dining";
+                return (
+                  <div key={ii} style={{
+                    display:"flex", gap:12, alignItems:"flex-start",
+                    marginBottom:10, padding:"12px 14px",
+                    background:WHITE, borderRadius:14,
+                    border:`1.5px solid ${BORDER}`,
+                    boxShadow:"0 2px 8px rgba(45,10,24,0.07)",
+                  }}>
+                    <div style={{ minWidth:58, textAlign:"center" }}>
+                      <div style={{ fontSize:18 }}>{sl.emoji}</div>
+                      <div style={{ fontSize:9, fontWeight:700, color:HOT, fontFamily:"'DM Sans',sans-serif", textTransform:"uppercase", letterSpacing:"0.5px", marginTop:2 }}>{sl.label}</div>
+                    </div>
+                    <div style={{ flex:1 }}>
+                      <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:2 }}>
+                        {item.emoji} {item.name}
+                      </div>
+                      <div style={{ fontSize:10, color:HOT, fontFamily:"'DM Sans',sans-serif", opacity:0.8, marginBottom:4 }}>{item.vibe}</div>
+                      <div style={{ fontSize:9, color:"#aaa", fontFamily:"'DM Sans',sans-serif" }}>⭐ {item.rating} · {item.price}</div>
+                    </div>
+                    <a
+                      href={isDining
+                        ? opentableUrl(item.name, cityName)
+                        : CAT_GROUP[item.cat] === "stay"
+                          ? `https://www.airbnb.com/s/${encodeURIComponent(cityName)}/homes?adults=${groupSize||4}`
+                          : viatorUrl(item.name, cityName)}
+                      target="_blank" rel="noreferrer"
+                      style={{ textDecoration:"none", alignSelf:"center" }}
+                    >
+                      <div style={{
+                        background:PUNCH, color:WHITE, borderRadius:8,
+                        padding:"6px 10px", fontSize:10, fontWeight:700,
+                        fontFamily:"'DM Sans',sans-serif", whiteSpace:"nowrap",
+                      }}>Book →</div>
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+
+          <div style={{ textAlign:"center", marginTop:4, marginBottom:20 }}>
+            <button onClick={handleGenerate} style={{
+              background:"none", border:`1.5px solid ${HOT}`, borderRadius:10,
+              padding:"8px 20px", color:HOT, fontSize:12, fontWeight:700,
+              fontFamily:"'DM Sans',sans-serif", cursor:"pointer",
+            }}>
+              Shuffle Again ↺
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ── BROWSE SECTION ───────────────────────────────────────────────── */}
+      <div style={{ fontSize:16, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:12 }}>
+        Browse {city !== "all" ? cityName : "All Cities"}
+      </div>
+
+      {/* Category chips */}
+      <div style={{ display:"flex", gap:8, overflowX:"auto", paddingBottom:4, marginBottom:14, scrollbarWidth:"none" }}>
         {CATS.map(c => (
           <button key={c.id} onClick={() => setCat(c.id)} style={{
-            flexShrink:0,
-            display:"flex", flexDirection:"column", alignItems:"center", gap:4,
+            flexShrink:0, display:"flex", flexDirection:"column", alignItems:"center", gap:4,
             padding:"10px 14px",
             background: cat===c.id ? SOFT : WHITE,
             border: cat===c.id ? `2px solid ${HOT}` : `1.5px solid ${BORDER}`,
-            borderRadius:14, cursor:"pointer", transition:"all 0.15s",
-            minWidth:72,
+            borderRadius:14, cursor:"pointer", transition:"all 0.15s", minWidth:72,
           }}>
             <span style={{ fontSize:20 }}>{c.icon}</span>
             <span style={{
               fontSize:10, fontWeight:700, fontFamily:"'DM Sans',sans-serif",
-              color: cat===c.id ? HOT : "#888",
-              whiteSpace:"nowrap",
-              borderBottom: cat===c.id ? `2px solid ${HOT}` : "2px solid transparent",
-              paddingBottom:1,
+              color: cat===c.id ? HOT : "#888", whiteSpace:"nowrap",
+              borderBottom: cat===c.id ? `2px solid ${HOT}` : "2px solid transparent", paddingBottom:1,
             }}>{c.label}</span>
           </button>
         ))}
       </div>
 
-      {/* ── SECTION HEADER ───────────────────────────────────────────────── */}
       <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:14 }}>
-        <div style={{ fontSize:18, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>
-          {cat === "all" ? `Best of ${cityName}` : `${CATS.find(c=>c.id===cat)?.label} · ${cityName}`}
+        <div style={{ fontSize:14, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>
+          {cat === "all" ? `Popular Picks` : CATS.find(c=>c.id===cat)?.label}
+          {city !== "all" && ` · ${cityName}`}
         </div>
         <div style={{ fontSize:11, color:"#bbb", fontFamily:"'DM Sans',sans-serif" }}>{filtered.length} found</div>
       </div>
 
-      {/* ── EXPERIENCE CARDS ─────────────────────────────────────────────── */}
       {filtered.length === 0 ? (
         <div style={{ textAlign:"center", padding:"40px 20px" }}>
           <div style={{ fontSize:32, marginBottom:10 }}>🔍</div>
-          <div style={{ fontSize:14, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>No experiences found</div>
+          <div style={{ fontSize:14, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>No results</div>
           <div style={{ fontSize:12, color:"#bbb", fontFamily:"'DM Sans',sans-serif", marginTop:6 }}>Try a different city or category</div>
         </div>
       ) : (
@@ -433,62 +664,44 @@ export default function ExploreTab({ groupSize }) {
               <div key={e.id} style={{
                 borderRadius:18, overflow:"hidden",
                 boxShadow:"0 4px 16px rgba(45,10,24,0.12)",
-                background:WHITE,
-                display:"flex", flexDirection:"column",
+                background:WHITE, display:"flex", flexDirection:"column",
               }}>
-                {/* Photo area — gradient + emoji */}
                 <div style={{
-                  background:`linear-gradient(140deg, ${g1}, ${g2})`,
+                  background:`linear-gradient(140deg,${g1},${g2})`,
                   height:110, position:"relative",
                   display:"flex", alignItems:"center", justifyContent:"center",
                 }}>
                   <span style={{ fontSize:42, filter:"drop-shadow(0 2px 6px rgba(0,0,0,0.25))" }}>{e.emoji}</span>
-
-                  {/* Badge — top left */}
                   <div style={{
                     position:"absolute", top:10, left:10,
                     background:"rgba(0,0,0,0.45)", backdropFilter:"blur(6px)",
                     borderRadius:50, padding:"3px 10px",
                     fontSize:9, fontWeight:700, color:WHITE,
                     fontFamily:"'DM Sans',sans-serif", letterSpacing:"0.5px",
-                    display:"flex", alignItems:"center", gap:4,
-                  }}>
-                    🎉 {e.badge}
-                  </div>
-
-                  {/* Heart — top right */}
+                  }}>🎉 {e.badge}</div>
                   <button onClick={() => toggleSave(e.id)} style={{
                     position:"absolute", top:8, right:8,
                     width:30, height:30, borderRadius:"50%",
                     background:isSaved ? HOT : "rgba(255,255,255,0.85)",
                     border:"none", cursor:"pointer",
                     display:"flex", alignItems:"center", justifyContent:"center",
-                    fontSize:14, boxShadow:"0 2px 8px rgba(0,0,0,0.15)",
-                    transition:"all 0.2s",
-                  }}>
-                    {isSaved ? "❤️" : "🤍"}
-                  </button>
-
-                  {/* Hot badge */}
+                    fontSize:14, boxShadow:"0 2px 8px rgba(0,0,0,0.15)", transition:"all 0.2s",
+                  }}>{isSaved ? "❤️" : "🤍"}</button>
                   {e.hot && (
                     <div style={{
                       position:"absolute", bottom:8, left:10,
                       background:PUNCH, borderRadius:50, padding:"2px 8px",
                       fontSize:8, fontWeight:800, color:WHITE,
-                      fontFamily:"'DM Sans',sans-serif", letterSpacing:"0.5px",
+                      fontFamily:"'DM Sans',sans-serif",
                     }}>🔥 POPULAR</div>
                   )}
                 </div>
-
-                {/* Card body */}
                 <div style={{ padding:"10px 12px 12px", flex:1, display:"flex", flexDirection:"column", justifyContent:"space-between" }}>
                   <div>
                     <div style={{ fontSize:12, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:3, lineHeight:1.3 }}>{e.name}</div>
                     <div style={{ fontSize:10, color:HOT, fontFamily:"'DM Sans',sans-serif", opacity:0.8, marginBottom:6 }}>{e.vibe}</div>
                     <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8 }}>
-                      <span style={{ fontSize:10, color:"#888", fontFamily:"'DM Sans',sans-serif" }}>
-                        {"⭐".repeat(Math.round(e.rating))} {e.rating}
-                      </span>
+                      <span style={{ fontSize:10, color:"#888", fontFamily:"'DM Sans',sans-serif" }}>⭐ {e.rating}</span>
                       <span style={{ fontSize:11, fontWeight:700, color:PUNCH, fontFamily:"'DM Sans',sans-serif" }}>{e.price}</span>
                     </div>
                   </div>
@@ -498,8 +711,7 @@ export default function ExploreTab({ groupSize }) {
                       : CAT_GROUP[e.cat] === "stay"
                         ? `https://www.airbnb.com/s/${encodeURIComponent(CITIES.find(c=>c.id===e.city)?.name||"")}/homes?adults=${groupSize||4}`
                         : viatorUrl(e.name, CITIES.find(c=>c.id===e.city)?.name||"")}
-                    target="_blank" rel="noreferrer"
-                    style={{ textDecoration:"none" }}
+                    target="_blank" rel="noreferrer" style={{ textDecoration:"none" }}
                   >
                     <button style={{ ...BP, width:"100%", fontSize:11, padding:"8px", borderRadius:10 }}>
                       Book Now →
@@ -512,138 +724,7 @@ export default function ExploreTab({ groupSize }) {
         </div>
       )}
 
-      {/* ── ITINERARY GENERATOR ──────────────────────────────────────────── */}
-      <div style={{ marginTop:28, marginBottom:8 }}>
-        <div style={{ textAlign:"center", marginBottom:16 }}>
-          <div style={{ fontSize:18, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:4 }}>
-            Your Custom Itinerary
-          </div>
-          <div style={{ fontSize:12, color:HOT, fontFamily:"'DM Sans',sans-serif", opacity:0.8 }}>
-            Built from real {cityName} experiences — never cookie cutter
-          </div>
-        </div>
-
-        {/* Day picker */}
-        <div style={{ marginBottom:16 }}>
-          <div style={{ fontSize:12, fontWeight:700, fontFamily:"'DM Sans',sans-serif", color:DARK, marginBottom:10, textAlign:"center" }}>
-            How many days?
-          </div>
-          <div style={{ display:"flex", gap:8, justifyContent:"center" }}>
-            {[1,2,3,4,5,6,7].map(d => (
-              <button key={d} onClick={() => setNumDays(d)} style={{
-                width:40, height:40, borderRadius:10, border:"none",
-                background: numDays===d ? `linear-gradient(135deg,${PUNCH},${HOT})` : SOFT,
-                color: numDays===d ? WHITE : DARK,
-                fontWeight:700, fontSize:14,
-                fontFamily:"'DM Sans',sans-serif",
-                cursor:"pointer", transition:"all 0.15s",
-                boxShadow: numDays===d ? `0 2px 10px rgba(213,36,56,0.3)` : "none",
-              }}>{d}</button>
-            ))}
-          </div>
-        </div>
-
-        <button
-          onClick={handleGenerate}
-          style={{
-            width:"100%", padding:"16px", borderRadius:16, border:"none",
-            background:`linear-gradient(135deg, ${PUNCH}, ${HOT})`,
-            color:WHITE, cursor:"pointer",
-            fontFamily:"'Playfair Display',Georgia,serif",
-            fontSize:16, fontWeight:700,
-            boxShadow:`0 4px 20px rgba(213,36,56,0.35)`,
-            transition:"all 0.2s",
-          }}
-        >
-          {generating ? "✨ Building your itinerary..." : `✨ Generate ${numDays}-Day Itinerary`}
-        </button>
-
-        {/* Prompt to pick a city */}
-        {itin === "pick_city" && (
-          <div style={{ textAlign:"center", marginTop:14, padding:"14px", background:SOFT, borderRadius:14, border:`1.5px solid ${MID}` }}>
-            <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>
-              Choose a city first!
-            </div>
-            <div style={{ fontSize:11, color:HOT, fontFamily:"'DM Sans',sans-serif", marginTop:4 }}>
-              Select a destination from the dropdown above to get your personalized itinerary.
-            </div>
-          </div>
-        )}
-
-        {/* Generated days */}
-        {Array.isArray(itin) && itin.map((day, di) => (
-          <div key={di} style={{ marginTop:16 }}>
-            <div style={{
-              display:"flex", alignItems:"center", gap:10, marginBottom:10,
-            }}>
-              <div style={{ flex:1, height:1, background:BORDER }} />
-              <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:HOT, whiteSpace:"nowrap" }}>
-                Day {di + 1}
-              </div>
-              <div style={{ flex:1, height:1, background:BORDER }} />
-            </div>
-
-            {day.map((item, ii) => {
-              const sl = SLOT_LABELS[item.slot] || { label: item.slot, emoji:"📍" };
-              const isDining = CAT_GROUP[item.cat] === "dining";
-              return (
-                <div key={ii} style={{
-                  display:"flex", gap:12, alignItems:"flex-start",
-                  marginBottom:12, padding:"12px 14px",
-                  background:WHITE, borderRadius:14,
-                  border:`1.5px solid ${BORDER}`,
-                  boxShadow:"0 2px 8px rgba(45,10,24,0.07)",
-                }}>
-                  {/* Time column */}
-                  <div style={{ minWidth:60, textAlign:"center" }}>
-                    <div style={{ fontSize:18 }}>{sl.emoji}</div>
-                    <div style={{ fontSize:9, fontWeight:700, color:HOT, fontFamily:"'DM Sans',sans-serif", textTransform:"uppercase", letterSpacing:"0.5px", marginTop:2 }}>{sl.label}</div>
-                  </div>
-                  {/* Content */}
-                  <div style={{ flex:1 }}>
-                    <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:2 }}>
-                      {item.emoji} {item.name}
-                    </div>
-                    <div style={{ fontSize:10, color:HOT, fontFamily:"'DM Sans',sans-serif", opacity:0.8, marginBottom:6 }}>{item.vibe}</div>
-                    <div style={{ display:"flex", gap:8, alignItems:"center" }}>
-                      <span style={{ fontSize:9, color:"#888", fontFamily:"'DM Sans',sans-serif" }}>⭐ {item.rating} · {item.price}</span>
-                    </div>
-                  </div>
-                  {/* Book link */}
-                  <a
-                    href={isDining
-                      ? opentableUrl(item.name, cityName)
-                      : CAT_GROUP[item.cat] === "stay"
-                        ? `https://www.airbnb.com/s/${encodeURIComponent(cityName)}/homes?adults=${groupSize||4}`
-                        : viatorUrl(item.name, cityName)}
-                    target="_blank" rel="noreferrer"
-                    style={{ textDecoration:"none", alignSelf:"center" }}
-                  >
-                    <div style={{
-                      background:PUNCH, color:WHITE, borderRadius:8,
-                      padding:"6px 10px", fontSize:10, fontWeight:700,
-                      fontFamily:"'DM Sans',sans-serif", whiteSpace:"nowrap",
-                    }}>Book →</div>
-                  </a>
-                </div>
-              );
-            })}
-          </div>
-        ))}
-
-        {Array.isArray(itin) && (
-          <div style={{ textAlign:"center", marginTop:16, marginBottom:8 }}>
-            <button
-              onClick={handleGenerate}
-              style={{ background:"none", border:`1.5px solid ${HOT}`, borderRadius:10, padding:"8px 20px", color:HOT, fontSize:12, fontWeight:700, fontFamily:"'DM Sans',sans-serif", cursor:"pointer" }}
-            >
-              Shuffle Again ↺
-            </button>
-          </div>
-        )}
-      </div>
-
-      <div style={{ textAlign:"center", paddingBottom:8, fontSize:10, color:"#ccc", fontFamily:"'DM Sans',sans-serif" }}>
+      <div style={{ textAlign:"center", padding:"20px 0 8px", fontSize:10, color:"#ccc", fontFamily:"'DM Sans',sans-serif" }}>
         {groupSize} in your group · Tap ❤️ to save favorites
       </div>
     </div>
