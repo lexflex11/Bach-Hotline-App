@@ -312,24 +312,100 @@ function DecorationOverlay({ pkg, vibe }) {
 
 // ─── Balloon Garland Builder ──────────────────────────────────────────────────
 const BALLOON_COLORS = [
-  { id:"blush",      label:"Blush",       color:"#F4A7B9", dot:"#F4A7B9" },
-  { id:"hotpink",    label:"Hot Pink",    color:"#E91E8C", dot:"#E91E8C" },
-  { id:"white",      label:"White",       color:"#F8F8F8", dot:"#F0F0F0" },
-  { id:"champagne",  label:"Champagne",   color:"#F5DEB3", dot:"#F5DEB3" },
-  { id:"gold",       label:"Gold",        color:"#FFD700", dot:"#FFD700" },
-  { id:"silver",     label:"Silver",      color:"#D0D0D0", dot:"#C0C0C0" },
-  { id:"black",      label:"Black",       color:"#1A1A1A", dot:"#111"    },
-  { id:"red",        label:"Red",         color:"#E53935", dot:"#E53935" },
-  { id:"purple",     label:"Purple",      color:"#9C27B0", dot:"#9C27B0" },
-  { id:"lavender",   label:"Lavender",    color:"#CE93D8", dot:"#CE93D8" },
-  { id:"blue",       label:"Blue",        color:"#1E88E5", dot:"#1E88E5" },
-  { id:"mint",       label:"Mint",        color:"#80CBC4", dot:"#80CBC4" },
-  { id:"sage",       label:"Sage",        color:"#8FAF8F", dot:"#8FAF8F" },
-  { id:"terracotta", label:"Terracotta",  color:"#C4956A", dot:"#C4956A" },
-  { id:"mauve",      label:"Mauve",       color:"#C48B9F", dot:"#C48B9F" },
-  { id:"cow",        label:"Cow Print",   color:"#fff",    dot:"#fff",   pattern:"cow"   },
-  { id:"dalmatian",  label:"Dalmatian",   color:"#fff",    dot:"#fff",   pattern:"dalmatian" },
-  { id:"confetti",   label:"Confetti",    color:"#FFB6C1", dot:"#FFB6C1",pattern:"confetti"  },
+  // ── Pinks / Blush / Rose ──────────────────────────────────────────────────
+  { id:"blush",            label:"Blush",              color:"#F4A7B9", dot:"#F4A7B9" },
+  { id:"cameo",            label:"Cameo",              color:"#E8B4B8", dot:"#E8B4B8" },
+  { id:"romey",            label:"Romey",              color:"#F5B8A0", dot:"#F5B8A0" },
+  { id:"baby-pink",        label:"Baby Pink",          color:"#FFB5C2", dot:"#FFB5C2" },
+  { id:"pink",             label:"Pink",               color:"#E87DA5", dot:"#E87DA5" },
+  { id:"shimmering-pink",  label:"Shimmering Pink",    color:"#E06090", dot:"#E06090" },
+  { id:"canyon-rose",      label:"Canyon Rose",        color:"#B5616B", dot:"#B5616B" },
+  { id:"coral",            label:"Coral",              color:"#F87171", dot:"#F87171" },
+  { id:"taffy",            label:"Taffy",              color:"#FF6B8A", dot:"#FF6B8A" },
+  { id:"pixie",            label:"Pixie",              color:"#E84D8A", dot:"#E84D8A" },
+  { id:"hotpink",          label:"Hot Pink",           color:"#E91E8C", dot:"#E91E8C" },
+  { id:"metallic-fuchsia", label:"Metallic Fuchsia",   color:"#E61881", dot:"#E61881" },
+  { id:"crystal-magenta",  label:"Crystal Magenta",    color:"#D9148A", dot:"#D9148A" },
+  { id:"crystal-burgundy", label:"Crystal Burgundy",   color:"#A31045", dot:"#A31045" },
+  { id:"sangria",          label:"Sangria",            color:"#7D2248", dot:"#7D2248" },
+  // ── Reds ─────────────────────────────────────────────────────────────────
+  { id:"scarlett",              label:"Scarlett",            color:"#CC2936", dot:"#CC2936" },
+  { id:"samba",                 label:"Samba",               color:"#B8001F", dot:"#B8001F" },
+  { id:"red",                   label:"Red",                 color:"#E8112D", dot:"#E8112D" },
+  { id:"crystal-red",           label:"Crystal Red",         color:"#D7282F", dot:"#D7282F" },
+  { id:"metallic-starfire-red", label:"Metallic Starfire Red", color:"#C8002D", dot:"#C8002D" },
+  // ── Oranges / Warm Tones ─────────────────────────────────────────────────
+  { id:"aloha",            label:"Aloha",              color:"#FF8C69", dot:"#FF8C69" },
+  { id:"metallic-rose-gold",label:"Metallic Rose Gold",color:"#E8937B", dot:"#E8937B" },
+  { id:"burnt-orange",     label:"Burnt Orange",       color:"#D4541C", dot:"#D4541C" },
+  { id:"orange",           label:"Orange",             color:"#FF6B1A", dot:"#FF6B1A" },
+  { id:"cheeky",           label:"Cheeky",             color:"#FF9B7A", dot:"#FF9B7A" },
+  { id:"terracotta",       label:"Terracotta",         color:"#C4956A", dot:"#C4956A" },
+  // ── Yellows ──────────────────────────────────────────────────────────────
+  { id:"lemonade",         label:"Lemonade",           color:"#FFEA5A", dot:"#FFEA5A" },
+  { id:"crystal-yellow",   label:"Crystal Yellow",     color:"#EFEF1E", dot:"#EFEF1E" },
+  { id:"yellow",           label:"Yellow",             color:"#FFE800", dot:"#FFE800" },
+  { id:"goldenrod",        label:"Goldenrod",          color:"#FFC72C", dot:"#FFC72C" },
+  { id:"mustard",          label:"Mustard",            color:"#D4A820", dot:"#D4A820" },
+  { id:"gold",             label:"Metallic Gold",      color:"#C8960C", dot:"#C8960C" },
+  { id:"champagne",        label:"Champagne",          color:"#F5DEB3", dot:"#F5DEB3" },
+  // ── Greens ───────────────────────────────────────────────────────────────
+  { id:"lime-green",           label:"Lime Green",          color:"#A8D700", dot:"#A8D700" },
+  { id:"fiona",                label:"Fiona",               color:"#C5D5C5", dot:"#C5D5C5" },
+  { id:"green",                label:"Green",               color:"#4CAF50", dot:"#4CAF50" },
+  { id:"metallic-green",       label:"Metallic Green",      color:"#388E3C", dot:"#388E3C" },
+  { id:"crystal-emerald",      label:"Crystal Emerald Green",color:"#00833E", dot:"#00833E" },
+  { id:"metallic-forest-green",label:"Metallic Forest Green",color:"#1B5E20", dot:"#1B5E20" },
+  { id:"evergreen",            label:"Evergreen",           color:"#006B3C", dot:"#006B3C" },
+  { id:"willow",               label:"Willow",              color:"#95A89A", dot:"#95A89A" },
+  { id:"meadow",               label:"Meadow",              color:"#76A96C", dot:"#76A96C" },
+  { id:"empower-mint",         label:"Empower-Mint",        color:"#87C5A4", dot:"#87C5A4" },
+  { id:"mint",                 label:"Mint",                color:"#80CBC4", dot:"#80CBC4" },
+  { id:"sage",                 label:"Sage",                color:"#8FAF8F", dot:"#8FAF8F" },
+  // ── Teals / Turquoise ────────────────────────────────────────────────────
+  { id:"metallic-teal",  label:"Metallic Teal",  color:"#007B82", dot:"#007B82" },
+  { id:"teal",           label:"Teal",           color:"#00A591", dot:"#00A591" },
+  { id:"sea-glass",      label:"Sea Glass",      color:"#A8D8D8", dot:"#A8D8D8" },
+  { id:"seafoam",        label:"Seafoam",        color:"#68DACA", dot:"#68DACA" },
+  { id:"turquoise",      label:"Turquoise",      color:"#00B5CC", dot:"#00B5CC" },
+  // ── Blues ────────────────────────────────────────────────────────────────
+  { id:"monet",                  label:"Monet",                   color:"#C5D9F0", dot:"#C5D9F0" },
+  { id:"baby-blue",              label:"Baby Blue",               color:"#B8D8E8", dot:"#B8D8E8" },
+  { id:"georgia",                label:"Georgia",                 color:"#7BA7BC", dot:"#7BA7BC" },
+  { id:"blue-slate",             label:"Blue Slate",              color:"#5C8399", dot:"#5C8399" },
+  { id:"blue",                   label:"Blue",                    color:"#0084C1", dot:"#0084C1" },
+  { id:"metallic-blue",          label:"Metallic Blue",           color:"#005BA6", dot:"#005BA6" },
+  { id:"royalty",                label:"Royalty",                 color:"#0052A5", dot:"#0052A5" },
+  { id:"crystal-sapphire",       label:"Crystal Sapphire Blue",   color:"#0065A4", dot:"#0065A4" },
+  { id:"navy",                   label:"Navy",                    color:"#003F7F", dot:"#003F7F" },
+  { id:"naval",                  label:"Naval",                   color:"#002E6D", dot:"#002E6D" },
+  { id:"metallic-midnight-blue", label:"Metallic Midnight Blue",  color:"#002366", dot:"#002366" },
+  // ── Purples ──────────────────────────────────────────────────────────────
+  { id:"peri",           label:"Peri",           color:"#7B8ED6", dot:"#7B8ED6" },
+  { id:"blossom",        label:"Blossom",         color:"#CF7EB8", dot:"#CF7EB8" },
+  { id:"lavender",       label:"Lavender",        color:"#C0A0D0", dot:"#C0A0D0" },
+  { id:"mauve",          label:"Mauve",           color:"#C48B9F", dot:"#C48B9F" },
+  { id:"purple",         label:"Purple",          color:"#9C27B0", dot:"#9C27B0" },
+  { id:"plum",           label:"Plum Purple",     color:"#7F2F92", dot:"#7F2F92" },
+  { id:"crystal-purple", label:"Crystal Purple",  color:"#5C1A7F", dot:"#5C1A7F" },
+  // ── Neutrals / Whites ────────────────────────────────────────────────────
+  { id:"white",          label:"White",           color:"#F8F8F8", dot:"#E8E8E8" },
+  { id:"sugar",          label:"Sugar",           color:"#FFF0F5", dot:"#F0E0E8" },
+  { id:"crystal-clear",  label:"Crystal Clear",   color:"#DFF0F8", dot:"#C8E0EE" },
+  { id:"fog",            label:"Fog",             color:"#9DB0BA", dot:"#9DB0BA" },
+  { id:"silver",         label:"Metallic Silver", color:"#C0C0C0", dot:"#B0B0B0" },
+  { id:"gray-smoke",     label:"Gray Smoke",      color:"#888888", dot:"#888888" },
+  { id:"black",          label:"Black",           color:"#1A1A1A", dot:"#111"    },
+  // ── Browns / Earthy ──────────────────────────────────────────────────────
+  { id:"lace",           label:"Lace",            color:"#F5ECD7", dot:"#EAD8BE" },
+  { id:"muse",           label:"Muse",            color:"#C8A882", dot:"#C8A882" },
+  { id:"stone",          label:"Stone",           color:"#B5A898", dot:"#B5A898" },
+  { id:"malted",         label:"Malted",          color:"#C8956A", dot:"#C8956A" },
+  { id:"cocoa",          label:"Cocoa",           color:"#7B5346", dot:"#7B5346" },
+  // ── Patterns ─────────────────────────────────────────────────────────────
+  { id:"cow",       label:"Cow Print",  color:"#fff", dot:"#fff", pattern:"cow"       },
+  { id:"dalmatian", label:"Dalmatian",  color:"#fff", dot:"#fff", pattern:"dalmatian" },
+  { id:"confetti",  label:"Confetti",   color:"#FFB6C1", dot:"#FFB6C1", pattern:"confetti" },
 ];
 
 // Organic garland balloon positions (x%, y%, size px, colorIndex cycling)
@@ -414,9 +490,12 @@ function GarlandPreview({ selectedColors, arrangement }) {
 }
 
 // ─── Tableware data ───────────────────────────────────────────────────────────
-// 💡 TO ADD YOUR REAL ETSY PHOTOS: replace the `image: null` lines below with
-//    your Etsy listing image URL wrapped in the proxy, like:
-//    image: "https://images.weserv.nl/?url=i.etsystatic.com/YOUR_IMAGE_ID.jpg"
+// 💡 TO ADD YOUR PRODUCT PHOTOS: replace `image: null` with the URL of your photo.
+//    Option A – Host on Squarespace: upload the image to your Squarespace Media folder,
+//               then right-click the image → Copy Image Address, and paste it here, e.g.:
+//               image: "https://images.squarespace-cdn.com/content/.../your-photo.jpg"
+//    Option B – Any direct image link works (Google Drive public link, Dropbox, etc.)
+//    If image is null, a color-matched placeholder shape is shown instead.
 const TABLEWARE = [
   // ── Plates (real products from bachhotlinesupplies.etsy.com) ────────────────
   {
@@ -474,6 +553,209 @@ const TABLEWARE = [
     image: null,         bg:"#D0D0D0", accent:"#9E9E9E",
     tags:["silver","white","gold","champagne"],
     etsyUrl:"https://bachhotlinesupplies.etsy.com",
+  },
+  {
+    id:"plate-bon-appetit", type:"plate", name:"Bon Appetit Plates",
+    desc:"8 ct · 10\" x 10\"", price:"$12.00",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68abcdaa27630e0353af3e1b/1767898930623/Ebook+Thumbnail+with+Video+-+2025-11-07T113409.047.png?format=1500w",
+    bg:"#A8D8D8", accent:"#C8A882",
+    tags:["seafoam","teal","sea-glass","turquoise","mint","monet","baby-blue","lace","muse","stone","champagne","white"],
+  },
+  {
+    id:"plate-strawberry", type:"plate", name:"Strawberry Plates",
+    desc:"8 ct · 7\" x 10\"", price:"$13.00",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/67919be89ae1111daaf68616/1767898896518/Ebook+Thumbnail+with+Video+-+2025-01-22T193036.107.png?format=1500w",
+    bg:"#E53935", accent:"#4CAF50",
+    tags:["red","scarlett","hotpink","blush","coral","baby-pink","pink","green","lime-green","white","sugar"],
+  },
+  {
+    id:"plate-happy-disco", type:"plate", name:"Happy Disco Plates",
+    desc:"8 ct · 7\" x 7\"", price:"$12.22",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767898868490/Ebook+Thumbnail+with+Video+-+2025-05-18T191748.541.png?format=1500w",
+    bg:"#E91E8C", accent:"#FF6B1A",
+    tags:["hotpink","orange","coral","taffy","aloha","cheeky","pixie","metallic-fuchsia","yellow","lemonade","burnt-orange"],
+  },
+  {
+    id:"plate-checkered-heart", type:"plate", name:"Checkered Heart Plates",
+    desc:"8 ct · 10\" x 10\"", price:"$12.50",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767898846535/Ebook+Thumbnail+with+Video+-+2025-01-23T140517.309.png?format=1500w",
+    bg:"#E91E8C", accent:"#1A1A1A",
+    tags:["hotpink","pink","blush","baby-pink","red","scarlett","black","white","crystal-magenta","metallic-fuchsia","pixie"],
+  },
+  {
+    id:"plate-sweet-strawberry", type:"plate", name:"Sweet Strawberry Plates",
+    desc:"8 ct · 8.5\" x 8.5\"", price:"$11.00",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684a16ceb91f060aa5226859/1767898822640/Ebook+Thumbnail+with+Video+-+2025-05-18T120736.773.png?format=1500w",
+    bg:"#E53935", accent:"#4CAF50",
+    tags:["red","scarlett","hotpink","blush","coral","taffy","baby-pink","pink","green","lime-green","white","sugar"],
+  },
+  {
+    id:"plate-diamond", type:"plate", name:"Diamond Plates",
+    desc:"8 ct · 10.5\" x 10.5\"", price:"$16.23",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68b7912a64121927f4c30afe/1767898776985/Ebook+Thumbnail+with+Video+-+2025-08-27T221852.336.png?format=1500w",
+    bg:"#1A1A1A", accent:"#CE93D8",
+    tags:["black","purple","plum","crystal-purple","sangria","lavender","silver","metallic-silver","gray-smoke","fog","crystal-clear"],
+  },
+  {
+    id:"plate-spooky-icons", type:"plate", name:"Spooky Icons Plates",
+    desc:"8 ct · 9\" round", price:"$14.38",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767898758872/Ebook+Thumbnail+with+Video+-+2025-01-23T112234.965.png?format=1500w",
+    bg:"#1A1A1A", accent:"#9C27B0",
+    tags:["black","purple","plum","crystal-purple","sangria","evergreen","metallic-forest-green","orange","burnt-orange","gray-smoke"],
+  },
+  {
+    id:"plate-spicy-bottle", type:"plate", name:"Spicy Bottle Canape Plates",
+    desc:"8 ct · 2.5\" x 5.5\"", price:"$10.22",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767898551264/Ebook+Thumbnail+with+Video+-+2025-05-11T155124.164.png?format=1500w",
+    bg:"#E8112D", accent:"#FF6B1A",
+    tags:["red","scarlett","samba","crystal-red","orange","burnt-orange","taffy","coral","hotpink","black"],
+  },
+  {
+    id:"plate-shimmer-cake", type:"plate", name:"Shimmer Birthday Cake Plates",
+    desc:"8 ct · 7.5\" x 9.5\"", price:"$14.36",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684af95264f4dd59c05b309d/1767898630517/Ebook+Thumbnail+with+Video+-+2025-05-12T192943.480.png?format=1500w",
+    bg:"#F5DEB3", accent:"#FFD700",
+    tags:["champagne","gold","metallic-gold","silver","white","sugar","lace","blush","baby-pink","lavender","crystal-clear"],
+  },
+  {
+    id:"plate-swan", type:"plate", name:"Swan Plates",
+    desc:"8 ct · 11.5\" x 7.5\"", price:"$12.50",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767898667035/Ebook+Thumbnail+with+Video+-+2025-05-11T155407.049.png?format=1500w",
+    bg:"#F8F8F8", accent:"#FFD700",
+    tags:["white","sugar","champagne","gold","metallic-gold","silver","lace","blush","baby-pink","monet"],
+  },
+  {
+    id:"plate-denim-star", type:"plate", name:"Denim Star Stripes Plates",
+    desc:"8 ct · 9\" x 9\"", price:"$12.50",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767898646461/Ebook+Thumbnail+with+Video+-+2025-05-09T083705.780.png?format=1500w",
+    bg:"#1A3A6B", accent:"#E8112D",
+    tags:["navy","naval","blue","royalty","metallic-blue","red","scarlett","white","crystal-sapphire","blue-slate"],
+  },
+  {
+    id:"plate-hello-kitty", type:"plate", name:"Hello Kitty Plates",
+    desc:"8 ct · 8\" x 8\"", price:"$12.58",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684ae85e64f4dd59c05b2093/1767898689607/Ebook+Thumbnail+with+Video+-+2025-05-18T191011.864.png?format=1500w",
+    bg:"#FFB5C2", accent:"#E91E8C",
+    tags:["hotpink","blush","baby-pink","pink","cameo","white","sugar","red","scarlett","lavender"],
+  },
+  {
+    id:"plate-wildflowers", type:"plate", name:"Wildflowers Plates",
+    desc:"8 ct · 9\" x 9.25\"", price:"$14.00",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6849a8b1b7ad9e539ec6699e/1767898737677/Ebook+Thumbnail+with+Video+-+2025-05-18T120815.577.png?format=1500w",
+    bg:"#76A96C", accent:"#F87171",
+    tags:["meadow","green","sage","willow","empower-mint","fiona","coral","blush","baby-pink","lemonade","yellow","lavender"],
+  },
+  {
+    id:"plate-hot-wheels", type:"plate", name:"Hot Wheels Checker Plates",
+    desc:"8 ct · 10\" round", price:"$10.12",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/69601037c85bb24f5c846130/1767917635112/Ebook+Thumbnail+with+Video-407.png?format=1500w",
+    bg:"#E8112D", accent:"#1A1A1A",
+    tags:["red","scarlett","samba","crystal-red","orange","burnt-orange","black","yellow","lemonade"],
+  },
+  {
+    id:"plate-bananas", type:"plate", name:"Bananas For You Plates",
+    desc:"8 ct · 10\" x 10\"", price:"$12.50",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68abc56727630e0353af3741/1767904124668/Ebook+Thumbnail+with+Video-401.png?format=1500w",
+    bg:"#FFE800", accent:"#4CAF50",
+    tags:["yellow","lemonade","goldenrod","mustard","lime-green","green","meadow","orange","aloha","cheeky"],
+  },
+  {
+    id:"plate-summer-cake", type:"plate", name:"Summer Cake Plates",
+    desc:"8 ct · 7.5\" x 11\"", price:"$14.04",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684999f51ef4b52dec0631cd/1767898324611/Ebook+Thumbnail+with+Video+-+2025-06-13T132740.712.png?format=1500w",
+    bg:"#FFEA5A", accent:"#FF6B8A",
+    tags:["yellow","lemonade","goldenrod","hotpink","coral","taffy","blush","baby-pink","turquoise","seafoam","mint"],
+  },
+  {
+    id:"plate-happy-face", type:"plate", name:"Happy Face Plates",
+    desc:"8 ct · 10.5\" x 10.5\"", price:"$16.30",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6848ae27cc6de75b44de261f/1767898403813/Ebook+Thumbnail+with+Video+-+2025-05-18T120745.117.png?format=1500w",
+    bg:"#FFE800", accent:"#E91E8C",
+    tags:["yellow","lemonade","hotpink","pink","coral","mint","turquoise","lavender","rainbow","confetti"],
+  },
+  {
+    id:"plate-silver-disco", type:"plate", name:"Silver Disco Plates",
+    desc:"8 ct · 9\" x 9\"", price:"$12.00",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6793bc8ca165a16c98b66474/1767898308845/Ebook+Thumbnail+with+Video+-+2025-01-27T125554.572.png?format=1500w",
+    bg:"#D0D0D0", accent:"#9E9E9E",
+    tags:["silver","white","crystal-clear","fog","gray-smoke","metallic-blue","navy","naval","metallic-midnight-blue","metallic-green","metallic-fuchsia","metallic-gold"],
+  },
+  {
+    id:"plate-jaguar", type:"plate", name:"Jaguar Plates",
+    desc:"8 ct · 8.75\" x 7.5\"", price:"$13.56",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767898290723/Ebook+Thumbnail+with+Video+-+2025-06-07T234024.878.png?format=1500w",
+    bg:"#C8A882", accent:"#1A1A1A",
+    tags:["muse","malted","terracotta","stone","cocoa","lace","champagne","orange","burnt-orange","mustard","black"],
+  },
+  {
+    id:"plate-daisy", type:"plate", name:"Daisy Plates",
+    desc:"12 ct · 9\" x 9\"", price:"$12.50",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684894bb1ef4b52dec058349/1767555917671/Ebook+Thumbnail+with+Video+-+2025-06-07T171246.235.png?format=1500w",
+    bg:"#FFEE00", accent:"#4CAF50",
+    tags:["yellow","lemonade","goldenrod","white","green","lime-green","meadow","empower-mint","sugar"],
+  },
+  {
+    id:"plate-pastel-stripe", type:"plate", name:"Pastel Stripe Plates",
+    desc:"8 ct · 9\" x 9\"", price:"$12.50",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b3ef3e6e-10ae-42c2-90f1-74697391dae0/Ebook+Thumbnail+with+Video+-+2025-12-29T210340.995.png",
+    bg:"#F4A7B9", accent:"#FFD700",
+    tags:["blush","lavender","mint","baby-blue","baby-pink","gold","champagne","sugar","lemonade","monet","sea-glass"],
+  },
+  {
+    id:"plate-disco-cherry", type:"plate", name:"Disco Cherry Drink Plates",
+    desc:"8 ct · 9\" x 9\"", price:"$12.50",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684aeb982427cd1f49ac1344/1767473564389/Ebook+Thumbnail+with+Video+-+2025-05-18T120827.502.png?format=1500w",
+    bg:"#E91E8C", accent:"#9C27B0",
+    tags:["hotpink","red","scarlett","crystal-red","purple","plum","crystal-purple","sangria","metallic-fuchsia"],
+  },
+  {
+    id:"plate-cactus", type:"plate", name:"Cactus Plates",
+    desc:"8 ct · 8.5\" x 9\"", price:"$13.50",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6791a5e79ae1111daaf6920f/1767898212097/Ebook+Thumbnail+with+Video+-+2025-01-22T201457.935.png?format=1500w",
+    bg:"#4CAF50", accent:"#C4956A",
+    tags:["green","lime-green","evergreen","meadow","sage","empower-mint","terracotta","orange","mustard"],
+  },
+  {
+    id:"plate-pink-pony-club", type:"plate", name:"Pink Pony Club Plates",
+    desc:"24 ct · 9\" x 9\"", price:"$17.22",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6848a1a41ef4b52dec059186/1767557348516/Ebook+Thumbnail+with+Video+-+2025-05-18T120703.581.png?format=1500w",
+    bg:"#F4A7B9", accent:"#C4956A",
+    tags:["hotpink","blush","pink","baby-pink","cameo","mauve","canyon-rose","terracotta","champagne"],
+  },
+  {
+    id:"plate-foil-star", type:"plate", name:"Foil Star Plates",
+    desc:"8 ct · 11\" x 11\"", price:"$12.50",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767897977380/Ebook+Thumbnail+with+Video+-+2025-01-22T204555.167.png?format=1500w",
+    bg:"#D0D0D0", accent:"#9E9E9E",
+    tags:["silver","white","gold","champagne","crystal-clear","fog","gray-smoke","metallic-gold"],
+  },
+  {
+    id:"plate-blue-floral", type:"plate", name:"Blue Floral Plates",
+    desc:"12 ct · 10\" x 10\"", price:"$13.00",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/67928a2ea165a16c98b562e9/1767557636786/Ebook+Thumbnail+with+Video+-+2025-01-23T122858.717.png?format=1500w",
+    bg:"#B8D8E8", accent:"#0084C1",
+    tags:["blue","baby-blue","monet","georgia","blue-slate","seafoam","sea-glass","mint","lavender"],
+  },
+  {
+    id:"plate-roller-skate", type:"plate", name:"Roller Skate Plates",
+    desc:"8 ct · 7\" x 10\"",  price:"$13.90",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684b09e90a63794fee8a6a3d/1767898444935/Ebook+Thumbnail+with+Video+-+2025-05-12T190919.641.png?format=1500w",
+    bg:"#4CAF50", accent:"#388E3C",
+    tags:["green","lime-green","meadow","empower-mint","mint","sage","evergreen"],
+  },
+  {
+    id:"plate-flaming-heart", type:"plate", name:"Flaming Heart Plates",
+    desc:"8 ct · 9\" x 12\"",  price:"$13.50",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68486d8cb91f060aa5210568/1767827872670/Ebook+Thumbnail+with+Video+-+2025-06-07T231851.197.png?format=1500w",
+    bg:"#E53935", accent:"#FF6B1A",
+    tags:["red","orange","hotpink","scarlett","samba","coral","taffy"],
+  },
+  {
+    id:"plate-fire-checker", type:"plate", name:"Fire Flames Checker Plates",
+    desc:"8 ct · 10.75\"",   price:"$10.12",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/69604843095f8b783bc99ee0/1767921199759/Ebook+Thumbnail+with+Video-411.png?format=1500w",
+    bg:"#1A3A6B", accent:"#FF6B1A",
+    tags:["blue","orange","red","black","navy"],
   },
   // ── Cups (add your real cup products below) ──────────────────────────────────
   {
@@ -759,7 +1041,7 @@ function GarlandBuilder({ cart, setCart, setTab }) {
           {arrangement==="mixed"?"Pick Up to 5 Colors":"Pick Up to 4 Colors"}
           <span style={{marginLeft:8,fontWeight:400,color:"#bbb",textTransform:"none",letterSpacing:0}}>{selected.length}/{maxColors} selected</span>
         </div>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(6,1fr)",gap:8}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:8}}>
           {BALLOON_COLORS.filter(c => arrangement==="colorblock" ? !c.pattern : true).map(c=>{
             const isSel = selected.includes(c.id);
             return (
@@ -909,10 +1191,10 @@ export default function DecorTab({ groupSize, cart, setCart, setTab }) {
       }}>
         <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:700,letterSpacing:"1.5px",textTransform:"uppercase",marginBottom:6}}>Bach Hotline</div>
         <h2 style={{fontFamily:"'Playfair Display',Georgia,serif",fontSize:22,fontWeight:900,margin:"0 0 6px",color:DARK}}>
-          <em style={{color:HOT}}>Decor Studio</em>
+          <em style={{color:HOT}}>Build Your Decor Package</em>
         </h2>
         <p style={{fontSize:12,color:HOT,fontFamily:"'DM Sans',sans-serif",margin:0,opacity:0.85,lineHeight:1.6}}>
-          Upload your space · choose a package · see the look before you book
+          Upload your space · choose a package · add everything to your cart
         </p>
       </div>
 
@@ -1052,11 +1334,25 @@ export default function DecorTab({ groupSize, cart, setCart, setTab }) {
 
           {/* CTAs */}
           <div style={{display:"flex",flexDirection:"column",gap:10}}>
-            <a href="https://bachhotlinesupplies.etsy.com" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
-              <button style={{...BP,width:"100%",padding:"14px",fontSize:14}}>
-                Shop This Package on Etsy →
-              </button>
-            </a>
+            <button onClick={()=>{
+              const pkgCartId = `decor-pkg-${pkg.id}`;
+              if (!cart.some(c=>c.id===pkgCartId)) {
+                setCart(prev=>[...prev,{
+                  id: pkgCartId,
+                  name: `${pkg.emoji} ${pkg.name} — ${vibe.label}`,
+                  price: parseFloat(pkg.price.replace("$","")),
+                  image: null,
+                  category: "decor-package",
+                }]);
+              }
+            }} style={{
+              ...BP, width:"100%", padding:"14px", fontSize:14,
+              background: cart.some(c=>c.id===`decor-pkg-${pkg.id}`) ? SOFT : undefined,
+              color:      cart.some(c=>c.id===`decor-pkg-${pkg.id}`) ? HOT  : undefined,
+              border:     cart.some(c=>c.id===`decor-pkg-${pkg.id}`) ? `1.5px solid ${HOT}` : undefined,
+            }}>
+              {cart.some(c=>c.id===`decor-pkg-${pkg.id}`) ? `✓ ${pkg.name} Added to Package` : `Add ${pkg.name} to My Package — ${pkg.price}`}
+            </button>
             <button style={{...BS,width:"100%",padding:"12px",fontSize:13}}>
               💌 Request a Custom Setup Quote
             </button>

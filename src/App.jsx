@@ -82,7 +82,7 @@ export default function App() {
             { id:"home",  label:"Home" },
             { id:"plan",  label:"Itinerary" },
             { id:"explore", label:"Explore" },
-            { id:"decor", label:"Studio" },
+            { id:"decor", label:"Package" },
             { id:"more",  label:"More" },
           ].map(n => {
             const isMore   = n.id === "more";
@@ -133,7 +133,7 @@ export default function App() {
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
                 {[
                   { id:"mood",    label:"Vibes",        sub:"Theme & mood board"          },
-                  { id:"decor",   label:"Decor Studio", sub:"Visualize your party setup"  },
+                  { id:"decor",   label:"Build Your Decor Package", sub:"Design & shop your party setup"  },
                   { id:"alerts",  label:"Alerts",       sub:"Members-only price drops"    },
                   { id:"media",   label:"Share Media",  sub:"Upload trip pics & videos"   },
                   { id:"profile", label:"Profile",      sub:"Settings & trips"            },
