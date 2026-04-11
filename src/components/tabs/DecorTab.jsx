@@ -597,85 +597,67 @@ function TablewearVisual({ item }) {
   );
 }
 
-function TablewearRecommendations({ selectedColors }) {
+function TablewearRecommendations({ selectedColors, cart, setCart }) {
   const matches = matchTableware(selectedColors);
   if (!matches.length || !selectedColors.length) return null;
 
   const plates = matches.filter(i=>i.type==="plate");
   const cups   = matches.filter(i=>i.type==="cup");
 
+  const inCart = id => cart.some(c=>c.id===id);
+  const addToCart = item => {
+    if (inCart(item.id)) return;
+    setCart(prev=>[...prev,{ id:item.id, name:item.name, price:parseFloat(item.price.replace("$","")), image:null, category:"tableware" }]);
+  };
+
+  const ItemCard = ({ item }) => (
+    <div style={{ background:WHITE, border:`1.5px solid ${inCart(item.id)?HOT:BORDER}`, borderRadius:14, overflow:"hidden", transition:"all 0.2s" }}>
+      <div style={{height:90,position:"relative"}}>
+        <TablewearVisual item={item}/>
+      </div>
+      <div style={{padding:"8px 10px"}}>
+        <div style={{fontSize:11,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
+        <div style={{fontSize:10,color:"#aaa",fontFamily:"'DM Sans',sans-serif",marginTop:1}}>{item.desc}</div>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6}}>
+          <div style={{fontSize:13,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>{item.price}</div>
+          <button onClick={()=>addToCart(item)} style={{
+            background:inCart(item.id)?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
+            color:inCart(item.id)?HOT:WHITE,
+            border:inCart(item.id)?`1.5px solid ${HOT}`:"none",
+            borderRadius:20,padding:"5px 12px",
+            fontFamily:"'DM Sans',sans-serif",fontSize:10,fontWeight:700,cursor:"pointer",
+          }}>
+            {inCart(item.id)?"✓ Added":"+ Add"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div style={{marginTop:20,paddingTop:18,borderTop:`1.5px solid ${SOFT}`}}>
       <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:14}}>
         <div style={{fontSize:16}}>🍽️</div>
         <div>
-          <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>
-            Matching Tableware
-          </div>
-          <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.85}}>
-            Coordinated with your garland colors
-          </div>
+          <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>Matching Tableware</div>
+          <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.85}}>Coordinated with your garland — add to your package</div>
         </div>
       </div>
 
-      {/* Plates */}
       {plates.length > 0 && (
         <div style={{marginBottom:14}}>
           <div style={{fontSize:10,fontWeight:700,color:"#aaa",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>Plates</div>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
-            {plates.map(item=>(
-              <a key={item.id} href={item.etsyUrl} target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
-                <div style={{
-                  background:WHITE,border:`1.5px solid ${BORDER}`,borderRadius:14,
-                  overflow:"hidden",cursor:"pointer",transition:"all 0.15s",
-                }}>
-                  <div style={{height:90,position:"relative"}}>
-                    <TablewearVisual item={item}/>
-                    <div style={{
-                      position:"absolute",top:6,right:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,
-                      color:WHITE,fontSize:8,fontWeight:700,fontFamily:"'DM Sans',sans-serif",
-                      padding:"2px 7px",borderRadius:10,
-                    }}>Shop →</div>
-                  </div>
-                  <div style={{padding:"8px 10px"}}>
-                    <div style={{fontSize:11,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
-                    <div style={{fontSize:10,color:"#aaa",fontFamily:"'DM Sans',sans-serif",marginTop:1}}>{item.desc}</div>
-                    <div style={{fontSize:12,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif",marginTop:3}}>{item.price}</div>
-                  </div>
-                </div>
-              </a>
-            ))}
+            {plates.map(item=><ItemCard key={item.id} item={item}/>)}
           </div>
         </div>
       )}
 
-      {/* Cups */}
       {cups.length > 0 && (
         <div style={{marginBottom:4}}>
           <div style={{fontSize:10,fontWeight:700,color:"#aaa",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>Cups</div>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
-            {cups.map(item=>(
-              <a key={item.id} href={item.etsyUrl} target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
-                <div style={{
-                  background:WHITE,border:`1.5px solid ${BORDER}`,borderRadius:14,
-                  overflow:"hidden",cursor:"pointer",transition:"all 0.15s",
-                }}>
-                  <div style={{height:90,position:"relative"}}>
-                    <TablewearVisual item={item}/>
-                    <div style={{
-                      position:"absolute",top:6,right:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,
-                      color:WHITE,fontSize:8,fontWeight:700,fontFamily:"'DM Sans',sans-serif",
-                      padding:"2px 7px",borderRadius:10,
-                    }}>Shop →</div>
-                  </div>
-                  <div style={{padding:"8px 10px"}}>
-                    <div style={{fontSize:11,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
-                    <div style={{fontSize:10,color:"#aaa",fontFamily:"'DM Sans',sans-serif",marginTop:1}}>{item.desc}</div>
-                    <div style={{fontSize:12,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif",marginTop:3}}>{item.price}</div>
-                  </div>
-                </div>
-              </a>
-            ))}
+            {cups.map(item=><ItemCard key={item.id} item={item}/>)}
           </div>
         </div>
       )}
@@ -683,9 +665,9 @@ function TablewearRecommendations({ selectedColors }) {
   );
 }
 
-function GarlandBuilder() {
-  const [mode,        setMode]        = useState("diy");      // diy | preinflated
-  const [arrangement, setArrangement] = useState("mixed");    // mixed | colorblock
+function GarlandBuilder({ cart, setCart, setTab }) {
+  const [mode,        setMode]        = useState("diy");
+  const [arrangement, setArrangement] = useState("mixed");
   const [selected,    setSelected]    = useState([]);
 
   const maxColors = arrangement === "mixed" ? 5 : 4;
@@ -821,14 +803,57 @@ function GarlandBuilder() {
           {arrangement==="mixed"?"Mixed arrangement":"Color block"}
         </div>
       </div>
-      <a href="https://bachhotlinesupplies.etsy.com" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
-        <button style={{...BP,width:"100%",padding:"14px",fontSize:14}}>
-          Order Custom Garland on Etsy →
+      {/* Add garland to cart */}
+      {selected.length > 0 && (
+        <button onClick={()=>{
+          const garlandId = `garland-${mode}-${arrangement}`;
+          if (!cart.some(c=>c.id===garlandId)) {
+            setCart(prev=>[...prev,{
+              id: garlandId,
+              name: `Custom Balloon Garland — ${mode==="diy"?"DIY":"Pre-Inflated"}, ${arrangement==="mixed"?"Mixed":"Color Block"}`,
+              price: parseFloat(price.replace("$","")),
+              image: null,
+              category: "garland",
+              colors: selected,
+            }]);
+          }
+        }} style={{
+          ...BP, width:"100%", padding:"14px", fontSize:14,
+          background: cart.some(c=>c.id===`garland-${mode}-${arrangement}`) ? SOFT : undefined,
+          color:      cart.some(c=>c.id===`garland-${mode}-${arrangement}`) ? HOT  : undefined,
+          border:     cart.some(c=>c.id===`garland-${mode}-${arrangement}`) ? `1.5px solid ${HOT}` : undefined,
+        }}>
+          {cart.some(c=>c.id===`garland-${mode}-${arrangement}`) ? "✓ Garland Added to Package" : `Add Garland to My Package — ${price}`}
         </button>
-      </a>
+      )}
 
-      {/* Matching tableware — appears after colors are selected */}
-      <TablewearRecommendations selectedColors={selected}/>
+      {/* Matching tableware */}
+      <TablewearRecommendations selectedColors={selected} cart={cart} setCart={setCart}/>
+
+      {/* Party Package summary */}
+      {cart.length > 0 && (
+        <div style={{marginTop:20,padding:"16px",borderRadius:18,background:`linear-gradient(135deg,${SOFT},${MID})`,border:`1.5px solid ${MID}`}}>
+          <div style={{fontSize:14,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:4}}>🎉 Your Party Package</div>
+          <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:12,opacity:0.85}}>Everything you've added — one checkout</div>
+          {cart.map(item=>(
+            <div key={item.id} style={{display:"flex",justifyContent:"space-between",marginBottom:6,fontFamily:"'DM Sans',sans-serif",fontSize:12}}>
+              <span style={{color:DARK,flex:1,marginRight:8,lineHeight:1.4}}>{item.name}</span>
+              <span style={{fontWeight:700,color:PUNCH,flexShrink:0}}>${typeof item.price==="number"?item.price.toFixed(2):item.price}</span>
+            </div>
+          ))}
+          <div style={{height:1,background:MID,margin:"10px 0"}}/>
+          <div style={{display:"flex",justifyContent:"space-between",fontFamily:"'DM Sans',sans-serif",fontWeight:900,fontSize:15,marginBottom:14}}>
+            <span style={{color:DARK}}>Total</span>
+            <span style={{color:HOT}}>${cart.reduce((s,i)=>s+(typeof i.price==="number"?i.price:parseFloat(i.price)||0),0).toFixed(2)}</span>
+          </div>
+          <button onClick={()=>setTab&&setTab("shop")} style={{...BP,width:"100%",padding:"14px",fontSize:14}}>
+            Review & Checkout →
+          </button>
+          <div style={{textAlign:"center",marginTop:8,fontSize:10,color:"#bbb",fontFamily:"'DM Sans',sans-serif"}}>
+            Secure checkout · No Etsy fees
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -852,7 +877,7 @@ function PackageCard({ pkg, selected, onClick }) {
 }
 
 // ─── Main component ───────────────────────────────────────────────────────────
-export default function DecorTab({ groupSize }) {
+export default function DecorTab({ groupSize, cart, setCart, setTab }) {
   const fileRef  = useRef();
   const [photo,  setPhoto]  = useState(null);
   const [pkgId,  setPkgId]  = useState(null);
@@ -1044,7 +1069,7 @@ export default function DecorTab({ groupSize }) {
       )}
 
       {/* ── Custom Balloon Garland Builder ── */}
-      <GarlandBuilder />
+      <GarlandBuilder cart={cart||[]} setCart={setCart||(_=>{})} setTab={setTab}/>
     </div>
   );
 }

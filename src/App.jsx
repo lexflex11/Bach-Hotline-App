@@ -69,7 +69,7 @@ export default function App() {
         {tab==="split"   && <SplitTab groupSize={groupSize} user={user} onSignUp={()=>setUser(null)} />}
         {tab==="shop"    && <ShopTab cart={cart} setCart={setCart} />}
         {tab==="alerts"  && <AlertsTab user={user} onSignUp={()=>setUser(null)} />}
-        {tab==="decor"   && <DecorTab groupSize={groupSize} />}
+        {tab==="decor"   && <DecorTab groupSize={groupSize} cart={cart} setCart={setCart} setTab={setTab} />}
         {tab==="profile" && <ProfileTab user={user} onLogout={()=>setUser(null)} cart={cart} />}
         {tab==="polls"   && <PollsTab user={user} onSignUp={()=>setUser(null)} />}
         {tab==="explore"  && <ExploreTab groupSize={groupSize} setTab={setTab} />}
