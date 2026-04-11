@@ -465,33 +465,6 @@ export default function PlanTab({ groupSize, setGroupSize, setTab }) {
           ))}
         </div>
       )}
-      {/* ── PLANNING TOOLS ── */}
-      <div style={{marginTop:24}}>
-        <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:14}}>
-          <div style={{flex:1,height:1.5,background:MID,borderRadius:2}}/>
-          <div style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",letterSpacing:"1.5px",textTransform:"uppercase",whiteSpace:"nowrap"}}>Planning Tools</div>
-          <div style={{flex:1,height:1.5,background:MID,borderRadius:2}}/>
-        </div>
-
-        <div style={{display:"flex",flexDirection:"column",gap:10}}>
-          {[
-            { icon:"🧾", label:"Split the Bill",     sub:`Divide costs fairly — bride pays nothing · ${groupSize} people`,   tab:"split"  },
-            { icon:"🗳️", label:"Group Polls",         sub:"Vote on destinations, activities & more",                          tab:"polls"  },
-          ].map(tool=>(
-            <button key={tool.tab} onClick={()=>setTab&&setTab(tool.tab)} style={{
-              ...C, display:"flex", alignItems:"center", gap:14,
-              cursor:"pointer", textAlign:"left", width:"100%",
-            }}>
-              <span style={{fontSize:26}}>{tool.icon}</span>
-              <div style={{flex:1}}>
-                <div style={{fontSize:13,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{tool.label}</div>
-                <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginTop:2,opacity:0.75}}>{tool.sub}</div>
-              </div>
-              <span style={{color:HOT,fontSize:20}}>›</span>
-            </button>
-          ))}
-        </div>
-      </div>
 
     </div>
   );

@@ -65,12 +65,12 @@ export default function App() {
         {tab==="mood"    && <MoodTab setTab={setTab} />}
         {tab==="moh"     && <MOHTab groupSize={groupSize} />}
         {tab==="dayof"   && <DayOfTab />}
-        {tab==="split"   && <SplitTab groupSize={groupSize} />}
+        {tab==="split"   && <SplitTab groupSize={groupSize} user={user} onSignUp={()=>setUser(null)} />}
         {tab==="shop"    && <ShopTab cart={cart} setCart={setCart} />}
         {tab==="alerts"  && <AlertsTab />}
         {tab==="decor"   && <DecorTab groupSize={groupSize} />}
         {tab==="profile" && <ProfileTab user={user} onLogout={()=>setUser(null)} cart={cart} />}
-        {tab==="polls"   && <PollsTab user={user} />}
+        {tab==="polls"   && <PollsTab user={user} onSignUp={()=>setUser(null)} />}
         {tab==="explore"  && <ExploreTab groupSize={groupSize} setTab={setTab} />}
       </div>
       {/* ── BOTTOM NAV — 5 tabs + More drawer ── */}

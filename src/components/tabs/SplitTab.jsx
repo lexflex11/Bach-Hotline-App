@@ -3,7 +3,24 @@ import { SOFT, MID, HOT, PUNCH, DARK, BORDER, WHITE, GOLD, GREEN } from '../../c
 import { C, BP, BS, IN } from '../../constants/styles.js';
 import SH from '../ui/SH.jsx';
 
-export default function SplitTab({ groupSize }) {
+function AccountGate({ onSignUp }) {
+  return (
+    <div style={{textAlign:"center",padding:"48px 24px"}}>
+      <div style={{fontSize:48,marginBottom:16}}>🧾</div>
+      <h2 style={{fontFamily:"'Playfair Display',Georgia,serif",fontSize:22,fontWeight:700,color:HOT,margin:"0 0 10px"}}>Members Only</h2>
+      <p style={{fontSize:13,color:"#888",fontFamily:"'DM Sans',sans-serif",lineHeight:1.6,marginBottom:28}}>
+        Split the Bill is for the bride tribe only.<br/>Create a free account to access this feature.
+      </p>
+      <button onClick={onSignUp} style={{background:`linear-gradient(135deg,#E91E8C,#FF4081)`,color:"#fff",border:"none",borderRadius:50,padding:"13px 32px",fontFamily:"'DM Sans',sans-serif",fontSize:14,fontWeight:700,cursor:"pointer",width:"100%",maxWidth:280}}>
+        Create Free Account
+      </button>
+      <p style={{fontSize:11,color:"#bbb",fontFamily:"'DM Sans',sans-serif",marginTop:14}}>Already have an account? Sign in from the home screen.</p>
+    </div>
+  );
+}
+
+export default function SplitTab({ groupSize, user, onSignUp }) {
+  if (!user || user.id === "g") return <AccountGate onSignUp={onSignUp} />;
   const [members, setMembers] = useState([
     { id:1, name:"Sarah (Bride)", paid:true  },
     { id:2, name:"Jessica (MOH)", paid:true  },

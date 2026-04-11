@@ -218,7 +218,24 @@ function VoteScreen({ pollId, onBack }) {
   );
 }
 
-export default function PollsTab({ user }) {
+function AccountGate({ onSignUp }) {
+  return (
+    <div style={{textAlign:"center",padding:"48px 24px"}}>
+      <div style={{fontSize:48,marginBottom:16}}>🗳️</div>
+      <h2 style={{fontFamily:"'Playfair Display',Georgia,serif",fontSize:22,fontWeight:700,color:HOT,margin:"0 0 10px"}}>Members Only</h2>
+      <p style={{fontSize:13,color:"#888",fontFamily:"'DM Sans',sans-serif",lineHeight:1.6,marginBottom:28}}>
+        Group Polls is for the bride tribe only.<br/>Create a free account to create and vote on polls.
+      </p>
+      <button onClick={onSignUp} style={{background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,border:"none",borderRadius:50,padding:"13px 32px",fontFamily:"'DM Sans',sans-serif",fontSize:14,fontWeight:700,cursor:"pointer",width:"100%",maxWidth:280}}>
+        Create Free Account
+      </button>
+      <p style={{fontSize:11,color:"#bbb",fontFamily:"'DM Sans',sans-serif",marginTop:14}}>Already have an account? Sign in from the home screen.</p>
+    </div>
+  );
+}
+
+export default function PollsTab({ user, onSignUp }) {
+  if (!user || user.id === "g") return <AccountGate onSignUp={onSignUp} />;
   const [screen, setScreen] = useState("list");
   const [activePollId, setActivePollId] = useState(null);
   useEffect(() => {
