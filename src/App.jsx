@@ -40,10 +40,12 @@ export default function App() {
         <div style={{ padding:"2px 16px 0px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
           <img src={LOGO_SRC} alt="Bach Hotline" style={{ height:90, width:"auto", objectFit:"contain" }} />
           <div style={{ display:"flex", gap:8, alignItems:"center" }}>
-            <div onClick={()=>setTab("alerts")} style={{ position:"relative", cursor:"pointer", fontSize:22 }}>
-              🔔
-              {alertCount>0&&<div style={{ position:"absolute", top:-4, right:-4, width:16, height:16, borderRadius:"50%", background:PUNCH, display:"flex", alignItems:"center", justifyContent:"center", fontSize:9, fontWeight:800, fontFamily:"'DM Sans',sans-serif", color:WHITE, boxShadow:`0 2px 6px rgba(213,36,56,0.45)` }}>{alertCount}</div>}
-            </div>
+            {user.email && (
+              <div onClick={()=>setTab("alerts")} style={{ position:"relative", cursor:"pointer", fontSize:22 }}>
+                🔔
+                {alertCount>0&&<div style={{ position:"absolute", top:-4, right:-4, width:16, height:16, borderRadius:"50%", background:PUNCH, display:"flex", alignItems:"center", justifyContent:"center", fontSize:9, fontWeight:800, fontFamily:"'DM Sans',sans-serif", color:WHITE, boxShadow:`0 2px 6px rgba(213,36,56,0.45)` }}>{alertCount}</div>}
+              </div>
+            )}
             <div onClick={()=>setTab("shop")} style={{ background:cart.length>0?`linear-gradient(135deg,${HOT},${PUNCH})`:SOFT, border:`1.5px solid ${cart.length>0?HOT:BORDER}`, borderRadius:50, padding:"6px 13px", fontSize:12, fontFamily:"'DM Sans',sans-serif", fontWeight:700, color:cart.length>0?WHITE:HOT, cursor:"pointer" }}>
               🛒 {cart.length}
             </div>
@@ -115,8 +117,10 @@ export default function App() {
                   { id:"stays",   label:"Stays",     sub:"Airbnb, Vrbo & hotels"   },
                   { id:"eats",    label:"Eats",      sub:"Restaurants & activities" },
                   { id:"budget",  label:"Budget",    sub:"Estimate trip cost"       },
-                  { id:"split",   label:"Split",     sub:"Divide expenses"          },
-                  ...(user.email ? [{ id:"dayof", label:"Day-Of", sub:"Live itinerary mode" }] : []),
+                  ...(user.email ? [
+                    { id:"split", label:"Split",     sub:"Divide expenses"          },
+                    { id:"dayof", label:"Day-Of",    sub:"Live itinerary mode"      },
+                  ] : []),
                   { id:"polls",   label:"Polls",     sub:"Group voting"             },
                 ].map(item => (
                   <button key={item.id} onClick={() => { setTab(item.id); setDrawerOpen(false); }}
