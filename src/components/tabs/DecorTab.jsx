@@ -2680,11 +2680,20 @@ function matchTableware(selectedColorIds) {
 }
 
 // CSS plate/cup visual (used when image is null)
+function proxyImg(url) {
+  if (!url) return null;
+  if (url.includes("squarespace-cdn.com") || url.includes("squarespace.com/static")) {
+    const stripped = url.replace(/^https?:\/\//, "").split("?")[0];
+    return `https://images.weserv.nl/?url=${encodeURIComponent(stripped)}&w=600&output=webp&q=85`;
+  }
+  return url;
+}
+
 function TablewearVisual({ item }) {
   if (item.image) {
     return (
       <img
-        src={item.image} alt={item.name}
+        src={proxyImg(item.image)} alt={item.name}
         style={{width:"100%",height:"100%",objectFit:"contain",display:"block",background:"#fafafa"}}
         onError={e=>{e.target.style.display="none";}}
       />
