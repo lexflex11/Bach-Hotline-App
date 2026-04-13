@@ -3258,10 +3258,7 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
                 <TablewearVisual item={item}/>
               </div>
               <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
-                <div>
-                  <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
-                  {item.desc && <div style={{fontSize:8,color:"#888",fontFamily:"'DM Sans',sans-serif",lineHeight:1.35,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{item.desc}</div>}
-                </div>
+                <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
                 <div style={{marginTop:5}}>
                   <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>{item.price} each</div>
                   <button onClick={()=>setActiveNumId(activeNumId===item.id?null:item.id)} style={{
@@ -3291,10 +3288,7 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
               )}
             </div>
             <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
-              <div>
-                <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
-                {item.desc && <div style={{fontSize:8,color:"#888",fontFamily:"'DM Sans',sans-serif",lineHeight:1.35,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{item.desc}</div>}
-              </div>
+              <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:5}}>
                 <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>{item.price}</div>
                 <button onClick={()=>toggle(item)} style={{
