@@ -196,27 +196,18 @@ export default function FlightsTab({ groupSize }) {
               {groupSize} travelers · {depDate ? `${depDate}${retDate ? ` → ${retDate}` : " (one way)"}` : "flexible dates"} · real-time prices
             </div>
 
-            {/* Search grid — 2x2 compact buttons */}
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
-              <button onClick={()=>open("expedia")} style={{background:"linear-gradient(135deg,#00355F,#00509E)",color:WHITE,border:"none",borderRadius:12,padding:"12px 8px",fontFamily:"'DM Sans',sans-serif",fontSize:12,fontWeight:700,cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:4}}>
-                <span style={{fontSize:18}}>✈️</span>
-                <span>Expedia</span>
-              </button>
-              <button onClick={()=>open("kayak")} style={{background:"linear-gradient(135deg,#FF690F,#e05500)",color:WHITE,border:"none",borderRadius:12,padding:"12px 8px",fontFamily:"'DM Sans',sans-serif",fontSize:12,fontWeight:700,cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:4}}>
-                <span style={{fontSize:18}}>🔍</span>
-                <span>Kayak</span>
-              </button>
-              <button onClick={()=>open("sky")} style={{background:"linear-gradient(135deg,#0770E3,#055DBF)",color:WHITE,border:"none",borderRadius:12,padding:"12px 8px",fontFamily:"'DM Sans',sans-serif",fontSize:12,fontWeight:700,cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:4}}>
-                <span style={{fontSize:18}}>🛩️</span>
-                <span>Skyscanner</span>
-              </button>
-              <button onClick={()=>open("google")} style={{background:WHITE,color:"#555",border:`1.5px solid ${BORDER}`,borderRadius:12,padding:"12px 8px",fontFamily:"'DM Sans',sans-serif",fontSize:12,fontWeight:700,cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:4}}>
-                <span style={{fontSize:18}}>🔎</span>
-                <span>Google</span>
-              </button>
-            </div>
-            <div style={{fontSize:9,color:"#bbb",fontFamily:"'DM Sans',sans-serif",marginTop:8,textAlign:"center"}}>
-              All search real-time prices · Opens in a new tab
+            <button onClick={()=>open("google")} style={{
+              width:"100%",
+              background:`linear-gradient(135deg,${HOT},${PUNCH})`,
+              color:WHITE, border:"none", borderRadius:14,
+              padding:"15px", cursor:"pointer",
+              fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:800,
+              letterSpacing:"0.3px",
+            }}>
+              ✈️ Find Best Prices
+            </button>
+            <div style={{fontSize:10,color:"#bbb",fontFamily:"'DM Sans',sans-serif",marginTop:8,textAlign:"center"}}>
+              We'll scan and surface the best available fares for your group
             </div>
           </>
         ) : (

@@ -442,7 +442,7 @@ export default function PlanTab({ groupSize, setGroupSize, setTab }) {
             <div style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>Flights & Hotel</div>
             <div style={{display:"flex",flexDirection:"column",gap:8}}>
               <a href={flightUrl(selectedDest?.toFull||"",groupSize)} target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
-                <button style={{...BP,width:"100%",fontSize:13,padding:"11px"}}>✈️ Search Flights on Expedia</button>
+                <button style={{...BP,width:"100%",fontSize:13,padding:"11px"}}>✈️ Find Best Prices</button>
               </a>
               <a href={airbnbUrl(selectedDest?.name||"",groupSize)} target="_blank" rel="noreferrer" style={{textDecoration:"none"}}>
                 <button style={{width:"100%",background:"linear-gradient(135deg,#FF5A5F,#FF3D42)",color:WHITE,border:"none",borderRadius:50,padding:"11px",fontFamily:"'DM Sans',sans-serif",fontSize:13,fontWeight:700,cursor:"pointer"}}>🏠 Search Airbnbs for {groupSize} ladies</button>
