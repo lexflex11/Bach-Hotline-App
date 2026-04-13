@@ -55,8 +55,33 @@ export default function App() {
         <div style={{ background:SOFT, padding:"2px 16px 3px", fontFamily:"'DM Sans',sans-serif", fontSize:10, color:HOT, fontWeight:600, letterSpacing:"0.5px", borderTop:`1px solid ${BORDER}` }}>
           Group of {groupSize} · {user.name.split(" ")[0]}
         </div>
+        {/* ── TOP NAV ── */}
+        <div style={{ display:"flex", maxWidth:900, margin:"0 auto", borderTop:`1px solid ${SOFT}` }}>
+          {[
+            { id:"home",    label:"Home" },
+            { id:"plan",    label:"Itinerary" },
+            { id:"explore", label:"Explore" },
+            { id:"decor",   label:"Package" },
+            { id:"more",    label:"More" },
+          ].map(n => {
+            const isMore   = n.id === "more";
+            const isActive = isMore ? drawerOpen : (tab === n.id && !drawerOpen);
+            return (
+              <button key={n.id}
+                onClick={() => isMore ? setDrawerOpen(p => !p) : (setTab(n.id), setDrawerOpen(false))}
+                style={{ flex:1, padding:"10px 4px 9px", background:"none", border:"none", cursor:"pointer",
+                  display:"flex", flexDirection:"column", alignItems:"center", gap:2,
+                  borderBottom: isActive ? `2.5px solid ${HOT}` : "2.5px solid transparent",
+                  color: isActive ? HOT : "#aaa",
+                  transition:"color 0.18s",
+                }}>
+                <span style={{ fontSize:10, fontFamily:"'DM Sans',sans-serif", fontWeight:700, letterSpacing:"0.5px", textTransform:"uppercase" }}>{n.label}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
-      <div style={{ padding:"16px 14px 120px", background:PAGE, maxWidth:900, margin:"0 auto" }}>
+      <div style={{ padding:"16px 14px 32px", background:PAGE, maxWidth:900, margin:"0 auto" }}>
         {tab==="home"    && <HomeTab groupSize={groupSize} setGroupSize={setGroupSize} setTab={setTab} user={user} />}
         {tab==="flights" && <FlightsTab groupSize={groupSize} />}
         {tab==="stays"   && <StaysTab groupSize={groupSize} />}
@@ -75,40 +100,12 @@ export default function App() {
         {tab==="explore"  && <ExploreTab groupSize={groupSize} setTab={setTab} />}
         {tab==="media"    && <MediaTab user={user} onSignUp={()=>setUser(null)} />}
       </div>
-      {/* ── BOTTOM NAV — 5 tabs + More drawer ── */}
-      <div style={{ position:"fixed", bottom:0, left:0, width:"100%", background:WHITE, borderTop:`1.5px solid ${SOFT}`, zIndex:200, boxShadow:`0 -2px 16px rgba(230,101,130,0.10)` }}>
-        <div style={{ display:"flex", maxWidth:900, margin:"0 auto" }}>
-          {[
-            { id:"home",  label:"Home" },
-            { id:"plan",  label:"Itinerary" },
-            { id:"explore", label:"Explore" },
-            { id:"decor", label:"Package" },
-            { id:"more",  label:"More" },
-          ].map(n => {
-            const isMore   = n.id === "more";
-            const isActive = isMore ? drawerOpen : (tab === n.id && !drawerOpen);
-            return (
-              <button key={n.id}
-                onClick={() => isMore ? setDrawerOpen(p => !p) : (setTab(n.id), setDrawerOpen(false))}
-                style={{ flex:1, padding:"12px 4px 11px", background:"none", border:"none", cursor:"pointer",
-                  display:"flex", flexDirection:"column", alignItems:"center", gap:2,
-                  borderTop: isActive ? `2.5px solid ${HOT}` : "2.5px solid transparent",
-                  color: isActive ? HOT : "#aaa",
-                  transition:"color 0.18s",
-                }}>
-                <span style={{ fontSize:10, fontFamily:"'DM Sans',sans-serif", fontWeight:700, letterSpacing:"0.5px", textTransform:"uppercase" }}>{n.label}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
       {/* ── MORE DRAWER ── */}
       {drawerOpen && (
         <>
           <div onClick={() => setDrawerOpen(false)} style={{ position:"fixed", inset:0, background:"rgba(45,10,24,0.3)", zIndex:190, backdropFilter:"blur(3px)" }} />
-          <div style={{ position:"fixed", bottom:0, left:"50%", transform:"translateX(-50%)", width:"min(100%, 600px)", background:WHITE, borderRadius:"20px 20px 0 0", zIndex:195, boxShadow:`0 -4px 32px rgba(230,101,130,0.18)` }}>
-            <div style={{ width:36, height:4, borderRadius:2, background:MID, margin:"14px auto 0" }} />
+          <div style={{ position:"fixed", top:0, left:"50%", transform:"translateX(-50%)", width:"min(100%, 600px)", background:WHITE, borderRadius:"0 0 20px 20px", zIndex:195, boxShadow:`0 4px 32px rgba(230,101,130,0.18)`, maxHeight:"80vh", overflowY:"auto" }}>
+            <div style={{ width:36, height:4, borderRadius:2, background:MID, margin:"0 auto 14px", paddingTop:14 }} />
             <div style={{ padding:"16px 20px 32px" }}>
               <div style={{ fontSize:11, fontWeight:700, color:HOT, fontFamily:"'DM Sans',sans-serif", textTransform:"uppercase", letterSpacing:"1.5px", marginBottom:18 }}>All Features</div>
               <div style={{ fontSize:10, color:"#bbb", fontFamily:"'DM Sans',sans-serif", textTransform:"uppercase", letterSpacing:"1px", marginBottom:10, fontWeight:600 }}>Trip Planning</div>
