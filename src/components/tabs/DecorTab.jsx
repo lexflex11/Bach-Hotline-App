@@ -3139,57 +3139,54 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
       {selectedColors.length > 0 && scored.some(i=>i.score>0) && (
         <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:10,opacity:0.85}}>✨ Best color matches shown first</div>
       )}
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
-        {scored.map(item => {
-          const matched = item.score > 0 && selectedColors.length > 0;
-          const size    = getSize(item.id);
-          const added   = inCart(item.id, size);
-          const sizePrice = size === "mini"
-            ? parseFloat(item.price.replace("$","")).toFixed(2)
-            : (parseFloat(item.price.replace("$","")) * 2).toFixed(2);
-          return (
-            <div key={item.id} style={{
-              background:WHITE,
-              border:`1.5px solid ${added?HOT:matched?MID:BORDER}`,
-              borderRadius:14,overflow:"hidden",transition:"all 0.2s",
-            }}>
-              <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden"}}>
-                <TablewearVisual item={item}/>
-                {matched && !added && (
-                  <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:9,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 8px",borderRadius:10}}>✨</div>
-                )}
+      <Carousel items={scored} renderItem={(item) => {
+        const matched = item.score > 0 && selectedColors.length > 0;
+        const size    = getSize(item.id);
+        const added   = inCart(item.id, size);
+        const sizePrice = size === "mini"
+          ? parseFloat(item.price.replace("$","")).toFixed(2)
+          : (parseFloat(item.price.replace("$","")) * 2).toFixed(2);
+        return (
+          <div key={item.id} style={{
+            background:WHITE,
+            border:`1.5px solid ${added?HOT:matched?MID:BORDER}`,
+            borderRadius:14,overflow:"hidden",transition:"all 0.2s",
+          }}>
+            <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden"}}>
+              <TablewearVisual item={item}/>
+              {matched && !added && (
+                <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:9,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 8px",borderRadius:10}}>✨</div>
+              )}
+            </div>
+            <div style={{padding:"6px 8px"}}>
+              <div style={{fontSize:10,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
+              <div style={{display:"flex",gap:3,marginTop:4,marginBottom:4}}>
+                {[{id:"mini",label:"Mini"},{id:"tube",label:"Tube"}].map(opt=>(
+                  <button key={opt.id} onClick={()=>setSizes(prev=>({...prev,[item.id]:opt.id}))} style={{
+                    flex:1,padding:"2px 0",borderRadius:6,cursor:"pointer",
+                    fontFamily:"'DM Sans',sans-serif",fontSize:8,fontWeight:700,
+                    border:size===opt.id?`1.5px solid ${HOT}`:`1px solid ${BORDER}`,
+                    background:size===opt.id?SOFT:WHITE,
+                    color:size===opt.id?HOT:"#aaa",
+                  }}>{opt.label}</button>
+                ))}
               </div>
-              <div style={{padding:"8px 10px"}}>
-                <div style={{fontSize:11,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
-                {/* Size selector */}
-                <div style={{display:"flex",gap:4,marginTop:6,marginBottom:6}}>
-                  {[{id:"mini",label:"Mini ¼oz"},{id:"tube",label:"Tube 1oz"}].map(opt=>(
-                    <button key={opt.id} onClick={()=>setSizes(prev=>({...prev,[item.id]:opt.id}))} style={{
-                      flex:1,padding:"3px 0",borderRadius:8,cursor:"pointer",
-                      fontFamily:"'DM Sans',sans-serif",fontSize:9,fontWeight:700,
-                      border:size===opt.id?`1.5px solid ${HOT}`:`1px solid ${BORDER}`,
-                      background:size===opt.id?SOFT:WHITE,
-                      color:size===opt.id?HOT:"#aaa",
-                    }}>{opt.label}</button>
-                  ))}
-                </div>
-                <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-                  <div style={{fontSize:13,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>${sizePrice}</div>
-                  <button onClick={()=>toggle(item,size)} style={{
-                    background:added?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
-                    color:added?HOT:WHITE,
-                    border:added?`1.5px solid ${HOT}`:"none",
-                    borderRadius:20,padding:"5px 12px",
-                    fontFamily:"'DM Sans',sans-serif",fontSize:10,fontWeight:700,cursor:"pointer",
-                  }}>
-                    {added?"✓ Added":"+ Add"}
-                  </button>
-                </div>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+                <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>${sizePrice}</div>
+                <button onClick={()=>toggle(item,size)} style={{
+                  background:added?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
+                  color:added?HOT:WHITE,
+                  border:added?`1.5px solid ${HOT}`:"none",
+                  borderRadius:20,padding:"4px 8px",
+                  fontFamily:"'DM Sans',sans-serif",fontSize:9,fontWeight:700,cursor:"pointer",
+                }}>
+                  {added?"✓":"+ Add"}
+                </button>
               </div>
             </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      }}/>
     </div>
   );
 }
@@ -3242,78 +3239,76 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
       {selectedColors.length > 0 && scored.some(i=>i.score>0) && (
         <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:10,opacity:0.85}}>✨ Best color matches shown first</div>
       )}
-      <div style={{display:"flex",flexDirection:"column",gap:14}}>
-        {scored.map(item => {
-          if (item.numberBalloon) {
-            const selectedNums = [0,1,2,3,4,5,6,7,8,9].filter(n => numInCart(item,n));
-            return (
-              <div key={item.id} style={{background:WHITE,border:`1.5px solid ${selectedNums.length>0?HOT:BORDER}`,borderRadius:14,overflow:"hidden",transition:"all 0.2s"}}>
-                <div style={{display:"flex"}}>
-                  <div style={{width:90,flexShrink:0,aspectRatio:"1/1",overflow:"hidden"}}>
-                    <TablewearVisual item={item}/>
-                  </div>
-                  <div style={{padding:"10px 12px",flex:1}}>
-                    <div style={{fontSize:12,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
-                    <div style={{fontSize:10,color:"#aaa",fontFamily:"'DM Sans',sans-serif",marginTop:2}}>{item.desc} · {item.price} each</div>
-                  </div>
-                </div>
-                <div style={{padding:"10px 12px 14px",borderTop:`1px solid ${SOFT}`}}>
-                  <div style={{fontSize:10,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:0.8,marginBottom:8}}>Tap to select your numbers</div>
-                  <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:6}}>
-                    {[0,1,2,3,4,5,6,7,8,9].map(n => {
-                      const sel = numInCart(item,n);
-                      return (
-                        <button key={n} onClick={()=>toggleNum(item,n)} style={{
-                          aspectRatio:"1/1",borderRadius:10,cursor:"pointer",
-                          fontFamily:"'DM Sans',sans-serif",fontSize:18,fontWeight:900,
-                          border:sel?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,
-                          background:sel?SOFT:WHITE,color:sel?HOT:DARK,
-                          transition:"all 0.15s",
-                        }}>{n}</button>
-                      );
-                    })}
-                  </div>
-                  {selectedNums.length > 0 && (
-                    <div style={{marginTop:10,fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:700}}>
-                      Selected: {selectedNums.join(", ")} · ${(selectedNums.length * parseFloat(item.price.replace("$",""))).toFixed(2)} total
-                    </div>
-                  )}
-                </div>
+      {/* Number balloons — full-width digit picker */}
+      {scored.filter(i=>i.numberBalloon).map(item => {
+        const selectedNums = [0,1,2,3,4,5,6,7,8,9].filter(n => numInCart(item,n));
+        return (
+          <div key={item.id} style={{background:WHITE,border:`1.5px solid ${selectedNums.length>0?HOT:BORDER}`,borderRadius:14,overflow:"hidden",transition:"all 0.2s",marginBottom:14}}>
+            <div style={{display:"flex"}}>
+              <div style={{width:90,flexShrink:0,aspectRatio:"1/1",overflow:"hidden"}}>
+                <TablewearVisual item={item}/>
               </div>
-            );
-          }
-          // Regular foil balloon
-          const added = inCart(item.id);
-          const matched = item.score > 0 && selectedColors.length > 0;
-          return (
-            <div key={item.id} style={{background:WHITE,border:`1.5px solid ${added?HOT:matched?MID:BORDER}`,borderRadius:14,overflow:"hidden",transition:"all 0.2s"}}>
-              <div style={{display:"flex"}}>
-                <div style={{width:90,flexShrink:0,aspectRatio:"1/1",overflow:"hidden",position:"relative"}}>
-                  <TablewearVisual item={item}/>
-                  {matched && !added && (
-                    <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:9,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 8px",borderRadius:10}}>✨</div>
-                  )}
-                </div>
-                <div style={{padding:"10px 12px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
-                  <div>
-                    <div style={{fontSize:12,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
-                    <div style={{fontSize:10,color:"#aaa",fontFamily:"'DM Sans',sans-serif",marginTop:2}}>{item.desc}</div>
-                  </div>
-                  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:8}}>
-                    <div style={{fontSize:14,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>{item.price}</div>
-                    <button onClick={()=>toggle(item)} style={{
-                      background:added?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
-                      color:added?HOT:WHITE, border:added?`1.5px solid ${HOT}`:"none",
-                      borderRadius:20,padding:"6px 14px",
-                      fontFamily:"'DM Sans',sans-serif",fontSize:10,fontWeight:700,cursor:"pointer",
-                    }}>{added?"✓ Added":"+ Add"}</button>
-                  </div>
-                </div>
+              <div style={{padding:"10px 12px",flex:1}}>
+                <div style={{fontSize:12,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
+                <div style={{fontSize:10,color:"#aaa",fontFamily:"'DM Sans',sans-serif",marginTop:2}}>{item.desc} · {item.price} each</div>
               </div>
             </div>
-          );
-        })}
-      </div>
+            <div style={{padding:"10px 12px 14px",borderTop:`1px solid ${SOFT}`}}>
+              <div style={{fontSize:10,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:0.8,marginBottom:8}}>Tap to select your numbers</div>
+              <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:6}}>
+                {[0,1,2,3,4,5,6,7,8,9].map(n => {
+                  const sel = numInCart(item,n);
+                  return (
+                    <button key={n} onClick={()=>toggleNum(item,n)} style={{
+                      aspectRatio:"1/1",borderRadius:10,cursor:"pointer",
+                      fontFamily:"'DM Sans',sans-serif",fontSize:18,fontWeight:900,
+                      border:sel?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,
+                      background:sel?SOFT:WHITE,color:sel?HOT:DARK,
+                      transition:"all 0.15s",
+                    }}>{n}</button>
+                  );
+                })}
+              </div>
+              {selectedNums.length > 0 && (
+                <div style={{marginTop:10,fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:700}}>
+                  Selected: {selectedNums.join(", ")} · ${(selectedNums.length * parseFloat(item.price.replace("$",""))).toFixed(2)} total
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+      {/* Regular foil balloons — 3-per-page carousel */}
+      <Carousel items={scored.filter(i=>!i.numberBalloon)} renderItem={(item) => {
+        const added = inCart(item.id);
+        const matched = item.score > 0 && selectedColors.length > 0;
+        return (
+          <div key={item.id} style={{
+            background:WHITE,border:`1.5px solid ${added?HOT:matched?MID:BORDER}`,
+            borderRadius:14,overflow:"hidden",transition:"all 0.2s",
+          }}>
+            <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden"}}>
+              <TablewearVisual item={item}/>
+              {matched && !added && (
+                <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:9,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 8px",borderRadius:10}}>✨</div>
+              )}
+            </div>
+            <div style={{padding:"6px 8px"}}>
+              <div style={{fontSize:10,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
+              <div style={{fontSize:9,color:"#aaa",fontFamily:"'DM Sans',sans-serif",marginTop:2,marginBottom:4}}>{item.desc}</div>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+                <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>{item.price}</div>
+                <button onClick={()=>toggle(item)} style={{
+                  background:added?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
+                  color:added?HOT:WHITE, border:added?`1.5px solid ${HOT}`:"none",
+                  borderRadius:20,padding:"4px 8px",
+                  fontFamily:"'DM Sans',sans-serif",fontSize:9,fontWeight:700,cursor:"pointer",
+                }}>{added?"✓":"+ Add"}</button>
+              </div>
+            </div>
+          </div>
+        );
+      }}/>
     </div>
   );
 }
