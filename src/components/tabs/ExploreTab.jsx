@@ -50,6 +50,23 @@ const GRAD = {
   car:    ["#3A8A6E","#1A5A48"],
 };
 
+// ─── Category photos ───────────────────────────────────────────────────────
+const IMG = {
+  water:      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=220&fit=crop&q=80",
+  spa:        "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=220&fit=crop&q=80",
+  relax:      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&h=220&fit=crop&q=80",
+  bar:        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&h=220&fit=crop&q=80",
+  food:       "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=220&fit=crop&q=80",
+  restaurant: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=220&fit=crop&q=80",
+  activity:   "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=220&fit=crop&q=80",
+  nightlife:  "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=400&h=220&fit=crop&q=80",
+  show:       "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=220&fit=crop&q=80",
+  stay:       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=220&fit=crop&q=80",
+  flight:     "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=220&fit=crop&q=80",
+  car:        "https://images.unsplash.com/photo-1449965408869-eaa3f722e8bb?w=400&h=220&fit=crop&q=80",
+  bonus:      "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&h=220&fit=crop&q=80",
+};
+
 // ─── Experiences data ──────────────────────────────────────────────────────
 const EXP = [
   // Miami
@@ -702,7 +719,7 @@ export default function ExploreTab({ groupSize }) {
                     </div>
                     <div style={{ flex:1 }}>
                       <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:2 }}>
-                        {item.emoji} {item.name}
+                        {item.name}
                       </div>
                       <div style={{ fontSize:10, color:HOT, fontFamily:"'DM Sans',sans-serif", opacity:0.8, marginBottom:4 }}>{item.vibe}</div>
                       <div style={{ fontSize:9, color:"#aaa", fontFamily:"'DM Sans',sans-serif" }}>⭐ {item.rating} · {item.price}</div>
@@ -798,11 +815,16 @@ export default function ExploreTab({ groupSize }) {
                 background:WHITE, display:"flex", flexDirection:"column",
               }}>
                 <div style={{
-                  background:`linear-gradient(140deg,${g1},${g2})`,
                   height:110, position:"relative",
-                  display:"flex", alignItems:"center", justifyContent:"center",
+                  overflow:"hidden",
+                  background:`linear-gradient(140deg,${g1},${g2})`,
                 }}>
-                  <span style={{ fontSize:42, filter:"drop-shadow(0 2px 6px rgba(0,0,0,0.25))" }}>{e.emoji}</span>
+                  <img
+                    src={IMG[e.cat] || IMG.activity}
+                    alt={e.name}
+                    style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}}
+                    onError={ev=>{ev.target.style.display="none";}}
+                  />
                   <div style={{
                     position:"absolute", top:10, left:10,
                     background:"rgba(0,0,0,0.45)", backdropFilter:"blur(6px)",
