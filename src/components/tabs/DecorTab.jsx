@@ -3067,7 +3067,6 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
         </div>
       </div>
       {selectedColors.length > 0 && scored.some(i=>i.score>0) && (
-        <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:10,opacity:0.85}}>✨ Best color matches shown first</div>
       )}
       <Carousel items={scored} renderItem={item => {
         const matched = item.score > 0 && selectedColors.length > 0;
@@ -3076,9 +3075,6 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
           <div key={item.id} style={{background:WHITE,borderRadius:18,overflow:"hidden",boxShadow:added?`0 0 0 2px ${HOT}, 0 4px 16px rgba(233,30,140,0.15)`:"0 4px 16px rgba(0,0,0,0.09)",transition:"all 0.2s",display:"flex",flexDirection:"column"}}>
             <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0}}>
               <TablewearVisual item={item}/>
-              {matched && !added && (
-                <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:8,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 6px",borderRadius:8}}>✨</div>
-              )}
             </div>
             <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
               <div>
@@ -3110,7 +3106,6 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
   const scored = items.map(item => ({
     ...item,
     score: item.tags.filter(t => selectedColors.includes(t)).length,
-  })).sort((a,b) => b.score - a.score);
 
   const getSize = id => sizes[id] || "mini";
   const cartId  = (id, size) => `${id}-${size}`;
@@ -3140,7 +3135,6 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
         </div>
       </div>
       {selectedColors.length > 0 && scored.some(i=>i.score>0) && (
-        <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:10,opacity:0.85}}>✨ Best color matches shown first</div>
       )}
       <Carousel items={scored} renderItem={(item) => {
         const matched = item.score > 0 && selectedColors.length > 0;
@@ -3157,9 +3151,6 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
           }}>
             <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0}}>
               <TablewearVisual item={item}/>
-              {matched && !added && (
-                <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:8,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 6px",borderRadius:8}}>✨</div>
-              )}
             </div>
             <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
               <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:4}}>{item.name}</div>
@@ -3197,7 +3188,6 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
   const scored = items.map(item => ({
     ...item,
     score: item.tags.filter(t => selectedColors.includes(t)).length,
-  })).sort((a,b) => b.score - a.score);
 
   const [activeNumId, setActiveNumId] = useState(null);
 
@@ -3241,7 +3231,6 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
         </div>
       </div>
       {selectedColors.length > 0 && scored.some(i=>i.score>0) && (
-        <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:10,opacity:0.85}}>✨ Best color matches shown first</div>
       )}
       <Carousel items={scored} renderItem={(item) => {
         const matched = item.score > 0 && selectedColors.length > 0;
@@ -3283,9 +3272,6 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
           }}>
             <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0}}>
               <TablewearVisual item={item}/>
-              {matched && !added && (
-                <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:8,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 6px",borderRadius:8}}>✨</div>
-              )}
             </div>
             <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
               <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
@@ -3321,7 +3307,6 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
                   transition:"all 0.15s",
                 }}>{n}</button>
               );
-            })}
           </div>
           {[0,1,2,3,4,5,6,7,8,9].filter(n=>numInCart(activeNumItem,n)).length > 0 && (
             <div style={{marginTop:10,fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:700}}>
