@@ -3066,9 +3066,14 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
           <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.8}}>{subtitle}</div>
         </div>
       </div>
-      {selectedColors.length > 0 && scored.some(i=>i.score>0) && (
-      )}
-      <Carousel items={scored} renderItem={item => {
+      {selectedColors.length === 0 ? (
+        <div style={{textAlign:"center",padding:"24px 16px",background:SOFT,borderRadius:16}}>
+          <div style={{fontSize:22,marginBottom:8}}>🎈</div>
+          <div style={{fontSize:13,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>Customize your garland first</div>
+          <div style={{fontSize:11,color:"#888",fontFamily:"'DM Sans',sans-serif",lineHeight:1.5}}>Pick your balloon colors in Step 1 and we'll show you only the products that match.</div>
+        </div>
+      ) : (
+      <Carousel items={scored.filter(i=>i.score>0)} renderItem={item => {
         const matched = item.score > 0 && selectedColors.length > 0;
         const added   = inCart(item.id);
         return (
@@ -3106,6 +3111,7 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
   const scored = items.map(item => ({
     ...item,
     score: item.tags.filter(t => selectedColors.includes(t)).length,
+  })).sort((a,b) => b.score - a.score);
 
   const getSize = id => sizes[id] || "mini";
   const cartId  = (id, size) => `${id}-${size}`;
@@ -3134,10 +3140,14 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
           <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.8}}>The perfect finishing touch — choose your size</div>
         </div>
       </div>
-      {selectedColors.length > 0 && scored.some(i=>i.score>0) && (
-      )}
-      <Carousel items={scored} renderItem={(item) => {
-        const matched = item.score > 0 && selectedColors.length > 0;
+      {selectedColors.length === 0 ? (
+        <div style={{textAlign:"center",padding:"24px 16px",background:SOFT,borderRadius:16}}>
+          <div style={{fontSize:22,marginBottom:8}}>🎈</div>
+          <div style={{fontSize:13,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>Customize your garland first</div>
+          <div style={{fontSize:11,color:"#888",fontFamily:"'DM Sans',sans-serif",lineHeight:1.5}}>Pick your balloon colors in Step 1 and we'll show you only the products that match.</div>
+        </div>
+      ) : (
+      <Carousel items={scored.filter(i=>i.score>0)} renderItem={(item) => {
         const size    = getSize(item.id);
         const added   = inCart(item.id, size);
         const sizePrice = size === "mini"
@@ -3178,6 +3188,7 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
           </div>
         );
       }}/>
+      )}
     </div>
   );
 }
@@ -3188,6 +3199,7 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
   const scored = items.map(item => ({
     ...item,
     score: item.tags.filter(t => selectedColors.includes(t)).length,
+  })).sort((a,b) => b.score - a.score);
 
   const [activeNumId, setActiveNumId] = useState(null);
 
@@ -3230,10 +3242,14 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
           <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.8}}>Number balloons, letters, shapes & more</div>
         </div>
       </div>
-      {selectedColors.length > 0 && scored.some(i=>i.score>0) && (
-      )}
-      <Carousel items={scored} renderItem={(item) => {
-        const matched = item.score > 0 && selectedColors.length > 0;
+      {selectedColors.length === 0 ? (
+        <div style={{textAlign:"center",padding:"24px 16px",background:SOFT,borderRadius:16}}>
+          <div style={{fontSize:22,marginBottom:8}}>🎈</div>
+          <div style={{fontSize:13,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>Customize your garland first</div>
+          <div style={{fontSize:11,color:"#888",fontFamily:"'DM Sans',sans-serif",lineHeight:1.5}}>Pick your balloon colors in Step 1 and we'll show you only the products that match.</div>
+        </div>
+      ) : (
+      <Carousel items={scored.filter(i=>i.score>0)} renderItem={(item) => {
         if (item.numberBalloon) {
           const selectedNums = [0,1,2,3,4,5,6,7,8,9].filter(n => numInCart(item,n));
           const hasNums = selectedNums.length > 0;
@@ -3567,6 +3583,7 @@ export default function DecorTab({ groupSize, cart, setCart, setTab }) {
             Secure checkout · No Etsy fees
           </div>
         </div>
+      )}
       )}
     </div>
   );
