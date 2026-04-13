@@ -3199,6 +3199,8 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
     score: item.tags.filter(t => selectedColors.includes(t)).length,
   })).sort((a,b) => b.score - a.score);
 
+  const [activeNumId, setActiveNumId] = useState(null);
+
   const numberId = (item, n) => `${item.id}-num${n}`;
   const numInCart = (item, n) => cart.some(c => c.id === numberId(item, n));
   const toggleNum = (item, n) => {
@@ -3227,6 +3229,8 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
     }
   };
 
+  const activeNumItem = scored.find(i => i.id === activeNumId);
+
   return (
     <div style={{marginBottom:28}}>
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,paddingTop:20,borderTop:`2px solid ${MID}`}}>
@@ -3239,49 +3243,41 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
       {selectedColors.length > 0 && scored.some(i=>i.score>0) && (
         <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:10,opacity:0.85}}>✨ Best color matches shown first</div>
       )}
-      {/* Number balloons — full-width digit picker */}
-      {scored.filter(i=>i.numberBalloon).map(item => {
-        const selectedNums = [0,1,2,3,4,5,6,7,8,9].filter(n => numInCart(item,n));
-        return (
-          <div key={item.id} style={{background:WHITE,border:`1.5px solid ${selectedNums.length>0?HOT:BORDER}`,borderRadius:14,overflow:"hidden",transition:"all 0.2s",marginBottom:14}}>
-            <div style={{display:"flex"}}>
-              <div style={{width:90,flexShrink:0,aspectRatio:"1/1",overflow:"hidden"}}>
+      <Carousel items={scored} renderItem={(item) => {
+        const matched = item.score > 0 && selectedColors.length > 0;
+        if (item.numberBalloon) {
+          const selectedNums = [0,1,2,3,4,5,6,7,8,9].filter(n => numInCart(item,n));
+          const hasNums = selectedNums.length > 0;
+          return (
+            <div key={item.id} style={{
+              background:WHITE,borderRadius:18,overflow:"hidden",
+              boxShadow:hasNums?`0 0 0 2px ${HOT}, 0 4px 16px rgba(233,30,140,0.15)`:"0 4px 16px rgba(0,0,0,0.09)",
+              transition:"all 0.2s",display:"flex",flexDirection:"column",
+            }}>
+              <div style={{position:"relative",width:"100%",aspectRatio:"3/4",overflow:"hidden",flexShrink:0}}>
                 <TablewearVisual item={item}/>
               </div>
-              <div style={{padding:"10px 12px",flex:1}}>
-                <div style={{fontSize:12,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
-                <div style={{fontSize:10,color:"#aaa",fontFamily:"'DM Sans',sans-serif",marginTop:2}}>{item.desc} · {item.price} each</div>
-              </div>
-            </div>
-            <div style={{padding:"10px 12px 14px",borderTop:`1px solid ${SOFT}`}}>
-              <div style={{fontSize:10,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:0.8,marginBottom:8}}>Tap to select your numbers</div>
-              <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:6}}>
-                {[0,1,2,3,4,5,6,7,8,9].map(n => {
-                  const sel = numInCart(item,n);
-                  return (
-                    <button key={n} onClick={()=>toggleNum(item,n)} style={{
-                      aspectRatio:"1/1",borderRadius:10,cursor:"pointer",
-                      fontFamily:"'DM Sans',sans-serif",fontSize:18,fontWeight:900,
-                      border:sel?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,
-                      background:sel?SOFT:WHITE,color:sel?HOT:DARK,
-                      transition:"all 0.15s",
-                    }}>{n}</button>
-                  );
-                })}
-              </div>
-              {selectedNums.length > 0 && (
-                <div style={{marginTop:10,fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:700}}>
-                  Selected: {selectedNums.join(", ")} · ${(selectedNums.length * parseFloat(item.price.replace("$",""))).toFixed(2)} total
+              <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+                <div>
+                  <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
+                  {item.desc && <div style={{fontSize:8,color:"#888",fontFamily:"'DM Sans',sans-serif",lineHeight:1.35,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{item.desc}</div>}
                 </div>
-              )}
+                <div style={{marginTop:5}}>
+                  <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>{item.price} each</div>
+                  <button onClick={()=>setActiveNumId(activeNumId===item.id?null:item.id)} style={{
+                    width:"100%",background:hasNums?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
+                    color:hasNums?HOT:WHITE,border:hasNums?`1.5px solid ${HOT}`:"none",
+                    borderRadius:20,padding:"5px 0",
+                    fontFamily:"'DM Sans',sans-serif",fontSize:9,fontWeight:700,cursor:"pointer",
+                  }}>
+                    {hasNums?`#${selectedNums.join(", ")} ✓`:"Pick Numbers"}
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        );
-      })}
-      {/* Regular foil balloons — 3-per-page carousel */}
-      <Carousel items={scored.filter(i=>!i.numberBalloon)} renderItem={(item) => {
+          );
+        }
         const added = inCart(item.id);
-        const matched = item.score > 0 && selectedColors.length > 0;
         return (
           <div key={item.id} style={{
             background:WHITE,borderRadius:18,overflow:"hidden",
@@ -3312,6 +3308,34 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
           </div>
         );
       }}/>
+      {/* Number picker panel — appears when a number balloon card is tapped */}
+      {activeNumItem && (
+        <div style={{marginTop:12,background:WHITE,borderRadius:18,padding:"14px 14px 16px",boxShadow:"0 4px 20px rgba(233,30,140,0.15)"}}>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:10}}>
+            <div style={{fontSize:12,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif"}}>{activeNumItem.name} — Pick Your Numbers</div>
+            <button onClick={()=>setActiveNumId(null)} style={{background:"none",border:"none",fontSize:18,cursor:"pointer",color:"#aaa",lineHeight:1}}>×</button>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:8}}>
+            {[0,1,2,3,4,5,6,7,8,9].map(n => {
+              const sel = numInCart(activeNumItem, n);
+              return (
+                <button key={n} onClick={()=>toggleNum(activeNumItem,n)} style={{
+                  aspectRatio:"1/1",borderRadius:12,cursor:"pointer",
+                  fontFamily:"'DM Sans',sans-serif",fontSize:20,fontWeight:900,
+                  border:sel?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,
+                  background:sel?SOFT:WHITE,color:sel?HOT:DARK,
+                  transition:"all 0.15s",
+                }}>{n}</button>
+              );
+            })}
+          </div>
+          {[0,1,2,3,4,5,6,7,8,9].filter(n=>numInCart(activeNumItem,n)).length > 0 && (
+            <div style={{marginTop:10,fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:700}}>
+              Selected: {[0,1,2,3,4,5,6,7,8,9].filter(n=>numInCart(activeNumItem,n)).join(", ")} · ${([0,1,2,3,4,5,6,7,8,9].filter(n=>numInCart(activeNumItem,n)).length * parseFloat(activeNumItem.price.replace("$",""))).toFixed(2)} total
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
