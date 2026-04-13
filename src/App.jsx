@@ -116,7 +116,7 @@ export default function App() {
                   { id:"eats",    label:"Eats",      sub:"Restaurants & activities" },
                   { id:"budget",  label:"Budget",    sub:"Estimate trip cost"       },
                   { id:"split",   label:"Split",     sub:"Divide expenses"          },
-                  { id:"dayof",   label:"Day-Of",    sub:"Live itinerary mode"      },
+                  ...(user.email ? [{ id:"dayof", label:"Day-Of", sub:"Live itinerary mode" }] : []),
                   { id:"polls",   label:"Polls",     sub:"Group voting"             },
                 ].map(item => (
                   <button key={item.id} onClick={() => { setTab(item.id); setDrawerOpen(false); }}
@@ -130,8 +130,10 @@ export default function App() {
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
                 {[
                   { id:"decor",   label:"Build Your Decor Package", sub:"Design & shop your party setup"  },
-                  { id:"alerts",  label:"Alerts",       sub:"Members-only price drops"    },
-                  { id:"media",   label:"Share Media",  sub:"Upload trip pics & videos"   },
+                  ...(user.email ? [
+                    { id:"alerts", label:"Alerts",      sub:"Members-only price drops"   },
+                    { id:"media",  label:"Share Media", sub:"Upload trip pics & videos"  },
+                  ] : []),
                   { id:"profile", label:"Profile",      sub:"Settings & trips"            },
                 ].map(item => (
                   <button key={item.id} onClick={() => { setTab(item.id); setDrawerOpen(false); }}
