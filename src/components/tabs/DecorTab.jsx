@@ -3073,16 +3073,19 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
         const matched = item.score > 0 && selectedColors.length > 0;
         const added   = inCart(item.id);
         return (
-          <div key={item.id} style={{background:WHITE,border:`1.5px solid ${added?HOT:matched?MID:BORDER}`,borderRadius:14,overflow:"hidden",transition:"all 0.2s"}}>
-            <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden"}}>
+          <div key={item.id} style={{background:WHITE,borderRadius:18,overflow:"hidden",boxShadow:added?`0 0 0 2px ${HOT}, 0 4px 16px rgba(233,30,140,0.15)`:"0 4px 16px rgba(0,0,0,0.09)",transition:"all 0.2s",display:"flex",flexDirection:"column"}}>
+            <div style={{position:"relative",width:"100%",aspectRatio:"3/4",overflow:"hidden",flexShrink:0}}>
               <TablewearVisual item={item}/>
               {matched && !added && (
-                <div style={{position:"absolute",top:4,left:4,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:8,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 6px",borderRadius:8}}>✨</div>
+                <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:8,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 6px",borderRadius:8}}>✨</div>
               )}
             </div>
-            <div style={{padding:"6px 7px"}}>
-              <div style={{fontSize:10,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3,marginBottom:2}}>{item.name}</div>
-              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:4}}>
+            <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+              <div>
+                <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
+                {item.desc && <div style={{fontSize:8,color:"#888",fontFamily:"'DM Sans',sans-serif",lineHeight:1.35,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{item.desc}</div>}
+              </div>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:5}}>
                 <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>{item.price}</div>
                 <button onClick={()=>toggle(item)} style={{
                   background:added?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
@@ -3148,19 +3151,19 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
           : (parseFloat(item.price.replace("$","")) * 2).toFixed(2);
         return (
           <div key={item.id} style={{
-            background:WHITE,
-            border:`1.5px solid ${added?HOT:matched?MID:BORDER}`,
-            borderRadius:14,overflow:"hidden",transition:"all 0.2s",
+            background:WHITE,borderRadius:18,overflow:"hidden",
+            boxShadow:added?`0 0 0 2px ${HOT}, 0 4px 16px rgba(233,30,140,0.15)`:"0 4px 16px rgba(0,0,0,0.09)",
+            transition:"all 0.2s",display:"flex",flexDirection:"column",
           }}>
-            <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden"}}>
+            <div style={{position:"relative",width:"100%",aspectRatio:"3/4",overflow:"hidden",flexShrink:0}}>
               <TablewearVisual item={item}/>
               {matched && !added && (
-                <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:9,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 8px",borderRadius:10}}>✨</div>
+                <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:8,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 6px",borderRadius:8}}>✨</div>
               )}
             </div>
-            <div style={{padding:"6px 8px"}}>
-              <div style={{fontSize:10,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
-              <div style={{display:"flex",gap:3,marginTop:4,marginBottom:4}}>
+            <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+              <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:4}}>{item.name}</div>
+              <div style={{display:"flex",gap:3,marginBottom:5}}>
                 {[{id:"mini",label:"Mini"},{id:"tube",label:"Tube"}].map(opt=>(
                   <button key={opt.id} onClick={()=>setSizes(prev=>({...prev,[item.id]:opt.id}))} style={{
                     flex:1,padding:"2px 0",borderRadius:6,cursor:"pointer",
@@ -3175,13 +3178,10 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
                 <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>${sizePrice}</div>
                 <button onClick={()=>toggle(item,size)} style={{
                   background:added?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
-                  color:added?HOT:WHITE,
-                  border:added?`1.5px solid ${HOT}`:"none",
+                  color:added?HOT:WHITE,border:added?`1.5px solid ${HOT}`:"none",
                   borderRadius:20,padding:"4px 8px",
                   fontFamily:"'DM Sans',sans-serif",fontSize:9,fontWeight:700,cursor:"pointer",
-                }}>
-                  {added?"✓":"+ Add"}
-                </button>
+                }}>{added?"✓":"+ Add"}</button>
               </div>
             </div>
           </div>
@@ -3284,19 +3284,22 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
         const matched = item.score > 0 && selectedColors.length > 0;
         return (
           <div key={item.id} style={{
-            background:WHITE,border:`1.5px solid ${added?HOT:matched?MID:BORDER}`,
-            borderRadius:14,overflow:"hidden",transition:"all 0.2s",
+            background:WHITE,borderRadius:18,overflow:"hidden",
+            boxShadow:added?`0 0 0 2px ${HOT}, 0 4px 16px rgba(233,30,140,0.15)`:"0 4px 16px rgba(0,0,0,0.09)",
+            transition:"all 0.2s",display:"flex",flexDirection:"column",
           }}>
-            <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden"}}>
+            <div style={{position:"relative",width:"100%",aspectRatio:"3/4",overflow:"hidden",flexShrink:0}}>
               <TablewearVisual item={item}/>
               {matched && !added && (
-                <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:9,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 8px",borderRadius:10}}>✨</div>
+                <div style={{position:"absolute",top:6,left:6,background:`linear-gradient(135deg,${HOT},${PUNCH})`,color:WHITE,fontSize:8,fontWeight:700,fontFamily:"'DM Sans',sans-serif",padding:"2px 6px",borderRadius:8}}>✨</div>
               )}
             </div>
-            <div style={{padding:"6px 8px"}}>
-              <div style={{fontSize:10,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1.3}}>{item.name}</div>
-              <div style={{fontSize:9,color:"#aaa",fontFamily:"'DM Sans',sans-serif",marginTop:2,marginBottom:4}}>{item.desc}</div>
-              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+            <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+              <div>
+                <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
+                {item.desc && <div style={{fontSize:8,color:"#888",fontFamily:"'DM Sans',sans-serif",lineHeight:1.35,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{item.desc}</div>}
+              </div>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:5}}>
                 <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>{item.price}</div>
                 <button onClick={()=>toggle(item)} style={{
                   background:added?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
