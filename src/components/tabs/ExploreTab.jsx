@@ -503,6 +503,241 @@ const BRIDE_PREFS = {
 // Cities that have EXP data
 const EXPLORE_CITY_IDS = new Set(["miami","nashville","vegas","nola","scottsdale","austin","charleston","savannah","nyc","chicago","sandiego","palmsprings","napa","keywest","sedona","denver","houston","cabo","mykonos"]);
 
+
+// ─── Helper: generate detail page content from experience data ───────────────
+function expDescription(e, cityName) {
+  const base = {
+    water:      `Set sail on an unforgettable on-water experience in ${cityName}. ${e.vibe}. This is the kind of memory your group will talk about for years — sun, champagne, and your whole crew together.`,
+    spa:        `Escape the chaos and treat your group to pure bliss in ${cityName}. ${e.vibe}. From the moment you arrive you'll be wrapped in calm, luxury, and total relaxation.`,
+    bar:        `${cityName}'s bar scene is legendary, and this experience puts you right in the middle of it. ${e.vibe}. Expect VIP treatment, great drinks, and non-stop energy all night.`,
+    food:       `Food is how ${cityName} shows off, and this experience delivers the very best of it. ${e.vibe}. Come hungry, leave obsessed.`,
+    restaurant: `Food is how ${cityName} shows off, and this experience delivers the very best of it. ${e.vibe}. Come hungry, leave obsessed.`,
+    activity:   `This is the experience your group will be talking about long after the weekend ends. ${e.vibe}. Designed for bachelorette groups who want to do something truly unforgettable in ${cityName}.`,
+    nightlife:  `When the sun goes down, ${cityName} turns into a whole different world. ${e.vibe}. This experience gets your group straight to the best of it — no waiting, no guessing.`,
+    show:       `${e.name} is one of ${cityName}'s most iconic shows, and your group gets front-row access. ${e.vibe}. An experience that goes way beyond a normal night out.`,
+  };
+  return base[e.cat] || `${e.name} is one of ${cityName}'s top bachelorette experiences. ${e.vibe}. Book early — this one fills up fast.`;
+}
+
+function expBullets(e) {
+  const bullets = {
+    water:      ["Private or semi-private group setup","Champagne & drinks included or available","Breathtaking views & perfect photo ops","Crew handles everything so you just enjoy"],
+    spa:        ["Full group booking available","Champagne welcome or add-on available","Head-to-toe treatments for every vibe","Private area for your group"],
+    bar:        ["VIP access & skip-the-line entry","Curated stops at the city's best spots","Free shots or welcome drinks included","Perfect for groups of 6–20"],
+    food:       ["Local guide with insider picks","Multiple tasting stops","Bottomless or drink add-ons available","No planning required — just show up"],
+    restaurant: ["Group reservation handled for you","Bottomless brunch or dinner options","Perfect backdrop for bride photos","Private section available for large groups"],
+    activity:   ["Private group booking available","No experience required — beginner friendly","Perfect for groups of all sizes","Unforgettable photos & memories guaranteed"],
+    nightlife:  ["VIP table or entry included","Bottle service available","No standing in line","DJ, dancing, and full send vibes"],
+    show:       ["Front-row or premium seating available","One-of-a-kind bachelorette experience","Dinner or drink package options","Bride gets special treatment"],
+  };
+  return bullets[e.cat] || ["Designed for bachelorette groups","Easy group booking","Great for all group sizes","Unforgettable memories"];
+}
+
+function expDuration(e) {
+  const dur = { water:"2–3 hrs", spa:"3–5 hrs", bar:"2–3 hrs", food:"2 hrs", restaurant:"1.5–2 hrs", activity:"1.5–2 hrs", nightlife:"3–4 hrs", show:"2 hrs" };
+  return dur[e.cat] || "2 hrs";
+}
+
+function expStartingPrice(e) {
+  const map = { "$$$$":"$150", "$$$":"$75", "$$":"$45", "$":"$25" };
+  return map[e.price] || "$50";
+}
+
+// ─── Experience Detail Page ───────────────────────────────────────────────────
+function ExperienceDetail({ e, groupSize, onBack, cityName, similar, viatorUrl, opentableUrl, CAT_GROUP, CITIES, IMG }) {
+  const [date, setDate] = React.useState("");
+  const [guests, setGuests] = React.useState(groupSize || 4);
+
+  const bookingUrl = e.bookingUrl
+    ? e.bookingUrl
+    : CAT_GROUP[e.cat] === "dining"
+      ? opentableUrl(e.name, cityName)
+      : CAT_GROUP[e.cat] === "stay"
+        ? `https://www.airbnb.com/s/${encodeURIComponent(cityName)}/homes?adults=${guests}`
+        : viatorUrl(e.name, cityName);
+
+  const bullets = expBullets(e);
+  const desc    = expDescription(e, cityName);
+  const dur     = expDuration(e);
+  const price   = expStartingPrice(e);
+  const photo   = IMG[e.cat] || IMG.activity;
+
+  const inputStyle = {
+    flex:1, padding:"10px 12px", borderRadius:10,
+    border:`1.5px solid #e0d0e8`, fontFamily:"'DM Sans',sans-serif",
+    fontSize:13, color:"#1a1a2e", background:WHITE, boxSizing:"border-box",
+  };
+
+  return (
+    <div style={{ paddingBottom:32 }}>
+      {/* Back button */}
+      <button onClick={onBack} style={{
+        display:"flex", alignItems:"center", gap:6, background:"none", border:"none",
+        color:HOT, fontFamily:"'DM Sans',sans-serif", fontSize:13, fontWeight:700,
+        cursor:"pointer", padding:"12px 0 8px",
+      }}>
+        ← Back to Explore
+      </button>
+
+      {/* Hero photo */}
+      <div style={{ width:"100%", height:220, borderRadius:18, overflow:"hidden", marginBottom:12, position:"relative" }}>
+        <img src={photo} alt={e.name} style={{ width:"100%", height:"100%", objectFit:"cover" }}/>
+        {e.hot && (
+          <div style={{ position:"absolute", bottom:12, left:12, background:PUNCH, borderRadius:50, padding:"3px 10px", fontSize:9, fontWeight:800, color:WHITE, fontFamily:"'DM Sans',sans-serif" }}>
+            🔥 POPULAR
+          </div>
+        )}
+      </div>
+
+      {/* Photo grid */}
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:6, marginBottom:16 }}>
+        {[IMG[e.cat], IMG.activity, IMG.bar, IMG.stay].filter(Boolean).slice(0,4).map((src,i) => (
+          <div key={i} style={{ height:90, borderRadius:12, overflow:"hidden" }}>
+            <img src={src} alt="" style={{ width:"100%", height:"100%", objectFit:"cover" }}/>
+          </div>
+        ))}
+      </div>
+
+      {/* Title + meta */}
+      <div style={{ marginBottom:16 }}>
+        <div style={{ display:"inline-block", background:SOFT, border:`1px solid ${MID}`, borderRadius:50, padding:"3px 10px", fontSize:9, fontWeight:700, color:HOT, fontFamily:"'DM Sans',sans-serif", marginBottom:8 }}>
+          🎉 {e.badge}
+        </div>
+        <div style={{ fontSize:20, fontWeight:800, fontFamily:"'Playfair Display',Georgia,serif", color:"#1a1a2e", lineHeight:1.25, marginBottom:10 }}>
+          {e.name}
+        </div>
+        <div style={{ display:"flex", gap:16, flexWrap:"wrap" }}>
+          <span style={{ fontSize:12, color:"#555", fontFamily:"'DM Sans',sans-serif" }}>⭐ {e.rating} rating</span>
+          <span style={{ fontSize:12, color:"#555", fontFamily:"'DM Sans',sans-serif" }}>⏱ {dur}</span>
+          <span style={{ fontSize:12, color:PUNCH, fontWeight:700, fontFamily:"'DM Sans',sans-serif" }}>Starting at {price}/person</span>
+        </div>
+      </div>
+
+      {/* Book Now CTA */}
+      <a href={bookingUrl} target="_blank" rel="noreferrer" style={{ textDecoration:"none", display:"block", marginBottom:20 }}>
+        <button style={{
+          width:"100%", background:`linear-gradient(135deg,${HOT},${PUNCH})`,
+          color:WHITE, border:"none", borderRadius:14, padding:"15px",
+          fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:800,
+          cursor:"pointer", letterSpacing:"0.3px",
+        }}>
+          Book Now →
+        </button>
+      </a>
+
+      {/* About */}
+      <div style={{ background:WHITE, borderRadius:16, padding:"16px", marginBottom:12, boxShadow:"0 2px 12px rgba(45,10,24,0.08)" }}>
+        <div style={{ fontSize:15, fontWeight:800, fontFamily:"'Playfair Display',Georgia,serif", color:"#1a1a2e", marginBottom:10 }}>
+          About this Experience
+        </div>
+        <div style={{ fontSize:12, color:"#555", fontFamily:"'DM Sans',sans-serif", lineHeight:1.7, marginBottom:14 }}>
+          {desc}
+        </div>
+        <div style={{ fontSize:13, fontWeight:700, color:"#1a1a2e", fontFamily:"'DM Sans',sans-serif", marginBottom:8 }}>
+          Why we love it for your party:
+        </div>
+        {bullets.map((b, i) => (
+          <div key={i} style={{ display:"flex", gap:8, marginBottom:6, alignItems:"flex-start" }}>
+            <span style={{ color:HOT, fontWeight:900, flexShrink:0 }}>•</span>
+            <span style={{ fontSize:12, color:"#555", fontFamily:"'DM Sans',sans-serif", lineHeight:1.5 }}>{b}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Check Availability */}
+      <div style={{ background:"#1a1a2e", borderRadius:16, padding:"16px", marginBottom:12 }}>
+        <div style={{ fontSize:15, fontWeight:800, fontFamily:"'Playfair Display',Georgia,serif", color:WHITE, marginBottom:14 }}>
+          Check Availability
+        </div>
+        <div style={{ display:"flex", gap:8, marginBottom:10 }}>
+          <input type="date" value={date} onChange={e=>setDate(e.target.value)} style={{ ...inputStyle, flex:1 }} placeholder="Choose Date"/>
+          <select value={guests} onChange={e=>setGuests(Number(e.target.value))} style={{ ...inputStyle, flex:1 }}>
+            {[2,3,4,5,6,7,8,9,10,12,15,20].map(n=>(
+              <option key={n} value={n}>{n} Guests</option>
+            ))}
+          </select>
+        </div>
+        <a href={bookingUrl} target="_blank" rel="noreferrer" style={{ textDecoration:"none", display:"block" }}>
+          <button style={{
+            width:"100%", background:`linear-gradient(135deg,${HOT},${PUNCH})`,
+            color:WHITE, border:"none", borderRadius:12, padding:"13px",
+            fontFamily:"'DM Sans',sans-serif", fontSize:13, fontWeight:800, cursor:"pointer",
+          }}>
+            Select Option →
+          </button>
+        </a>
+      </div>
+
+      {/* Cancellation policy */}
+      <div style={{ background:WHITE, borderRadius:16, padding:"14px 16px", marginBottom:12, boxShadow:"0 2px 12px rgba(45,10,24,0.08)" }}>
+        <div style={{ fontSize:13, fontWeight:800, fontFamily:"'Playfair Display',Georgia,serif", color:"#1a1a2e", marginBottom:8 }}>
+          Cancellation Policy
+        </div>
+        <div style={{ display:"flex", gap:10, alignItems:"flex-start" }}>
+          <span style={{ fontSize:18 }}>🛡️</span>
+          <div>
+            <div style={{ fontSize:12, fontWeight:700, color:"#1a1a2e", fontFamily:"'DM Sans',sans-serif" }}>Flexible Cancellation</div>
+            <div style={{ fontSize:11, color:"#888", fontFamily:"'DM Sans',sans-serif", marginTop:3, lineHeight:1.5 }}>
+              Cancel up to 24 hours in advance for a full refund. Policies may vary by provider.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Reviews */}
+      <div style={{ background:WHITE, borderRadius:16, padding:"14px 16px", marginBottom:16, boxShadow:"0 2px 12px rgba(45,10,24,0.08)" }}>
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12 }}>
+          <div>
+            <div style={{ fontSize:13, fontWeight:800, fontFamily:"'Playfair Display',Georgia,serif", color:"#1a1a2e" }}>Reviews</div>
+            <div style={{ fontSize:11, color:"#888", fontFamily:"'DM Sans',sans-serif" }}>⭐ {e.rating} · Bachelorette approved</div>
+          </div>
+        </div>
+        {[
+          { name:"Megan T.", date:"March 2025", text:"Absolutely incredible — the highlight of our entire bachelorette weekend. 10/10 would book again!" },
+          { name:"Kayla R.", date:"January 2025", text:"Our group of 9 had the best time. Everything was seamless and the bride was obsessed." },
+        ].map((r, i) => (
+          <div key={i} style={{ borderTop:`1px solid ${SOFT}`, paddingTop:10, marginTop:10 }}>
+            <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:6 }}>
+              <div style={{ width:32, height:32, borderRadius:"50%", background:`linear-gradient(135deg,${HOT},${PUNCH})`, display:"flex", alignItems:"center", justifyContent:"center", color:WHITE, fontSize:13, fontWeight:700, fontFamily:"'DM Sans',sans-serif", flexShrink:0 }}>
+                {r.name[0]}
+              </div>
+              <div>
+                <div style={{ fontSize:12, fontWeight:700, color:"#1a1a2e", fontFamily:"'DM Sans',sans-serif" }}>{r.name}</div>
+                <div style={{ fontSize:10, color:"#aaa", fontFamily:"'DM Sans',sans-serif" }}>{r.date} · Bachelorette Party</div>
+              </div>
+            </div>
+            <div style={{ fontSize:10, color:"#f59e0b" }}>★★★★★</div>
+            <div style={{ fontSize:12, color:"#555", fontFamily:"'DM Sans',sans-serif", marginTop:4, lineHeight:1.5 }}>{r.text}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Similar Experiences */}
+      {similar.length > 0 && (
+        <div>
+          <div style={{ fontSize:14, fontWeight:800, fontFamily:"'Playfair Display',Georgia,serif", color:"#1a1a2e", marginBottom:12 }}>
+            Similar Experiences
+          </div>
+          <div style={{ display:"flex", gap:12, overflowX:"auto", paddingBottom:8, scrollbarWidth:"none" }}>
+            {similar.map(s => (
+              <div key={s.id} style={{ flexShrink:0, width:160, borderRadius:14, overflow:"hidden", boxShadow:"0 3px 12px rgba(45,10,24,0.10)", background:WHITE }}>
+                <div style={{ height:100, overflow:"hidden", position:"relative" }}>
+                  <img src={IMG[s.cat]||IMG.activity} alt={s.name} style={{ width:"100%", height:"100%", objectFit:"cover" }}/>
+                  <div style={{ position:"absolute", top:6, left:6, background:"rgba(0,0,0,0.45)", borderRadius:50, padding:"2px 8px", fontSize:8, fontWeight:700, color:WHITE, fontFamily:"'DM Sans',sans-serif" }}>🎉 {s.badge}</div>
+                </div>
+                <div style={{ padding:"8px 10px" }}>
+                  <div style={{ fontSize:10, fontWeight:700, color:"#1a1a2e", fontFamily:"'DM Sans',sans-serif", lineHeight:1.3, marginBottom:4 }}>{s.name}</div>
+                  <div style={{ fontSize:9, color:"#888", fontFamily:"'DM Sans',sans-serif" }}>⭐ {s.rating} · {s.price}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function ExploreTab({ groupSize }) {
   const [brideType, setBrideType] = useState(null);      // bride personality id
   const [region,    setRegion]    = useState("us");      // "us" | "intl"
@@ -513,6 +748,7 @@ export default function ExploreTab({ groupSize }) {
   const [generating, setGen]      = useState(false);
   const [cat,       setCat]       = useState("all");     // browse section filter
   const [saved,     setSaved]     = useState(new Set());
+  const [selectedExp, setSelectedExp] = useState(null);
 
   const handleBrideType = id => {
     setBrideType(id);
@@ -568,6 +804,26 @@ export default function ExploreTab({ groupSize }) {
       return CAT_GROUP[e.cat] === cat;
     })
     .sort((a, b) => (b.hot ? 1 : 0) - (a.hot ? 1 : 0)); // hot items first
+
+  // Show detail page if an experience is selected
+  if (selectedExp) {
+    const detailCity = CITIES.find(c=>c.id===selectedExp.city)?.name || DESTS.find(d=>d.id===selectedExp.city)?.name || selectedExp.city;
+    const similar = EXP.filter(e => e.city===selectedExp.city && e.id!==selectedExp.id && e.cat===selectedExp.cat).slice(0,6);
+    return (
+      <ExperienceDetail
+        e={selectedExp}
+        groupSize={groupSize}
+        onBack={()=>setSelectedExp(null)}
+        cityName={detailCity}
+        similar={similar}
+        viatorUrl={viatorUrl}
+        opentableUrl={opentableUrl}
+        CAT_GROUP={CAT_GROUP}
+        CITIES={CITIES}
+        IMG={IMG}
+      />
+    );
+  }
 
   return (
     <div style={{ paddingBottom:8 }}>
@@ -813,10 +1069,11 @@ export default function ExploreTab({ groupSize }) {
             const [g1, g2] = grad(e);
             const isSaved  = saved.has(e.id);
             return (
-              <div key={e.id} style={{
+              <div key={e.id} onClick={()=>{ if(!['flight','car'].includes(CAT_GROUP[e.cat])) setSelectedExp(e); }} style={{
                 borderRadius:18, overflow:"hidden",
                 boxShadow:"0 4px 16px rgba(45,10,24,0.12)",
                 background:WHITE, display:"flex", flexDirection:"column",
+                cursor:['flight','car'].includes(CAT_GROUP[e.cat]) ? "default" : "pointer",
               }}>
                 <div style={{
                   height:110, position:"relative",
@@ -862,23 +1119,20 @@ export default function ExploreTab({ groupSize }) {
                       <span style={{ fontSize:11, fontWeight:700, color:PUNCH, fontFamily:"'DM Sans',sans-serif" }}>{e.price}</span>
                     </div>
                   </div>
-                  <a
-                    href={
-                      e.bookingUrl ? e.bookingUrl
-                      : CAT_GROUP[e.cat] === "dining"
-                        ? opentableUrl(e.name, CITIES.find(c=>c.id===e.city)?.name||"")
-                        : CAT_GROUP[e.cat] === "stay"
-                          ? `https://www.airbnb.com/s/${encodeURIComponent(CITIES.find(c=>c.id===e.city)?.name||"")}/homes?adults=${groupSize||4}`
-                          : viatorUrl(e.name, CITIES.find(c=>c.id===e.city)?.name||"")
-                    }
-                    target="_blank" rel="noreferrer" style={{ textDecoration:"none" }}
-                  >
-                    <button style={{ ...BP, width:"100%", fontSize:11, padding:"8px", borderRadius:10 }}>
-                      {CAT_GROUP[e.cat]==="flight" ? "Search Flights →"
-                        : CAT_GROUP[e.cat]==="car" ? "Browse Cars →"
-                        : "Book Now →"}
+                  {['flight','car'].includes(CAT_GROUP[e.cat]) ? (
+                    <a
+                      href={e.bookingUrl || viatorUrl(e.name, CITIES.find(c=>c.id===e.city)?.name||"")}
+                      target="_blank" rel="noreferrer" style={{ textDecoration:"none" }}
+                    >
+                      <button style={{ ...BP, width:"100%", fontSize:11, padding:"8px", borderRadius:10 }}>
+                        {CAT_GROUP[e.cat]==="flight" ? "Search Flights →" : "Browse Cars →"}
+                      </button>
+                    </a>
+                  ) : (
+                    <button onClick={ev=>{ev.stopPropagation();setSelectedExp(e);}} style={{ ...BP, width:"100%", fontSize:11, padding:"8px", borderRadius:10 }}>
+                      View Details →
                     </button>
-                  </a>
+                  )}
                 </div>
               </div>
             );
