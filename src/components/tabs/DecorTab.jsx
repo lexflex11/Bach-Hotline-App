@@ -531,7 +531,7 @@ function GarlandScene({ selectedColors }) {
       {GARLAND_3D_LAYOUT.map((b, i) => (
         <Balloon3D
           key={i}
-          position={[b[0]*1.21, b[1]*1.21, b[2]*1.21]}
+          position={[b[0]*1.33, b[1]*1.33, b[2]*1.33]}
           radius={b[3]*1.42}
           color={palette[b[4] % palette.length]}
         />
