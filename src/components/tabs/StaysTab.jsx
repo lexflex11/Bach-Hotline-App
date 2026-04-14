@@ -1,185 +1,144 @@
 import React, { useState } from 'react';
 import { SOFT, MID, HOT, PUNCH, DARK, BORDER, WHITE } from '../../constants/colors.js';
-import { C, BP, BS } from '../../constants/styles.js';
-import { DESTS, STAYS, PLATFORMS } from '../../constants/data.js';
-import { airbnbUrl, vrboUrl, bookingUrl } from '../../constants/api.js';
+import { C, BP } from '../../constants/styles.js';
+import { DESTS } from '../../constants/data.js';
 import SH from '../ui/SH.jsx';
-import Chip from '../ui/Chip.jsx';
-import Tag from '../ui/Tag.jsx';
-import CommissionNote from '../ui/CommissionNote.jsx';
 
 export default function StaysTab({ groupSize }) {
-  const [nights, setNights] = useState(3);
-  const [platformFilter, setPlatformFilter] = useState("all");
-  const [cityFilter, setCityFilter] = useState("all");
-  const [wishlist, setWishlist] = useState([]);
+  const [city,      setCity]      = useState("");
+  const [checkIn,   setCheckIn]   = useState("");
+  const [checkOut,  setCheckOut]  = useState("");
 
-  const cities = ["all", ...Array.from(new Set(STAYS.map(s => s.city)))];
-  const filtered = STAYS.filter(s =>
-    (platformFilter==="all" || s.platform===platformFilter) &&
-    (cityFilter==="all" || s.city===cityFilter)
-  );
+  const nights = (() => {
+    if (!checkIn || !checkOut) return 0;
+    const diff = (new Date(checkOut) - new Date(checkIn)) / 86400000;
+    return diff > 0 ? diff : 0;
+  })();
 
-  const getBookingUrl = (stay) => {
-    if (stay.platform==="airbnb")  return airbnbUrl(stay.city, nights, groupSize);
-    if (stay.platform==="vrbo")    return vrboUrl(stay.city, nights, groupSize);
-    if (stay.platform==="booking") return bookingUrl(stay.city, nights, groupSize);
-    return "#";
+  const selectedDest = DESTS.find(d => d.id === city);
+
+  function findStays() {
+    if (!city) return;
+    const dest = encodeURIComponent(selectedDest?.name || city);
+    const url = checkIn && checkOut
+      ? `https://www.airbnb.com/s/${dest}/homes?checkin=${checkIn}&checkout=${checkOut}&adults=${groupSize || 4}`
+      : `https://www.airbnb.com/s/${dest}/homes?adults=${groupSize || 4}`;
+    window.open(url, "_blank");
+  }
+
+  const SM = {
+    background: SOFT, border: `1.5px solid ${MID}`, color: HOT,
+    borderRadius: 8, width: 28, height: 28, cursor: "pointer",
+    fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15,
+    display: "flex", alignItems: "center", justifyContent: "center",
   };
 
-  const isWished = id => wishlist.includes(id);
+  const inputStyle = {
+    width: "100%", padding: "10px 12px", borderRadius: 10,
+    border: `1.5px solid ${BORDER}`, fontFamily: "'DM Sans',sans-serif",
+    fontSize: 13, color: DARK, background: WHITE, boxSizing: "border-box",
+    outline: "none",
+  };
 
-  const SM = { background:SOFT, border:`1.5px solid ${MID}`, color:HOT, borderRadius:8, width:28, height:28, cursor:"pointer", fontFamily:"'DM Sans',sans-serif", fontWeight:700, fontSize:15, display:"flex", alignItems:"center", justifyContent:"center" };
+  const labelStyle = {
+    fontSize: 10, fontWeight: 700, color: HOT,
+    fontFamily: "'DM Sans',sans-serif",
+    textTransform: "uppercase", letterSpacing: 1, marginBottom: 6,
+  };
 
   return (
     <div>
-      <SH title="Stays — Airbnb, Vrbo & Hotels" sub="Tap to search real availability for your dates" />
+      <SH title="Find Your Stay" sub="Search real availability for your crew" />
 
+      {/* Destination */}
+      <div style={{ ...C, marginBottom: 12 }}>
+        <div style={labelStyle}>Destination</div>
+        <select
+          value={city}
+          onChange={e => setCity(e.target.value)}
+          style={{ ...inputStyle, appearance: "none" }}
+        >
+          <option value="">Choose a city…</option>
+          {DESTS.filter(d => d.id !== "all").map(d => (
+            <option key={d.id} value={d.id}>{d.emoji} {d.name}</option>
+          ))}
+        </select>
+      </div>
 
+      {/* Dates */}
+      <div style={{ ...C, marginBottom: 12, display: "flex", gap: 10 }}>
+        <div style={{ flex: 1 }}>
+          <div style={labelStyle}>Check-In</div>
+          <input
+            type="date" value={checkIn}
+            onChange={e => setCheckIn(e.target.value)}
+            style={inputStyle}
+          />
+        </div>
+        <div style={{ flex: 1 }}>
+          <div style={labelStyle}>Check-Out</div>
+          <input
+            type="date" value={checkOut}
+            onChange={e => setCheckOut(e.target.value)}
+            style={inputStyle}
+          />
+        </div>
+      </div>
 
-      {/* Nights + group */}
-      <div style={{ ...C, marginBottom:14, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+      {/* Group + nights summary */}
+      <div style={{ ...C, marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div>
-          <div style={{ fontSize:11, color:HOT, fontFamily:"'DM Sans',sans-serif", fontWeight:600, textTransform:"uppercase", letterSpacing:1 }}>Nights</div>
-          <div style={{ display:"flex", alignItems:"center", gap:10, marginTop:6 }}>
-            <button onClick={()=>setNights(Math.max(1,nights-1))} style={SM}>−</button>
-            <span style={{ fontWeight:900, color:PUNCH, fontSize:20, fontFamily:"'Playfair Display',Georgia,serif" }}>{nights}</span>
-            <button onClick={()=>setNights(nights+1)} style={SM}>+</button>
+          <div style={labelStyle}>Group</div>
+          <div style={{ fontSize: 22, fontWeight: 900, color: PUNCH, fontFamily: "'Playfair Display',Georgia,serif", marginTop: 2 }}>
+            {groupSize} 👯
           </div>
         </div>
-        <div style={{ textAlign:"center" }}>
-          <div style={{ fontSize:11, color:HOT, fontFamily:"'DM Sans',sans-serif", fontWeight:600, textTransform:"uppercase", letterSpacing:1 }}>Group</div>
-          <div style={{ fontSize:20, fontWeight:900, color:PUNCH, fontFamily:"'Playfair Display',Georgia,serif", marginTop:4 }}>{groupSize} 👯</div>
-        </div>
-        <div style={{ textAlign:"right" }}>
-          <div style={{ fontSize:11, color:"#bbb", fontFamily:"'DM Sans',sans-serif" }}>{nights} nights</div>
-          <div style={{ fontSize:11, color:"#bbb", fontFamily:"'DM Sans',sans-serif" }}>group of {groupSize}</div>
-        </div>
+        {nights > 0 && (
+          <div style={{ textAlign: "right" }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: HOT, fontFamily: "'DM Sans',sans-serif" }}>
+              {nights} night{nights !== 1 ? "s" : ""}
+            </div>
+            <div style={{ fontSize: 11, color: "#bbb", fontFamily: "'DM Sans',sans-serif" }}>
+              {checkIn} → {checkOut}
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Platform filter pills */}
-      <div style={{ marginBottom:10 }}>
-        <div style={{ fontSize:10, color:HOT, fontFamily:"'DM Sans',sans-serif", fontWeight:700, textTransform:"uppercase", letterSpacing:1, marginBottom:8 }}>Filter by Platform</div>
-        <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>
-          <Chip label="All Platforms" active={platformFilter==="all"} onClick={()=>setPlatformFilter("all")} />
-          {Object.entries(PLATFORMS).map(([key, p]) => (
-            <button key={key} onClick={()=>setPlatformFilter(key)} style={{ flexShrink:0, padding:"6px 13px", borderRadius:50, border:platformFilter===key?`2px solid ${p.color}`:`1.5px solid ${BORDER}`, background:platformFilter===key?p.bg:WHITE, color:platformFilter===key?p.color:HOT, fontFamily:"'DM Sans',sans-serif", fontSize:10, fontWeight:700, cursor:"pointer", whiteSpace:"nowrap", transition:"all 0.18s" }}>
-              {p.emoji} {p.name}
+      {/* CTA */}
+      <div style={{ ...C, background: SOFT, border: `1.5px solid ${MID}`, marginBottom: 14 }}>
+        {city ? (
+          <>
+            <div style={{ fontSize: 14, fontWeight: 700, fontFamily: "'Playfair Display',Georgia,serif", color: DARK, marginBottom: 4 }}>
+              {selectedDest?.emoji} {selectedDest?.name}
+            </div>
+            <div style={{ fontSize: 11, color: HOT, fontFamily: "'DM Sans',sans-serif", marginBottom: 14, opacity: 0.85 }}>
+              {groupSize} guests
+              {nights > 0 ? ` · ${nights} nights · ${checkIn} → ${checkOut}` : " · flexible dates"}
+            </div>
+            <button onClick={findStays} style={{
+              width: "100%",
+              background: `linear-gradient(135deg,${HOT},${PUNCH})`,
+              color: WHITE, border: "none", borderRadius: 14,
+              padding: "15px", cursor: "pointer",
+              fontFamily: "'DM Sans',sans-serif", fontSize: 14, fontWeight: 800,
+              letterSpacing: "0.3px",
+            }}>
+              🏠 Find Best Stays
             </button>
-          ))}
-        </div>
-      </div>
-
-      {/* City filter */}
-      <div style={{ display:"flex", gap:6, overflowX:"auto", marginBottom:16, paddingBottom:4, scrollbarWidth:"none" }}>
-        {cities.map(c => <Chip key={c} label={c==="all"?"All Cities":c} active={cityFilter===c} onClick={()=>setCityFilter(c)} />)}
-      </div>
-
-      {/* Stay cards */}
-      {filtered.map(s => {
-        const plat = PLATFORMS[s.platform];
-        return (
-          <div key={s.id} style={{ ...C, marginBottom:14 }}>
-            {/* Platform badge */}
-            <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:10 }}>
-              <div style={{ display:"flex", alignItems:"center", gap:6 }}>
-                <span style={{ fontSize:14 }}>{s.img}</span>
-                <span style={{ fontSize:9, fontWeight:700, padding:"3px 9px", borderRadius:20, background:plat.bg, color:plat.color, border:`1px solid ${plat.border}`, fontFamily:"'DM Sans',sans-serif" }}>
-                  {plat.emoji} {plat.name} · {plat.label}
-                </span>
-              </div>
-              <button
-                onClick={()=>setWishlist(p => isWished(s.id)?p.filter(i=>i!==s.id):[...p,s.id])}
-                style={{ background:"none", border:"none", cursor:"pointer", fontSize:18, color:isWished(s.id)?PUNCH:"#ccc" }}
-              >
-                {isWished(s.id)?"♥":"♡"}
-              </button>
+            <div style={{ fontSize: 10, color: "#bbb", fontFamily: "'DM Sans',sans-serif", marginTop: 8, textAlign: "center" }}>
+              We'll surface the best available options for your group
             </div>
-
-            {/* Stay info */}
-            <div style={{ fontSize:16, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>{s.name}</div>
-            <div style={{ fontSize:12, color:HOT, fontFamily:"'DM Sans',sans-serif", marginTop:2, opacity:0.75 }}>
-              📍 {s.city} · {s.rooms} bedrooms · sleeps {s.rooms*2}+
-            </div>
-
-            {/* Highlight banner */}
-            <div style={{ background:SOFT, border:`1px solid ${MID}`, borderRadius:8, padding:"6px 10px", marginTop:8, fontSize:11, color:HOT, fontFamily:"'DM Sans',sans-serif", fontWeight:600 }}>
-              ✨ {s.highlight}
-            </div>
-
-            <div style={{ fontSize:12, color:"#666", fontFamily:"'DM Sans',sans-serif", marginTop:8, lineHeight:1.5 }}>{s.desc}</div>
-
-            {/* Tags */}
-            <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginTop:8 }}>
-              {s.tags.map(t => <Tag key={t} label={t} />)}
-            </div>
-
-            {/* Pricing */}
-            <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginTop:10, padding:"10px 0", borderTop:`1px solid ${SOFT}`, borderBottom:`1px solid ${SOFT}` }}>
-              <div>
-                <div style={{ fontSize:11, color:"#bbb", fontFamily:"'DM Sans',sans-serif" }}>from</div>
-                <div style={{ fontSize:22, fontWeight:900, color:HOT, fontFamily:"'Playfair Display',Georgia,serif" }}>${s.price}<span style={{ fontSize:12, fontWeight:400, color:"#bbb" }}>/night</span></div>
-              </div>
-              <div style={{ textAlign:"right" }}>
-                <div style={{ fontSize:13, color:PUNCH, fontFamily:"'DM Sans',sans-serif", fontWeight:700 }}>${s.price*nights} est. {nights} nights</div>
-                <div style={{ fontSize:11, color:HOT, fontFamily:"'DM Sans',sans-serif", opacity:0.75 }}>⭐ {s.rating} rating</div>
-              </div>
-            </div>
-
-            {/* Real booking buttons */}
-            <div style={{ display:"flex", gap:8, marginTop:12 }}>
-              <a href={getBookingUrl(s)} target="_blank" rel="noreferrer" style={{ flex:2, textDecoration:"none" }}>
-                <button style={{ ...BP, width:"100%", fontSize:12, padding:"11px", background:`linear-gradient(135deg,${plat.color},${plat.color}cc)`, boxShadow:`0 4px 16px ${plat.color}44` }}>
-                  {plat.emoji} Search on {plat.name} →
-                </button>
-              </a>
-              <a
-                href={s.platform==="airbnb" ? airbnbUrl(s.city, nights, groupSize) : vrboUrl(s.city, nights, groupSize)}
-                target="_blank" rel="noreferrer"
-                style={{ flex:1, textDecoration:"none" }}
-              >
-                <button style={{ ...BS, width:"100%", fontSize:11, padding:"11px" }}>
-                  Compare
-                </button>
-              </a>
-            </div>
-
-            <div style={{ fontSize:9, color:"#bbb", fontFamily:"'DM Sans',sans-serif", marginTop:6, textAlign:"center" }}>
-              Prices shown are estimates · Real availability confirmed on {plat.name}
+          </>
+        ) : (
+          <div style={{ textAlign: "center", padding: "8px 0" }}>
+            <div style={{ fontSize: 22, marginBottom: 6 }}>🏠</div>
+            <div style={{ fontSize: 13, fontWeight: 700, fontFamily: "'Playfair Display',Georgia,serif", color: DARK }}>Pick a destination above</div>
+            <div style={{ fontSize: 11, color: HOT, fontFamily: "'DM Sans',sans-serif", marginTop: 4, opacity: 0.75 }}>
+              Then we'll find the best stays for {groupSize} people
             </div>
           </div>
-        );
-      })}
-
-      {/* Compare all platforms box */}
-      <div style={{ ...C, background:SOFT, border:`1.5px solid ${MID}`, marginTop:6 }}>
-        <div style={{ fontSize:13, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:12 }}>
-          🔍 Search All Platforms for {DESTS[0].name}
-        </div>
-        <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
-          {Object.entries(PLATFORMS).map(([key, p]) => (
-            <a key={key} href={key==="airbnb"?airbnbUrl("Nashville",nights,groupSize):key==="vrbo"?vrboUrl("Nashville",nights,groupSize):bookingUrl("Nashville",nights,groupSize)} target="_blank" rel="noreferrer" style={{ textDecoration:"none" }}>
-              <div style={{ display:"flex", alignItems:"center", gap:12, background:p.bg, border:`1.5px solid ${p.border}`, borderRadius:12, padding:"11px 14px", cursor:"pointer" }}>
-                <span style={{ fontSize:22 }}>{p.emoji}</span>
-                <div style={{ flex:1 }}>
-                  <div style={{ fontSize:13, fontWeight:700, fontFamily:"'DM Sans',sans-serif", color:p.color }}>{p.name}</div>
-                  <div style={{ fontSize:11, color:"#666", fontFamily:"'DM Sans',sans-serif" }}>{p.label}</div>
-                </div>
-                <span style={{ color:p.color, fontSize:16 }}>→</span>
-              </div>
-            </a>
-          ))}
-        </div>
-        <div style={{ marginTop:14 }}>
-          <div style={{ fontSize:11, fontWeight:700, color:HOT, fontFamily:"'DM Sans',sans-serif", textTransform:"uppercase", letterSpacing:1, marginBottom:8 }}>💰 Earn on every booking</div>
-          <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
-            {Object.entries(PLATFORMS).map(([key, p]) => (
-              <a key={key} href={p.signupUrl} target="_blank" rel="noreferrer" style={{ fontSize:11, padding:"6px 13px", borderRadius:50, background:p.bg, color:p.color, border:`1px solid ${p.border}`, fontFamily:"'DM Sans',sans-serif", fontWeight:700, textDecoration:"none", display:"inline-block" }}>
-                Join {p.name} Affiliate →
-              </a>
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
