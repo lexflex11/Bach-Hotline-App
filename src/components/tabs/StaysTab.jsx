@@ -35,7 +35,7 @@ export default function StaysTab({ groupSize }) {
     <div>
       <SH title="Stays — Airbnb, Vrbo & Hotels" sub="Tap to search real availability for your dates" />
 
-      <CommissionNote platform="Airbnb, Vrbo & Booking.com affiliate programs" amount="3–4%" />
+
 
       {/* Nights + group */}
       <div style={{ ...C, marginBottom:14, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
@@ -163,7 +163,7 @@ export default function StaysTab({ groupSize }) {
                 <span style={{ fontSize:22 }}>{p.emoji}</span>
                 <div style={{ flex:1 }}>
                   <div style={{ fontSize:13, fontWeight:700, fontFamily:"'DM Sans',sans-serif", color:p.color }}>{p.name}</div>
-                  <div style={{ fontSize:11, color:"#666", fontFamily:"'DM Sans',sans-serif" }}>{p.label} · Earn {p.commission} commission</div>
+                  <div style={{ fontSize:11, color:"#666", fontFamily:"'DM Sans',sans-serif" }}>{p.label}</div>
                 </div>
                 <span style={{ color:p.color, fontSize:16 }}>→</span>
               </div>
