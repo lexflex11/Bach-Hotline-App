@@ -762,7 +762,7 @@ const TABLEWARE = [
   {
     id:"plate-cowboy-hat", type:"plate", name:"Cowboy Hat Plates",
     desc:"8 ct · 9\" x 12\"", price:"$10.33",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/46d760ed-19e5-4917-b67a-2df299502d77/Ebook+Thumbnail+with+Video+-+2025-05-08T103149.342.png",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5fb0f5d5-fe62-4f33-a931-efdd1b4b8434/Ebook+Thumbnail+with+Video+-+2025-01-30T092019.581.png",
     bg:"#C8A882", accent:"#1A1A1A",
     tags:["muse","malted","stone","lace","terracotta","champagne","burnt-orange","black","cocoa","mustard"],
   },
