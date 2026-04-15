@@ -1190,7 +1190,7 @@ const TABLEWARE = [
   {
     id:"napkin-kiss-me", type:"napkin", name:"Kiss Me Napkins",
     desc:"20 ct · 5\" x 5\"", price:"$10.94",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68abbf9210a90473ab2884c6/1767921928321/Ebook+Thumbnail+with+Video+-+2025-11-06T093347.207.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/99038bdd-49da-490d-99c2-d34f40d0891c/Ebook+Thumbnail+with+Video+-+2025-11-06T093347.207.png",
     bg:"#E8112D", accent:"#FFB5C2",
     tags:["red","scarlett","hotpink","blush","baby-pink","pink","coral","taffy","sangria","crystal-burgundy","white","sugar"],
   },
@@ -1204,7 +1204,7 @@ const TABLEWARE = [
   {
     id:"napkin-wavy", type:"napkin", name:"Wavy Napkins",
     desc:"16 ct · 8\" x 5\"", price:"$10.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767921956868/Ebook+Thumbnail+with+Video+-+2025-12-29T205103.659.png",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/31ec6293-c535-47fe-a923-49fa134b18ed/Ebook+Thumbnail+with+Video+-+2025-12-29T205103.659.png",
     bg:"#29B6F6", accent:"#FFD700",
     tags:["blue","baby-blue","turquoise","teal","seafoam","sea-glass","yellow","lemonade","orange","coral","burnt-orange","aloha","green","lime-green","meadow","empower-mint","white","champagne"],
   },
@@ -1225,7 +1225,7 @@ const TABLEWARE = [
   {
     id:"napkin-stay-fierce", type:"napkin", name:"Stay Fierce Napkins",
     desc:"16 ct · 6\" x 7.75\"", price:"$8.36",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767922026611/Ebook+Thumbnail+with+Video+-+2026-01-06T164649.173.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/4d7ac248-efe7-47e9-a407-7ecf894e7b96/Ebook+Thumbnail+with+Video+-+2026-01-06T164649.173.png",
     bg:"#E91E8C", accent:"#FFD700",
     tags:["hotpink","blush","pink","baby-pink","gold","metallic-gold","champagne","orange","burnt-orange","terracotta","muse","malted"],
   },
@@ -1260,7 +1260,7 @@ const TABLEWARE = [
   {
     id:"napkin-sun-cabana", type:"napkin", name:"Sun Kissed Cabana Napkins",
     desc:"20 ct · 7.75\" x 4.25\"", price:"$12.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68ba086fbb187f4ec7c2bf9c/1767922122644/Ebook+Thumbnail+with+Video+-+2025-08-27T223748.256.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/44bf9473-afbf-4dec-8825-19a50482e3b3/Ebook+Thumbnail+with+Video+-+2025-08-27T223748.256.png",
     bg:"#9C27B0", accent:"#FF6B1A",
     tags:["purple","plum","lavender","blossom","orange","burnt-orange","aloha","coral","gold","champagne","white"],
   },
@@ -1295,14 +1295,14 @@ const TABLEWARE = [
   {
     id:"napkin-taco-party", type:"napkin", name:"Taco Party Napkins",
     desc:"25 ct · 7\" x 4.5\"", price:"$11.33",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767922221696/Ebook+Thumbnail+with+Video+-+2025-07-10T203346.148.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/92b46073-9cab-4ec0-9645-8b75c5f1d93b/Ebook+Thumbnail+with+Video+-+2025-07-10T203346.148.png",
     bg:"#FF6B1A", accent:"#4CAF50",
     tags:["orange","burnt-orange","aloha","coral","lime-green","green","yellow","lemonade","red","scarlett","terracotta","mustard"],
   },
   {
     id:"napkin-pinky-minty", type:"napkin", name:"Pinky Minty Napkins",
     desc:"16 ct · 8\" x 4.25\"", price:"$10.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767922413706/Ebook+Thumbnail+with+Video+-+2026-01-06T163614.057.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6790153b-9fb3-4c0e-a32a-924e1443ecc9/Ebook+Thumbnail+with+Video+-+2026-01-06T163614.057.png",
     bg:"#80CBC4", accent:"#E91E8C",
     tags:["mint","seafoam","empower-mint","teal","turquoise","hotpink","blush","baby-pink","pink","sea-glass","white","sugar"],
   },
@@ -1337,7 +1337,7 @@ const TABLEWARE = [
   {
     id:"napkin-simple-blue", type:"napkin", name:"Simple Blue Napkins",
     desc:"20 ct · 5\" x 5\"", price:"$11.15",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767921382800/Ebook+Thumbnail+with+Video-375.png",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b4eddbcd-dcb9-469e-a3cf-4e63ca48c840/Ebook+Thumbnail+with+Video-375.png",
     bg:"#B8D8E8", accent:"#0084C1",
     tags:["blue","baby-blue","monet","georgia","blue-slate","seafoam","teal","turquoise","sea-glass","navy","white","crystal-clear"],
   },
@@ -1358,7 +1358,7 @@ const TABLEWARE = [
   {
     id:"napkin-off-market", type:"napkin", name:"Off The Market Napkins",
     desc:"8 ct · 5\" x 5\"", price:"$9.36",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6852f6000a63794fee8fd22f/1767921428491/Ebook+Thumbnail+with+Video+-+2025-05-18T185535.880.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/149395c0-5bf6-4ac3-b1a9-e03105afdb4d/Ebook+Thumbnail+with+Video+-+2025-05-18T185535.880.png",
     bg:"#E91E8C", accent:"#FFD700",
     tags:["hotpink","blush","baby-pink","pink","white","sugar","gold","champagne","metallic-fuchsia","crystal-magenta"],
   },
@@ -1372,14 +1372,14 @@ const TABLEWARE = [
   {
     id:"napkin-pink-bow", type:"napkin", name:"Cottage Core Bow Napkins",
     desc:"16 ct · 6.5\" x 5.25\"", price:"$11.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767921470160/Ebook+Thumbnail+with+Video+-+2025-05-13T195007.791.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1f0f4d51-8246-46ed-8f37-72b313145bd4/Ebook+Thumbnail+with+Video+-+2025-05-13T195007.791.png",
     bg:"#FFB5C2", accent:"#E91E8C",
     tags:["hotpink","blush","baby-pink","pink","cameo","white","sugar","lavender","gold","champagne","mauve","canyon-rose"],
   },
   {
     id:"napkin-americana", type:"napkin", name:"Americana Polka Dot Napkins",
     desc:"24 ct · 5\" x 5\"", price:"$12.73",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767921503339/Ebook+Thumbnail+with+Video+-+2025-06-07T111520.978.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/50de2963-0b90-47be-84d3-a8763cee2212/Ebook+Thumbnail+with+Video+-+2025-06-07T111520.978.png",
     bg:"#E8112D", accent:"#0052A5",
     tags:["red","scarlett","blue","royalty","navy","metallic-blue","white","crystal-clear","crystal-sapphire","naval"],
   },
@@ -1400,7 +1400,7 @@ const TABLEWARE = [
   {
     id:"napkin-lemon", type:"napkin", name:"Lemon Napkins",
     desc:"16 ct · 5\" x 4.62\"", price:"$12.99",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767921615744/Ebook+Thumbnail+with+Video+-+2025-05-19T222647.996.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8a2a6f3b-6b6f-48ab-9f97-6913a999e364/Ebook+Thumbnail+with+Video+-+2025-05-19T222647.996.png",
     bg:"#FFEA5A", accent:"#4CAF50",
     tags:["yellow","lemonade","goldenrod","crystal-yellow","lime-green","green","meadow","white","sugar","mustard"],
   },
@@ -1421,7 +1421,7 @@ const TABLEWARE = [
   {
     id:"napkin-diamond", type:"napkin", name:"Diamond Napkins",
     desc:"18 ct · 5\" x 5\"", price:"$9.99",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767921712029/Ebook+Thumbnail+with+Video+-+2025-01-24T180336.314.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/78343a74-0323-41d2-a89d-e4525f43e6be/Ebook+Thumbnail+with+Video+-+2025-01-24T180336.314.png",
     bg:"#1A1A1A", accent:"#CE93D8",
     tags:["black","purple","plum","crystal-purple","silver","gray-smoke","lavender","navy","metallic-midnight-blue"],
   },
@@ -1435,7 +1435,7 @@ const TABLEWARE = [
   {
     id:"napkin-fries-guys", type:"napkin", name:"Fries Before Guys Napkins",
     desc:"16 ct · 6\" x 4\"", price:"$11.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767921683797/Ebook+Thumbnail+with+Video+-+2025-07-05T085433.945.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/e455f9c2-e856-4dd3-a236-f33b09625f0e/Ebook+Thumbnail+with+Video+-+2025-07-05T085433.945.png",
     bg:"#FFE800", accent:"#9C27B0",
     tags:["yellow","lemonade","goldenrod","mustard","crystal-yellow","purple","plum","lavender","blossom","peri","white","sugar"],
   },
@@ -1478,7 +1478,7 @@ const TABLEWARE = [
   {
     id:"napkin-rhombuses", type:"napkin", name:"Rhombuses Napkins",
     desc:"20 ct · 5\" x 5\"", price:"$9.75",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767921758774/Ebook+Thumbnail+with+Video-348.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c1eaeb14-5c91-4852-baf1-a3f42f5ebfe2/Ebook+Thumbnail+with+Video-348.png",
     bg:"#F8F8F8", accent:"#9C27B0",
     tags:["white","sugar","crystal-clear","silver","gold","hotpink","blush","purple","lavender","navy","black","champagne"],
   },
@@ -1486,7 +1486,7 @@ const TABLEWARE = [
   {
     id:"napkin-zodiac", type:"napkin", name:"Zodiac Napkins",
     desc:"20 ct · 5\" x 5\"", price:"$11.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68601364c130655fc0b61fe7/1767923345946/Ebook+Thumbnail+with+Video+-+2025-06-24T144821.727.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/79657551-4204-487e-ad6d-67707692806c/Ebook+Thumbnail+with+Video+-+2025-06-24T144821.727.png",
     bg:"#1A1A1A", accent:"#FFD700",
     tags:["black","gold","metallic-gold","champagne","purple","plum","navy","metallic-midnight-blue","silver","white","crystal-clear"],
   },
