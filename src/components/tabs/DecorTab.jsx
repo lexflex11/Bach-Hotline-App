@@ -454,59 +454,65 @@ function PatternDots({ pattern, size }) {
 
 // ── 3D Garland Preview ────────────────────────────────────────────────────────
 // Fixed balloon positions — only colors swap when user picks new palette
+// Positions designed so balloons touch each other (center dist = r1+r2)
+// [x,    y,    z,    radius, colorIndex]
 const GARLAND_3D_LAYOUT = [
-  // [x,    y,    z,    radius, colorIndex]
-  // Top-left cluster
-  [-3.0,  2.8,  0.0,  0.85, 0],
-  [-2.3,  3.3,  0.5,  0.65, 1],
-  [-3.5,  3.2, -0.3,  0.55, 2],
-  [-2.8,  2.0,  0.7,  0.45, 0],
-  [-1.8,  3.0,  0.2,  0.40, 1],
-  [-3.2,  2.3, -0.8,  0.30, 2],
-  // Upper-middle
-  [-1.2,  2.2, -0.2,  0.90, 1],
-  [-0.5,  2.8,  0.6,  0.60, 2],
-  [-1.5,  1.5,  0.4,  0.50, 0],
-  [-0.2,  1.8, -0.5,  0.40, 1],
-  [-0.8,  1.0, -0.3,  0.45, 0],
-  // Center
-  [ 0.5,  1.2,  0.3,  0.95, 0],
-  [ 1.2,  1.8, -0.4,  0.55, 2],
-  [ 0.2,  0.5,  0.7,  0.50, 1],
-  [ 1.0,  0.6,  0.0,  0.45, 0],
-  [ 1.6,  1.0,  0.5,  0.35, 2],
-  [ 0.7, -0.2, -0.4,  0.35, 1],
-  [ 0.0,  0.0,  0.5,  0.40, 2],
-  [-0.3,  0.2,  0.6,  0.35, 0],
-  // Lower-right
-  [ 2.0,  0.0, -0.2,  0.90, 2],
-  [ 2.6,  0.6,  0.5,  0.60, 0],
-  [ 2.3, -0.8,  0.3,  0.55, 1],
-  [ 3.0, -0.3, -0.4,  0.40, 2],
-  [ 1.8, -1.2,  0.6,  0.40, 0],
-  [ 2.8, -1.0,  0.1,  0.30, 1],
-  [ 1.3, -0.5, -0.5,  0.35, 1],
-  [ 2.0, -0.5,  0.6,  0.30, 0],
-  [ 1.5, -1.5, -0.3,  0.35, 2],
-  // Bottom cluster
-  [ 2.5, -1.8, -0.1,  0.85, 0],
-  [ 3.2, -1.5,  0.6,  0.60, 2],
-  [ 2.0, -2.4,  0.4,  0.55, 1],
-  [ 3.3, -2.2, -0.3,  0.45, 0],
-  [ 2.7, -2.8,  0.5,  0.40, 2],
-  [ 3.5, -2.6,  0.2,  0.30, 1],
-  [ 0.5, -0.8,  0.3,  0.30, 0],
+  // ── Large anchors along S-curve spine ──────────────────────────────
+  [-3.8,  2.5,  0.0,  0.90, 0],
+  [-2.0,  2.0,  0.0,  0.90, 1],
+  [-0.5,  1.1,  0.0,  0.90, 2],
+  [ 1.2,  0.3,  0.0,  0.90, 0],
+  [ 2.8, -0.6,  0.0,  0.90, 1],
+  [ 3.8, -2.0,  0.0,  0.90, 2],
+  // ── Medium fills — sit between/beside large anchors ─────────────────
+  [-3.2,  3.5,  0.35, 0.60, 2],
+  [-4.5,  1.6,  0.30, 0.60, 1],
+  [-2.7,  1.0, -0.30, 0.58, 0],
+  [-1.4,  2.9,  0.35, 0.60, 0],
+  [-1.3,  0.2, -0.30, 0.58, 2],
+  [ 0.1,  2.0,  0.35, 0.60, 1],
+  [ 0.3, -0.5, -0.30, 0.58, 0],
+  [ 1.8,  1.2,  0.35, 0.60, 2],
+  [ 1.9, -0.5, -0.30, 0.58, 1],
+  [ 3.2,  0.4,  0.35, 0.60, 0],
+  [ 3.3, -1.5, -0.30, 0.58, 2],
+  [ 4.6, -2.5,  0.30, 0.60, 1],
+  // ── Small accent balloons ───────────────────────────────────────────
+  [-4.4,  3.0,  0.45, 0.38, 1],
+  [-5.0,  2.2, -0.20, 0.36, 0],
+  [-3.5,  1.0,  0.40, 0.38, 2],
+  [-1.9,  3.6, -0.25, 0.36, 2],
+  [-0.9, -0.0,  0.40, 0.38, 1],
+  [ 0.0,  2.4, -0.25, 0.36, 0],
+  [ 0.7, -0.9,  0.40, 0.38, 2],
+  [ 2.0,  1.9, -0.25, 0.36, 1],
+  [ 2.5, -1.3,  0.40, 0.38, 0],
+  [ 3.8,  0.9, -0.25, 0.36, 2],
+  [ 4.5, -3.0,  0.40, 0.36, 0],
+  [ 5.0, -1.9, -0.20, 0.38, 1],
+  // ── Tiny accent clusters (fill visual gaps) ─────────────────────────
+  [-4.9,  2.9,  0.28, 0.25, 0],
+  [-3.9,  3.9,  0.20, 0.23, 2],
+  [-3.1,  4.1, -0.20, 0.25, 1],
+  [-1.6,  1.4,  0.28, 0.23, 0],
+  [-0.3,  2.7, -0.20, 0.25, 2],
+  [ 0.5,  0.6,  0.28, 0.23, 1],
+  [ 1.4, -0.2, -0.20, 0.25, 0],
+  [ 2.7,  0.0,  0.28, 0.23, 2],
+  [ 3.5, -2.5, -0.20, 0.25, 1],
+  [ 4.7, -2.2,  0.28, 0.23, 0],
+  [ 1.0,  1.6,  0.20, 0.20, 1],
+  [-2.5,  2.5,  0.25, 0.20, 2],
 ];
 
 function Balloon3D({ position, radius, color }) {
-  const meshRef = useRef();
   return (
-    <mesh ref={meshRef} position={position}>
-      <sphereGeometry args={[radius, 24, 24]} />
+    <mesh position={position}>
+      <sphereGeometry args={[radius, 32, 32]} />
       <meshStandardMaterial
         color={color}
-        roughness={0.28}
-        metalness={0.06}
+        roughness={0.10}
+        metalness={0.08}
       />
     </mesh>
   );
@@ -519,20 +525,21 @@ function GarlandScene({ selectedColors }) {
   });
   return (
     <>
-      <ambientLight intensity={0.75} />
-      <directionalLight position={[5, 8, 4]} intensity={1.4} castShadow />
-      <directionalLight position={[-4, -2, -3]} intensity={0.35} color="#ffd0e8" />
+      <ambientLight intensity={0.55} />
+      <directionalLight position={[4, 6, 5]} intensity={2.0} castShadow />
+      <directionalLight position={[-5, 2, -3]} intensity={0.50} color="#ffd0e8" />
+      <pointLight position={[0, 3, 7]} intensity={0.90} color="#ffffff" />
       <OrbitControls
         enableZoom={false}
         enablePan={false}
         autoRotate
-        autoRotateSpeed={0.7}
+        autoRotateSpeed={0.6}
       />
       {GARLAND_3D_LAYOUT.map((b, i) => (
         <Balloon3D
           key={i}
-          position={[b[0]*1.33, b[1]*1.33, b[2]*1.33]}
-          radius={b[3]*1.42}
+          position={[b[0], b[1], b[2]]}
+          radius={b[3]}
           color={palette[b[4] % palette.length]}
         />
       ))}
@@ -554,7 +561,7 @@ function GarlandPreview({ selectedColors }) {
   return (
     <div style={{borderRadius:14,overflow:"hidden",border:`1.5px solid ${BORDER}`,background:"#fdf5f8"}}>
       <div style={{height:300}}>
-        <Canvas camera={{ position:[0, 0, 11], fov:50 }}>
+        <Canvas camera={{ position:[0, 0.2, 10], fov:62 }}>
           <GarlandScene selectedColors={selectedColors} />
         </Canvas>
       </div>
@@ -2395,63 +2402,63 @@ const TABLEWARE = [
   // ── Treat Bags ────────────────────────────────────────────────────────────────
   {
     id:"treatbag-envelope-boxes", type:"treatbag", name:"Envelope Treat Boxes",
-    desc:"Set of 8 treat boxes, 4\"l x 3\"w x 5\"h, ships flat", price:"$16.33",
+    desc:"8 ct · 4\"l × 3\"w × 5\"h", price:"$16.33",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/69501f769e309b7374828b5b/1767924128193/Ebook+Thumbnail+with+Video-381.png?format=1500w",
     bg:"#FFF8E1", accent:"#FFD700",
     tags:["white","cream","gold","champagne","lace","bachelorette","bride","hotpink","pink","baby-pink","blush","blossom","coral","peach"],
   },
   {
     id:"treatbag-diamond", type:"treatbag", name:"Diamond Treat Bags",
-    desc:"Set of 10 diamond-shaped bags, 10\"l x 6.5\"h, ships flat", price:"$8.00",
+    desc:"10 ct · 10\"l × 6.5\"h", price:"$8.00",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767924321739/Ebook+Thumbnail+with+Video+-+2025-12-31T235300.051.png?format=1500w",
     bg:"#FFF9C4", accent:"#FFD700",
     tags:["yellow","gold","white","crystal-clear","champagne","glam","bachelorette","blue","baby-blue","navy","royal-blue","monet","teal","green","lime-green","empower-mint"],
   },
   {
     id:"treatbag-lunar-dragon", type:"treatbag", name:"Lunar Dragon Treat Box",
-    desc:"Set of 6 takeout-style boxes with gold foil accents & metal handles", price:"$12.24",
+    desc:"6 ct · takeout-style w/ gold foil", price:"$12.24",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6824f23e19aabf2f07a2ed44/1767924305633/Ebook+Thumbnail+with+Video+-+2025-05-13T192702.718.png?format=1500w",
     bg:"#B71C1C", accent:"#FFD700",
     tags:["red","cranberry","cherry","gold","black","dark","spooky","glam"],
   },
   {
     id:"treatbag-shell", type:"treatbag", name:"Shell Treat Bags",
-    desc:"Set of 8 shell-shaped bags, 6.5\"h x 6\"l x 3\"w, ships flat", price:"$26.84",
+    desc:"8 ct · 6.5\"h × 6\"l × 3\"w", price:"$26.84",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767924279717/Ebook+Thumbnail+with+Video+-+2025-05-13T194717.269.png",
     bg:"#E0F7FA", accent:"#F48FB1",
     tags:["teal","blue","baby-blue","monet","pink","baby-pink","blush","peach","iridescent","silver","white","coastal","tropical","mermaid"],
   },
   {
     id:"treatbag-cactus", type:"treatbag", name:"Cactus Treat Boxes",
-    desc:"Set of 10 mini boxes, 2.3\" x 2.3\", pastel cactus design, ships flat", price:"$12.00",
+    desc:"10 ct · 2.3\" × 2.3\"", price:"$12.00",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767924263739/Ebook+Thumbnail+with+Video+-+2025-05-13T191208.374.png?format=1500w",
     bg:"#E8F5E9", accent:"#FF8F00",
     tags:["green","lime-green","empower-mint","pink","baby-pink","blush","yellow","orange","pastel","western","cowgirl","boho"],
   },
   {
     id:"treatbag-fast-lane", type:"treatbag", name:"Fast Lane Treat Boxes",
-    desc:"Set of 8 boxes, 3.5\"l x 2.5\"w x 5\"h, ships flat", price:"$16.38",
+    desc:"8 ct · 3.5\"l × 2.5\"w × 5\"h", price:"$16.38",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767828133462/Ebook+Thumbnail+with+Video+-+2025-07-21T223405.337.png?format=1500w",
     bg:"#212121", accent:"#FFD700",
     tags:["black","gold","red","white","silver","dark","glam","bachelorette"],
   },
   {
     id:"treatbag-tea-time", type:"treatbag", name:"Tea Time Treat Boxes",
-    desc:"Set of 24 teapot-shaped boxes, 3.5\"l x 2.4\"w x 3.9\"h, ships flat", price:"$38.58",
+    desc:"24 ct · 3.5\"l × 2.4\"w × 3.9\"h", price:"$38.58",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68a0fe6786322825a8be6da3/1767924184425/Ebook+Thumbnail+with+Video+-+2025-07-21T171314.458.png?format=1500w",
     bg:"#FCE4EC", accent:"#CE93D8",
     tags:["pink","baby-pink","blush","lavender","purple","white","pastel","floral","blossom","bachelorette"],
   },
   {
     id:"treatbag-fringe", type:"treatbag", name:"Fringe Treat Bags",
-    desc:"Fringe party favor bags for candies & surprises", price:"$22.21",
+    desc:"Assorted sizes", price:"$22.21",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b3ef3e6e-10ae-42c2-90f1-74697391dae0/Ebook+Thumbnail+with+Video+-+2025-12-29T210340.995.png",
     bg:"#FCE4EC", accent:"#E91E8C",
     tags:["hotpink","pink","baby-pink","blush","rainbow","colorful","glam","bachelorette"],
   },
   {
     id:"treatbag-black-stripes", type:"treatbag", name:"Black Stripes Treat Bags",
-    desc:"Set of 16 bags, 5.25\"h x 3.25\"w x 8\"l, ships flat", price:"$16.00",
+    desc:"16 ct · 5.25\"h × 3.25\"w × 8\"l", price:"$16.00",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767923812865/Ebook+Thumbnail+with+Video-403.png?format=1500w",
     bg:"#212121", accent:"#F5F5F5",
     tags:["black","white","silver","crystal-clear","dark","glam","bachelorette","retro"],
@@ -2460,35 +2467,35 @@ const TABLEWARE = [
   // ── Banners & Backdrops ───────────────────────────────────────────────────────
   {
     id:"banner-star", type:"banner", name:"Star Banner",
-    desc:"6ft–10ft cosmic star banner", price:"$55.00",
+    desc:"6ft–10ft", price:"$55.00",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1768327615167/Ebook+Thumbnail+with+Video-405.png?format=1500w",
     bg:"#1A1A2E", accent:"#FFD700",
     tags:["gold","silver","white","crystal-clear","iridescent","glam","bachelorette","rainbow","holographic"],
   },
   {
     id:"banner-floral-garland", type:"banner", name:"Floral Garland",
-    desc:"6ft–10ft floral garland for backdrops & décor", price:"$44.89",
+    desc:"6ft–10ft", price:"$44.89",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6951c6a14a48c45392c3aa31/1768281257630/Ebook+Thumbnail+with+Video-434.png?format=1500w",
     bg:"#F8BBD0", accent:"#A5D6A7",
     tags:["pink","baby-pink","blush","blossom","floral","green","lime-green","white","pastel","whimsy","bachelorette"],
   },
   {
     id:"banner-molly-paper-lanterns", type:"banner", name:"Molly Paper Lanterns",
-    desc:"Decorative paper lanterns for overhead or backdrop display", price:"$38.00",
+    desc:"Varies", price:"$38.00",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/695341143f4b3e6c55ddeba0/1767925314296/Ebook+Thumbnail+with+Video+-+2025-12-29T210340.995.png?format=1500w",
     bg:"#FCE4EC", accent:"#CE93D8",
     tags:["pink","baby-pink","blush","lavender","purple","white","pastel","whimsy","bachelorette"],
   },
   {
     id:"banner-baby-pink-fringe-backdrop", type:"banner", name:"Baby Pink Foil Fringe Backdrop",
-    desc:"3ft w x 7ft l floor-length foil fringe curtain backdrop", price:"$6.50",
+    desc:"3ft w × 7ft l", price:"$6.50",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/695da2a4b652cb2a3b41a5eb/1767925375980/Ebook+Thumbnail+with+Video+-+2026-01-06T110503.249.png?format=1500w",
     bg:"#FCE4EC", accent:"#F48FB1",
     tags:["baby-pink","pink","blush","blossom","lace","sugar","glam","bachelorette","bride"],
   },
   {
     id:"banner-metallic-pink-fringe-backdrop", type:"banner", name:"Metallic Pink Foil Fringe Backdrop",
-    desc:"3ft w x 7ft l floor-length metallic foil fringe curtain backdrop", price:"$6.50",
+    desc:"3ft w × 7ft l", price:"$6.50",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3032563d-005e-4659-834e-55f2fe71ad05/Ebook+Thumbnail+with+Video+-+2025-01-22T204555.167.png",
     bg:"#F8BBD0", accent:"#E91E8C",
     tags:["hotpink","pink","baby-pink","blush","iridescent","silver","glam","bachelorette","bride"],
