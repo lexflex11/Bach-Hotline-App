@@ -755,7 +755,7 @@ const TABLEWARE = [
   {
     id:"plate-butterfly", type:"plate", name:"Butterfly Plates",
     desc:"8 ct · 10\" x 10\"", price:"$16.25",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767828084540/Ebook+Thumbnail+with+Video+-+2025-01-30T083952.589.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/69be9296-1b04-4ba1-8309-1c422057481b/Ebook+Thumbnail+with+Video+-+2025-01-30T083952.589.png",
     bg:"#CE93D8", accent:"#FFD700",
     tags:["lavender","purple","blossom","peri","blush","baby-pink","gold","champagne","mint","sea-glass","white","sugar"],
   },
@@ -797,7 +797,7 @@ const TABLEWARE = [
   {
     id:"plate-zebra", type:"plate", name:"Zebra Plates",
     desc:"8 ct · 8\" x 8\"", price:"$12.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767901076534/Ebook+Thumbnail+with+Video+-+2025-07-05T094202.906.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/bc8489de-d564-4d08-ba84-81dba3a72845/Ebook+Thumbnail+with+Video+-+2025-07-05T094202.906.png",
     bg:"#F8F8F8", accent:"#1A1A1A",
     tags:["white","black","hotpink","pink","blush","silver","gray-smoke","crystal-clear","sugar"],
   },
@@ -811,7 +811,7 @@ const TABLEWARE = [
   {
     id:"plate-heartbeat-gang", type:"plate", name:"Heartbeat Gang Plates",
     desc:"8 ct · 7.5\" x 7.5\"", price:"$12.76",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767901170761/Ebook+Thumbnail+with+Video+-+2025-11-06T162327.491.png",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/110895ce-549d-4ade-9670-ebc2756e8939/Ebook+Thumbnail+with+Video+-+2025-11-06T162327.491.png",
     bg:"#E8112D", accent:"#FFB5C2",
     tags:["red","scarlett","hotpink","blush","baby-pink","coral","pink","white","gold","champagne"],
   },
@@ -874,7 +874,7 @@ const TABLEWARE = [
   {
     id:"plate-frills-thrills", type:"plate", name:"Frills & Thrills Plates",
     desc:"8 ct · 8.25\" x 8.25\"", price:"$16.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68b8d9eff5b31a6537947025/1767899945602/Ebook+Thumbnail+with+Video+-+2025-09-02T173858.536.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/af1aa9ef-9a7d-4292-8ef6-475591340b6f/Ebook+Thumbnail+with+Video+-+2025-09-02T173858.536.png",
     bg:"#FFB5C2", accent:"#E91E8C",
     tags:["hotpink","blush","baby-pink","pink","cameo","coral","taffy","lavender","white","sugar","gold","champagne"],
   },
@@ -902,14 +902,14 @@ const TABLEWARE = [
   {
     id:"plate-penis", type:"plate", name:"Penis Plates",
     desc:"25 ct · 5\" x 7\"", price:"$13.03",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767899624325/Ebook+Thumbnail+with+Video+-+2025-02-16T113626.828.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/305dad4b-cffd-443d-a47b-31f6ee351444/Ebook+Thumbnail+with+Video+-+2025-02-16T113626.828.png",
     bg:"#F4A7B9", accent:"#E91E8C",
     tags:["hotpink","blush","pink","baby-pink","coral","taffy","pixie","metallic-fuchsia","white","gold","champagne"],
   },
   {
     id:"plate-summer-bow", type:"plate", name:"Summer Bow Plates",
     desc:"8 ct · 9\" x 9\"", price:"$13.21",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767899563444/Ebook+Thumbnail+with+Video+-+2025-06-06T130811.387.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/2ffa8158-a306-49d8-a764-06fb1a2a998d/Ebook+Thumbnail+with+Video+-+2025-06-06T130811.387.png",
     bg:"#FFB5C2", accent:"#FFD700",
     tags:["hotpink","blush","baby-pink","pink","cameo","coral","gold","champagne","white","sugar","lemonade","yellow"],
   },
@@ -993,7 +993,7 @@ const TABLEWARE = [
   {
     id:"plate-checkered-heart", type:"plate", name:"Checkered Heart Plates",
     desc:"8 ct · 10\" x 10\"", price:"$12.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767898846535/Ebook+Thumbnail+with+Video+-+2025-01-23T140517.309.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/7223d6d3-2f33-46b6-88d5-e48e314796b8/Ebook+Thumbnail+with+Video+-+2025-01-23T140517.309.png",
     bg:"#E91E8C", accent:"#1A1A1A",
     tags:["hotpink","pink","blush","baby-pink","red","scarlett","black","white","crystal-magenta","metallic-fuchsia","pixie"],
   },
@@ -1028,14 +1028,14 @@ const TABLEWARE = [
   {
     id:"plate-shimmer-cake", type:"plate", name:"Shimmer Birthday Cake Plates",
     desc:"8 ct · 7.5\" x 9.5\"", price:"$14.36",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684af95264f4dd59c05b309d/1767898630517/Ebook+Thumbnail+with+Video+-+2025-05-12T192943.480.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/93a7a212-3592-410e-87c8-db8286b3d9f8/Ebook+Thumbnail+with+Video+-+2025-05-12T192943.480.png",
     bg:"#F5DEB3", accent:"#FFD700",
     tags:["champagne","gold","metallic-gold","silver","white","sugar","lace","blush","baby-pink","lavender","crystal-clear"],
   },
   {
     id:"plate-swan", type:"plate", name:"Swan Plates",
     desc:"8 ct · 11.5\" x 7.5\"", price:"$12.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767898667035/Ebook+Thumbnail+with+Video+-+2025-05-11T155407.049.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/7cc8be90-d00e-47de-a9a5-8c7b6d71f49b/Ebook+Thumbnail+with+Video+-+2025-05-11T155407.049.png",
     bg:"#F8F8F8", accent:"#FFD700",
     tags:["white","sugar","champagne","gold","metallic-gold","silver","lace","blush","baby-pink","monet"],
   },
@@ -1112,7 +1112,7 @@ const TABLEWARE = [
   {
     id:"plate-pastel-stripe", type:"plate", name:"Pastel Stripe Plates",
     desc:"8 ct · 9\" x 9\"", price:"$12.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b3ef3e6e-10ae-42c2-90f1-74697391dae0/Ebook+Thumbnail+with+Video+-+2025-12-29T210340.995.png",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ad298c74-4b4d-4bd0-a4f6-1c36d0d42518/Ebook+Thumbnail+with+Video+-+2025-06-18T113037.037.png",
     bg:"#F4A7B9", accent:"#FFD700",
     tags:["blush","lavender","mint","baby-blue","baby-pink","gold","champagne","sugar","lemonade","monet","sea-glass"],
   },
@@ -1133,7 +1133,7 @@ const TABLEWARE = [
   {
     id:"plate-pink-pony-club", type:"plate", name:"Pink Pony Club Plates",
     desc:"24 ct · 9\" x 9\"", price:"$17.22",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6848a1a41ef4b52dec059186/1767557348516/Ebook+Thumbnail+with+Video+-+2025-05-18T120703.581.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/969e7254-6f58-4fcb-a0f0-52dd150f6d1e/Ebook+Thumbnail+with+Video+-+2025-05-18T120703.581.png",
     bg:"#F4A7B9", accent:"#C4956A",
     tags:["hotpink","blush","pink","baby-pink","cameo","mauve","canyon-rose","terracotta","champagne"],
   },
