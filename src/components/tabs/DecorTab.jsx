@@ -643,7 +643,7 @@ const TABLEWARE = [
   {
     id:"plate-aries", type:"plate", name:"Aries Plates",
     desc:"8 ct · 10\" x 10\"", price:"$12.66",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b4c690d8-7c49-4cb4-a1c0-73aa4eb1300f/Ebook+Thumbnail+with+Video+-+2025-06-18T124935.484.png",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ac80afce-7744-42d5-8f73-5ae19006c190/Ebook+Thumbnail+with+Video+-+2025-06-19T142057.849.png",
     bg:"#E8112D", accent:"#FFD700",
     tags:["red","scarlett","hotpink","coral","orange","burnt-orange","gold","champagne","white","crystal-red"],
   },
@@ -748,7 +748,7 @@ const TABLEWARE = [
   {
     id:"plate-lunar-dragon", type:"plate", name:"Lunar Dragon Plates",
     desc:"12 ct · 9\" x 9\"", price:"$12.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b84ae199-7202-4eef-b3dd-114e67b293bc/Ebook+Thumbnail+with+Video+-+2025-05-13T192702.718.png",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/061a9243-cfb5-4b8d-8595-a1504f7369ea/Ebook+Thumbnail+with+Video+-+2025-07-06T223607.433.png",
     bg:"#E8112D", accent:"#FFD700",
     tags:["red","scarlett","gold","metallic-gold","black","orange","burnt-orange","champagne","white","crystal-red"],
   },
@@ -762,7 +762,7 @@ const TABLEWARE = [
   {
     id:"plate-cowboy-hat", type:"plate", name:"Cowboy Hat Plates",
     desc:"8 ct · 9\" x 12\"", price:"$10.33",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/f6eeb6ea-f9d2-470d-b1f9-3c63121230a4/Ebook+Thumbnail+with+Video+-+2025-05-08T102554.943.png",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/46d760ed-19e5-4917-b67a-2df299502d77/Ebook+Thumbnail+with+Video+-+2025-05-08T103149.342.png",
     bg:"#C8A882", accent:"#1A1A1A",
     tags:["muse","malted","stone","lace","terracotta","champagne","burnt-orange","black","cocoa","mustard"],
   },
@@ -1717,7 +1717,7 @@ const TABLEWARE = [
   {
     id:"cup-dusty-pinky", type:"cup", name:"Dusty Pinky Cups",
     desc:"12 ct · 12 oz", price:"$9.75",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/01f64bcb-5201-49c6-a7f7-14919103f9f3/Ebook+Thumbnail+with+Video+-+2025-06-08T010753.060.png",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/33a7e662-6ebd-4e6e-b13d-ab0cadca9530/Ebook+Thumbnail+with+Video+-+2025-12-31T112006.750.png",
     bg:"#F4A7B9", accent:"#CE93D8",
     tags:["blush","baby-pink","pink","mauve","cameo","canyon-rose","lavender","blossom","muse","stone","lace","white","sugar","champagne"],
   },
@@ -2345,7 +2345,7 @@ const TABLEWARE = [
   {
     id:"foil-silver-wedding-ring", type:"foil", name:"38\" Silver Wedding Ring Balloon",
     desc:"38\" specialty foil balloon", price:"$13.99",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/2757ff26-a658-4235-a65d-97d27c808752/Ebook+Thumbnail+with+Video+-+2024-12-06T190013.814.png",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8c1a8043-1d7c-4a6e-89c0-8b82f850ef54/Ebook+Thumbnail+with+Video+-+2025-01-20T132945.093.png",
     bg:"#F5F5F5", accent:"#9E9E9E",
     tags:["silver","crystal-clear","white","champagne","glam","bride","bachelorette","iridescent","blue","baby-blue","navy","royal-blue","monet","teal"],
   },
