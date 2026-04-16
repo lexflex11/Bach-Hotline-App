@@ -119,8 +119,7 @@ export default function PlanTab({ groupSize, setGroupSize, setTab }) {
       {/* ── GROUP SIZE ── */}
       <div style={{...C, marginBottom:12, display:"flex", alignItems:"center", justifyContent:"space-between"}}>
         <div>
-          <div style={{fontSize:14,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>👯 Your Bride Tribe</div>
-          <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",marginTop:2,opacity:0.8}}>Budget & splits auto-calculate for your group</div>
+          <div style={{fontSize:14,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>Your Bride Tribe</div>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:10}}>
           <button onClick={()=>setGroupSize&&setGroupSize(Math.max(2,groupSize-1))} style={SM}>−</button>
