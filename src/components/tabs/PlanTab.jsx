@@ -4,7 +4,7 @@ import { C, BP, SM } from '../../constants/styles.js';
 import { DESTS, BRIDE_TYPES } from '../../constants/data.js';
 import { ANTHROPIC_API_KEY, flightUrl, airbnbUrl, viatorUrl, opentableUrl } from '../../constants/api.js';
 
-export default function PlanTab({ groupSize, setGroupSize, setTab }) {
+export default function PlanTab({ groupSize, setGroupSize, setTab, user, onSignUp }) {
   const [dest,    setDest]    = useState(null);
   const [days,    setDays]    = useState(3);
   const [bt,      setBt]      = useState(null);
@@ -95,6 +95,31 @@ export default function PlanTab({ groupSize, setGroupSize, setTab }) {
     }
     setLoading(false);
   };
+
+  // ── Members-only gate ──────────────────────────────────────────────────────
+  if (!user || user.id === "g") {
+    return (
+      <div style={{ textAlign:"center", padding:"60px 24px" }}>
+        <div style={{ fontSize:52, marginBottom:16 }}>🗺️</div>
+        <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:24, fontWeight:700, color:HOT, margin:"0 0 10px", lineHeight:1.2 }}>
+          Members Only
+        </h2>
+        <p style={{ fontSize:13, color:"#888", fontFamily:"'DM Sans',sans-serif", lineHeight:1.7, marginBottom:28, maxWidth:280, margin:"0 auto 28px" }}>
+          Create a free account to unlock AI-powered itinerary planning tailored to your group.
+        </p>
+        <button onClick={onSignUp} style={{
+          background:`linear-gradient(135deg,${HOT},${PUNCH})`, color:WHITE, border:"none",
+          borderRadius:50, padding:"13px 32px", fontFamily:"'DM Sans',sans-serif",
+          fontSize:14, fontWeight:700, cursor:"pointer", width:"100%", maxWidth:300, display:"block", margin:"0 auto",
+        }}>
+          Create Free Account
+        </button>
+        <p style={{ fontSize:11, color:"#bbb", fontFamily:"'DM Sans',sans-serif", marginTop:14 }}>
+          Already have an account? Sign in from the home screen.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div>
