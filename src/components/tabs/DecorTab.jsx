@@ -3446,6 +3446,32 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
     }
   };
 
+  const renderItem = (item) => {
+    const added = inCart(item.id);
+    const shadow = added ? `0 0 0 2px ${HOT}, 0 4px 16px rgba(233,30,140,0.15)` : "0 4px 16px rgba(0,0,0,0.09)";
+    const btnBg = added ? SOFT : `linear-gradient(135deg,${HOT},${PUNCH})`;
+    const btnColor = added ? HOT : WHITE;
+    const btnBorder = added ? `1.5px solid ${HOT}` : "none";
+    return (
+      <div key={item.id} style={{background:WHITE,borderRadius:18,overflow:"hidden",boxShadow:shadow,transition:"all 0.2s",display:"flex",flexDirection:"column"}}>
+        <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0}}>
+          <TablewearVisual item={item}/>
+        </div>
+        <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+          <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:5}}>
+            <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>{item.price}</div>
+            <button onClick={()=>toggle(item)} style={{
+              background:btnBg, color:btnColor, border:btnBorder,
+              borderRadius:20, padding:"4px 8px",
+              fontFamily:"'DM Sans',sans-serif", fontSize:9, fontWeight:700, cursor:"pointer",
+            }}>{added ? "✓" : "+ Add"}</button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div style={{marginBottom:28}}>
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,paddingTop:20,borderTop:`2px solid ${MID}`}}>
@@ -3462,30 +3488,7 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
           <div style={{fontSize:11,color:"#aaa",fontFamily:"'DM Sans',sans-serif",lineHeight:1.5}}>Party accessories are being added. Check back soon!</div>
         </div>
       ) : (
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"16px 12px"}}>
-          {PARTY_ACCESSORIES.map(item => {
-            const added = inCart(item.id);
-            return (
-              <div key={item.id} style={{background:WHITE,borderRadius:18,overflow:"hidden",boxShadow:added?`0 0 0 2px ${HOT},0 4px 16px rgba(233,30,140,0.15)`:"0 4px 16px rgba(0,0,0,0.09)",transition:"all 0.2s",display:"flex",flexDirection:"column"}}>
-                <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0}}>
-                  <TablewearVisual item={item}/>
-                </div>
-                <div style={{padding:"7px 8px 10px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
-                  <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
-                  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:5}}>
-                    <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>{item.price}</div>
-                    <button onClick={()=>toggle(item)} style={{
-                      background:added?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
-                      color:added?HOT:WHITE,border:added?`1.5px solid ${HOT}`:"none",
-                      borderRadius:20,padding:"4px 8px",
-                      fontFamily:"'DM Sans',sans-serif",fontSize:9,fontWeight:700,cursor:"pointer",
-                    }}>{added?"✓":"+ Add"}</button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <Carousel items={PARTY_ACCESSORIES} renderItem={renderItem} />
       )}
     </div>
   );
