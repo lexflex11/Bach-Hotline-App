@@ -10,7 +10,12 @@ export default function ProfileTab({ user, onLogout, cart }) {
   return (
     <div>
       <div style={{ borderRadius:22, padding:"26px 18px", background:`linear-gradient(135deg,${SOFT},${MID})`, border:`1.5px solid ${MID}`, marginBottom:16, textAlign:"center" }}>
-        <div style={{ width:68, height:68, borderRadius:"50%", background:`linear-gradient(135deg,${HOT},${PUNCH})`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:34, margin:"0 auto 14px", boxShadow:`0 6px 22px rgba(213,36,56,0.25)`, border:`3px solid ${WHITE}` }}>{user.avatar}</div>
+        <div style={{ width:68, height:68, borderRadius:"50%", background:`linear-gradient(135deg,${HOT},${PUNCH})`, display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 14px", boxShadow:`0 6px 22px rgba(213,36,56,0.25)`, border:`3px solid ${WHITE}` }}>
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
         {editing?(<div style={{ display:"flex", gap:8, justifyContent:"center", alignItems:"center", marginBottom:8 }}><input value={displayName} onChange={e=>setDisplayName(e.target.value)} style={{ ...IN, maxWidth:180, padding:"8px 12px", textAlign:"center" }} /><button onClick={()=>setEditing(false)} style={{ ...BP, padding:"8px 14px", fontSize:12 }}>Save</button></div>):(<div style={{ fontSize:20, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", marginBottom:4, color:DARK }}>{displayName} <button onClick={()=>setEditing(true)} style={{ background:"none", border:"none", cursor:"pointer", fontSize:14, color:HOT, verticalAlign:"middle" }}>✏️</button></div>)}
         <div style={{ fontSize:13, color:HOT, fontFamily:"'DM Sans',sans-serif", fontWeight:600 }}>{ROLE_MAP[user.role]||"✨ Bach Tribe"}</div>
         <div style={{ fontSize:11, color:`rgba(45,10,24,0.5)`, fontFamily:"'DM Sans',sans-serif", marginTop:4 }}>{user.email}</div>

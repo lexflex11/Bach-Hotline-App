@@ -72,8 +72,11 @@ export default function App() {
             <div onClick={()=>setCartOpen(true)} style={{ background:cart.length>0?`linear-gradient(135deg,${HOT},${PUNCH})`:SOFT, border:`1.5px solid ${cart.length>0?HOT:BORDER}`, borderRadius:50, padding:"6px 13px", fontSize:12, fontFamily:"'DM Sans',sans-serif", fontWeight:700, color:cart.length>0?WHITE:HOT, cursor:"pointer" }}>
               🛒 {cart.length}
             </div>
-            <div onClick={()=>setTab("profile")} style={{ width:30, height:30, borderRadius:"50%", background:`linear-gradient(135deg,${HOT},${PUNCH})`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:16, cursor:"pointer", border:`2px solid ${WHITE}`, boxShadow:`0 2px 8px rgba(213,36,56,0.22)` }}>
-              {user.avatar}
+            <div onClick={()=>setTab("profile")} style={{ width:30, height:30, borderRadius:"50%", background:`linear-gradient(135deg,${HOT},${PUNCH})`, display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", border:`2px solid ${WHITE}`, boxShadow:`0 2px 8px rgba(213,36,56,0.22)` }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              </svg>
             </div>
           </div>
         </div>

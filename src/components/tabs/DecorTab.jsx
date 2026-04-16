@@ -404,10 +404,6 @@ const BALLOON_COLORS = [
   { id:"stone",          label:"Stone",           color:"#B5A898", dot:"#B5A898" },
   { id:"malted",         label:"Malted",          color:"#C8956A", dot:"#C8956A" },
   { id:"cocoa",          label:"Cocoa",           color:"#7B5346", dot:"#7B5346" },
-  // ── Patterns ─────────────────────────────────────────────────────────────
-  { id:"cow",       label:"Cow Print",  color:"#fff", dot:"#fff", pattern:"cow"       },
-  { id:"dalmatian", label:"Dalmatian",  color:"#fff", dot:"#fff", pattern:"dalmatian" },
-  { id:"confetti",  label:"Confetti",   color:"#FFB6C1", dot:"#FFB6C1", pattern:"confetti" },
 ];
 
 // Organic garland balloon positions (x%, y%, size px, colorIndex cycling)
@@ -427,82 +423,71 @@ const GARLAND_BALLOONS = [
   {x:59,y:27,s:22,ci:0},{x:79,y:47,s:20,ci:3},{x:96,y:27,s:18,ci:4},
 ];
 
-function PatternDots({ pattern, size }) {
-  if (pattern === "cow") return (
-    <div style={{position:"absolute",inset:0,borderRadius:"50%",overflow:"hidden"}}>
-      {[{t:"20%",l:"25%",w:10,h:13},{t:"45%",l:"55%",w:13,h:10},{t:"60%",l:"20%",w:9,h:12},{t:"30%",l:"60%",w:8,h:11}].map((s,i)=>(
-        <div key={i} style={{position:"absolute",top:s.t,left:s.l,width:s.w,height:s.h,borderRadius:"40%",background:"#1a1a1a",opacity:0.75}}/>
-      ))}
-    </div>
-  );
-  if (pattern === "dalmatian") return (
-    <div style={{position:"absolute",inset:0,borderRadius:"50%",overflow:"hidden"}}>
-      {[{t:"15%",l:"30%",w:7,h:7},{t:"50%",l:"15%",w:6,h:6},{t:"60%",l:"55%",w:8,h:7},{t:"30%",l:"60%",w:6,h:8},{t:"70%",l:"35%",w:5,h:5}].map((s,i)=>(
-        <div key={i} style={{position:"absolute",top:s.t,left:s.l,width:s.w,height:s.h,borderRadius:"50%",background:"#333",opacity:0.7}}/>
-      ))}
-    </div>
-  );
-  if (pattern === "confetti") return (
-    <div style={{position:"absolute",inset:0,borderRadius:"50%",overflow:"hidden"}}>
-      {["#E91E8C","#FFD700","#1E88E5","#4CAF50","#9C27B0"].map((c,i)=>(
-        <div key={i} style={{position:"absolute",top:`${15+i*14}%`,left:`${10+i*15}%`,width:4,height:8,borderRadius:2,background:c,transform:`rotate(${i*35}deg)`,opacity:0.85}}/>
-      ))}
-    </div>
-  );
-  return null;
-}
+function PatternDots() { return null; }
 
 // ── 3D Garland Preview ────────────────────────────────────────────────────────
 // Fixed balloon positions — only colors swap when user picks new palette
 // Positions designed so balloons touch each other (center dist = r1+r2)
 // [x,    y,    z,    radius, colorIndex]
+// Garland layout — all positions computed so touching balloons satisfy d = r1+r2
+// Spine: 5 large (r=0.90) at 30° diagonal, each 1.80 apart (touching)
+// Medium above/below: d=1.50 from each neighbour large (exact triangle geometry)
+// Medium front/back: at z=±1.20 from midpoints, d=1.50 from each neighbour large
+// [x,      y,      z,     radius, colorIndex]
 const GARLAND_3D_LAYOUT = [
-  // ── Large anchors along S-curve spine ──────────────────────────────
-  [-3.8,  2.5,  0.0,  0.90, 0],
-  [-2.0,  2.0,  0.0,  0.90, 1],
-  [-0.5,  1.1,  0.0,  0.90, 2],
-  [ 1.2,  0.3,  0.0,  0.90, 0],
-  [ 2.8, -0.6,  0.0,  0.90, 1],
-  [ 3.8, -2.0,  0.0,  0.90, 2],
-  // ── Medium fills — sit between/beside large anchors ─────────────────
-  [-3.2,  3.5,  0.35, 0.60, 2],
-  [-4.5,  1.6,  0.30, 0.60, 1],
-  [-2.7,  1.0, -0.30, 0.58, 0],
-  [-1.4,  2.9,  0.35, 0.60, 0],
-  [-1.3,  0.2, -0.30, 0.58, 2],
-  [ 0.1,  2.0,  0.35, 0.60, 1],
-  [ 0.3, -0.5, -0.30, 0.58, 0],
-  [ 1.8,  1.2,  0.35, 0.60, 2],
-  [ 1.9, -0.5, -0.30, 0.58, 1],
-  [ 3.2,  0.4,  0.35, 0.60, 0],
-  [ 3.3, -1.5, -0.30, 0.58, 2],
-  [ 4.6, -2.5,  0.30, 0.60, 1],
-  // ── Small accent balloons ───────────────────────────────────────────
-  [-4.4,  3.0,  0.45, 0.38, 1],
-  [-5.0,  2.2, -0.20, 0.36, 0],
-  [-3.5,  1.0,  0.40, 0.38, 2],
-  [-1.9,  3.6, -0.25, 0.36, 2],
-  [-0.9, -0.0,  0.40, 0.38, 1],
-  [ 0.0,  2.4, -0.25, 0.36, 0],
-  [ 0.7, -0.9,  0.40, 0.38, 2],
-  [ 2.0,  1.9, -0.25, 0.36, 1],
-  [ 2.5, -1.3,  0.40, 0.38, 0],
-  [ 3.8,  0.9, -0.25, 0.36, 2],
-  [ 4.5, -3.0,  0.40, 0.36, 0],
-  [ 5.0, -1.9, -0.20, 0.38, 1],
-  // ── Tiny accent clusters (fill visual gaps) ─────────────────────────
-  [-4.9,  2.9,  0.28, 0.25, 0],
-  [-3.9,  3.9,  0.20, 0.23, 2],
-  [-3.1,  4.1, -0.20, 0.25, 1],
-  [-1.6,  1.4,  0.28, 0.23, 0],
-  [-0.3,  2.7, -0.20, 0.25, 2],
-  [ 0.5,  0.6,  0.28, 0.23, 1],
-  [ 1.4, -0.2, -0.20, 0.25, 0],
-  [ 2.7,  0.0,  0.28, 0.23, 2],
-  [ 3.5, -2.5, -0.20, 0.25, 1],
-  [ 4.7, -2.2,  0.28, 0.23, 0],
-  [ 1.0,  1.6,  0.20, 0.20, 1],
-  [-2.5,  2.5,  0.25, 0.20, 2],
+  // ── Large spine (r=0.90, d=1.80 between each) ──────────────────────
+  [-3.00,  1.80,  0.00, 0.90, 0],
+  [-1.44,  0.90,  0.00, 0.90, 1],
+  [ 0.12,  0.00,  0.00, 0.90, 2],
+  [ 1.68, -0.90,  0.00, 0.90, 0],
+  [ 3.24, -1.80,  0.00, 0.90, 1],
+  // ── Medium ABOVE spine (r=0.60, d=1.50 from each adjacent large) ───
+  [-1.62,  2.39,  0.00, 0.60, 2],  // touches L1 & L2
+  [-0.06,  1.49,  0.00, 0.60, 0],  // touches L2 & L3
+  [ 1.50,  0.59,  0.00, 0.60, 1],  // touches L3 & L4
+  [ 3.06, -0.31,  0.00, 0.60, 2],  // touches L4 & L5
+  // ── Medium BELOW spine (r=0.60, d=1.50 from each adjacent large) ───
+  [-2.82,  0.31,  0.00, 0.60, 1],  // touches L1 & L2
+  [-1.26, -0.59,  0.00, 0.60, 2],  // touches L2 & L3
+  [ 0.30, -1.49,  0.00, 0.60, 0],  // touches L3 & L4
+  [ 1.86, -2.39,  0.00, 0.60, 1],  // touches L4 & L5
+  // ── Medium FRONT (r=0.58, z=+1.20, d≈1.50 from adjacent large) ────
+  [-2.22,  1.35,  1.20, 0.58, 2],
+  [-0.66,  0.45,  1.20, 0.58, 0],
+  [ 0.90, -0.45,  1.20, 0.58, 1],
+  [ 2.46, -1.35,  1.20, 0.58, 2],
+  // ── Medium BACK (r=0.58, z=-1.20) ──────────────────────────────────
+  [-2.22,  1.35, -1.20, 0.58, 0],
+  [-0.66,  0.45, -1.20, 0.58, 1],
+  [ 0.90, -0.45, -1.20, 0.58, 2],
+  [ 2.46, -1.35, -1.20, 0.58, 0],
+  // ── Small (r=0.38) — cap ends + fill concave gaps ──────────────────
+  [-4.18,  2.22,  0.35, 0.38, 2],  // upper-left end cap
+  [-4.18,  1.38, -0.30, 0.36, 0],  // lower-left end cap
+  [-3.00,  3.08,  0.30, 0.36, 1],  // top of L1
+  [-2.46,  3.18,  0.40, 0.38, 2],  // above A12 left
+  [-0.78,  3.18, -0.30, 0.36, 0],  // above A12 right
+  [-1.62,  2.39,  1.00, 0.36, 1],  // A12 front
+  [ 0.84,  1.56,  0.40, 0.38, 2],  // above A23/A34 bridge
+  [ 4.14, -1.38,  0.35, 0.38, 0],  // right end cap upper
+  [ 4.14, -2.22, -0.30, 0.36, 1],  // right end cap lower
+  [ 3.24, -3.08,  0.30, 0.36, 2],  // bottom of L5
+  [ 2.64, -3.18,  0.40, 0.38, 0],  // below B45 right
+  [ 1.08, -3.18, -0.30, 0.36, 1],  // below B45 left
+  // ── Tiny (r=0.22) — cluster into remaining visible gaps ────────────
+  [-3.84,  2.82,  0.22, 0.22, 0],
+  [-3.00,  3.30,  0.18, 0.20, 2],
+  [-1.62,  3.37,  0.22, 0.22, 1],
+  [-0.06,  2.47,  0.18, 0.20, 0],
+  [ 1.50,  1.57,  0.22, 0.22, 2],
+  [ 3.06,  0.67,  0.18, 0.20, 0],
+  [ 3.90, -0.60,  0.22, 0.22, 1],
+  [-3.60, -0.48,  0.18, 0.20, 2],
+  [-2.04, -1.38,  0.22, 0.22, 0],
+  [-0.48, -2.28,  0.18, 0.20, 1],
+  [ 1.08, -3.18, -0.90, 0.22, 2],  // z-cluster
+  [ 2.64, -3.18,  0.90, 0.22, 0],
+  [ 0.12,  0.00, -1.80, 0.20, 1],  // far back center
 ];
 
 function Balloon3D({ position, radius, color }) {
@@ -2848,7 +2833,6 @@ function TablewearRecommendations({ selectedColors, cart, setCart }) {
 }
 
 function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
-  const [mode,        setMode]        = useState("diy");
   const [arrangement, setArrangement] = useState("mixed");
 
   const maxColors = arrangement === "mixed" ? 5 : 4;
@@ -2861,7 +2845,7 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
     });
   };
 
-  const price = mode === "diy" ? "$65" : "$95";
+  const price = "$65";
 
   return (
     <div style={{marginTop:8,paddingTop:24,borderTop:`2px solid ${MID}`}}>
@@ -2895,22 +2879,6 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
         }
       </div>
 
-      {/* DIY / Pre-Inflated */}
-      <div style={{marginBottom:14}}>
-        <div style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:"0.8px",marginBottom:8}}>
-          DIY or Pre-Inflated
-          <span style={{marginLeft:8,fontWeight:400,color:"#bbb",textTransform:"none",letterSpacing:0}}>{mode==="diy"?"DIY":"Pre-Inflated (Pickup Only)"}</span>
-        </div>
-        <div style={{display:"flex",gap:8}}>
-          {[{id:"diy",label:"DIY"},{id:"preinflated",label:"Pre-Inflated (Pickup Only)"}].map(o=>(
-            <button key={o.id} onClick={()=>setMode(o.id)} style={{
-              padding:"9px 16px",borderRadius:8,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",
-              fontSize:12,fontWeight:700,border:mode===o.id?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,
-              background:mode===o.id?SOFT:WHITE,color:mode===o.id?HOT:DARK,transition:"all 0.15s",
-            }}>{o.label}</button>
-          ))}
-        </div>
-      </div>
 
       {/* Mixed / Color Block */}
       <div style={{marginBottom:14}}>
@@ -2977,7 +2945,7 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
         <div>
           <div style={{fontSize:10,color:"#aaa",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:0.8}}>Starting at</div>
           <div style={{fontSize:26,fontWeight:900,color:HOT,fontFamily:"'DM Sans',sans-serif"}}>{price}</div>
-          <div style={{fontSize:10,color:"#bbb",fontFamily:"'DM Sans',sans-serif"}}>{mode==="diy"?"Shipped to you":"Pickup only"}</div>
+          <div style={{fontSize:10,color:"#bbb",fontFamily:"'DM Sans',sans-serif"}}>Shipped to you</div>
         </div>
         <div style={{textAlign:"right",fontSize:11,color:"#aaa",fontFamily:"'DM Sans',sans-serif",lineHeight:1.5}}>
           {selected.length} color{selected.length!==1?"s":""} selected<br/>
@@ -2987,11 +2955,11 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
       {/* Add garland to cart */}
       {selected.length > 0 && (
         <button onClick={()=>{
-          const garlandId = `garland-${mode}-${arrangement}`;
+          const garlandId = `garland-${arrangement}`;
           if (!cart.some(c=>c.id===garlandId)) {
             setCart(prev=>[...prev,{
               id: garlandId,
-              name: `Custom Balloon Garland — ${mode==="diy"?"DIY":"Pre-Inflated"}, ${arrangement==="mixed"?"Mixed":"Color Block"}`,
+              name: `Custom Balloon Garland — ${arrangement==="mixed"?"Mixed":"Color Block"}`,
               price: parseFloat(price.replace("$","")),
               image: null,
               category: "garland",
@@ -3000,11 +2968,11 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
           }
         }} style={{
           ...BP, width:"100%", padding:"14px", fontSize:14,
-          background: cart.some(c=>c.id===`garland-${mode}-${arrangement}`) ? SOFT : undefined,
-          color:      cart.some(c=>c.id===`garland-${mode}-${arrangement}`) ? HOT  : undefined,
-          border:     cart.some(c=>c.id===`garland-${mode}-${arrangement}`) ? `1.5px solid ${HOT}` : undefined,
+          background: cart.some(c=>c.id===`garland-${arrangement}`) ? SOFT : undefined,
+          color:      cart.some(c=>c.id===`garland-${arrangement}`) ? HOT  : undefined,
+          border:     cart.some(c=>c.id===`garland-${arrangement}`) ? `1.5px solid ${HOT}` : undefined,
         }}>
-          {cart.some(c=>c.id===`garland-${mode}-${arrangement}`) ? "✓ Garland Added to Package" : `Add Garland to My Package — ${price}`}
+          {cart.some(c=>c.id===`garland-${arrangement}`) ? "✓ Garland Added to Package" : `Add Garland to My Package — ${price}`}
         </button>
       )}
 
@@ -3127,6 +3095,402 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
 }
 
 // ─── Confetti Step (with size selector) ──────────────────────────────────────
+// ─── Party Accessories Step ───────────────────────────────────────────────────
+const PARTY_ACCESSORIES = [
+  {
+    id:"acc-kick-the-dick",
+    type:"accessory",
+    name:"Kick The Dick Party Game",
+    price:"$11.25",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a579aa76-6511-4fd7-b15b-be8f4471f706/Ebook+Thumbnail+with+Video+-+2025-08-07T212529.590.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/kick-the-dick-party-game",
+  },
+  {
+    id:"acc-drink-chaps",
+    type:"accessory",
+    name:"Drink Chaps Drink Markers",
+    price:"$16.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3643129d-50f4-4b44-8a99-5037ffb85c59/Ebook+Thumbnail+with+Video+-+2025-06-02T195713.079.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/drink-chaps-drink-markers",
+  },
+  {
+    id:"acc-blow-job-bib",
+    type:"accessory",
+    name:"Blow Job Bib",
+    price:"$11.25",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1140cd81-b965-4690-8636-dabe64e54dec/Ebook+Thumbnail+with+Video+-+2025-06-24T154950.567.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/blow-job-bib",
+  },
+  {
+    id:"acc-beverage-helmet",
+    type:"accessory",
+    name:"Beverage Helmet",
+    price:"$26.33",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/bf8adb75-0e2b-43ff-b643-55aac576efb5/Ebook+Thumbnail+with+Video+-+2025-04-28T204735.461.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/beverage-helmet",
+  },
+  {
+    id:"acc-wine-charmers",
+    type:"accessory",
+    name:"Wine Charmers Drink Markers",
+    price:"$15.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3c5bc323-bc61-4783-b41f-d77f51c6a237/Ebook+Thumbnail+with+Video+-+2025-03-26T093257.985.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/wine-charmers-drink-markers",
+  },
+  {
+    id:"acc-boob-drink-markers",
+    type:"accessory",
+    name:"Boob Drink Markers",
+    price:"$16.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0f9bd949-074d-4b7a-a279-181a334286d0/Ebook+Thumbnail+with+Video+-+2025-07-18T080459.625.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/boob-drink-markers",
+  },
+  {
+    id:"acc-cactus-pool-float",
+    type:"accessory",
+    name:"Cactus Pool Float",
+    price:"$56.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/82b086c9-fd5b-4995-9101-6ed78043bee9/Ebook+Thumbnail+with+Video+-+2025-02-18T194517.243.png&w=400&output=jpg",
+    bg:"#A8D8A8", accent:"#4CAF50",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/cactus-pool-float",
+  },
+  {
+    id:"acc-silver-disco-ice-bucket",
+    type:"accessory",
+    name:"Silver Disco Ice Bucket",
+    price:"$52.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c1b38134-43e7-4171-b677-0d8a3e047847/Ebook+Thumbnail+with+Video+-+2025-04-22T154517.807.png&w=400&output=jpg",
+    bg:"#C0C0C0", accent:"#808080",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/silver-disco-ice-bucket",
+  },
+  {
+    id:"acc-girl-code-game",
+    type:"accessory",
+    name:"Girl Code Game",
+    price:"$21.02",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/e2b05e54-9e8c-47f3-8415-3708138093b6/Ebook+Thumbnail+with+Video+-+2025-04-22T145319.069.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/girl-code-party-game",
+  },
+  {
+    id:"acc-men-in-uniform-markers",
+    type:"accessory",
+    name:"Men in Uniform Drink Markers",
+    price:"$16.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/9b6ebee1-cd7a-4dd8-9584-2582514963ed/Ebook+Thumbnail+with+Video+-+2025-04-22T165717.230.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/men-in-uniform-drink-markers",
+  },
+  {
+    id:"acc-dice-ice-bucket",
+    type:"accessory",
+    name:"Dice Ice Bucket",
+    price:"$45.50",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/50d3d033-146d-48c6-b768-e62b68bb533b/Ebook+Thumbnail+with+Video+-+2025-02-25T100739.771.png&w=400&output=jpg",
+    bg:"#E8E8E8", accent:"#1A1A1A",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/dice-ice-bucket",
+  },
+  {
+    id:"acc-girls-night-xoxo-game",
+    type:"accessory",
+    name:"Girls Night Xoxo Game",
+    price:"$19.87",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b3cde017-c2cf-485e-b7e7-d06c101886e5/Ebook+Thumbnail+with+Video+-+2025-04-22T145441.386.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/girls-night-xoxo-game",
+  },
+  {
+    id:"acc-disco-stars-headband",
+    type:"accessory",
+    name:"Disco Stars Headband",
+    price:"$23.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0b21511c-1176-4e40-a303-7e680fbb3c5f/Ebook+Thumbnail+with+Video+-+2025-02-16T151446.198.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/disco-stars-headband",
+  },
+  {
+    id:"acc-something-blue-sunglasses",
+    type:"accessory",
+    name:"Something Blue Sunglasses",
+    price:"$19.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5d674121-becd-4106-95fc-9b588397637e/Ebook+Thumbnail+with+Video+-+2025-02-20T183644.520.png&w=400&output=jpg",
+    bg:"#87CEEB", accent:"#4A90D9",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/something-blue-sunglasses",
+  },
+  {
+    id:"acc-seashell-pool-float",
+    type:"accessory",
+    name:"Seashell Pool Float",
+    price:"$61.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ba51b56c-1026-474c-afd3-58e1e1226ed2/Ebook+Thumbnail+with+Video+-+2025-02-18T195035.694.png&w=400&output=jpg",
+    bg:"#FFDAB9", accent:"#E8A87C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/seashell-pool-float",
+  },
+  {
+    id:"acc-disco-cowboy-markers",
+    type:"accessory",
+    name:"Disco Cowboy Drink Markers",
+    price:"$16.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8177a69f-6352-47ac-9801-a64b4c703ca2/Ebook+Thumbnail+with+Video+-+2025-04-22T155722.481.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/disco-cowboy-drink-markers",
+  },
+  {
+    id:"acc-cheeky-wine-stopper",
+    type:"accessory",
+    name:"Cheeky Wine Stopper",
+    price:"$14.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/cf64f924-222b-4c5e-985e-a9234b86f968/Ebook+Thumbnail+with+Video+-+2025-03-16T184546.243.png&w=400&output=jpg",
+    bg:"#FFDAB9", accent:"#E8A87C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/cheeky-wine-stopper",
+  },
+  {
+    id:"acc-magic-mike-markers",
+    type:"accessory",
+    name:"Magic Mike Drink Markers",
+    price:"$16.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/de2cd38a-da05-4cb2-8093-42969a6fc3b8/Ebook+Thumbnail+with+Video+-+2025-03-16T183111.495.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/magic-mike-drink-markers",
+  },
+  {
+    id:"acc-dice-bottle-opener",
+    type:"accessory",
+    name:"Dice Bottle Opener",
+    price:"$12.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b0f3fd24-96a2-4830-a664-6303e51052ad/Ebook+Thumbnail+with+Video+-+2025-02-25T095551.263.png&w=400&output=jpg",
+    bg:"#E8E8E8", accent:"#1A1A1A",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/dice-bottle-opener",
+  },
+  {
+    id:"acc-diamond-ring-pool-float",
+    type:"accessory",
+    name:"Diamond Ring Pool Float",
+    price:"$28.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ff8cbe41-5735-4a70-abc1-f38e9f7bbf26/Ebook+Thumbnail+with+Video+-+2025-02-17T203136.876.png&w=400&output=jpg",
+    bg:"#E8F4FD", accent:"#87CEEB",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/diamond-ring-pool-float",
+  },
+  {
+    id:"acc-size-matters-markers",
+    type:"accessory",
+    name:"Size Matters Drink Markers",
+    price:"$16.50",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/08a548e6-9c7f-4b9d-860b-5eaf4766ba7f/Ebook+Thumbnail+with+Video+-+2025-03-01T155823.154.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/size-matters-drink-markers",
+  },
+  {
+    id:"acc-pink-disco-ice-bucket",
+    type:"accessory",
+    name:"Pink Disco Ice Bucket",
+    price:"$57.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/872acb99-83b0-4754-b9a6-fe9be7fac322/Ebook+Thumbnail+with+Video+-+2025-02-25T101251.742.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/pink-disco-ice-bucket",
+  },
+  {
+    id:"acc-palm-leaf-pool-float",
+    type:"accessory",
+    name:"Palm Leaf Pool Float",
+    price:"$26.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b4902972-c1ce-4548-a892-314d22301f6e/Ebook+Thumbnail+with+Video+-+2025-02-17T202053.165.png&w=400&output=jpg",
+    bg:"#A8D8A8", accent:"#4CAF50",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/palm-leaf-pool-float",
+  },
+  {
+    id:"acc-pineapple-sunglasses",
+    type:"accessory",
+    name:"Pineapple Sunglasses",
+    price:"$10.33",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/9db6afd3-c79a-421c-a691-23f6142bbdbc/Ebook+Thumbnail+with+Video+-+2025-02-20T173419.662.png&w=400&output=jpg",
+    bg:"#FFD700", accent:"#FFA500",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/pineapple-sunglasses",
+  },
+  {
+    id:"acc-cowboy-hat-ice-bucket",
+    type:"accessory",
+    name:"Cowboy Hat Ice Bucket",
+    price:"$70.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/111aa550-ce70-4484-8875-fe92d9d0acb8/Ebook+Thumbnail+with+Video+-+2025-02-25T100515.439.png&w=400&output=jpg",
+    bg:"#C4956A", accent:"#8B6340",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/cowboy-hat-ice-bucket",
+  },
+  {
+    id:"acc-red-lips-pool-float",
+    type:"accessory",
+    name:"Red Lips Pool Float",
+    price:"$26.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/65ba97fa-7e08-4c9e-a90d-0d49939a83e9/Ebook+Thumbnail+with+Video+-+2025-02-17T193427.505.png&w=400&output=jpg",
+    bg:"#E8112D", accent:"#B71C1C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/red-lips-pool-float",
+  },
+  {
+    id:"acc-cat-eye-bride-sunglasses",
+    type:"accessory",
+    name:"Cat Eye Bride Sunglasses",
+    price:"$19.22",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/98b0b34f-a381-45cb-9a34-c3417529f75e/Ebook+Thumbnail+with+Video+-+2025-01-20T124005.489.png&w=400&output=jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/cat-eye-bride-sunglasses",
+  },
+  {
+    id:"acc-disco-ball-headband",
+    type:"accessory",
+    name:"Disco Ball Headband",
+    price:"$21.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ee471a51-8450-4a9a-b34a-6bbc209c22cc/Ebook+Thumbnail+with+Video+-+2025-01-20T122406.368.png&w=400&output=jpg",
+    bg:"#C0C0C0", accent:"#808080",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/disco-ball-headband",
+  },
+  {
+    id:"acc-groovy-flower-sunglasses",
+    type:"accessory",
+    name:"Groovy Flower Sunglasses",
+    price:"$22.00",
+    image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/121446f9-d824-4b66-964c-d685e69e9106/Ebook+Thumbnail+with+Video+-+2025-01-20T194402.177.png&w=400&output=jpg",
+    bg:"#FFB6C1", accent:"#E91E8C",
+    etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/groovy-flower-sunglasses",
+  },
+  {
+    id:"acc-self-love-club-towel",
+    type:"accessory",
+    name:"Self Love Club Beach Towel",
+    price:"$36.99",
+    image:"https://i.etsystatic.com/40669879/r/il/8a9508/7776683551/il_fullxfull.7776683551_bdow.jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://www.etsy.com/listing/4460461226/self-love-club-beach-towel-girls-trip",
+  },
+  {
+    id:"acc-modern-sardinas-towel",
+    type:"accessory",
+    name:"Modern Sardinas Beach Towel",
+    price:"$36.99",
+    image:"https://i.etsystatic.com/40669879/r/il/2e7ab3/7795365021/il_fullxfull.7795365021_6o5f.jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotlinesupplies.etsy.com/listing/4463176097/modern-sardinas-beach-towel-girls-trip",
+  },
+  {
+    id:"acc-cocktail-club-towel",
+    type:"accessory",
+    name:"Cocktail Club Beach Towel",
+    price:"$36.99",
+    image:"https://i.etsystatic.com/40669879/r/il/32a856/7795306529/il_fullxfull.7795306529_ppp2.jpg",
+    bg:"#F4A7B9", accent:"#E91E8C",
+    etsyUrl:"https://bachhotlinesupplies.etsy.com",
+  },
+  {
+    id:"acc-pur-baby-panther-towel",
+    type:"accessory",
+    name:"Pur Baby Panther Beach Towel",
+    price:"$36.99",
+    image:"https://i.etsystatic.com/40669879/r/il/77b973/7795351957/il_fullxfull.7795351957_ixu2.jpg",
+    bg:"#1A1A1A", accent:"#555",
+    etsyUrl:"https://bachhotlinesupplies.etsy.com",
+  },
+  {
+    id:"acc-floral-groovy-towel",
+    type:"accessory",
+    name:"Floral Groovy Beach Towel",
+    price:"$36.99",
+    image:"https://i.etsystatic.com/40669879/r/il/3ba46b/7743346430/il_fullxfull.7743346430_efzo.jpg",
+    bg:"#FFB6C1", accent:"#E91E8C",
+    etsyUrl:"https://bachhotlinesupplies.etsy.com",
+  },
+  {
+    id:"acc-fast-food-towel",
+    type:"accessory",
+    name:"Fast Food Beach Towel",
+    price:"$36.99",
+    image:"https://i.etsystatic.com/40669879/r/il/df92e8/7791280017/il_fullxfull.7791280017_qdsr.jpg",
+    bg:"#FFD700", accent:"#FF6B1A",
+    etsyUrl:"https://bachhotlinesupplies.etsy.com",
+  },
+  {
+    id:"acc-ocean-tide-towel",
+    type:"accessory",
+    name:"Ocean Tide Beach Towel",
+    price:"$36.99",
+    image:"https://i.etsystatic.com/40669879/r/il/7fcb8a/7739743318/il_fullxfull.7739743318_qafb.jpg",
+    bg:"#87CEEB", accent:"#1E88E5",
+    etsyUrl:"https://bachhotlinesupplies.etsy.com",
+  },
+  {
+    id:"acc-spaghetti-upsetti-towel",
+    type:"accessory",
+    name:"Spaghetti Upsetti Beach Towel",
+    price:"$36.99",
+    image:"https://i.etsystatic.com/40669879/r/il/13578b/7739621152/il_fullxfull.7739621152_kglb.jpg",
+    bg:"#E8112D", accent:"#B71C1C",
+    etsyUrl:"https://bachhotlinesupplies.etsy.com",
+  },
+];
+
+function PartyAccessoriesStep({ stepNum, cart, setCart }) {
+  const inCart = id => cart.some(c => c.id === id);
+  const toggle = item => {
+    if (inCart(item.id)) {
+      setCart(prev => prev.filter(c => c.id !== item.id));
+    } else {
+      setCart(prev => [...prev, {
+        id: item.id, name: item.name,
+        price: parseFloat(item.price.replace("$","")),
+        image: item.image, category: "accessory",
+      }]);
+    }
+  };
+
+  return (
+    <div style={{marginBottom:28}}>
+      <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,paddingTop:20,borderTop:`2px solid ${MID}`}}>
+        <div style={{width:28,height:28,borderRadius:"50%",background:`linear-gradient(135deg,${HOT},${PUNCH})`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:WHITE,flexShrink:0}}>{stepNum}</div>
+        <div>
+          <div style={{fontSize:14,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>🎉 Party Accessories</div>
+          <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",opacity:0.8}}>Fun extras to complete your party vibe</div>
+        </div>
+      </div>
+      {PARTY_ACCESSORIES.length === 0 ? (
+        <div style={{textAlign:"center",padding:"28px 20px",background:SOFT,borderRadius:16}}>
+          <div style={{fontSize:28,marginBottom:8}}>🎀</div>
+          <div style={{fontSize:13,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>Coming Soon</div>
+          <div style={{fontSize:11,color:"#aaa",fontFamily:"'DM Sans',sans-serif",lineHeight:1.5}}>Party accessories are being added. Check back soon!</div>
+        </div>
+      ) : (
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"16px 12px"}}>
+          {PARTY_ACCESSORIES.map(item => {
+            const added = inCart(item.id);
+            return (
+              <div key={item.id} style={{background:WHITE,borderRadius:18,overflow:"hidden",boxShadow:added?`0 0 0 2px ${HOT},0 4px 16px rgba(233,30,140,0.15)`:"0 4px 16px rgba(0,0,0,0.09)",transition:"all 0.2s",display:"flex",flexDirection:"column"}}>
+                <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0}}>
+                  <TablewearVisual item={item}/>
+                </div>
+                <div style={{padding:"7px 8px 10px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+                  <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,marginBottom:2}}>{item.name}</div>
+                  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:5}}>
+                    <div style={{fontSize:11,fontWeight:900,color:PUNCH,fontFamily:"'DM Sans',sans-serif"}}>{item.price}</div>
+                    <button onClick={()=>toggle(item)} style={{
+                      background:added?SOFT:`linear-gradient(135deg,${HOT},${PUNCH})`,
+                      color:added?HOT:WHITE,border:added?`1.5px solid ${HOT}`:"none",
+                      borderRadius:20,padding:"4px 8px",
+                      fontFamily:"'DM Sans',sans-serif",fontSize:9,fontWeight:700,cursor:"pointer",
+                    }}>{added?"✓":"+ Add"}</button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
   const items = TABLEWARE.filter(i => i.type === "confetti");
   const [sizes, setSizes] = useState({}); // itemId → "mini" | "tube"
@@ -3223,7 +3587,12 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
   const scored = items.map(item => ({
     ...item,
     score: item.tags.filter(t => selectedColors.includes(t)).length,
-  })).sort((a,b) => b.score - a.score);
+  })).sort((a,b) => {
+    const aNum = a.numberBalloon ? 1 : 0;
+    const bNum = b.numberBalloon ? 1 : 0;
+    if (bNum !== aNum) return bNum - aNum;
+    return b.score - a.score;
+  });
 
   const [activeNumId, setActiveNumId] = useState(null);
 
@@ -3365,44 +3734,57 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
 // ─── Curated Themes ───────────────────────────────────────────────────────────
 const CURATED_THEMES = [
   {
-    id:"theme-vegas",
-    name:"Vegas Night",
-    emoji:"🎰",
-    desc:"Casino glam — gold, black, red, hot pink",
-    colors:["#FFD700","#1A1A1A","#E8112D","#E91E8C"],
-    items:["napkin-jackpot","napkin-ticket","napkin-queen-card","cup-black-suit-potion","confetti-licorice-mini"],
+    id:"theme-zesty-bride",
+    name:"Zesty Bride",
+    emoji:"🍋",
+    desc:"A fresh, playful mix of pinks, blues, and sunny lemon yellows for a bright, bold, and citrus sweet party.",
+    colors:["#F4A7B9","#87CEEB","#FFD700","#E91E8C"],
+    items:[
+      "plate-lemon-zest",
+      "cup-pink-lemonade",
+      "napkin-simple-blue",
+      "treatbag-diamond",
+      "treatbag-envelope-boxes",
+      "foil-blue-bell-bowknot",
+      "banner-baby-pink-fringe-backdrop",
+      "confetti-dream",
+      "confetti-popcorn",
+    ],
   },
   {
-    id:"theme-tropical",
-    name:"Tropical Bachelorette",
-    emoji:"🌺",
-    desc:"Island energy — teal, coral, orange, green",
-    colors:["#00B8D4","#FF6B1A","#4CAF50","#E91E8C"],
-    items:["napkin-luau","napkin-orchid","napkin-sun-cabana","cup-island-vibes","cup-palm-tree"],
+    id:"theme-flutter-glow",
+    name:"Flutter & Glow",
+    emoji:"🦋",
+    desc:"Soft pastels, garden lanterns, and delicate butterflies come together for a dreamy, magical celebration.",
+    colors:["#FFB6C1","#DDA0DD","#B0E0E6","#FFE4B5"],
+    items:[
+      "plate-butterfly",
+      "cup-blues-checker",
+      "napkin-love-heart",
+      "napkin-wavy",
+      "treatbag-fringe",
+      "banner-molly-paper-lanterns",
+      "banner-floral-garland",
+      "confetti-whimsy",
+      "confetti-butterfly",
+    ],
   },
   {
-    id:"theme-hot-pink",
-    name:"Hot Pink Bride",
-    emoji:"🩷",
-    desc:"All pink, all the time — no notes",
-    colors:["#E91E8C","#F4A7B9","#FFB5C2","#FF4081"],
-    items:["napkin-kiss-me","napkin-love-heart","napkin-yes-girl","cup-pink-lemonade","cup-girl-power"],
-  },
-  {
-    id:"theme-spooky",
-    name:"Dark & Spooky",
-    emoji:"🖤",
-    desc:"Witch vibes — black, purple, blood red",
-    colors:["#1A1A1A","#9C27B0","#E8112D","#FF6B1A"],
-    items:["napkin-witch-please","napkin-vampire-lips","cup-doomsday","cup-blood-bags","confetti-licorice-mini"],
-  },
-  {
-    id:"theme-coastal-cowgirl",
-    name:"Coastal Cowgirl",
-    emoji:"🤠",
-    desc:"Western meets beach — terracotta, cream, teal",
-    colors:["#C4956A","#F8F8F8","#00B8D4","#4CAF50"],
-    items:["napkin-last-rodeo","napkin-taco-party","cup-giddy-up","cup-fiesta-striped"],
+    id:"theme-deal-me-love",
+    name:"Deal Me Love",
+    emoji:"🃏",
+    desc:"Bold red hues, sleek black accents, and edgy queen card details create a fierce, flirty energy for an unapologetic girls only gathering.",
+    colors:["#E8112D","#1A1A1A","#F4A7B9","#E91E8C"],
+    items:[
+      "napkin-queen-card",
+      "napkin-yes-girl",
+      "cup-dusty-pinky",
+      "foil-zebra",
+      "foil-zebra-number",
+      "confetti-cherries",
+      "confetti-lovestruck",
+      "confetti-licorice",
+    ],
   },
 ];
 
@@ -3517,7 +3899,6 @@ export default function DecorTab({ groupSize, cart, setCart, setTab, openCart })
         background:`linear-gradient(135deg,${SOFT} 0%,${MID} 100%)`,
         border:`1.5px solid ${MID}`,
       }}>
-        <div style={{fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:700,letterSpacing:"1.5px",textTransform:"uppercase",marginBottom:6}}>Bach Hotline</div>
         <h2 style={{fontFamily:"'Playfair Display',Georgia,serif",fontSize:22,fontWeight:900,margin:"0 0 6px",color:DARK}}>
           <em style={{color:HOT}}>Build Your Decor Package</em>
         </h2>
@@ -3584,6 +3965,12 @@ export default function DecorTab({ groupSize, cart, setCart, setTab, openCart })
         cart={cart||[]} setCart={setCart||(_=>{})}
       />
 
+      {/* ── Step 9: Party Accessories ── */}
+      <PartyAccessoriesStep
+        stepNum={9}
+        cart={cart||[]} setCart={setCart||(_=>{})}
+      />
+
       {/* ── Curated Themes ── */}
       <CuratedThemes cart={cart||[]} setCart={setCart||(_=>{})}/>
 
@@ -3606,11 +3993,7 @@ export default function DecorTab({ groupSize, cart, setCart, setTab, openCart })
           <button onClick={()=>openCart?openCart():setTab&&setTab("shop")} style={{...BP,width:"100%",padding:"14px",fontSize:14}}>
             Review & Checkout →
           </button>
-          <div style={{textAlign:"center",marginTop:8,fontSize:10,color:"#bbb",fontFamily:"'DM Sans',sans-serif"}}>
-            Secure checkout · No Etsy fees
-          </div>
         </div>
-      )}
       )}
     </div>
   );
