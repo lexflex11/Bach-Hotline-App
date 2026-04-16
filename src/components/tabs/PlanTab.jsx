@@ -192,13 +192,6 @@ export default function PlanTab({ groupSize, setGroupSize, setTab }) {
             ))}
           </select>
 
-          {/* Vibe hint after selection */}
-          {dest && selectedDest && (
-            <div style={{marginTop:10,padding:"8px 12px",borderRadius:10,background:SOFT,border:`1px solid ${MID}`,fontSize:11,color:HOT,fontFamily:"'DM Sans',sans-serif"}}>
-              {selectedDest.emoji} <strong>{selectedDest.name}</strong> — {selectedDest.vibe}
-              {selectedDest.trend && <span style={{color:"#bbb",marginLeft:6}}>{selectedDest.trend}</span>}
-            </div>
-          )}
         </div>
       )}
 
