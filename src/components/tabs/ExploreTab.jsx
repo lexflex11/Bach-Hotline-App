@@ -894,7 +894,7 @@ export default function ExploreTab({ groupSize }) {
               const hasData = EXPLORE_CITY_IDS.has(d.id);
               return (
                 <option key={d.id} value={d.id} disabled={!hasData}>
-                  {d.emoji} {d.name}{!hasData ? " (coming soon)" : ""}
+                  {d.name}{!hasData ? " (coming soon)" : ""}
                 </option>
               );
             })}
