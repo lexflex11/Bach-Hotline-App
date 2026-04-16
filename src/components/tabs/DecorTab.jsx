@@ -3017,6 +3017,32 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
         </div>
       </div>
 
+      {/* Kit contents */}
+      <div style={{marginBottom:14,padding:"14px 16px",borderRadius:14,background:"#fff",border:`1.5px solid ${BORDER}`}}>
+        <div style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",letterSpacing:"0.8px",marginBottom:10}}>
+          What's Included — 130 Balloons
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+          {[
+            { size:'24"', count:5,  label:"Statement",  note:"Large focal balloons" },
+            { size:'18"', count:15, label:"Accent",      note:"Mid-size highlights"  },
+            { size:'12"', count:80, label:"Base",        note:"Core of the garland"  },
+            { size:'5"',  count:40, label:"Fillers",     note:"Gap-filling clusters" },
+          ].map(b => (
+            <div key={b.size} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 12px",borderRadius:10,background:SOFT,border:`1px solid ${MID}`}}>
+              <div style={{width:36,height:36,borderRadius:"50%",background:`radial-gradient(circle at 35% 30%,rgba(255,255,255,0.45),${HOT})`,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:WHITE,fontFamily:"'DM Sans',sans-serif"}}>
+                {b.size}
+              </div>
+              <div>
+                <div style={{fontSize:13,fontWeight:700,color:DARK,fontFamily:"'DM Sans',sans-serif",lineHeight:1}}>{b.count} balloons</div>
+                <div style={{fontSize:10,color:HOT,fontFamily:"'DM Sans',sans-serif",fontWeight:600,marginTop:2}}>{b.label}</div>
+                <div style={{fontSize:9,color:"#bbb",fontFamily:"'DM Sans',sans-serif",marginTop:1}}>{b.note}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Price + CTA */}
       <div style={{padding:"14px 16px",borderRadius:16,background:SOFT,border:`1.5px solid ${MID}`,display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}}>
         <div>
