@@ -292,7 +292,7 @@ export default function PlanTab({ groupSize, setGroupSize, setTab }) {
         }}>
           {loading
             ? `✨ Planning the perfect ${selectedBride?.label||""} trip...`
-            : `Generate My ${days}-Day ${selectedDest?.name||""} Itinerary`}
+            : `Generate My ${days} Day ${selectedDest?.name||""} Itinerary`}
         </button>
       )}
 
