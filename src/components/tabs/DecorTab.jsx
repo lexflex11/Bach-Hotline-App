@@ -1221,10 +1221,17 @@ export const TABLEWARE = [
   },
   {
     id:"plate-flaming-heart", type:"plate", name:"Flaming Heart Plates",
-    desc:"8 ct · 9\" x 12\"",  price:"$13.50",
+    desc:"H-O-T T-O G-O! For those who wear their heart (and a little bit of heartbreak) on their sleeve, it's time to turn up the heat with our flaming heart paper plates.",
+    price:"$13.50",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68486d8cb91f060aa5210568/1767827872670/Ebook+Thumbnail+with+Video+-+2025-06-07T231851.197.png?format=1500w",
+    images:[
+      "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68486d8cb91f060aa5210568/1767827872670/Ebook+Thumbnail+with+Video+-+2025-06-07T231851.197.png?format=1500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0526d9e2-c467-4fee-9c29-43219d45b557/Copy+of+Untitled+Design+-+2025-02-09T145327.990.png?format=500w",
+    ],
+    bullets:["Set of 8","Dimensions: 9\"w x 12\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#E53935", accent:"#FF6B1A",
     tags:["red","orange","hotpink","scarlett","samba","coral","taffy"],
+    etsyUrl:"https://bachhotline.squarespace.com/decorations/p/flaming-heart-plates",
   },
   {
     id:"plate-fire-checker", type:"plate", name:"Fire Flames Checker Plates",
