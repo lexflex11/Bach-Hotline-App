@@ -17,9 +17,9 @@ export default function AuthScreen({ onLogin, LOGO_SRC }) {
   return (
     <div style={{ minHeight:"100vh", background:WHITE, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", padding:"24px 20px" }}>
       <div style={{ width:"100%", maxWidth:360 }}>
-        <div style={{ textAlign:"center", marginBottom:28 }}>
-          <img src={LOGO_SRC} alt="Bach Hotline" style={{ width:260, height:"auto", objectFit:"contain" }} />
-          <p style={{ fontSize:13, color:HOT, fontFamily:"'DM Sans',sans-serif", marginTop:2 }}>Say goodbye to weeks of stressful bachelorette planning</p>
+        <div style={{ textAlign:"center", marginBottom:16 }}>
+          <img src={LOGO_SRC} alt="Bach Hotline" style={{ width:240, height:"auto", objectFit:"contain", display:"block", margin:"0 auto" }} />
+          <p style={{ fontSize:13, color:HOT, fontFamily:"'DM Sans',sans-serif", margin:"6px 0 0" }}>Say goodbye to weeks of stressful bachelorette planning</p>
         </div>
         <div style={{ display:"flex", background:SOFT, borderRadius:50, padding:4, marginBottom:20, border:`1.5px solid ${BORDER}` }}>
           {["login","signup"].map(m => (
