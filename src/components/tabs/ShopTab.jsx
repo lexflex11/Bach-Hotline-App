@@ -56,27 +56,13 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
   };
 });
 
-// ─── Pink corner brackets — signature Squarespace look ───────────────────────
-function Brackets({ size = 14, thick = 3, color = "#E91E8C", gap = 7 }) {
-  const base = { position:"absolute", width:size, height:size };
-  const c = `${thick}px solid ${color}`;
-  return (
-    <>
-      <div style={{...base, top:gap, left:gap,    borderTop:c, borderLeft:c  }}/>
-      <div style={{...base, top:gap, right:gap,   borderTop:c, borderRight:c }}/>
-      <div style={{...base, bottom:gap, left:gap,  borderBottom:c, borderLeft:c }}/>
-      <div style={{...base, bottom:gap, right:gap, borderBottom:c, borderRight:c}}/>
-    </>
-  );
-}
-
 // ─── Product image tile ───────────────────────────────────────────────────────
 function ProductTile({ p, onView }) {
   const [loaded, setLoaded] = useState(false);
   const [err,    setErr]    = useState(false);
   return (
     <div onClick={onView} style={{ cursor:"pointer", textAlign:"center" }}>
-      {/* Image box — blush background, no border, pink brackets + Bach Hotline badge */}
+      {/* Image box */}
       <div style={{
         position:"relative", width:"100%", aspectRatio:"1/1",
         background:"#FDF5F8",
