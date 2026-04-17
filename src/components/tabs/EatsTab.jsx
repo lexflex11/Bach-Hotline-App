@@ -334,6 +334,33 @@ const RESTAURANTS = {
       ],
       reserveUrl:"https://tables.toasttab.com/restaurants/92e39c06-acb9-492a-8c4f-cd39566033cd/findTime",
     },
+    {
+      id:"cc-2",
+      name:"El Camino Comida & Bar",
+      cuisine:"Tex-Mex",
+      priceRange:"$$",
+      rating:4.7,
+      reviewCount:412,
+      vibe:"Downtown · Late Night · Margaritas",
+      tags:["Tex-Mex","Margaritas","Late Night","Private Events"],
+      address:"314 N Chaparral, Corpus Christi, TX 78401",
+      hours:"Tue–Thu 5pm–10pm · Fri–Sat 5pm–midnight · Sun 11am–2pm · Closed Monday",
+      groupMax:200,
+      desc:"The best dang Tex-Mex this side of the Rio Grande. Born from the soul of the south and inspired by bold Texas flavors, El Camino serves up sizzling fajitas, barbecued oysters, creamy queso, and the best margaritas in Corpus Christi — right in the heart of downtown.",
+      photo:"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=80",
+      images:[
+        "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=80",
+        "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=800&q=80",
+        "https://images.unsplash.com/photo-1509315811345-672d83ef2fbc?w=800&q=80",
+      ],
+      menuHighlights:["Sizzling Fajitas","Barbecued Oysters","Creamy Queso","Signature Margaritas","Fresh Seafood Apps"],
+      whyWeLoveIt:[
+        "Private Margarita Garden fits up to 200 guests — perfect for a full bach takeover",
+        "Late night kitchen open until midnight on Fridays and Saturdays",
+        "Downtown location makes it the perfect start to a Corpus Christi night out",
+      ],
+      reserveUrl:"https://elcaminotexmex.com",
+    },
   ],
 };
 
