@@ -164,7 +164,6 @@ export default function App() {
                   <button key={item.id} onClick={() => { navigateTo(item.id); setDrawerOpen(false); }}
                     style={{ background: tab===item.id ? SOFT : PAGE, border:`1.5px solid ${tab===item.id ? HOT : BORDER}`, borderRadius:14, padding:"12px 13px", cursor:"pointer", textAlign:"left", transition:"all 0.15s" }}>
                     <div style={{ fontSize:13, fontWeight:400, fontFamily:"'Playfair Display',Georgia,serif", color: tab===item.id ? HOT : DARK }}>{item.label}</div>
-                    <div style={{ fontSize:11, color:"#aaa", fontFamily:"'Nunito',sans-serif", marginTop:2, lineHeight:1.3 }}>{item.sub}</div>
                   </button>
                 ))}
               </div>
@@ -180,7 +179,6 @@ export default function App() {
                   <button key={item.id} onClick={() => { navigateTo(item.id); setDrawerOpen(false); }}
                     style={{ background: tab===item.id ? SOFT : PAGE, border:`1.5px solid ${tab===item.id ? HOT : BORDER}`, borderRadius:14, padding:"12px 13px", cursor:"pointer", textAlign:"left", transition:"all 0.15s" }}>
                     <div style={{ fontSize:13, fontWeight:400, fontFamily:"'Playfair Display',Georgia,serif", color: tab===item.id ? HOT : DARK }}>{item.label}</div>
-                    <div style={{ fontSize:11, color:"#aaa", fontFamily:"'Nunito',sans-serif", marginTop:2, lineHeight:1.3 }}>{item.sub}</div>
                   </button>
                 ))}
               </div>
