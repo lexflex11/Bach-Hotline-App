@@ -1145,10 +1145,16 @@ export const TABLEWARE = [
   },
   {
     id:"plate-summer-cake", type:"plate", name:"Summer Cake Plates",
-    desc:"8 ct · 7.5\" x 11\"", price:"$14.04",
+    desc:"Slice up the fun with these adorable cake paper plates made for bachelorette vibes, sunshine, and all day celebration with your favorite girls!",
+    price:"$14.04",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684999f51ef4b52dec0631cd/1767898324611/Ebook+Thumbnail+with+Video+-+2025-06-13T132740.712.png?format=1500w",
+    images:[
+      "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684999f51ef4b52dec0631cd/1767898324611/Ebook+Thumbnail+with+Video+-+2025-06-13T132740.712.png?format=1500w",
+    ],
+    bullets:["Set of 8","Dimensions: 7.5\"w x 11\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#FFEA5A", accent:"#FF6B8A",
     tags:["yellow","lemonade","goldenrod","hotpink","coral","taffy","blush","baby-pink","turquoise","seafoam","mint"],
+    etsyUrl:"https://bachhotline.squarespace.com/decorations/p/summer-cake-plates",
   },
   {
     id:"plate-happy-face", type:"plate", name:"Happy Face Plates",
