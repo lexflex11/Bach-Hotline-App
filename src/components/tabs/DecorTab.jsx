@@ -1207,10 +1207,16 @@ export const TABLEWARE = [
   },
   {
     id:"plate-blue-floral", type:"plate", name:"Blue Floral Plates",
-    desc:"12 ct · 10\" x 10\"", price:"$13.00",
+    desc:"Serve up style with these blue floral paper plates for spring parties, bridal showers, or elegant outdoor gatherings! Pretty, practical, and party ready!",
+    price:"$13.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/67928a2ea165a16c98b562e9/1767557636786/Ebook+Thumbnail+with+Video+-+2025-01-23T122858.717.png?format=1500w",
+    images:[
+      "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/67928a2ea165a16c98b562e9/1767557636786/Ebook+Thumbnail+with+Video+-+2025-01-23T122858.717.png?format=1500w",
+    ],
+    bullets:["Set of 12","Dimensions: 10\"w x 10\"l","Durable, disposable plates for easy cleanup"],
     bg:"#B8D8E8", accent:"#0084C1",
     tags:["blue","baby-blue","monet","georgia","blue-slate","seafoam","sea-glass","mint","lavender"],
+    etsyUrl:"https://bachhotline.squarespace.com/decorations/p/blue-floral-plates",
   },
   {
     id:"plate-roller-skate", type:"plate", name:"Roller Skate Plates",
