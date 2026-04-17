@@ -146,7 +146,7 @@ export default function App() {
             <div style={{ width:36, height:4, borderRadius:2, background:MID, margin:"0 auto 14px", paddingTop:14 }} />
             <div style={{ padding:"16px 20px 32px" }}>
               <div style={{ fontSize:11, fontWeight:700, color:HOT, fontFamily:"'Nunito',sans-serif", textTransform:"uppercase", letterSpacing:"1.5px", marginBottom:18 }}>All Features</div>
-              <div style={{ fontSize:10, color:"#bbb", fontFamily:"'Nunito',sans-serif", textTransform:"uppercase", letterSpacing:"1px", marginBottom:10, fontWeight:600 }}>Trip Planning</div>
+              <div style={{ marginBottom:10 }}></div>
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:20 }}>
                 {[
                   { id:"flights", label:"Flights",   sub:"Search & compare"        },
@@ -168,7 +168,7 @@ export default function App() {
                   </button>
                 ))}
               </div>
-              <div style={{ fontSize:10, color:"#bbb", fontFamily:"'Nunito',sans-serif", textTransform:"uppercase", letterSpacing:"1px", marginBottom:10, fontWeight:600 }}>Extras</div>
+              <div style={{ marginBottom:10 }}></div>
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
                 {[
                   ...(user.email ? [
