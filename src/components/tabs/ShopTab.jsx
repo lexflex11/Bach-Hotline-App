@@ -35,19 +35,26 @@ function cleanImg(url) {
 }
 
 // Combine and normalise: TABLEWARE + PARTY_ACCESSORIES → same shape as PRODUCTS
-const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => ({
+const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
+  // Support both single `image` and `images: []` array
+  const imgs = (p.images || []).map(cleanImg).filter(Boolean);
+  const main = cleanImg(p.image);
+  if (main && !imgs.includes(main)) imgs.unshift(main);
+  return {
   id:        p.id,
   name:      p.name,
   fullName:  p.name,
   price:     parseFloat((p.price || "$0").replace(/[^0-9.]/g, "")) || 0,
   category:  TYPE_TO_CAT[p.type] || "Party Accessories",
-  image:     cleanImg(p.image),
+  image:     imgs[0] || "",
+  images:    imgs,
   url:       p.etsyUrl || "",
   desc:      p.desc || "",
   bullets:   [],
   isDigital: false,
   bestseller:false,
-}));
+  };
+});
 
 // ─── Pink corner brackets — signature Squarespace look ───────────────────────
 function Brackets({ size = 14, thick = 3, color = "#E91E8C", gap = 7 }) {
@@ -115,77 +122,68 @@ function ProductTile({ p, onView }) {
   );
 }
 
-// ─── Product Detail Modal ─────────────────────────────────────────────────────
+// ─── Product Detail Modal — two-column layout matching reference ─────────────
 function ProductModal({ p, onClose, onAdd, inCart }) {
-  const [imgLoaded, setImgLoaded] = useState(false);
-  const [qty, setQty] = useState(1);
+  const [imgIdx, setImgIdx] = useState(0);
+  const [qty,    setQty]    = useState(1);
+
+  React.useEffect(() => { setImgIdx(0); setQty(1); }, [p?.id]);
   if (!p) return null;
+
+  const imgs  = (p.images?.length > 0) ? p.images : (p.image ? [p.image] : []);
+  const total = imgs.length;
+  const src   = imgs[imgIdx] || "";
+
+  const prev = e => { e.stopPropagation(); setImgIdx(i => (i - 1 + total) % total); };
+  const next = e => { e.stopPropagation(); setImgIdx(i => (i + 1) % total); };
+
+  const touchRef = React.useRef(null);
+  const onTouchStart = e => { touchRef.current = e.touches[0].clientX; };
+  const onTouchEnd   = e => {
+    if (touchRef.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchRef.current;
+    if (Math.abs(dx) > 40) dx < 0 ? setImgIdx(i=>(i+1)%total) : setImgIdx(i=>(i-1+total)%total);
+    touchRef.current = null;
+  };
+
   return (
-    <div style={{ position:"fixed",inset:0,zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center" }}>
-      <div onClick={onClose} style={{ position:"absolute",inset:0,background:"rgba(45,10,24,0.45)",backdropFilter:"blur(6px)" }}/>
-      <div style={{
-        position:"relative",zIndex:1,width:"100%",maxWidth:480,
-        background:WHITE,borderRadius:"20px 20px 0 0",
-        maxHeight:"94vh",overflowY:"auto",paddingBottom:40,
-      }}>
-        {/* Drag handle */}
-        <div style={{width:36,height:4,borderRadius:2,background:"#ddd",margin:"12px auto 0"}}/>
+    <div style={{ position:"fixed",inset:0,zIndex:500,background:WHITE,overflowY:"auto" }}>
 
-        {/* Close button */}
-        <button onClick={onClose} style={{
-          position:"absolute",top:12,right:14,background:SOFT,
-          border:"none",borderRadius:"50%",width:30,height:30,
-          cursor:"pointer",color:DARK,fontSize:16,fontWeight:700,
-          display:"flex",alignItems:"center",justifyContent:"center",
-        }}>×</button>
+      {/* Close button */}
+      <button onClick={onClose} style={{
+        position:"fixed",top:14,right:16,background:"none",border:"none",
+        fontSize:22,cursor:"pointer",color:DARK,zIndex:10,lineHeight:1,
+      }}>×</button>
 
-        {/* Full-width image with corner brackets */}
-        <div style={{position:"relative",width:"100%",aspectRatio:"1/1",background:"#FDF5F8",marginTop:8,overflow:"hidden"}}>
-          {!imgLoaded && (
-            <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:52}}>🎀</div>
-          )}
-          <img
-            src={p.image} alt={p.name}
-            onLoad={()=>setImgLoaded(true)}
-            style={{width:"100%",height:"100%",objectFit:"contain",padding:16,boxSizing:"border-box",opacity:imgLoaded?1:0,transition:"opacity 0.4s"}}
-          />
-          <Brackets size={20} thick={3} color={HOT} gap={8}/>
-          {/* Page counter */}
-          <div style={{position:"absolute",top:12,right:14,fontSize:11,color:"#aaa",fontFamily:"'Nunito',sans-serif"}}>1 / 1</div>
-        </div>
+      {/* ── Two-column layout ── */}
+      <div style={{display:"flex",flexDirection:"row",minHeight:"100vh",alignItems:"flex-start"}}>
 
-        <div style={{padding:"20px 20px 0"}}>
-          {/* Breadcrumb */}
-          <div style={{fontSize:10,color:"#aaa",fontFamily:"'Nunito',sans-serif",textTransform:"uppercase",letterSpacing:"1px",marginBottom:8}}>
-            Bach Hotline › {p.category}
-          </div>
+        {/* LEFT — product info */}
+        <div style={{flex:"0 0 48%",padding:"48px 28px 40px 24px",boxSizing:"border-box"}}>
 
-          {/* Product name — pink italic serif */}
-          <h2 style={{fontFamily:"'Playfair Display',Georgia,serif",fontSize:22,fontWeight:700,fontStyle:"italic",color:HOT,margin:"0 0 10px",lineHeight:1.3}}>
+          {/* Name */}
+          <h2 style={{fontFamily:"'Playfair Display',Georgia,serif",fontSize:26,fontWeight:700,fontStyle:"italic",color:HOT,margin:"0 0 12px",lineHeight:1.2}}>
             {p.fullName || p.name}
           </h2>
 
           {/* Price */}
-          <div style={{fontSize:20,fontWeight:700,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:18}}>
+          <div style={{fontSize:18,fontWeight:700,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:22}}>
             ${p.price.toFixed(2)}
           </div>
 
           {/* Qty stepper + Add to Cart */}
-          <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:20,paddingBottom:20,borderBottom:`1px solid ${BORDER}`}}>
-            {/* Stepper */}
-            <div style={{display:"flex",alignItems:"center",gap:12,borderBottom:`1.5px solid ${DARK}`,paddingBottom:2}}>
-              <button onClick={()=>setQty(q=>Math.max(1,q-1))} style={{background:"none",border:"none",cursor:"pointer",fontSize:20,color:DARK,fontWeight:300,lineHeight:1,padding:"0 2px"}}>−</button>
-              <span style={{fontSize:15,fontWeight:600,fontFamily:"'Nunito',sans-serif",color:DARK,minWidth:20,textAlign:"center"}}>{qty}</span>
-              <button onClick={()=>setQty(q=>q+1)} style={{background:"none",border:"none",cursor:"pointer",fontSize:20,color:DARK,fontWeight:300,lineHeight:1,padding:"0 2px"}}>+</button>
+          <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:28,paddingBottom:24,borderBottom:`1px solid ${BORDER}`}}>
+            <div style={{display:"flex",alignItems:"center",gap:10,borderBottom:`1.5px solid ${DARK}`,paddingBottom:2}}>
+              <button onClick={()=>setQty(q=>Math.max(1,q-1))} style={{background:"none",border:"none",cursor:"pointer",fontSize:20,color:DARK,fontWeight:300,lineHeight:1,padding:"0 4px"}}>−</button>
+              <span style={{fontSize:15,fontWeight:600,fontFamily:"'Nunito',sans-serif",color:DARK,minWidth:18,textAlign:"center"}}>{qty}</span>
+              <button onClick={()=>setQty(q=>q+1)} style={{background:"none",border:"none",cursor:"pointer",fontSize:20,color:DARK,fontWeight:300,lineHeight:1,padding:"0 4px"}}>+</button>
             </div>
-            {/* Add to Cart */}
             <button onClick={()=>onAdd(p)} style={{
-              flex:1, padding:"13px", fontSize:14, fontFamily:"'Nunito',sans-serif",
-              fontWeight:700, border:"none", borderRadius:50, cursor:"pointer",
+              flex:1, padding:"11px 14px", fontSize:13, fontFamily:"'Nunito',sans-serif",
+              fontWeight:700, borderRadius:50, cursor:"pointer",
               background: inCart ? SOFT : `linear-gradient(135deg,#f472b0,${HOT})`,
               color: inCart ? HOT : WHITE,
               border: inCart ? `1.5px solid ${HOT}` : "none",
-              transition:"all 0.15s",
             }}>
               {inCart ? "✓ In Cart" : "Add To Cart"}
             </button>
@@ -193,18 +191,17 @@ function ProductModal({ p, onClose, onAdd, inCart }) {
 
           {/* Description */}
           {p.desc && (
-            <p style={{fontSize:13,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.7,margin:"0 0 14px"}}>
+            <p style={{fontSize:13,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.8,margin:"0 0 16px"}}>
               {p.desc}
             </p>
           )}
 
-          {/* Bullet points */}
+          {/* Bullets */}
           {p.bullets?.length > 0 && (
             <ul style={{listStyle:"none",padding:0,margin:0}}>
               {p.bullets.map((b,i)=>(
-                <li key={i} style={{fontSize:13,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.6,marginBottom:4,display:"flex",gap:8,alignItems:"flex-start"}}>
-                  <span style={{color:HOT,flexShrink:0,marginTop:2}}>·</span>
-                  {b}
+                <li key={i} style={{fontSize:13,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.7,marginBottom:6,display:"flex",gap:8,alignItems:"flex-start"}}>
+                  <span style={{color:HOT,flexShrink:0}}>·</span>{b}
                 </li>
               ))}
             </ul>
@@ -216,6 +213,62 @@ function ProductModal({ p, onClose, onAdd, inCart }) {
             </div>
           )}
         </div>
+
+        {/* RIGHT — image carousel + vertical thumbnail strip */}
+        <div style={{flex:"0 0 52%",display:"flex",gap:8,padding:"32px 16px 32px 0",boxSizing:"border-box",alignItems:"flex-start"}}>
+
+          {/* Main image area */}
+          <div
+            style={{flex:1,position:"relative",aspectRatio:"1/1",background:"#FDF5F8",userSelect:"none"}}
+            onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}
+          >
+            {src ? (
+              <img key={src} src={src} alt={p.name}
+                style={{width:"100%",height:"100%",objectFit:"contain",padding:16,boxSizing:"border-box",display:"block"}}
+              />
+            ) : (
+              <div style={{width:"100%",height:"100%",display:"flex",alignItems:"center",justifyContent:"center",fontSize:52}}>🎀</div>
+            )}
+            <Brackets size={20} thick={3} color={HOT} gap={8}/>
+
+            {/* Prev / Next arrows */}
+            {total > 1 && (
+              <>
+                <button onClick={prev} style={{
+                  position:"absolute",left:10,top:"50%",transform:"translateY(-50%)",
+                  background:"rgba(255,255,255,0.9)",border:"none",borderRadius:"50%",
+                  width:34,height:34,cursor:"pointer",fontSize:18,color:DARK,
+                  display:"flex",alignItems:"center",justifyContent:"center",
+                  boxShadow:"0 1px 4px rgba(0,0,0,0.12)",
+                }}>‹</button>
+                <button onClick={next} style={{
+                  position:"absolute",right:10,top:"50%",transform:"translateY(-50%)",
+                  background:"rgba(255,255,255,0.9)",border:"none",borderRadius:"50%",
+                  width:34,height:34,cursor:"pointer",fontSize:18,color:DARK,
+                  display:"flex",alignItems:"center",justifyContent:"center",
+                  boxShadow:"0 1px 4px rgba(0,0,0,0.12)",
+                }}>›</button>
+              </>
+            )}
+          </div>
+
+          {/* Vertical thumbnail strip */}
+          {total > 1 && (
+            <div style={{display:"flex",flexDirection:"column",gap:6,flexShrink:0}}>
+              {imgs.map((url,i) => (
+                <div key={i} onClick={()=>setImgIdx(i)} style={{
+                  width:52,height:52,borderRadius:6,overflow:"hidden",
+                  border: i===imgIdx ? `2px solid ${HOT}` : `1.5px solid ${BORDER}`,
+                  background:"#FDF5F8",cursor:"pointer",position:"relative",
+                }}>
+                  <img src={url} alt="" style={{width:"100%",height:"100%",objectFit:"contain",padding:3,boxSizing:"border-box"}}/>
+                  <Brackets size={8} thick={1.5} color={HOT} gap={3}/>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
       </div>
     </div>
   );
