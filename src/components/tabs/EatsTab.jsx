@@ -477,20 +477,6 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
             <span style={{ fontSize:12, color:"#888", fontFamily:"'Nunito',sans-serif" }}>🍽️ {r.cuisine}</span>
             <span style={{ fontSize:12, color:"#888", fontFamily:"'Nunito',sans-serif" }}>{r.priceRange}</span>
           </div>
-          {/* Book Now CTA row */}
-          <div style={{ display:"flex", gap:8, marginBottom:16 }}>
-            <a href={r.reserveUrl} target="_blank" rel="noreferrer" style={{ textDecoration:"none", flex:1 }}>
-              <button style={{
-                width:"100%", padding:"13px",
-                background:"#1a1a1a", color:WHITE,
-                border:"none", borderRadius:10,
-                fontFamily:"'Nunito',sans-serif", fontSize:14, fontWeight:800,
-                cursor:"pointer", letterSpacing:"0.3px",
-              }}>
-                Reserve a Table
-              </button>
-            </a>
-          </div>
         </div>
 
         {/* ── Photo Gallery ── */}
