@@ -690,7 +690,7 @@ export default function EatsTab({ groupSize }) {
         <select value={city} onChange={e=>{ setCity(e.target.value); setResults(null); }} style={{ ...inputStyle, appearance:"none" }}>
           <option value="">Choose a city…</option>
           {DESTS.filter(d => d.id !== "all").map(d => (
-            <option key={d.id} value={d.id}>{d.emoji} {d.name}</option>
+            <option key={d.id} value={d.id}>{d.name}</option>
           ))}
         </select>
       </div>
@@ -709,7 +709,7 @@ export default function EatsTab({ groupSize }) {
       <div style={{ ...C, marginBottom:14 }}>
         <div style={labelStyle}>Group Size</div>
         <div style={{ fontSize:22, fontWeight:900, color:PUNCH, fontFamily:"'Playfair Display',Georgia,serif" }}>
-          {groupSize} 👯
+          {groupSize}
         </div>
       </div>
 
@@ -718,7 +718,7 @@ export default function EatsTab({ groupSize }) {
         {city ? (
           <>
             <div style={{ fontSize:14, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:4 }}>
-              {selectedDest?.emoji} {selectedDest?.name}
+              {selectedDest?.name}
             </div>
             <div style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif", marginBottom:14, opacity:0.85 }}>
               {groupSize} guests{date ? ` · ${date}` : " · flexible date"}{time ? ` at ${time}` : ""}
@@ -756,7 +756,7 @@ export default function EatsTab({ groupSize }) {
               {results.length} Restaurants Found
             </div>
             <div style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif" }}>
-              {selectedDest?.emoji} {selectedDest?.name}
+              {selectedDest?.name}
             </div>
           </div>
           {results.map(r => (
