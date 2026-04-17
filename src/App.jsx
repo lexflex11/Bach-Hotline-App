@@ -59,7 +59,7 @@ export default function App() {
 
   return (
     <div style={{ minHeight:"100vh", background:PAGE, color:DARK, fontFamily:"'Playfair Display',Georgia,serif" }}>
-      <div style={{ background:DARK, position:"sticky", top:0, zIndex:100, boxShadow:`0 2px 16px rgba(0,0,0,0.28)` }}>
+      <div style={{ background:"#1a1a1a", position:"sticky", top:0, zIndex:100, boxShadow:`0 2px 16px rgba(0,0,0,0.28)` }}>
         {/* ── HEADER ROW ── */}
         <div style={{ padding:"0 16px", display:"flex", alignItems:"center", justifyContent:"space-between", maxWidth:900, margin:"0 auto" }}>
           <img src={LOGO_SRC} alt="Bach Hotline" style={{ height:80, width:"auto", objectFit:"contain" }} />
