@@ -1159,10 +1159,16 @@ export const TABLEWARE = [
   },
   {
     id:"plate-silver-disco", type:"plate", name:"Silver Disco Plates",
-    desc:"8 ct · 9\" x 9\"", price:"$12.00",
+    desc:"Bring sparkle and shine to your celebration with our silver disco paper plates. These glamorous plates are adorned with silver foil for a dazzling touch.",
+    price:"$12.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6793bc8ca165a16c98b66474/1767898308845/Ebook+Thumbnail+with+Video+-+2025-01-27T125554.572.png?format=1500w",
+    images:[
+      "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6793bc8ca165a16c98b66474/1767898308845/Ebook+Thumbnail+with+Video+-+2025-01-27T125554.572.png?format=1500w",
+    ],
+    bullets:["Set of 8","Dimensions: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#D0D0D0", accent:"#9E9E9E",
     tags:["silver","white","crystal-clear","fog","gray-smoke","metallic-blue","navy","naval","metallic-midnight-blue","metallic-green","metallic-fuchsia","metallic-gold"],
+    etsyUrl:"https://bachhotline.squarespace.com/decorations/p/silver-disco-plates",
   },
   {
     id:"plate-jaguar", type:"plate", name:"Jaguar Plates",
