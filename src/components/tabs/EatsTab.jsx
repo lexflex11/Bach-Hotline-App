@@ -388,6 +388,33 @@ const RESTAURANTS = {
       ],
       reserveUrl:"https://www.bellinostexas.com/reservations",
     },
+    {
+      id:"cc-4",
+      name:"Water Street Oyster Bar",
+      cuisine:"Gulf Coast Seafood",
+      priceRange:"$$",
+      rating:4.7,
+      reviewCount:891,
+      vibe:"Waterfront · Oysters · Local Icon",
+      tags:["Seafood","Oysters","Happy Hour","Waterfront","Local Favorite"],
+      address:"309 North Water Street, Corpus Christi, TX 78401",
+      hours:"Open daily for lunch, dinner & late night · Happy Hour daily 3–6pm",
+      groupMax:40,
+      desc:"A Corpus Christi institution since 1983. Set in a historic former transmission shop steps from the bay, Water Street Oyster Bar has been the city's go-to for famously fresh Gulf seafood for over 40 years. Oysters, sushi, blackened fish, and the best happy hour in town.",
+      photo:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
+      images:[
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
+        "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=800&q=80",
+        "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80",
+      ],
+      menuHighlights:["Oysters on the Half Shell","Sushi Rolls","Fried Gulf Shrimp","Blackened Fish","Key Lime Pie"],
+      whyWeLoveIt:[
+        "Happy Hour daily 3–6pm: half-price oysters, sushi & wine — perfect pre-night-out stop",
+        "A true Corpus Christi landmark open since 1983, generations of locals swear by it",
+        "Downtown location makes it easy to walk to bars and nightlife after dinner",
+      ],
+      reserveUrl:"https://waterstreetoysterbar.com",
+    },
   ],
 };
 
