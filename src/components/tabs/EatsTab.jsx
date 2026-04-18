@@ -604,6 +604,33 @@ const RESTAURANTS = {
       ],
       reserveUrl:"https://tanninsgrill.com",
     },
+    {
+      id:"cc-12",
+      name:"Central Kitchen",
+      cuisine:"American Café & Bakery",
+      priceRange:"$$",
+      rating:4.6,
+      reviewCount:298,
+      vibe:"Downtown · Bakery · Cozy Brunch",
+      tags:["Bakery","Breakfast","Brunch","Coffee","Downtown"],
+      address:"320 Lomax St Suite C, Corpus Christi, TX 78401",
+      hours:"Open Daily 7am–5pm",
+      groupMax:20,
+      desc:"Downtown Corpus Christi's beloved scratch bakery and café, located steps from Water Street Market. You can see and smell the baking from the street — sourdough loaves, buttery croissants, kolaches, and hearty sandwiches on house-baked bread, all made fresh every single day.",
+      photo:"https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=80",
+      images:[
+        "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=80",
+        "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
+        "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=800&q=80",
+      ],
+      menuHighlights:["Almond Croissant","Kouign Aman","Lox & Everything Toast","Maple Glazed Donut with Bacon","Lemon Meringue Tart"],
+      whyWeLoveIt:[
+        "Open 7 days a week — perfect for a morning bach breakfast before hitting the beach",
+        "Everything baked fresh in-house daily, you can smell it from the street",
+        "Party sandwich trays available for catering your bach group breakfast or brunch",
+      ],
+      reserveUrl:"https://centralkitchencc.com",
+    },
   ],
 };
 
