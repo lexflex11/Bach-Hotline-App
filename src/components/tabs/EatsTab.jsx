@@ -550,6 +550,33 @@ const RESTAURANTS = {
       ],
       reserveUrl:"https://www.opentable.com/republic-of-texas-bar-and-grill",
     },
+    {
+      id:"cc-10",
+      name:"The Post at Lamar Park",
+      cuisine:"American Pub & Fusion",
+      priceRange:"$$",
+      rating:4.7,
+      reviewCount:342,
+      vibe:"Craft Cocktails · Shareable Plates · Late Night",
+      tags:["Craft Cocktails","Late Night","Brunch","Pub","Local Favorite"],
+      address:"411 Doddridge St #102, Corpus Christi, TX",
+      hours:"Tue–Thu 3pm–10pm (bar til midnight) · Fri 3pm–11pm (bar til 2am) · Sat 12pm–11pm (bar til 2am) · Sun Brunch 10am–4pm · Closed Monday",
+      groupMax:30,
+      desc:"A neighborhood pub founded by Corpus Christi locals, built around high-quality food meant to be shared among friends. The Post pairs fresh, locally sourced small plates and shareable dishes with hand-crafted cocktails and craft beer — plus a popular Sunday brunch and a late-night bar on weekends.",
+      photo:"https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80",
+      images:[
+        "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80",
+        "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&q=80",
+        "https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?w=800&q=80",
+      ],
+      menuHighlights:["Shareable Small Plates","Hand-Crafted Cocktails","Craft Beer Selection","Sunday Brunch","Locally Sourced Dishes"],
+      whyWeLoveIt:[
+        "Bar stays open until 2am on Fridays and Saturdays — perfect for extending the night",
+        "Menu is built for sharing, making it ideal for a group dinner with lots of variety",
+        "Sunday brunch is a CC local favorite — great for a post-night-out recovery meal",
+      ],
+      reserveUrl:"https://thepostlamarpark.com",
+    },
   ],
 };
 
