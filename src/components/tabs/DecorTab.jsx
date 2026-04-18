@@ -703,11 +703,18 @@ export const TABLEWARE = [
     etsyUrl:"https://bachhotlinesupplies.etsy.com",
   },
   {
-    id:"plate-skull",    type:"plate", name:"Sugar Skull Paper Plates",
-    desc:"Dia De Los Muertos",     price:"$12.66",
-    image: null,         bg:"#F8F8F8", accent:"#CE93D8",
+    id:"plate-skull",    type:"plate", name:"Sugar Skull Plates",
+    desc:"Add a pop of color (and a little spook!) to your table with these sugar skull shaped plates, made for fiestas, trick or treats, and everything in between.",
+    price:"$12.66",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8da61868-ac7a-4732-8951-10c484f16311/Ebook+Thumbnail+with+Video+-+2025-07-20T134000.393.png?format=500w",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8da61868-ac7a-4732-8951-10c484f16311/Ebook+Thumbnail+with+Video+-+2025-07-20T134000.393.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/79d746e3-b099-428d-9468-b170b9309479/Ebook+Thumbnail+with+Video+-+2025-07-20T134829.380.png?format=500w",
+    ],
+    bullets:["Set of 8","Dimensions: 10\"l x 7.25\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bg:"#F8F8F8", accent:"#CE93D8",
     tags:["white","lavender","mint","sage"],
-    etsyUrl:"https://bachhotlinesupplies.etsy.com",
+    etsyUrl:"https://bachhotline.squarespace.com/decorations/p/sugar-skull-plates",
   },
   {
     id:"plate-shootingstar", type:"plate", name:"Shooting Star Paper Plates",
