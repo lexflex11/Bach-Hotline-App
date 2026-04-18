@@ -631,6 +631,33 @@ const RESTAURANTS = {
       ],
       reserveUrl:"https://centralkitchencc.com",
     },
+    {
+      id:"cc-13",
+      name:"Texas House of Rock",
+      cuisine:"Pizza & Live Music Venue",
+      priceRange:"$$",
+      rating:4.6,
+      reviewCount:421,
+      vibe:"Live Music · Late Night · Downtown",
+      tags:["Live Music","Pizza","Craft Beer","Late Night","No Cover"],
+      address:"511 Starr St, Corpus Christi, TX 78401",
+      hours:"Mon–Wed 11am–10pm · Thu 11am–midnight · Fri–Sat 11am–1am · Sun 11am–10pm · Happy Hour daily 4–7pm",
+      groupMax:50,
+      desc:"A downtown Corpus Christi institution since 2005. Texas House of Rock is a live music venue, craft beer bar, and pizza kitchen all in one — with over 80 craft beers, specialty pizzas, and live music Wednesday through Sunday. No cover charge, ever.",
+      photo:"https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
+      images:[
+        "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
+        "https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?w=800&q=80",
+        "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=800&q=80",
+      ],
+      menuHighlights:["Specialty Pizzas","80+ Craft Beers","Appetizers & Salads","Sandwiches","Cheesy Garlic Bread"],
+      whyWeLoveIt:[
+        "Live music Wed–Sun with no cover charge — built-in entertainment for the whole group",
+        "80+ craft beers from around the world plus full cocktail bars across three spaces",
+        "Private venue space available for bachelorette takeovers and group events",
+      ],
+      reserveUrl:"https://texashouseofrock.com",
+    },
   ],
 };
 
