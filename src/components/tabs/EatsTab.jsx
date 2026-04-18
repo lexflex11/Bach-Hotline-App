@@ -685,6 +685,33 @@ const RESTAURANTS = {
       ],
       reserveUrl:"https://www.fikacc.com",
     },
+    {
+      id:"cc-15",
+      name:"BKK Thai Kitchen + Bar",
+      cuisine:"Thai & Sushi Bar",
+      priceRange:"$$",
+      rating:4.7,
+      reviewCount:533,
+      vibe:"Thai · Sushi Bar · Craft Cocktails",
+      tags:["Thai","Sushi","Craft Cocktails","Brunch","Patio"],
+      address:"3850 S Alameda St, Corpus Christi, TX 78411",
+      hours:"Mon–Thu 11am–9:30pm · Fri–Sat 11am–11pm · Sun Brunch 10am–3pm",
+      groupMax:35,
+      desc:"Corpus Christi's stylish Thai kitchen and sushi bar, named after Bangkok's airport code. Founded in 2017 by world traveler Ryan Rios, BKK blends authentic Thai flavors with a full sushi menu and craft cocktail bar — all inside a contemporary space with indoor and outdoor seating.",
+      photo:"https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800&q=80",
+      images:[
+        "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800&q=80",
+        "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=800&q=80",
+        "https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=800&q=80",
+      ],
+      menuHighlights:["Golden Money Bags","Tiger Cry","Pineapple Fried Rice","Sticky Rice + Mango","Tom Yum Talay"],
+      whyWeLoveIt:[
+        "Thai food, sushi, AND craft cocktails all under one roof — something for everyone in the group",
+        "Open until 11pm on Fridays and Saturdays with a full bar to keep the night going",
+        "Sunday brunch menu is a local favorite — perfect for the morning after",
+      ],
+      reserveUrl:"https://www.bkkthaikitchenbar.com",
+    },
   ],
 };
 
