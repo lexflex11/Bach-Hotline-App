@@ -1186,10 +1186,10 @@ export const TABLEWARE = [
     id:"plate-bananas", type:"plate", name:"Bananas For You Plates",
     desc:"Go bananas, babe! These bold party plates bring fruity fun to any girls' night, bachelorette bash, or tropical themed soirée.",
     price:"$12.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68abc56727630e0353af3741/1767904124668/Ebook+Thumbnail+with+Video-401.png?format=1500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3341fb76-b418-4897-b3dd-a0c51d6a8f28/Ebook+Thumbnail+with+Video-401.png?format=500w",
     images:[
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68abc56727630e0353af3741/1767904124668/Ebook+Thumbnail+with+Video-401.png?format=1500w",
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ef33e837-8404-47b8-94bb-3f1ebb68a9c7/Ebook+Thumbnail+with+Video+-+2025-11-06T085748.248.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3341fb76-b418-4897-b3dd-a0c51d6a8f28/Ebook+Thumbnail+with+Video-401.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5c149ea0-ccb5-4a55-b64a-2d520158d8fc/Ebook+Thumbnail+with+Video-402.png?format=500w",
     ],
     bullets:["Set of 8","Dimensions: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#FFE800", accent:"#4CAF50",
