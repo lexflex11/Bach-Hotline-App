@@ -469,6 +469,33 @@ const RESTAURANTS = {
       ],
       reserveUrl:"https://bienmerite.com/party",
     },
+    {
+      id:"cc-7",
+      name:"Elizabeth's at the Art Museum",
+      cuisine:"Mediterranean & Cocktail Bar",
+      priceRange:"$$$",
+      rating:4.8,
+      reviewCount:274,
+      vibe:"Waterfront · Mediterranean · Brunch",
+      tags:["Brunch","Mediterranean","Waterfront","Cocktails","Unique Venue"],
+      address:"1902 N Shoreline Blvd, Corpus Christi, TX 78401",
+      hours:"Tue–Fri 11am–3pm · Sat–Sun 10am–3pm · Closed Monday",
+      groupMax:30,
+      desc:"Inside the Art Museum of South Texas with breathtaking harbor views, Elizabeth's serves Mediterranean-inspired mezze, seasonal flatbreads, and craft cocktails. No museum admission required — just stunning waterfront dining in one of Corpus Christi's most beautiful settings.",
+      photo:"https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80",
+      images:[
+        "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80",
+        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
+      ],
+      menuHighlights:["Charcuterie Board","Ahi Tuna Crudo","Shakshuka","Seasonal Flatbreads","Sangria of the Season"],
+      whyWeLoveIt:[
+        "Stunning harbor views inside an art museum — the most unique brunch setting in Corpus Christi",
+        "Weekend brunch with craft cocktails like the Barbary Bloody and Venetian Lemonade",
+        "Mediterranean mezze and flatbreads are perfect for sharing across the whole group",
+      ],
+      reserveUrl:"https://elizabeths-at-artmuseum.com",
+    },
   ],
 };
 
