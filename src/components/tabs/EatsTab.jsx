@@ -442,6 +442,33 @@ const RESTAURANTS = {
       ],
       reserveUrl:"https://www.opentable.com/r/dokyo-dauntaun-corpus-christi",
     },
+    {
+      id:"cc-6",
+      name:"Bien Merite Chocolate & Bakery",
+      cuisine:"French Café & Bakery",
+      priceRange:"$$",
+      rating:4.9,
+      reviewCount:318,
+      vibe:"French Café · Pastries · Photo-Worthy",
+      tags:["Brunch","French","Bakery","Coffee","Private Events"],
+      address:"1336 S Staples St, Corpus Christi, TX 78404",
+      hours:"Sun–Wed 7am–4pm · Thu–Sat 7am–4pm & 5pm–9pm",
+      groupMax:30,
+      desc:"A slice of Paris in South Texas. Bien Merite is a modernly chic French café and chocolate bakery serving authentically flaky croissants, house-made macarons, crème brûlée waffles, and specialty lattes — all inside a pink, flower-filled space that's completely photo-worthy.",
+      photo:"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
+      images:[
+        "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
+        "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=800&q=80",
+        "https://images.unsplash.com/photo-1579888944880-d98341245702?w=800&q=80",
+      ],
+      menuHighlights:["Raspberry Pistachio Croissant","Box of Macarons","Crème Brûlée Waffle","Matcha Latte","Opera Cake"],
+      whyWeLoveIt:[
+        "The most Instagrammable café in Corpus Christi — pink interior and fresh flowers everywhere",
+        "Private event room for up to 30 guests — perfect for a bach brunch or mimosa morning",
+        "House-made macarons, croissants, and chocolate that taste like a Paris patisserie",
+      ],
+      reserveUrl:"https://bienmerite.com/party",
+    },
   ],
 };
 
