@@ -766,6 +766,33 @@ const RESTAURANTS = {
       ],
       reserveUrl:"https://www.gallery41cc.com",
     },
+    {
+      id:"cc-18",
+      name:"Harrison's Landing",
+      cuisine:"Gulf Coast Seafood & Bar",
+      priceRange:"$$$",
+      rating:4.6,
+      reviewCount:487,
+      vibe:"Waterfront · Pier Dining · Speakeasy Bar",
+      tags:["Waterfront","Seafood","Speakeasy","Pier","Boat Tours"],
+      address:"108 Peoples St T-Head, Corpus Christi, TX 78401",
+      hours:"Mini Bar daily 11am–8pm · The Mariner Wed–Thu 11am–10pm · Fri–Sat 11am–midnight",
+      groupMax:40,
+      desc:"A family-owned waterfront gem sitting right on the T-Head pier on Corpus Christi Bay since 2006. Harrison's Landing combines Gulf Coast seafood dining, a speakeasy-style upstairs bar called The Mariner, boutique shopping, and bay boat tours — all in one iconic location.",
+      photo:"https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80",
+      images:[
+        "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80",
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
+        "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
+      ],
+      menuHighlights:["Tropical Tuna Nachos","Firecracker Shrimp","Big Kahuna Tuna","Key Lime Pie","Cajun Tenders"],
+      whyWeLoveIt:[
+        "Right on the T-Head pier with unobstructed bay views — one of the best settings in CC",
+        "The Mariner is a speakeasy-style upstairs bar open until midnight on Fridays and Saturdays",
+        "Bay boat tours available — a fun add-on activity for the whole bachelorette group",
+      ],
+      reserveUrl:"https://harrisonslanding.net",
+    },
   ],
 };
 
