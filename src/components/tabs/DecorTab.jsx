@@ -646,10 +646,10 @@ export const TABLEWARE = [
     id:"plate-xo", type:"plate", name:"XO Plates",
     desc:"Show your love in style with these adorable XO paper plates. A chic design that is perfect for serving appetizers, desserts, or snacks at your event.",
     price:"$12.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3a7da4e6-60c9-410f-bbd0-8f266ee6db17/Ebook+Thumbnail+with+Video+-+2025-08-02T213331.993.png?format=500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5be21dd3-07af-42ae-b7f1-380e6653c5c2/Ebook+Thumbnail+with+Video+-+2025-01-23T115601.216.png?format=500w",
     images:[
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3a7da4e6-60c9-410f-bbd0-8f266ee6db17/Ebook+Thumbnail+with+Video+-+2025-08-02T213331.993.png?format=500w",
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/7c5d670b-6544-469a-a65b-1ee88cf976c8/Ebook+Thumbnail+with+Video+-+2025-08-02T213345.951.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5be21dd3-07af-42ae-b7f1-380e6653c5c2/Ebook+Thumbnail+with+Video+-+2025-01-23T115601.216.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a57cd80c-b01d-4be3-8d5a-c2ab7dfcf4f6/Ebook+Thumbnail+with+Video+-+2025-01-23T115549.081.png?format=500w",
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/679282419ae1111daaf72b7f/1767898268601/Ebook+Thumbnail+with+Video+-+2025-01-23T115601.216.png?format=1500w",
     ],
     bullets:["Set of 8","Dimensions: 9\"w x 9\"l","Durable, disposable plates for easy cleanup"],

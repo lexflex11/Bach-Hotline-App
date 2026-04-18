@@ -213,14 +213,6 @@ function ProductDetail({ p, onBack, onAdd, inCart }) {
         </ul>
       ) : null}
 
-      {/* Buy on Squarespace link */}
-      {p.url ? (
-        <a href={p.url} target="_blank" rel="noreferrer" style={{ textDecoration:"none", display:"block" }}>
-          <button style={{ ...BP, width:"100%", padding:"14px", fontSize:14, borderRadius:14 }}>
-            Buy Now →
-          </button>
-        </a>
-      ) : null}
     </div>
   );
 }
