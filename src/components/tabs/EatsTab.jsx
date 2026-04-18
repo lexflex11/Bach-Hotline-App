@@ -415,6 +415,33 @@ const RESTAURANTS = {
       ],
       reserveUrl:"https://waterstreetoysterbar.com",
     },
+    {
+      id:"cc-5",
+      name:"Dokyo Dauntaun",
+      cuisine:"Japanese Fusion & Sushi",
+      priceRange:"$$$",
+      rating:4.8,
+      reviewCount:634,
+      vibe:"Neo-Tokyo · Sushi Bar · Downtown",
+      tags:["Sushi","Japanese Fusion","Full Bar","Downtown","Date Night"],
+      address:"424 N. Chaparral St., Corpus Christi, TX 78401",
+      hours:"Mon–Thu 11am–2pm & 5pm–9:30pm · Fri 11am–2pm & 5pm–10:30pm · Sat 12pm–10:30pm · Sun 12pm–9pm",
+      groupMax:30,
+      desc:"A Neo-Tokyo-inspired sushi bar in the heart of downtown Corpus Christi. Dokyo blends Japanese and Korean flavors into a vibrant, industrial-chic dining experience — think specialty rolls, charred tuna, sashimi-grade fish, and a full cocktail bar with sake and soju.",
+      photo:"https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80",
+      images:[
+        "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80",
+        "https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=800&q=80",
+        "https://images.unsplash.com/photo-1562802378-063ec186a863?w=800&q=80",
+      ],
+      menuHighlights:["Lobster Dynamite Roll","Dokyo Tower","Charred Tuna","Manzana Hamachi Ceviche","Dokyo House Fried Rice"],
+      whyWeLoveIt:[
+        "The most Instagram-worthy spot in Corpus Christi with neon lights and Neo-Tokyo vibes",
+        "Signature Dokyo Tower roll is a showstopper — perfect for the group photo",
+        "Full bar with sake, soju, and craft cocktails to keep the party going",
+      ],
+      reserveUrl:"https://www.opentable.com/r/dokyo-dauntaun-corpus-christi",
+    },
   ],
 };
 
