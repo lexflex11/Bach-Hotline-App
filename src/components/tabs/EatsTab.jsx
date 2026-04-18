@@ -319,7 +319,7 @@ const RESTAURANTS = {
       address:"6326 Yorktown Blvd Suite 2, Corpus Christi, TX",
       hours:"Mon–Thu 4pm–10pm · Fri–Sat 4pm–11pm · Closed Sunday",
       groupMax:30,
-      desc:"Corpus Christi's premier fine dining destination. USDA Prime steaks wet-aged 45 days and grilled over mesquite wood, fresh Gulf seafood, and an impressive whiskey bar — all wrapped in an upscale yet rustic Texan atmosphere. Winner of Best New Restaurant 2023.",
+      desc:"Corpus Christi's premier fine dining destination. USDA Prime steaks wet-aged 45 days and grilled over mesquite wood, fresh Gulf seafood, and an impressive whiskey bar: all wrapped in an upscale yet rustic Texan atmosphere. Winner of Best New Restaurant 2023.",
       photo:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
@@ -328,7 +328,7 @@ const RESTAURANTS = {
       ],
       menuHighlights:["14 oz Ribeye","Crab Stuffed Flounder","Colorado Lamb Chops","Ahi Tuna Ceviche","Stuffed Lobster Tail"],
       whyWeLoveIt:[
-        "Best New Restaurant 2023 — the most impressive dinner spot in Corpus Christi",
+        "Best New Restaurant 2023: the most impressive dinner spot in Corpus Christi",
         "USDA Prime steaks mesquite-grilled to perfection, perfect for a celebration dinner",
         "20% gratuity included for groups of 7+ so no math stress for the MOH",
       ],
@@ -346,7 +346,7 @@ const RESTAURANTS = {
       address:"314 N Chaparral, Corpus Christi, TX 78401",
       hours:"Tue–Thu 5pm–10pm · Fri–Sat 5pm–midnight · Sun 11am–2pm · Closed Monday",
       groupMax:200,
-      desc:"The best dang Tex-Mex this side of the Rio Grande. Born from the soul of the south and inspired by bold Texas flavors, El Camino serves up sizzling fajitas, barbecued oysters, creamy queso, and the best margaritas in Corpus Christi — right in the heart of downtown.",
+      desc:"The best dang Tex-Mex this side of the Rio Grande. Born from the soul of the south and inspired by bold Texas flavors, El Camino serves up sizzling fajitas, barbecued oysters, creamy queso, and the best margaritas in Corpus Christi: right in the heart of downtown.",
       photo:"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=80",
@@ -355,7 +355,7 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Sizzling Fajitas","Barbecued Oysters","Creamy Queso","Signature Margaritas","Fresh Seafood Apps"],
       whyWeLoveIt:[
-        "Private Margarita Garden fits up to 200 guests — perfect for a full bach takeover",
+        "Private Margarita Garden fits up to 200 guests: perfect for a full bach takeover",
         "Late night kitchen open until midnight on Fridays and Saturdays",
         "Downtown location makes it the perfect start to a Corpus Christi night out",
       ],
@@ -382,8 +382,8 @@ const RESTAURANTS = {
       ],
       menuHighlights:["House-Made Pasta","Roman-Style Pinsa","Fresh Sicilian Fish","Imported Italian Wines","House-Made Tiramisu"],
       whyWeLoveIt:[
-        "6-time winner of Best Italian in Corpus Christi — a guaranteed wow dinner for the bride",
-        "First restaurant in Texas to serve Pinsa, the Roman-style pizza — a unique group experience",
+        "6-time winner of Best Italian in Corpus Christi: a guaranteed wow dinner for the bride",
+        "First restaurant in Texas to serve Pinsa, the Roman-style pizza: a unique group experience",
         "All pasta, bread, and desserts made fresh daily by a Sicilian chef",
       ],
       reserveUrl:"https://www.bellinostexas.com/reservations",
@@ -409,7 +409,7 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Oysters on the Half Shell","Sushi Rolls","Fried Gulf Shrimp","Blackened Fish","Key Lime Pie"],
       whyWeLoveIt:[
-        "Happy Hour daily 3–6pm: half-price oysters, sushi & wine — perfect pre-night-out stop",
+        "Happy Hour daily 3–6pm: half-price oysters, sushi & wine: perfect pre-night-out stop",
         "A true Corpus Christi landmark open since 1983, generations of locals swear by it",
         "Downtown location makes it easy to walk to bars and nightlife after dinner",
       ],
@@ -427,7 +427,7 @@ const RESTAURANTS = {
       address:"424 N. Chaparral St., Corpus Christi, TX 78401",
       hours:"Mon–Thu 11am–2pm & 5pm–9:30pm · Fri 11am–2pm & 5pm–10:30pm · Sat 12pm–10:30pm · Sun 12pm–9pm",
       groupMax:30,
-      desc:"A Neo-Tokyo-inspired sushi bar in the heart of downtown Corpus Christi. Dokyo blends Japanese and Korean flavors into a vibrant, industrial-chic dining experience — think specialty rolls, charred tuna, sashimi-grade fish, and a full cocktail bar with sake and soju.",
+      desc:"A Neo-Tokyo-inspired sushi bar in the heart of downtown Corpus Christi. Dokyo blends Japanese and Korean flavors into a vibrant, industrial-chic dining experience: think specialty rolls, charred tuna, sashimi-grade fish, and a full cocktail bar with sake and soju.",
       photo:"https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80",
@@ -437,7 +437,7 @@ const RESTAURANTS = {
       menuHighlights:["Lobster Dynamite Roll","Dokyo Tower","Charred Tuna","Manzana Hamachi Ceviche","Dokyo House Fried Rice"],
       whyWeLoveIt:[
         "The most Instagram-worthy spot in Corpus Christi with neon lights and Neo-Tokyo vibes",
-        "Signature Dokyo Tower roll is a showstopper — perfect for the group photo",
+        "Signature Dokyo Tower roll is a showstopper: perfect for the group photo",
         "Full bar with sake, soju, and craft cocktails to keep the party going",
       ],
       reserveUrl:"https://www.opentable.com/r/dokyo-dauntaun-corpus-christi",
@@ -454,7 +454,7 @@ const RESTAURANTS = {
       address:"1336 S Staples St, Corpus Christi, TX 78404",
       hours:"Sun–Wed 7am–4pm · Thu–Sat 7am–4pm & 5pm–9pm",
       groupMax:30,
-      desc:"A slice of Paris in South Texas. Bien Merite is a modernly chic French café and chocolate bakery serving authentically flaky croissants, house-made macarons, crème brûlée waffles, and specialty lattes — all inside a pink, flower-filled space that's completely photo-worthy.",
+      desc:"A slice of Paris in South Texas. Bien Merite is a modernly chic French café and chocolate bakery serving authentically flaky croissants, house-made macarons, crème brûlée waffles, and specialty lattes: all inside a pink, flower-filled space that's completely photo-worthy.",
       photo:"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
@@ -463,8 +463,8 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Raspberry Pistachio Croissant","Box of Macarons","Crème Brûlée Waffle","Matcha Latte","Opera Cake"],
       whyWeLoveIt:[
-        "The most Instagrammable café in Corpus Christi — pink interior and fresh flowers everywhere",
-        "Private event room for up to 30 guests — perfect for a bach brunch or mimosa morning",
+        "The most Instagrammable café in Corpus Christi: pink interior and fresh flowers everywhere",
+        "Private event room for up to 30 guests: perfect for a bach brunch or mimosa morning",
         "House-made macarons, croissants, and chocolate that taste like a Paris patisserie",
       ],
       reserveUrl:"https://bienmerite.com/party",
@@ -481,7 +481,7 @@ const RESTAURANTS = {
       address:"1902 N Shoreline Blvd, Corpus Christi, TX 78401",
       hours:"Tue–Fri 11am–3pm · Sat–Sun 10am–3pm · Closed Monday",
       groupMax:30,
-      desc:"Inside the Art Museum of South Texas with breathtaking harbor views, Elizabeth's serves Mediterranean-inspired mezze, seasonal flatbreads, and craft cocktails. No museum admission required — just stunning waterfront dining in one of Corpus Christi's most beautiful settings.",
+      desc:"Inside the Art Museum of South Texas with breathtaking harbor views, Elizabeth's serves Mediterranean-inspired mezze, seasonal flatbreads, and craft cocktails. No museum admission required: just stunning waterfront dining in one of Corpus Christi's most beautiful settings.",
       photo:"https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80",
@@ -490,7 +490,7 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Charcuterie Board","Ahi Tuna Crudo","Shakshuka","Seasonal Flatbreads","Sangria of the Season"],
       whyWeLoveIt:[
-        "Stunning harbor views inside an art museum — the most unique brunch setting in Corpus Christi",
+        "Stunning harbor views inside an art museum: the most unique brunch setting in Corpus Christi",
         "Weekend brunch with craft cocktails like the Barbary Bloody and Venetian Lemonade",
         "Mediterranean mezze and flatbreads are perfect for sharing across the whole group",
       ],
@@ -508,7 +508,7 @@ const RESTAURANTS = {
       address:"1714 S. Alameda St., Corpus Christi, TX 78404",
       hours:"Mon–Sat 7am–3pm · Closed Sunday",
       groupMax:20,
-      desc:"The #1 Quick Bites spot in Corpus Christi since 2006. Hester's is a beloved scratch-kitchen café serving breakfast and lunch all day — from fresh omelets and French toast to house-made cheesecakes and specialty coffee drinks. A true local institution with a warm, community feel.",
+      desc:"The #1 Quick Bites spot in Corpus Christi since 2006. Hester's is a beloved scratch-kitchen café serving breakfast and lunch all day: from fresh omelets and French toast to house-made cheesecakes and specialty coffee drinks. A true local institution with a warm, community feel.",
       photo:"https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80",
@@ -518,7 +518,7 @@ const RESTAURANTS = {
       menuHighlights:["Lemon-Blueberry Cheesecake","French Toast","Cheesy B.E.A.T. Sandwich","Fresh-Squeezed Juice","Specialty Lattes"],
       whyWeLoveIt:[
         "Rated #1 Quick Bites in Corpus Christi on TripAdvisor with 500+ reviews",
-        "Everything made from scratch daily — real ingredients, real flavors",
+        "Everything made from scratch daily: real ingredients, real flavors",
         "Perfect laid-back bach brunch spot before a big night out",
       ],
       reserveUrl:"https://www.toasttab.com/hesters-cafe-six-points-1714-alameda/v3",
@@ -544,8 +544,8 @@ const RESTAURANTS = {
       ],
       menuHighlights:["USDA Prime Filet Mignon","Nilgai & Venison","Lobster Bisque","Chilean Sea Bass","Pecan Pie"],
       whyWeLoveIt:[
-        "20th floor panoramic bay views — the most dramatic dinner setting in Corpus Christi",
-        "Wine Spectator Award winner 4 years running — the wine list is exceptional",
+        "20th floor panoramic bay views: the most dramatic dinner setting in Corpus Christi",
+        "Wine Spectator Award winner 4 years running: the wine list is exceptional",
         "Wild game menu (nilgai, venison, quail) is a one-of-a-kind Texas experience",
       ],
       reserveUrl:"https://www.opentable.com/republic-of-texas-bar-and-grill",
@@ -562,7 +562,7 @@ const RESTAURANTS = {
       address:"411 Doddridge St #102, Corpus Christi, TX",
       hours:"Tue–Thu 3pm–10pm (bar til midnight) · Fri 3pm–11pm (bar til 2am) · Sat 12pm–11pm (bar til 2am) · Sun Brunch 10am–4pm · Closed Monday",
       groupMax:30,
-      desc:"A neighborhood pub founded by Corpus Christi locals, built around high-quality food meant to be shared among friends. The Post pairs fresh, locally sourced small plates and shareable dishes with hand-crafted cocktails and craft beer — plus a popular Sunday brunch and a late-night bar on weekends.",
+      desc:"A neighborhood pub founded by Corpus Christi locals, built around high-quality food meant to be shared among friends. The Post pairs fresh, locally sourced small plates and shareable dishes with hand-crafted cocktails and craft beer: plus a popular Sunday brunch and a late-night bar on weekends.",
       photo:"https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80",
@@ -571,9 +571,9 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Shareable Small Plates","Hand-Crafted Cocktails","Craft Beer Selection","Sunday Brunch","Locally Sourced Dishes"],
       whyWeLoveIt:[
-        "Bar stays open until 2am on Fridays and Saturdays — perfect for extending the night",
+        "Bar stays open until 2am on Fridays and Saturdays: perfect for extending the night",
         "Menu is built for sharing, making it ideal for a group dinner with lots of variety",
-        "Sunday brunch is a CC local favorite — great for a post-night-out recovery meal",
+        "Sunday brunch is a CC local favorite: great for a post-night-out recovery meal",
       ],
       reserveUrl:"https://thepostlamarpark.com",
     },
@@ -589,7 +589,7 @@ const RESTAURANTS = {
       address:"7629 S Staples St Suite A111, Corpus Christi, TX 78413",
       hours:"Mon–Tue 11am–10pm · Wed–Thu 11am–midnight · Fri 11am–1am · Sat 10am–1am · Sun 10am–10pm",
       groupMax:30,
-      desc:"Corpus Christi's go-to wine bar and grill, blending traditional dishes with innovative creations and an exceptional cocktail program. Known for house-made syrups, hand-dehydrated fruit garnishes, and a warm atmosphere — the kind of place where a 2-hour dinner turns into a 4-hour night.",
+      desc:"Corpus Christi's go-to wine bar and grill, blending traditional dishes with innovative creations and an exceptional cocktail program. Known for house-made syrups, hand-dehydrated fruit garnishes, and a warm atmosphere: the kind of place where a 2-hour dinner turns into a 4-hour night.",
       photo:"https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80",
@@ -598,8 +598,8 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Ahi Tuna Tower","Baked Brie","Salmon Crostini","Meatball Sliders","Craft Cocktails with House-Made Syrups"],
       whyWeLoveIt:[
-        "Open until 1am Friday and Saturday — the perfect dinner-to-drinks spot for the group",
-        "Craft cocktails made with house-made syrups and hand-dehydrated garnishes — seriously impressive",
+        "Open until 1am Friday and Saturday: the perfect dinner-to-drinks spot for the group",
+        "Craft cocktails made with house-made syrups and hand-dehydrated garnishes: seriously impressive",
         "Full wine list plus cold Texas craft beers means everyone in the group is happy",
       ],
       reserveUrl:"https://tanninsgrill.com",
@@ -616,7 +616,7 @@ const RESTAURANTS = {
       address:"320 Lomax St Suite C, Corpus Christi, TX 78401",
       hours:"Open Daily 7am–5pm",
       groupMax:20,
-      desc:"Downtown Corpus Christi's beloved scratch bakery and café, located steps from Water Street Market. You can see and smell the baking from the street — sourdough loaves, buttery croissants, kolaches, and hearty sandwiches on house-baked bread, all made fresh every single day.",
+      desc:"Downtown Corpus Christi's beloved scratch bakery and café, located steps from Water Street Market. You can see and smell the baking from the street: sourdough loaves, buttery croissants, kolaches, and hearty sandwiches on house-baked bread, all made fresh every single day.",
       photo:"https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=80",
@@ -625,7 +625,7 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Almond Croissant","Kouign Aman","Lox & Everything Toast","Maple Glazed Donut with Bacon","Lemon Meringue Tart"],
       whyWeLoveIt:[
-        "Open 7 days a week — perfect for a morning bach breakfast before hitting the beach",
+        "Open 7 days a week: perfect for a morning bach breakfast before hitting the beach",
         "Everything baked fresh in-house daily, you can smell it from the street",
         "Party sandwich trays available for catering your bach group breakfast or brunch",
       ],
@@ -643,7 +643,7 @@ const RESTAURANTS = {
       address:"511 Starr St, Corpus Christi, TX 78401",
       hours:"Mon–Wed 11am–10pm · Thu 11am–midnight · Fri–Sat 11am–1am · Sun 11am–10pm · Happy Hour daily 4–7pm",
       groupMax:50,
-      desc:"A downtown Corpus Christi institution since 2005. Texas House of Rock is a live music venue, craft beer bar, and pizza kitchen all in one — with over 80 craft beers, specialty pizzas, and live music Wednesday through Sunday. No cover charge, ever.",
+      desc:"A downtown Corpus Christi institution since 2005. Texas House of Rock is a live music venue, craft beer bar, and pizza kitchen all in one: with over 80 craft beers, specialty pizzas, and live music Wednesday through Sunday. No cover charge, ever.",
       photo:"https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
@@ -652,7 +652,7 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Specialty Pizzas","80+ Craft Beers","Appetizers & Salads","Sandwiches","Cheesy Garlic Bread"],
       whyWeLoveIt:[
-        "Live music Wed–Sun with no cover charge — built-in entertainment for the whole group",
+        "Live music Wed–Sun with no cover charge: built-in entertainment for the whole group",
         "80+ craft beers from around the world plus full cocktail bars across three spaces",
         "Private venue space available for bachelorette takeovers and group events",
       ],
@@ -670,7 +670,7 @@ const RESTAURANTS = {
       address:"4411 S Alameda St, Corpus Christi, TX 78412",
       hours:"Tue–Sat 7am–3pm · Closed Sunday & Monday",
       groupMax:15,
-      desc:"A Swedish-inspired scratch bakery celebrating fika — the ritual of slowing down with great coffee and a sweet treat. Founded by Executive Pastry Chef Jeannette Del Angel, Fika serves locally roasted espresso drinks, seasonal scones, croissants, kouign amann, and artisan breads, all made fresh from scratch.",
+      desc:"A Swedish-inspired scratch bakery celebrating fika: the ritual of slowing down with great coffee and a sweet treat. Founded by Executive Pastry Chef Jeannette Del Angel, Fika serves locally roasted espresso drinks, seasonal scones, croissants, kouign amann, and artisan breads, all made fresh from scratch.",
       photo:"https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80",
@@ -679,7 +679,7 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Kouign Amann","Seasonal Croissants","Mango Matcha","Honey Vanilla Shaken Espresso","Cardamom Apple Pie"],
       whyWeLoveIt:[
-        "The most charming morning stop in Corpus Christi — perfect for a slow bach breakfast",
+        "The most charming morning stop in Corpus Christi: perfect for a slow bach breakfast",
         "Executive Pastry Chef founder means every pastry is next-level quality",
         "Seasonal specials and house-made syrups make every visit feel unique",
       ],
@@ -697,7 +697,7 @@ const RESTAURANTS = {
       address:"3850 S Alameda St, Corpus Christi, TX 78411",
       hours:"Mon–Thu 11am–9:30pm · Fri–Sat 11am–11pm · Sun Brunch 10am–3pm",
       groupMax:35,
-      desc:"Corpus Christi's stylish Thai kitchen and sushi bar, named after Bangkok's airport code. Founded in 2017 by world traveler Ryan Rios, BKK blends authentic Thai flavors with a full sushi menu and craft cocktail bar — all inside a contemporary space with indoor and outdoor seating.",
+      desc:"Corpus Christi's stylish Thai kitchen and sushi bar, named after Bangkok's airport code. Founded in 2017 by world traveler Ryan Rios, BKK blends authentic Thai flavors with a full sushi menu and craft cocktail bar: all inside a contemporary space with indoor and outdoor seating.",
       photo:"https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800&q=80",
@@ -706,9 +706,9 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Golden Money Bags","Tiger Cry","Pineapple Fried Rice","Sticky Rice + Mango","Tom Yum Talay"],
       whyWeLoveIt:[
-        "Thai food, sushi, AND craft cocktails all under one roof — something for everyone in the group",
+        "Thai food, sushi, AND craft cocktails all under one roof: something for everyone in the group",
         "Open until 11pm on Fridays and Saturdays with a full bar to keep the night going",
-        "Sunday brunch menu is a local favorite — perfect for the morning after",
+        "Sunday brunch menu is a local favorite: perfect for the morning after",
       ],
       reserveUrl:"https://www.bkkthaikitchenbar.com",
     },
@@ -724,7 +724,7 @@ const RESTAURANTS = {
       address:"7514 S Padre Island Dr #206, Corpus Christi, TX 78412",
       hours:"Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 11am–9pm",
       groupMax:30,
-      desc:"The go-to spot in Corpus Christi for crispy wings, hand-breaded tenders, and homemade beef burgers — paired with the freshest draft beer in town and creative cocktails. Birdie's is a laid-back, fun bar perfect for a casual group night without the fuss.",
+      desc:"The go-to spot in Corpus Christi for crispy wings, hand-breaded tenders, and homemade beef burgers: paired with the freshest draft beer in town and creative cocktails. Birdie's is a laid-back, fun bar perfect for a casual group night without the fuss.",
       photo:"https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=800&q=80",
@@ -733,8 +733,8 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Buffalo Wings","Hand-Breaded Tenders","Homemade Beef Burgers","Margarita Flight","Draft Beer on Tap"],
       whyWeLoveIt:[
-        "Margarita flights plus draft beer on tap — easy crowd pleaser for any size group",
-        "Casual and fun with no pretension — the perfect low-key bach lunch or dinner",
+        "Margarita flights plus draft beer on tap: easy crowd pleaser for any size group",
+        "Casual and fun with no pretension: the perfect low-key bach lunch or dinner",
         "Open until 11pm on weekends with a full bar to keep the party going",
       ],
       reserveUrl:"https://birdieswingsandbartx.com",
@@ -751,7 +751,7 @@ const RESTAURANTS = {
       address:"100 N Shoreline Blvd, Corpus Christi, TX 78401",
       hours:"Tue–Thu 11am–9pm · Fri–Sat 11am–11pm · Sun Brunch 11am–3:30pm · Closed Monday",
       groupMax:50,
-      desc:"Set inside a historic 1941 former USO building on the Corpus Christi bayfront, Gallery 41 offers waterfront dining with locally sourced Gulf seafood, prime steaks, and an unforgettable Sunday champagne brunch buffet with live music — all inside an art gallery space.",
+      desc:"Set inside a historic 1941 former USO building on the Corpus Christi bayfront, Gallery 41 offers waterfront dining with locally sourced Gulf seafood, prime steaks, and an unforgettable Sunday champagne brunch buffet with live music: all inside an art gallery space.",
       photo:"https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80",
@@ -760,7 +760,7 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Blackened Red Snapper","Filet Mignon","Oyster Corpus","Crab Cake Salad","Chocolate Churro Cake"],
       whyWeLoveIt:[
-        "Sunday champagne brunch buffet for $60/person with bottomless mimosas and live piano — the ultimate bach brunch",
+        "Sunday champagne brunch buffet for $60/person with bottomless mimosas and live piano: the ultimate bach brunch",
         "Historic 1941 bayfront building with stunning water views and art on every wall",
         "Happy hour every Tuesday 3–6pm with half-price drinks",
       ],
@@ -778,7 +778,7 @@ const RESTAURANTS = {
       address:"108 Peoples St T-Head, Corpus Christi, TX 78401",
       hours:"Mini Bar daily 11am–8pm · The Mariner Wed–Thu 11am–10pm · Fri–Sat 11am–midnight",
       groupMax:40,
-      desc:"A family-owned waterfront gem sitting right on the T-Head pier on Corpus Christi Bay since 2006. Harrison's Landing combines Gulf Coast seafood dining, a speakeasy-style upstairs bar called The Mariner, boutique shopping, and bay boat tours — all in one iconic location.",
+      desc:"A family-owned waterfront gem sitting right on the T-Head pier on Corpus Christi Bay since 2006. Harrison's Landing combines Gulf Coast seafood dining, a speakeasy-style upstairs bar called The Mariner, boutique shopping, and bay boat tours: all in one iconic location.",
       photo:"https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80",
@@ -787,9 +787,9 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Tropical Tuna Nachos","Firecracker Shrimp","Big Kahuna Tuna","Key Lime Pie","Cajun Tenders"],
       whyWeLoveIt:[
-        "Right on the T-Head pier with unobstructed bay views — one of the best settings in CC",
+        "Right on the T-Head pier with unobstructed bay views: one of the best settings in CC",
         "The Mariner is a speakeasy-style upstairs bar open until midnight on Fridays and Saturdays",
-        "Bay boat tours available — a fun add-on activity for the whole bachelorette group",
+        "Bay boat tours available: a fun add-on activity for the whole bachelorette group",
       ],
       reserveUrl:"https://harrisonslanding.net",
     },
@@ -805,7 +805,7 @@ const RESTAURANTS = {
       address:"600 N Shoreline Blvd, Corpus Christi, TX 78401",
       hours:"Mon–Thu 11am–9pm · Fri–Sat 11am–10pm · Sun 11:30am–9pm · Happy Hour Mon–Fri 3:30–6:30pm",
       groupMax:50,
-      desc:"A Corpus Christi waterfront staple serving Gulf-inspired seafood with panoramic bay views. Landry's is known for fresh Gulf flavors, a laid-back atmosphere, and one of the best happy hours in town — winner of Diners' Choice 'Most Booked Restaurant' honors.",
+      desc:"A Corpus Christi waterfront staple serving Gulf-inspired seafood with panoramic bay views. Landry's is known for fresh Gulf flavors, a laid-back atmosphere, and one of the best happy hours in town: winner of Diners' Choice 'Most Booked Restaurant' honors.",
       photo:"https://images.unsplash.com/photo-1534787238916-9ba6764efd4f?w=800&q=80",
       images:[
         "https://images.unsplash.com/photo-1534787238916-9ba6764efd4f?w=800&q=80",
@@ -814,8 +814,8 @@ const RESTAURANTS = {
       ],
       menuHighlights:["Oysters on the Half Shell","Blackened Swordfish with Lobster Cream","Crawfish Etouffee","Shrimp Cocktail","Fresh Gulf Fish"],
       whyWeLoveIt:[
-        "Panoramic Corpus Christi Bay views from every seat — unbeatable waterfront setting",
-        "Happy Hour Mon–Fri 3:30–6:30pm with $4–$7 cocktails — perfect pre-dinner stop",
+        "Panoramic Corpus Christi Bay views from every seat: unbeatable waterfront setting",
+        "Happy Hour Mon–Fri 3:30–6:30pm with $4–$7 cocktails: perfect pre-dinner stop",
         "Private events and catering available for the full bachelorette group experience",
       ],
       reserveUrl:"https://www.landrysseafoodhouse.com/location/landrys-seafood-corpus-christi/",
@@ -1067,7 +1067,7 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
         {/* ── Menu Highlights ── */}
         <div style={{ ...C, marginBottom:14 }}>
           <div style={{ fontSize:16, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:12 }}>
-            🍴 Menu Highlights
+            Menu Highlights
           </div>
           <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
             {r.menuHighlights.map((item,i) => (
@@ -1085,7 +1085,7 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
         {/* ── Why we love it ── */}
         <div style={{ ...C, marginBottom:14 }}>
           <div style={{ fontSize:16, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:12 }}>
-            💕 Why We Love It for Your Group
+            Why We Love It for Your Group
           </div>
           {r.whyWeLoveIt.map((reason, i) => (
             <div key={i} style={{ display:"flex", gap:10, marginBottom:10, alignItems:"flex-start" }}>
