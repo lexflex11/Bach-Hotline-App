@@ -176,7 +176,7 @@ function ProductDetail({ p, onBack, onAdd, inCart }) {
               <button key={i} onClick={()=>{ setVariantI(i); setImgIdx(v.imgIdx ?? i); }} style={{
                 padding:"7px 14px", borderRadius:50, fontSize:12, fontWeight:700,
                 fontFamily:"'Nunito',sans-serif", cursor:"pointer",
-                background: i===variantI ? `linear-gradient(135deg,#f472b0,${HOT})` : WHITE,
+                background: i===variantI ? "#F496C2" : WHITE,
                 color: i===variantI ? WHITE : DARK,
                 border: i===variantI ? "none" : `1.5px solid ${BORDER}`,
               }}>{v.label}</button>
@@ -193,7 +193,7 @@ function ProductDetail({ p, onBack, onAdd, inCart }) {
         <button onClick={()=>onAdd(p)} style={{
           flex:1, padding:mobile?"12px":"14px", fontSize:mobile?14:16, fontFamily:"'Nunito',sans-serif",
           fontWeight:700, borderRadius:50, cursor:"pointer",
-          background: inCart ? SOFT : `linear-gradient(135deg,#f472b0,${HOT})`,
+          background: inCart ? SOFT : "#F496C2",
           color: inCart ? HOT : WHITE, border: inCart ? `1.5px solid ${HOT}` : "none",
         }}>
           {inCart ? "✓ In Cart" : "Add To Cart"}
