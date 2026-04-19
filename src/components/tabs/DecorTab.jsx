@@ -816,8 +816,14 @@ export const TABLEWARE = [
   },
   {
     id:"plate-zodiac", type:"plate", name:"Zodiac Plates",
-    desc:"8 ct · 7.25\" x 7.25\"", price:"$12.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6149c360-56e9-478e-854a-a7ea9d2ec608/Ebook+Thumbnail+with+Video+-+2025-06-20T154150.275.png",
+    desc:"Celebrate alllll the zodiac signs with our combined signs dessert paper plate. Whether for a mysterious Scorpio or thoughtful Virgo, there's a star sign to celebrate.",
+    bullets:["Set of 8","Dimensions: 7.25\"l x 7.25\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$12.00",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6149c360-56e9-478e-854a-a7ea9d2ec608/Ebook+Thumbnail+with+Video+-+2025-06-20T154150.275.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c8a80805-a0e2-4d76-a1bc-e9ee03fb6cda/Ebook+Thumbnail+with+Video+-+2025-06-20T154103.314.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6149c360-56e9-478e-854a-a7ea9d2ec608/Ebook+Thumbnail+with+Video+-+2025-06-20T154150.275.png?format=500w",
     bg:"#1A1A1A", accent:"#FFD700",
     tags:["black","gold","metallic-gold","champagne","purple","plum","lavender","silver","navy","metallic-midnight-blue","white"],
   },
