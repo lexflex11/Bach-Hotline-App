@@ -1067,13 +1067,6 @@ export const TABLEWARE = [
     tags:["seafoam","teal","sea-glass","turquoise","mint","monet","baby-blue","lace","muse","stone","champagne","white"],
   },
   {
-    id:"plate-strawberry", type:"plate", name:"Strawberry Plates",
-    desc:"8 ct · 7\" x 10\"", price:"$13.00",
-    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/67919be89ae1111daaf68616/1767898896518/Ebook+Thumbnail+with+Video+-+2025-01-22T193036.107.png?format=1500w",
-    bg:"#E53935", accent:"#4CAF50",
-    tags:["red","scarlett","hotpink","blush","coral","baby-pink","pink","green","lime-green","white","sugar"],
-  },
-  {
     id:"plate-happy-disco", type:"plate", name:"Happy Disco Plates",
     desc:"8 ct · 7\" x 7\"", price:"$12.22",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/208a4d42-7cec-40fa-bbe0-b5d3c72fc61a/Ebook+Thumbnail+with+Video+-+2025-05-18T191748.541.png",
