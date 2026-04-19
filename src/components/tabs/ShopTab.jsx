@@ -66,34 +66,18 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
   };
 });
 
-// ─── Pink corner bracket decoration ──────────────────────────────────────────
-const CORNER_SIZE = 18;
-const CORNER_W    = 3;
-const CORNER_OFF  = 6;
-const cornerBase  = { position:"absolute", width:CORNER_SIZE, height:CORNER_SIZE, pointerEvents:"none" };
-function TileCorners() {
-  const c = HOT;
-  return (<>
-    <div style={{ ...cornerBase, top:CORNER_OFF, left:CORNER_OFF,  borderTop:`${CORNER_W}px solid ${c}`, borderLeft:`${CORNER_W}px solid ${c}`,  borderRadius:"3px 0 0 0" }} />
-    <div style={{ ...cornerBase, top:CORNER_OFF, right:CORNER_OFF, borderTop:`${CORNER_W}px solid ${c}`, borderRight:`${CORNER_W}px solid ${c}`, borderRadius:"0 3px 0 0" }} />
-    <div style={{ ...cornerBase, bottom:CORNER_OFF, left:CORNER_OFF,  borderBottom:`${CORNER_W}px solid ${c}`, borderLeft:`${CORNER_W}px solid ${c}`,  borderRadius:"0 0 0 3px" }} />
-    <div style={{ ...cornerBase, bottom:CORNER_OFF, right:CORNER_OFF, borderBottom:`${CORNER_W}px solid ${c}`, borderRight:`${CORNER_W}px solid ${c}`, borderRadius:"0 0 3px 0" }} />
-  </>);
-}
-
 // ─── Product image tile ───────────────────────────────────────────────────────
 function ProductTile({ p, onView }) {
   const [loaded, setLoaded] = useState(false);
   const [err,    setErr]    = useState(false);
   return (
     <div onClick={onView} style={{ cursor:"pointer", textAlign:"center" }}>
-      {/* Image box with pink corner brackets */}
+      {/* Image box */}
       <div style={{
         position:"relative", width:"100%", aspectRatio:"1/1",
         background:"#FDF5F8",
         marginBottom:10,
       }}>
-        <TileCorners />
         {!err && p.image ? (
           <img
             src={p.image} alt={p.name}
