@@ -825,8 +825,14 @@ export const TABLEWARE = [
   },
   {
     id:"plate-pisces", type:"plate", name:"Pisces Plates",
-    desc:"8 ct · 10\" x 10\"", price:"$12.66",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a259f71b-f309-4ef6-a236-19c86c54209a/Ebook+Thumbnail+with+Video+-+2025-06-19T153612.085.png",
+    desc:"Serve cosmic vibes and star powered style with these pisces paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
+    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$12.66",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a259f71b-f309-4ef6-a236-19c86c54209a/Ebook+Thumbnail+with+Video+-+2025-06-19T153612.085.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/39b8d5b6-c3ae-4368-9a0f-6aefc95f879c/Ebook+Thumbnail+with+Video+-+2025-06-19T152146.548.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a259f71b-f309-4ef6-a236-19c86c54209a/Ebook+Thumbnail+with+Video+-+2025-06-19T153612.085.png?format=500w",
     bg:"#68DACA", accent:"#9C27B0",
     tags:["seafoam","teal","turquoise","sea-glass","baby-blue","lavender","purple","blossom","silver","white","monet"],
   },
