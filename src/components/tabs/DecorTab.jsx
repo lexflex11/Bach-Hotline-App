@@ -926,8 +926,14 @@ export const TABLEWARE = [
   },
   {
     id:"plate-cowboy-hat", type:"plate", name:"Cowboy Hat Plates",
-    desc:"8 ct · 9\" x 12\"", price:"$10.33",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5fb0f5d5-fe62-4f33-a931-efdd1b4b8434/Ebook+Thumbnail+with+Video+-+2025-01-30T092019.581.png",
+    desc:"Yee-haw! Get ready to saddle up for a wild west bash with our cowboy tan hat paper plates. Let's get this party rodeo ready!",
+    bullets:["Set of 8","Dimensions: 9\"w x 12\"h","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$10.33",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5fb0f5d5-fe62-4f33-a931-efdd1b4b8434/Ebook+Thumbnail+with+Video+-+2025-01-30T092019.581.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c49ac068-5ce1-4c70-9ccb-9534c31b2658/Ebook+Thumbnail+with+Video+-+2025-01-30T092218.862.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5fb0f5d5-fe62-4f33-a931-efdd1b4b8434/Ebook+Thumbnail+with+Video+-+2025-01-30T092019.581.png?format=500w",
     bg:"#C8A882", accent:"#1A1A1A",
     tags:["muse","malted","stone","lace","terracotta","champagne","burnt-orange","black","cocoa","mustard"],
   },
