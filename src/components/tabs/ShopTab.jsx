@@ -245,9 +245,36 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView }) {
           <div style={{ fontFamily:"'Acme',sans-serif", fontSize:mobile?18:22, color:"#f496c3", marginBottom:16 }}>
             You Might Also Like
           </div>
-          <div style={{ display:"grid", gridTemplateColumns:mobile?"repeat(2,1fr)":"repeat(4,1fr)", gap:mobile?"16px 10px":"20px 12px" }}>
-            {recommended.map(r => (
-              <ProductTile key={r.id} p={r} onView={()=>onView(r)} />
+          <div style={{ display:"flex", flexDirection:"column", gap:0 }}>
+            {recommended.map((r, i) => (
+              <div key={r.id} onClick={()=>onView(r)} style={{
+                display:"flex", alignItems:"center", gap:14,
+                padding:"14px 16px",
+                border:`1.5px solid ${BORDER}`,
+                borderBottom: i === recommended.length-1 ? `1.5px solid ${BORDER}` : "none",
+                borderRadius: i===0 ? "12px 12px 0 0" : i===recommended.length-1 ? "0 0 12px 12px" : 0,
+                cursor:"pointer", background:WHITE,
+              }}>
+                {/* Thumbnail */}
+                <div style={{ width:60, height:60, borderRadius:8, overflow:"hidden", background:WHITE, flexShrink:0, border:`1px solid ${BORDER}` }}>
+                  {r.image
+                    ? <img src={r.image} alt={r.name} style={{ width:"100%", height:"100%", objectFit:"contain", padding:4, boxSizing:"border-box" }}/>
+                    : <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", fontSize:24 }}>🎀</div>
+                  }
+                </div>
+                {/* Name + price */}
+                <div style={{ flex:1, minWidth:0 }}>
+                  <div style={{ fontFamily:"'Acme',sans-serif", fontSize:15, color:"#f496c3", lineHeight:1.3, marginBottom:3 }}>{r.name}</div>
+                  <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:13, color:DARK }}>${(+r.price||0).toFixed(2)}</div>
+                </div>
+                {/* Add button */}
+                <button onClick={e=>{ e.stopPropagation(); onAdd(r); }} style={{
+                  flexShrink:0, padding:"8px 20px", borderRadius:50, fontSize:13, fontWeight:700,
+                  fontFamily:"'Nunito',sans-serif", cursor:"pointer",
+                  background: WHITE, color: HOT,
+                  border:`1.5px solid ${HOT}`,
+                }}>Add</button>
+              </div>
             ))}
           </div>
         </div>
