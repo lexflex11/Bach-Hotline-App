@@ -884,13 +884,6 @@ export const TABLEWARE = [
     tags:["black","gold","metallic-gold","champagne","purple","plum","lavender","silver","navy","metallic-midnight-blue","white"],
   },
   {
-    id:"plate-shooting-star", type:"plate", name:"Shooting Star Plates",
-    desc:"4 ct · 19.25\" x 9\"", price:"$12.50",
-    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/690d45e9b0c4a7226c513c4e/1767900673093/Ebook+Thumbnail+with+Video+-+2025-07-20T111448.980.png?format=1500w",
-    bg:"#D0D0D0", accent:"#FFD700",
-    tags:["silver","gold","metallic-gold","white","champagne","crystal-clear","black","navy","metallic-midnight-blue"],
-  },
-  {
     id:"plate-queen-playing-card", type:"plate", name:"Queen Playing Card Plates",
     desc:"Deal up some love with these queen playing card plates! With bold red and pink details, they're perfect for galentine's brunch or a whimsical party.",
     bullets:["Set of 8","Dimensions: 6\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
