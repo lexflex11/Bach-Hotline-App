@@ -1985,8 +1985,14 @@ export const TABLEWARE = [
   },
   {
     id:"cup-girl-power", type:"cup", name:"Girl Power Cups",
-    desc:"12 ct · 12 oz", price:"$11.00",
-    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68b8dfda81cdb105e8e9616f/1767901943357/Ebook+Thumbnail+with+Video+-+2025-11-04T142254.958.png?format=1500w",
+    desc:"Zap! Bang! Pow! These pastel party cups pack a punch with silver foil details and bold superhero flair.",
+    bullets:["Set of 8","9oz capacity","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$11.00",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/dfb6200c-71ef-4a00-9519-cdceee68c370/Ebook+Thumbnail+with+Video+-+2025-11-04T142254.958.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a7acf14e-d95d-497c-ac90-a4085fa051eb/Ebook+Thumbnail+with+Video+-+2025-11-04T142317.175.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/dfb6200c-71ef-4a00-9519-cdceee68c370/Ebook+Thumbnail+with+Video+-+2025-11-04T142254.958.png?format=500w",
     bg:"#E91E8C", accent:"#9C27B0",
     tags:["hotpink","blush","baby-pink","pink","purple","lavender","blossom","white","sugar","crystal-clear","metallic-fuchsia","crystal-magenta"],
   },
