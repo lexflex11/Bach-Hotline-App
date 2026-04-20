@@ -271,8 +271,8 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView }) {
                 <button onClick={e=>{ e.stopPropagation(); onAdd(r); }} style={{
                   flexShrink:0, padding:"8px 20px", borderRadius:50, fontSize:13, fontWeight:700,
                   fontFamily:"'Nunito',sans-serif", cursor:"pointer",
-                  background: WHITE, color: HOT,
-                  border:`1.5px solid ${HOT}`,
+                  background:"#F496C2", color:WHITE, border:"none",
+                  boxShadow:"0 3px 12px rgba(244,150,194,0.30)",
                 }}>Add</button>
               </div>
             ))}
