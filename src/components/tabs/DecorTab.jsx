@@ -758,8 +758,14 @@ export const TABLEWARE = [
   },
   {
     id:"plate-leo", type:"plate", name:"Leo Plates",
-    desc:"8 ct · 10\" x 10\"", price:"$12.66",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8e9ceb65-f8f7-4f63-9681-c7e035578b5a/Ebook+Thumbnail+with+Video+-+2025-06-19T145332.931.png",
+    desc:"Serve cosmic vibes and star powered style with these leo paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
+    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$12.66",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8e9ceb65-f8f7-4f63-9681-c7e035578b5a/Ebook+Thumbnail+with+Video+-+2025-06-19T145332.931.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8405a518-6b2b-4027-bf1b-d0d818fbfe80/Ebook+Thumbnail+with+Video+-+2025-06-19T145545.966.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8e9ceb65-f8f7-4f63-9681-c7e035578b5a/Ebook+Thumbnail+with+Video+-+2025-06-19T145332.931.png?format=500w",
     bg:"#FFD700", accent:"#E8112D",
     tags:["gold","metallic-gold","goldenrod","yellow","lemonade","orange","burnt-orange","red","champagne","white","mustard"],
   },
