@@ -109,7 +109,7 @@ function ProductTile({ p, onView }) {
 }
 
 // ─── Product Detail Page (inline, no fixed overlay) ──────────────────────────
-function ProductDetail({ p, onBack, onAdd, inCart }) {
+function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView }) {
   const [imgIdx,   setImgIdx]   = useState(0);
   const [qty,      setQty]      = useState(1);
   const [variantI, setVariantI] = useState(0);
@@ -238,6 +238,20 @@ function ProductDetail({ p, onBack, onAdd, inCart }) {
           <div style={{ flexShrink:0, width:"52%" }}>{DesktopGallery}</div>
         </div>
       )}
+
+      {/* ── Recommended products ── */}
+      {recommended?.length > 0 && (
+        <div style={{ marginTop:40, paddingTop:28, borderTop:`1.5px solid ${BORDER}` }}>
+          <div style={{ fontFamily:"'Acme',sans-serif", fontSize:mobile?18:22, color:"#f496c3", marginBottom:16 }}>
+            You Might Also Like
+          </div>
+          <div style={{ display:"grid", gridTemplateColumns:mobile?"repeat(2,1fr)":"repeat(4,1fr)", gap:mobile?"16px 10px":"20px 12px" }}>
+            {recommended.map(r => (
+              <ProductTile key={r.id} p={r} onView={()=>onView(r)} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -314,6 +328,10 @@ export default function ShopTab({ cart, setCart }) {
 
   // Show product detail page inline (replaces grid)
   if (selected) {
+    const recommended = DECOR_PRODUCTS
+      .filter(p => p.id !== selected.id && p.category === selected.category)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 4);
     return (
       <div style={{ paddingBottom:24 }}>
         <ProductDetail
@@ -321,6 +339,8 @@ export default function ShopTab({ cart, setCart }) {
           onBack={()=>setSelected(null)}
           onAdd={add}
           inCart={inCart(selected.id)}
+          recommended={recommended}
+          onView={p=>{ setSelected(p); window.scrollTo(0,0); }}
         />
       </div>
     );
