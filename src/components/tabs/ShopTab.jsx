@@ -61,7 +61,8 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
   url:       p.etsyUrl || "",
   desc:      p.desc || "",
   bullets:   p.bullets || [],
-  variants:  p.variants || [],
+  variants:     p.variants || [],
+  variantLabel: p.variantLabel || "",
   isDigital: false,
   bestseller:false,
   };
