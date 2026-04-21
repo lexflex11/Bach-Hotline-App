@@ -1268,7 +1268,11 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10, marginBottom:16 }}>
             <div style={{ background:SOFT, borderRadius:12, padding:"10px 12px" }}>
               <div style={{ fontSize:10, fontWeight:700, color:HOT, fontFamily:"'Nunito',sans-serif", textTransform:"uppercase", letterSpacing:1, marginBottom:4 }}>Hours</div>
-              <div style={{ fontSize:12, color:DARK, fontFamily:"'Nunito',sans-serif", lineHeight:1.5 }}>{r.hours}</div>
+              <div style={{ fontSize:12, color:DARK, fontFamily:"'Nunito',sans-serif", lineHeight:1.6 }}>
+                {r.hours.split(" · ").map((slot, i) => (
+                  <div key={i}>{slot}</div>
+                ))}
+              </div>
             </div>
             <div style={{ background:SOFT, borderRadius:12, padding:"10px 12px" }}>
               <div style={{ fontSize:10, fontWeight:700, color:HOT, fontFamily:"'Nunito',sans-serif", textTransform:"uppercase", letterSpacing:1, marginBottom:4 }}>Group Size</div>
