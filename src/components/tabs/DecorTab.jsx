@@ -2408,8 +2408,14 @@ export const TABLEWARE = [
   },
   {
     id:"cup-fiesta-striped", type:"cup", name:"Fiesta Striped Cups",
-    desc:"12 ct · 12 oz", price:"$11.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/4b97b837-4d90-4c47-a721-fa3ab838c061/Ebook+Thumbnail+with+Video+-+2025-01-27T162539.289.png",
+    desc:"From backyard fiestas to birthday bashes, these striped cups bring the flavor and flair! Easy to use, fun to look at, and made for good times.",
+    bullets:["Set of 8","Capacity: 12oz","Dimensions: 4.5\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$11.00",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/4b97b837-4d90-4c47-a721-fa3ab838c061/Ebook+Thumbnail+with+Video+-+2025-01-27T162539.289.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/57b12c8e-3d40-4ff2-8327-42e0521d709d/Ebook+Thumbnail+with+Video+-+2025-11-03T163553.060.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/4b97b837-4d90-4c47-a721-fa3ab838c061/Ebook+Thumbnail+with+Video+-+2025-01-27T162539.289.png?format=500w",
     bg:"#FF6B1A", accent:"#4CAF50",
     tags:["orange","burnt-orange","aloha","coral","lime-green","green","red","scarlett","yellow","lemonade","hotpink","turquoise","white"],
   },
