@@ -593,7 +593,7 @@ function GarlandPreview({ selectedColors, arrangement }) {
   const bg = "#f8f0e4";
   if (selectedColors.length === 0) {
     return (
-      <div style={{height:360,display:"flex",alignItems:"center",justifyContent:"center",background:bg,borderRadius:14,border:`2px dashed ${BORDER}`}}>
+      <div style={{height:260,display:"flex",alignItems:"center",justifyContent:"center",background:bg,borderRadius:14,border:`2px dashed ${BORDER}`}}>
         <div style={{textAlign:"center"}}>
           <div style={{fontSize:32,marginBottom:6}}>🎈</div>
           <div style={{fontSize:12,color:"#bbb",fontFamily:"'Nunito',sans-serif"}}>Pick colors below to preview your 3D garland</div>
@@ -603,8 +603,8 @@ function GarlandPreview({ selectedColors, arrangement }) {
   }
   return (
     <div style={{borderRadius:14,overflow:"hidden",border:`1.5px solid ${BORDER}`,background:bg}}>
-      <div style={{height:360,background:bg}}>
-        <Canvas camera={{ position:[0, 1.5, 13], fov:58 }} style={{background:bg}}>
+      <div style={{height:260,background:bg}}>
+        <Canvas camera={{ position:[0, 1.5, 11], fov:62 }} style={{background:bg}}>
           <color attach="background" args={[bg]} />
           <GarlandScene selectedColors={selectedColors} arrangement={arrangement} />
         </Canvas>
