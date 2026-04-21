@@ -686,7 +686,12 @@ export const TABLEWARE = [
   },
   {
     id:"plate-romcom",   type:"plate", name:"RomCom Paper Plates",
-    desc:"Bachelorette Party",     price:"$13.50",
+    desc:"Add a little movie magic to mealtime with our romcom dinner plates. Playful, cute, and ready for popcorn, pasta, and all the feel good moments.",
+    bullets:["Set of 8","Dimensions: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$13.50",
+    images:[
+      "https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/e66bc5/7879283220/il_fullxfull.7879283220_8chy.jpg",
+    ],
     image:"https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/e66bc5/7879283220/il_fullxfull.7879283220_8chy.jpg",
     bg:"#FF69B4", accent:"#E91E8C",
     tags:["hotpink","blush","lavender","confetti","mauve"],
