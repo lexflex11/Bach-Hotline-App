@@ -595,7 +595,6 @@ function GarlandPreview({ selectedColors, arrangement }) {
     return (
       <div style={{height:260,display:"flex",alignItems:"center",justifyContent:"center",background:bg,borderRadius:14,border:`2px dashed ${BORDER}`}}>
         <div style={{textAlign:"center"}}>
-          <div style={{fontSize:32,marginBottom:6}}>🎈</div>
           <div style={{fontSize:12,color:"#bbb",fontFamily:"'Nunito',sans-serif"}}>Pick colors below to preview your 3D garland</div>
         </div>
       </div>
@@ -3983,7 +3982,6 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
       </div>
       {selectedColors.length === 0 ? (
         <div style={{textAlign:"center",padding:"24px 16px",background:SOFT,borderRadius:16}}>
-          <div style={{fontSize:22,marginBottom:8}}>🎈</div>
           <div style={{fontSize:13,fontWeight:700,color:HOT,fontFamily:"'Nunito',sans-serif",marginBottom:4}}>Customize your garland first</div>
           <div style={{fontSize:11,color:"#888",fontFamily:"'Nunito',sans-serif",lineHeight:1.5}}>Pick your balloon colors in Step 1 and we'll show you only the products that match.</div>
         </div>
@@ -4603,7 +4601,6 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
       </div>
       {selectedColors.length === 0 ? (
         <div style={{textAlign:"center",padding:"24px 16px",background:SOFT,borderRadius:16}}>
-          <div style={{fontSize:22,marginBottom:8}}>🎈</div>
           <div style={{fontSize:13,fontWeight:700,color:HOT,fontFamily:"'Nunito',sans-serif",marginBottom:4}}>Customize your garland first</div>
           <div style={{fontSize:11,color:"#888",fontFamily:"'Nunito',sans-serif",lineHeight:1.5}}>Pick your balloon colors in Step 1 and we'll show you only the products that match.</div>
         </div>
@@ -4721,7 +4718,6 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
       </div>
       {selectedColors.length === 0 ? (
         <div style={{textAlign:"center",padding:"24px 16px",background:SOFT,borderRadius:16}}>
-          <div style={{fontSize:22,marginBottom:8}}>🎈</div>
           <div style={{fontSize:13,fontWeight:700,color:HOT,fontFamily:"'Nunito',sans-serif",marginBottom:4}}>Customize your garland first</div>
           <div style={{fontSize:11,color:"#888",fontFamily:"'Nunito',sans-serif",lineHeight:1.5}}>Pick your balloon colors in Step 1 and we'll show you only the products that match.</div>
         </div>
