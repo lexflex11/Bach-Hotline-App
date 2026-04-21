@@ -136,7 +136,7 @@ export default function App() {
         {tab==="shop"    && <ShopTab cart={cart} setCart={setCart} />}
         {tab==="alerts"  && <AlertsTab user={user} onSignUp={()=>setUser(null)} />}
         {tab==="decor"   && <DecorTab groupSize={groupSize} cart={cart} setCart={setCart} setTab={setTab} openCart={()=>setCartOpen(true)} />}
-        {tab==="profile" && <ProfileTab user={user} onLogout={()=>setUser(null)} cart={cart} />}
+        {tab==="profile" && <ProfileTab user={user} onLogout={()=>setUser(null)} cart={cart} groupSize={groupSize} />}
         {tab==="polls"   && <PollsTab user={user} onSignUp={()=>setUser(null)} />}
         {tab==="explore"  && <ExploreTab groupSize={groupSize} setTab={setTab} />}
         {tab==="media"    && <MediaTab user={user} onSignUp={()=>setUser(null)} />}
@@ -162,7 +162,6 @@ export default function App() {
                     { id:"split", label:"Split",     sub:"Divide expenses"          },
                     { id:"dayof", label:"Day-Of",    sub:"Live itinerary mode"      },
                   ] : []),
-                  { id:"polls",   label:"Polls",     sub:"Group voting"             },
                 ].map(item => (
                   <button key={item.id} onClick={() => { navigateTo(item.id); setDrawerOpen(false); }}
                     style={{ background: tab===item.id ? SOFT : PAGE, border:`1.5px solid ${tab===item.id ? HOT : BORDER}`, borderRadius:14, padding:"12px 13px", cursor:"pointer", textAlign:"left", transition:"all 0.15s" }}>
@@ -175,9 +174,7 @@ export default function App() {
                 {[
                   ...(user.email ? [
                     { id:"alerts", label:"Alerts",      sub:"Members-only price drops"   },
-                    { id:"media",  label:"Share Media", sub:"Upload trip pics & videos"  },
                   ] : []),
-                  { id:"profile", label:"Profile",      sub:"Settings & trips"            },
                 ].map(item => (
                   <button key={item.id} onClick={() => { navigateTo(item.id); setDrawerOpen(false); }}
                     style={{ background: tab===item.id ? SOFT : PAGE, border:`1.5px solid ${tab===item.id ? HOT : BORDER}`, borderRadius:14, padding:"12px 13px", cursor:"pointer", textAlign:"left", transition:"all 0.15s" }}>
