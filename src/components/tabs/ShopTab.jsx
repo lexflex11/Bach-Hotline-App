@@ -121,7 +121,8 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView }) {
   const imgs  = (p.images?.length > 0) ? p.images : (p.image ? [p.image] : []);
   const total = imgs.length;
   const src   = imgs[imgIdx] || "";
-  const price = +(p.price) || 0;
+  const selectedVariant = p.variants?.[variantI];
+  const price = +(selectedVariant?.price ?? p.price) || 0;
 
   /* ── Mobile image carousel (arrows inside) ── */
   const ChevronLeft  = <svg width="10" height="18" viewBox="0 0 10 18" fill="none" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9,1 1,9 9,17"/></svg>;
@@ -173,7 +174,7 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView }) {
       {p.variants?.length > 0 && (
         <div style={{ marginBottom:20, paddingBottom:20, borderBottom:`1px solid ${BORDER}` }}>
           <div style={{ fontSize:12, fontWeight:700, fontFamily:"'Nunito',sans-serif", color:DARK, marginBottom:10, textTransform:"uppercase", letterSpacing:"0.08em" }}>
-            Color: <span style={{ color:HOT }}>{p.variants[variantI].label}</span>
+            {p.variantLabel || "Color"}: <span style={{ color:HOT }}>{p.variants[variantI].label}</span>
           </div>
           <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
             {p.variants.map((v,i) => (

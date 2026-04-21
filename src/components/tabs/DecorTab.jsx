@@ -2040,8 +2040,21 @@ export const TABLEWARE = [
 
   {
     id:"napkin-capricorn", type:"napkin", name:"Capricorn Napkins",
-    desc:"20 ct · 5\" x 5\"", price:"$10.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a8e3bdc3-4a08-47c0-9c74-226169383560/Ebook+Thumbnail+with+Video+-+2025-06-19T132725.198.png",
+    desc:"Serve cosmic vibes and star powered style with these capricorn paper napkins perfect for celestial queens and astrology lovers alike!",
+    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$10.00",
+    variantLabel:"Size",
+    variants:[
+      { label:"Guest Napkins", price:"11.00", imgIdx:0 },
+      { label:"Large Napkins", price:"10.00", imgIdx:1 },
+    ],
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/51393066-6508-4292-93e0-93d96710de0a/Ebook+Thumbnail+with+Video+-+2025-06-19T132836.859.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a8e3bdc3-4a08-47c0-9c74-226169383560/Ebook+Thumbnail+with+Video+-+2025-06-19T132725.198.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ccc79ad6-3bd0-4fdc-beee-124075ad913e/Ebook+Thumbnail+with+Video+-+2025-06-19T133112.558.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6d8cd71b-c2e3-454a-a03d-0081f740a641/Ebook+Thumbnail+with+Video+-+2025-06-19T133744.083.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/51393066-6508-4292-93e0-93d96710de0a/Ebook+Thumbnail+with+Video+-+2025-06-19T132836.859.png?format=500w",
     bg:"#1A1A1A", accent:"#C0C0C0",
     tags:["black","silver","gray-smoke","navy","metallic-midnight-blue","white","crystal-clear","gold","champagne","purple","plum"],
   },
