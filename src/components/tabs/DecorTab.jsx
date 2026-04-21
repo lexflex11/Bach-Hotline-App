@@ -3996,7 +3996,7 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,paddingTop:20,borderTop:`2px solid ${MID}`}}>
         <div style={{width:28,height:28,borderRadius:"50%",background:`#f496c3`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:WHITE,flexShrink:0}}>{stepNum}</div>
         <div>
-          <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{emoji} {title}</div>
+          <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{emoji ? `${emoji} ` : ""}{title}</div>
           <div style={{fontSize:11,color:HOT,fontFamily:"'Nunito',sans-serif",opacity:0.8}}>{subtitle}</div>
         </div>
       </div>
@@ -4737,7 +4737,7 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,paddingTop:20,borderTop:`2px solid ${MID}`}}>
         <div style={{width:28,height:28,borderRadius:"50%",background:`#f496c3`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:WHITE,flexShrink:0}}>{stepNum}</div>
         <div>
-          <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>🎈 Add Foil Balloons</div>
+          <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>Add Foil Balloons</div>
           <div style={{fontSize:11,color:HOT,fontFamily:"'Nunito',sans-serif",opacity:0.8}}>Number balloons, letters, shapes & more</div>
         </div>
       </div>
@@ -4972,8 +4972,8 @@ export default function DecorTab({ groupSize, cart, setCart, setTab, openCart })
 
       {/* ── Step 3: Plates ── */}
       <ProductStep
-        stepNum={3} emoji="🍽️" title="Pick Your Plates"
-        subtitle="Add as many as you like — mix and match"
+        stepNum={3} emoji="" title="Pick Your Plates"
+        subtitle="Add as many as you like, mix and match"
         type="plate" selectedColors={selected}
         cart={cart||[]} setCart={setCart||(_=>{})}
       />
