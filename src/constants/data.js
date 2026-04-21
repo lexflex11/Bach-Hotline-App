@@ -287,6 +287,7 @@ export const DESTS = [
   { id:"denver",      name:"Denver / Aspen",  emoji:"⛰️", vibe:"Mountains & Brunch",     trend:"Year-Round",        airportCode:"DEN", toFull:"Denver, CO"                           },
   { id:"houston",        name:"Houston",          emoji:"🤘", vibe:"BBQ, Nightlife & Culture",   trend:"Local Fave",    airportCode:"IAH", toFull:"Houston, TX"              },
   { id:"corpuschristi", name:"Corpus Christi",   emoji:"🏖️", vibe:"Beach & Bay City Vibes",     trend:"Hidden Gem",    airportCode:"CRP", toFull:"Corpus Christi, TX"       },
+  { id:"portaransas",   name:"Port Aransas",     emoji:"🦀", vibe:"Island Vibes & Seafood",      trend:"Beach Getaway",  airportCode:"CRP", toFull:"Port Aransas, TX"         },
   { id:"boston",        name:"Boston",           emoji:"🦞", vibe:"History, Bars & Brunch",      trend:"East Coast Cool", airportCode:"BOS", toFull:"Boston, MA"             },
   // ── International ───────────────────────────────────────────────────────────
   { id:"cabo",        name:"Cabo San Lucas",  emoji:"🌊", vibe:"Yacht Parties & Resorts", trend:"#1 International",  airportCode:"SJD", toFull:"Cabo San Lucas, Mexico",  featured:true, international:true },
