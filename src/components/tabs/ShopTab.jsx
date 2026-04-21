@@ -169,7 +169,7 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView }) {
       <h2 style={{ fontFamily:"'Acme',sans-serif", fontSize:mobile?22:30, fontWeight:400, fontStyle:"normal", color:"#f496c3", margin:"0 0 10px", lineHeight:1.2 }}>
         {p.fullName || p.name || ""}
       </h2>
-      <div style={{ fontSize:mobile?17:20, fontWeight:700, color:DARK, fontFamily:"'Nunito',sans-serif", marginBottom:20, paddingBottom:20, borderBottom:`1px solid ${BORDER}` }}>
+      <div style={{ fontSize:mobile?17:20, fontWeight:400, color:DARK, fontFamily:"'Nunito',sans-serif", marginBottom:20, paddingBottom:20, borderBottom:`1px solid ${BORDER}` }}>
         ${price.toFixed(2)}
       </div>
       {p.variants?.length > 0 && (
@@ -224,7 +224,7 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView }) {
         display:"flex", alignItems:"center", gap:6,
         background:"none", border:`1.5px solid ${BORDER}`,
         borderRadius:50, padding:"8px 16px", marginBottom:20,
-        fontFamily:"'Nunito',sans-serif", fontSize:13, fontWeight:700,
+        fontFamily:"'Nunito',sans-serif", fontSize:13, fontWeight:400,
         color:DARK, cursor:"pointer",
       }}>← Back</button>
 
