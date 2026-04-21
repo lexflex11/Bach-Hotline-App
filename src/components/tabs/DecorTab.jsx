@@ -2334,8 +2334,10 @@ export const TABLEWARE = [
   },
   {
     id:"cup-test-tube", type:"cup", name:"Test Tube Shot Glasses",
-    desc:"10 ct · 2 oz", price:"$18.68",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b8d0c019-6fa9-4dd6-b2cc-d27e832c7170/Ebook+Thumbnail+with+Video+-+2025-09-02T190400.620.png",
+    desc:"Take your shots to the lab! These test tube shot glasses are perfect for spooky parties, Halloween drinks, or mad scientist vibes!",
+    bullets:["Set of 10","Dimensions: 3.94\"l x 0.63\"w","Durable, lightweight, and reusable"],
+    price:"$18.68",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b8d0c019-6fa9-4dd6-b2cc-d27e832c7170/Ebook+Thumbnail+with+Video+-+2025-09-02T190400.620.png?format=500w",
     bg:"#F8F8F8", accent:"#E91E8C",
     tags:["white","crystal-clear","hotpink","blush","baby-pink","silver","confetti","rainbow","neon-pink","neon-green"],
   },
