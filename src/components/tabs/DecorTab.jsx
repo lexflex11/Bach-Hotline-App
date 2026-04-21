@@ -1588,6 +1588,7 @@ export const TABLEWARE = [
   },
   {
     id:"napkin-stay-fierce", type:"napkin", name:"Stay Fierce Napkins",
+    desc:"Keep it loud and proud with these fierce cheetah napkins. Embossed foil detailing makes these napkins fun and unique, and who doesn't love a pink cheetah?",
     bullets:["Set of 16","Dimensions: 6\"w x 7.75\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$8.36",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/4d7ac248-efe7-47e9-a407-7ecf894e7b96/Ebook+Thumbnail+with+Video+-+2026-01-06T164649.173.png?format=500w",
