@@ -4,7 +4,44 @@ import { C, SM } from '../../constants/styles.js';
 import { DESTS, BUDGET_DATA } from '../../constants/data.js';
 import SH from '../ui/SH.jsx';
 
-export default function BudgetTab({ groupSize }) {
+function MembersGate({ onSignUp }) {
+  return (
+    <div style={{ textAlign:"center", padding:"48px 24px" }}>
+      <div style={{ fontSize:52, marginBottom:16 }}>💎</div>
+      <h2 style={{ fontFamily:"'Acme',sans-serif", fontSize:26, fontWeight:400, color:"#f496c3", margin:"0 0 10px" }}>
+        Members Only
+      </h2>
+      <p style={{ fontSize:14, color:DARK, fontFamily:"'Nunito',sans-serif", lineHeight:1.7, maxWidth:280, margin:"0 auto 24px" }}>
+        The Budget Calculator is exclusive to Bach Hotline members. Create a free account to unlock full trip cost estimates and planning tools.
+      </p>
+      <div style={{ display:"flex", flexDirection:"column", gap:10, maxWidth:300, margin:"0 auto" }}>
+        {[
+          ["💸","Full trip cost breakdown"],
+          ["🏨","Hotel, flights & activities"],
+          ["👯","Per-person cost calculator"],
+          ["✨","Budget vs. luxury estimates"],
+        ].map(([icon, label]) => (
+          <div key={label} style={{ display:"flex", alignItems:"center", gap:10, background:SOFT, borderRadius:12, padding:"10px 14px" }}>
+            <span style={{ fontSize:18 }}>{icon}</span>
+            <span style={{ fontSize:13, fontFamily:"'Nunito',sans-serif", color:DARK, fontWeight:600 }}>{label}</span>
+          </div>
+        ))}
+      </div>
+      <button onClick={onSignUp} style={{
+        marginTop:28, background:`linear-gradient(135deg,#f472b0,${HOT})`, color:WHITE,
+        border:"none", borderRadius:50, padding:"13px 32px",
+        fontFamily:"'Nunito',sans-serif", fontSize:14, fontWeight:700,
+        cursor:"pointer", width:"100%", maxWidth:300,
+        boxShadow:"0 4px 16px rgba(244,150,194,0.4)",
+      }}>
+        Create Free Account →
+      </button>
+    </div>
+  );
+}
+
+export default function BudgetTab({ groupSize, user, onSignUp }) {
+  if (!user || user.id === "g") return <MembersGate onSignUp={onSignUp} />;
   const [dest, setDest] = useState(null);
   const [nights, setNights] = useState(3);
   const [tier, setTier] = useState("mid"); // budget | mid | luxury
