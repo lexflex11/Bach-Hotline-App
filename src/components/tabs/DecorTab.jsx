@@ -3821,7 +3821,7 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
       {/* Kit contents */}
       <div style={{marginBottom:14,padding:"14px 16px",borderRadius:14,background:"#fff",border:`1.5px solid ${BORDER}`}}>
         <div style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'Nunito',sans-serif",textTransform:"uppercase",letterSpacing:"0.8px",marginBottom:10}}>
-          What's Included — 130 Balloons
+          What's Included 130 Balloons
         </div>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
           {[
@@ -3830,28 +3830,23 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
             { size:'12"', count:80, label:"Base",        note:"Core of the garland"  },
             { size:'5"',  count:40, label:"Fillers",     note:"Gap-filling clusters" },
           ].map(b => (
-            <div key={b.size} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 12px",borderRadius:10,background:SOFT,border:`1px solid ${MID}`}}>
-              <div style={{width:36,height:36,borderRadius:"50%",background:`radial-gradient(circle at 35% 30%,rgba(255,255,255,0.45),${HOT})`,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:WHITE,fontFamily:"'Nunito',sans-serif"}}>
-                {b.size}
-              </div>
-              <div>
-                <div style={{fontSize:13,fontWeight:700,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1}}>{b.count} balloons</div>
-                <div style={{fontSize:10,color:HOT,fontFamily:"'Nunito',sans-serif",fontWeight:600,marginTop:2}}>{b.label}</div>
-                <div style={{fontSize:9,color:"#bbb",fontFamily:"'Nunito',sans-serif",marginTop:1}}>{b.note}</div>
-              </div>
+            <div key={b.size} style={{padding:"10px 12px",borderRadius:10,background:WHITE,border:`1px solid ${MID}`}}>
+              <div style={{fontSize:13,fontWeight:700,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1}}>{b.count} balloons</div>
+              <div style={{fontSize:10,color:HOT,fontFamily:"'Nunito',sans-serif",fontWeight:600,marginTop:2}}>{b.label}</div>
+              <div style={{fontSize:9,color:DARK,fontFamily:"'Nunito',sans-serif",marginTop:1}}>{b.note}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Price + CTA */}
-      <div style={{padding:"14px 16px",borderRadius:16,background:SOFT,border:`1.5px solid ${MID}`,display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}}>
+      <div style={{padding:"14px 16px",borderRadius:16,background:WHITE,border:`1.5px solid ${MID}`,display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}}>
         <div>
-          <div style={{fontSize:10,color:"#aaa",fontFamily:"'Nunito',sans-serif",textTransform:"uppercase",letterSpacing:0.8}}>Starting at</div>
+          <div style={{fontSize:10,color:DARK,fontFamily:"'Nunito',sans-serif",textTransform:"uppercase",letterSpacing:0.8}}>Starting at</div>
           <div style={{fontSize:26,fontWeight:900,color:HOT,fontFamily:"'Nunito',sans-serif"}}>{price}</div>
-          <div style={{fontSize:10,color:"#bbb",fontFamily:"'Nunito',sans-serif"}}>Shipped to you</div>
+          <div style={{fontSize:10,color:DARK,fontFamily:"'Nunito',sans-serif"}}>Shipped to you</div>
         </div>
-        <div style={{textAlign:"right",fontSize:11,color:"#aaa",fontFamily:"'Nunito',sans-serif",lineHeight:1.5}}>
+        <div style={{textAlign:"right",fontSize:11,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.5}}>
           {selected.length} color{selected.length!==1?"s":""} selected<br/>
           {arrangement==="mixed"?"Mixed arrangement":"Color block"}
         </div>
@@ -3863,7 +3858,7 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
           if (!cart.some(c=>c.id===garlandId)) {
             setCart(prev=>[...prev,{
               id: garlandId,
-              name: `Custom Balloon Garland — ${arrangement==="mixed"?"Mixed":"Color Block"}`,
+              name: `Custom Balloon Garland, ${arrangement==="mixed"?"Mixed":"Color Block"}`,
               price: parseFloat(price.replace("$","")),
               image: null,
               category: "garland",
@@ -3872,11 +3867,11 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
           }
         }} style={{
           ...BP, width:"100%", padding:"14px", fontSize:14,
-          background: cart.some(c=>c.id===`garland-${arrangement}`) ? SOFT : undefined,
-          color:      cart.some(c=>c.id===`garland-${arrangement}`) ? HOT  : undefined,
-          border:     cart.some(c=>c.id===`garland-${arrangement}`) ? `1.5px solid ${HOT}` : undefined,
+          ...(cart.some(c=>c.id===`garland-${arrangement}`) ? {
+            background: SOFT, color: HOT, border: `1.5px solid ${HOT}`,
+          } : {}),
         }}>
-          {cart.some(c=>c.id===`garland-${arrangement}`) ? "✓ Garland Added to Package" : `Add Garland to My Package — ${price}`}
+          {cart.some(c=>c.id===`garland-${arrangement}`) ? "✓ Garland Added to Package" : `Add Garland to My Package ${price}`}
         </button>
       )}
 
