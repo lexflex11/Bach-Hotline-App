@@ -427,134 +427,113 @@ function PatternDots() { return null; }
 
 // ── 3D Garland Preview ────────────────────────────────────────────────────────
 // Dense organic garland — 6 large along a gentle diagonal spine, mediums fill
-// the upper/lower/front/back layers, small/tiny pack every visible gap.
-// Positions designed at touching distance (center dist = r1+r2); rendered at
-// 0.95 scale so adjacent balloons overlap ~5% — eliminating all gaps.
-// [x,      y,      z,     radius, colorIndex]
+// Organic balloon garland — flowing diagonal arc from lower-left to upper-right.
+// [x, y, z, radius, colorIndex]  colorIndex cycles 0-4 for up to 5 colors.
 const GARLAND_3D_LAYOUT = [
-  // ── LARGE (r=0.90) — 6 along gentle diagonal spine ───────────────────
-  [-4.32,  1.15,  0.20, 0.90, 0],
-  [-2.58,  0.68, -0.10, 0.90, 1],
-  [-0.84,  0.21,  0.20, 0.90, 2],
-  [ 0.90, -0.26, -0.10, 0.90, 0],
-  [ 2.64, -0.73,  0.20, 0.90, 1],
-  [ 4.38, -1.20, -0.10, 0.90, 2],
+  // ── EXTRA LARGE hero balloons — spine anchors ─────────────────────────
+  [-3.8, -1.0,  0.1, 1.05, 0],
+  [-2.1,  0.1, -0.1, 1.10, 1],
+  [-0.4,  1.0,  0.1, 1.05, 2],
+  [ 1.3,  1.7, -0.1, 0.95, 3],
+  [ 2.9,  1.6,  0.1, 0.90, 4],
+  [ 4.3,  0.7, -0.1, 0.85, 0],
 
-  // ── MEDIUM (r=0.55) — above spine, one per large-pair gap ────────────
-  [-3.16,  2.02,  0.10, 0.55, 2],
-  [-1.42,  1.55,  0.00, 0.55, 0],
-  [ 0.32,  1.07,  0.10, 0.55, 1],
-  [ 2.06,  0.60,  0.00, 0.55, 2],
-  [ 3.80,  0.13,  0.10, 0.55, 0],
+  // ── LARGE secondary balloons ──────────────────────────────────────────
+  [-4.9, -0.4,  0.1, 0.75, 1],
+  [-3.2,  0.7,  0.2, 0.78, 2],
+  [-1.6,  1.6, -0.1, 0.75, 3],
+  [ 0.2,  2.3,  0.2, 0.72, 4],
+  [ 2.0,  2.6, -0.1, 0.70, 0],
+  [ 3.6,  2.1,  0.2, 0.68, 1],
+  [ 5.0,  1.5, -0.1, 0.65, 2],
+  [-3.0, -1.8,  0.1, 0.75, 3],
+  [-1.3, -1.0, -0.1, 0.72, 4],
+  [ 0.4, -0.2,  0.2, 0.70, 0],
+  [ 2.1,  0.3, -0.1, 0.68, 1],
+  [ 3.8, -0.4,  0.2, 0.65, 2],
 
-  // ── MEDIUM (r=0.55) — below spine ────────────────────────────────────
-  [-3.74, -0.18,  0.10, 0.55, 1],
-  [-2.00, -0.65,  0.00, 0.55, 2],
-  [-0.26, -1.13,  0.10, 0.55, 0],
-  [ 1.48, -1.60,  0.00, 0.55, 1],
-  [ 3.22, -2.07,  0.10, 0.55, 2],
+  // ── MEDIUM balloons — front layer (z+) ───────────────────────────────
+  [-3.5, -0.3,  1.4, 0.55, 3],
+  [-1.8,  0.6,  1.4, 0.53, 4],
+  [ 0.0,  1.3,  1.3, 0.53, 0],
+  [ 1.7,  1.8,  1.3, 0.50, 1],
+  [ 3.4,  1.0,  1.4, 0.50, 2],
+  [ 4.8,  0.2,  1.2, 0.48, 3],
 
-  // ── MEDIUM (r=0.52) — front (z+) layer ───────────────────────────────
-  [-3.45,  0.92,  1.30, 0.52, 0],
-  [-1.71,  0.45,  1.30, 0.52, 2],
-  [ 0.03, -0.03,  1.30, 0.52, 1],
-  [ 1.77, -0.50,  1.30, 0.52, 0],
-  [ 3.51, -0.97,  1.30, 0.52, 2],
+  // ── MEDIUM balloons — back layer (z-) ────────────────────────────────
+  [-2.8,  0.3, -1.4, 0.53, 4],
+  [-0.8,  1.2, -1.3, 0.50, 0],
+  [ 1.0,  1.6, -1.3, 0.50, 1],
+  [ 2.8,  0.9, -1.2, 0.48, 2],
+  [ 4.2, -0.2, -1.1, 0.45, 3],
 
-  // ── MEDIUM (r=0.50) — back (z-) layer ────────────────────────────────
-  [-2.58,  0.68, -1.20, 0.50, 1],
-  [-0.84,  0.21, -1.20, 0.50, 2],
-  [ 0.90, -0.26, -1.20, 0.50, 0],
-  [ 2.64, -0.73, -1.20, 0.50, 1],
+  // ── MEDIUM deep front ─────────────────────────────────────────────────
+  [-2.2, -0.2,  2.1, 0.48, 4],
+  [ 0.5,  0.8,  2.0, 0.48, 0],
+  [ 2.5,  1.2,  1.9, 0.45, 1],
 
-  // ── SMALL (r=0.32) — top edge of garland ─────────────────────────────
-  [-4.32,  2.47,  0.00, 0.32, 1],
-  [-3.16,  2.92,  0.10, 0.32, 2],
-  [-2.16,  2.72,  0.00, 0.32, 0],
-  [-1.42,  2.45,  0.10, 0.32, 1],
-  [-0.42,  2.25,  0.00, 0.32, 2],
-  [ 0.32,  1.98,  0.10, 0.32, 0],
-  [ 1.19,  1.78,  0.00, 0.32, 1],
-  [ 2.06,  1.51,  0.10, 0.32, 2],
-  [ 2.93,  1.31,  0.00, 0.32, 0],
-  [ 3.80,  1.04,  0.10, 0.32, 1],
-  [ 4.67,  0.77,  0.00, 0.32, 2],
-  [ 5.27, -0.22,  0.00, 0.32, 0],
+  // ── SMALL cluster balloons — bottom edge ──────────────────────────────
+  [-5.2, -1.5,  0.1, 0.32, 2],
+  [-4.8, -2.7,  0.0, 0.30, 3],
+  [-3.8, -3.0,  0.1, 0.30, 4],
+  [-2.6, -2.6,  0.0, 0.28, 0],
+  [-1.4, -2.2,  0.1, 0.30, 1],
+  [-0.2, -1.8,  0.0, 0.28, 2],
+  [ 1.0, -1.2,  0.1, 0.30, 3],
+  [ 2.4, -0.9,  0.0, 0.28, 4],
+  [ 3.8, -1.2,  0.1, 0.30, 0],
+  [ 5.0, -0.8,  0.0, 0.28, 1],
+  [ 5.5,  0.5,  0.1, 0.30, 2],
 
-  // ── SMALL (r=0.32) — bottom edge of garland ──────────────────────────
-  [-4.32, -0.17,  0.00, 0.32, 2],
-  [-3.74, -1.05,  0.10, 0.32, 0],
-  [-2.00, -1.52,  0.00, 0.32, 1],
-  [-0.26, -2.00,  0.10, 0.32, 2],
-  [ 1.48, -2.47,  0.00, 0.32, 0],
-  [ 3.22, -2.95,  0.10, 0.32, 1],
-  [ 4.38, -2.52,  0.00, 0.32, 2],
+  // ── SMALL cluster balloons — top edge ────────────────────────────────
+  [-5.0,  0.8,  0.0, 0.30, 3],
+  [-4.3,  1.8,  0.1, 0.30, 4],
+  [-2.8,  2.2,  0.0, 0.28, 0],
+  [-1.3,  2.8,  0.1, 0.30, 1],
+  [ 0.3,  3.3,  0.0, 0.28, 2],
+  [ 1.8,  3.5,  0.1, 0.30, 3],
+  [ 3.2,  3.0,  0.0, 0.28, 4],
+  [ 4.5,  2.6,  0.1, 0.30, 0],
+  [ 5.5,  2.0,  0.0, 0.28, 1],
 
-  // ── SMALL (r=0.32) — left end cap ────────────────────────────────────
-  [-5.55,  1.15,  0.00, 0.32, 0],
-  [-5.25,  1.88,  0.10, 0.32, 1],
-  [-5.25,  0.42,  0.00, 0.32, 2],
-  [-4.70,  2.50,  0.00, 0.32, 0],
+  // ── SMALL clusters — front/back depth ────────────────────────────────
+  [-4.0, -0.8,  2.0, 0.28, 2],
+  [-1.5,  0.0,  2.2, 0.28, 3],
+  [ 1.2,  0.5,  2.2, 0.28, 4],
+  [ 3.2,  0.3,  2.0, 0.28, 0],
+  [-2.5,  0.5, -2.0, 0.28, 1],
+  [ 0.5,  0.8, -2.0, 0.28, 2],
+  [ 2.8,  0.5, -1.8, 0.28, 3],
 
-  // ── SMALL (r=0.32) — right end cap ───────────────────────────────────
-  [ 5.61, -1.20,  0.00, 0.32, 1],
-  [ 5.31, -0.47,  0.10, 0.32, 2],
-  [ 5.31, -1.93,  0.00, 0.32, 0],
-  [ 5.95, -1.85,  0.10, 0.32, 1],
-
-  // ── SMALL (r=0.32) — front face depth ────────────────────────────────
-  [-4.32,  1.15,  1.30, 0.32, 2],
-  [-2.58,  0.68,  1.90, 0.32, 0],
-  [ 0.90, -0.26,  1.90, 0.32, 1],
-  [ 4.38, -1.20,  1.30, 0.32, 2],
-
-  // ── TINY (r=0.16) — fill upper triangle gaps ─────────────────────────
-  [-3.96,  1.65,  0.00, 0.16, 1],
-  [-2.26,  1.48,  0.00, 0.16, 2],
-  [-0.52,  0.96,  0.00, 0.16, 0],
-  [ 1.22,  0.49,  0.00, 0.16, 1],
-  [ 2.96, -0.02,  0.00, 0.16, 2],
-
-  // ── TINY (r=0.16) — fill lower triangle gaps ─────────────────────────
-  [-3.96, -0.28,  0.00, 0.16, 0],
-  [-2.26, -0.75,  0.00, 0.16, 1],
-  [-0.52, -1.23,  0.00, 0.16, 2],
-  [ 1.22, -1.70,  0.00, 0.16, 0],
-  [ 2.96, -2.17,  0.00, 0.16, 1],
-
-  // ── TINY (r=0.16) — between top smalls and upper mediums ─────────────
-  [-2.74,  2.48,  0.00, 0.16, 2],
-  [-0.95,  2.10,  0.00, 0.16, 0],
-  [ 0.75,  1.72,  0.00, 0.16, 1],
-  [ 2.44,  1.35,  0.00, 0.16, 2],
-
-  // ── TINY (r=0.16) — front face tuck-ins ──────────────────────────────
-  [-1.71,  0.45,  1.90, 0.16, 1],
-  [ 0.03, -0.03,  1.90, 0.16, 2],
-  [ 1.77, -0.50,  1.90, 0.16, 0],
-
-  // ── TINY (r=0.16) — left end fill ────────────────────────────────────
-  [-5.90,  1.50,  0.00, 0.16, 1],
-  [-5.70,  0.60,  0.00, 0.16, 2],
-
-  // ── TINY (r=0.16) — right end fill ───────────────────────────────────
-  [ 5.90, -1.00,  0.00, 0.16, 0],
-  [ 6.00, -1.80,  0.00, 0.16, 1],
-
-  // ── TINY (r=0.16) — bottom fill ──────────────────────────────────────
-  [-4.60, -1.24,  0.00, 0.16, 2],
-  [-0.62, -2.35,  0.00, 0.16, 0],
-  [ 4.56, -3.18,  0.00, 0.16, 1],
+  // ── TINY gap fillers ──────────────────────────────────────────────────
+  [-4.5, -0.1,  0.0, 0.17, 4],
+  [-3.5, -0.5,  0.0, 0.17, 0],
+  [-2.8, -1.5,  0.0, 0.17, 1],
+  [-1.5, -0.5,  0.0, 0.17, 2],
+  [-0.6,  0.4,  0.0, 0.17, 3],
+  [ 0.5,  0.6,  0.0, 0.17, 4],
+  [ 1.5, -0.2,  0.0, 0.17, 0],
+  [ 2.5,  2.2,  0.0, 0.17, 1],
+  [ 3.5,  1.7,  0.0, 0.17, 2],
+  [-3.0,  2.5,  0.0, 0.17, 3],
+  [-1.0,  3.0,  0.0, 0.17, 4],
+  [ 1.0,  3.1,  0.0, 0.17, 0],
+  [ 4.0, -1.0,  0.0, 0.17, 1],
+  [-2.0, -3.2,  0.0, 0.17, 2],
+  [ 0.5, -2.5,  0.0, 0.17, 3],
+  [ 3.2, -2.0,  0.0, 0.17, 4],
+  [-5.5,  0.2,  0.0, 0.17, 0],
+  [ 5.8,  1.2,  0.0, 0.17, 1],
 ];
 
 function Balloon3D({ position, radius, color }) {
   return (
     <mesh position={position}>
-      <sphereGeometry args={[radius, 32, 32]} />
+      <sphereGeometry args={[radius, 40, 40]} />
       <meshStandardMaterial
         color={color}
-        roughness={0.10}
-        metalness={0.08}
+        roughness={0.38}
+        metalness={0.0}
       />
     </mesh>
   );
@@ -586,20 +565,21 @@ function GarlandScene({ selectedColors, arrangement }) {
 
   return (
     <>
-      <ambientLight intensity={0.55} />
-      <directionalLight position={[4, 6, 5]} intensity={2.0} castShadow />
-      <directionalLight position={[-5, 2, -3]} intensity={0.50} color="#ffd0e8" />
-      <pointLight position={[0, 3, 7]} intensity={0.90} color="#ffffff" />
+      <ambientLight intensity={0.85} color="#fff8f2" />
+      <directionalLight position={[3, 10, 6]} intensity={1.6} />
+      <directionalLight position={[-6, 3, -4]} intensity={0.4} color="#ffe8d0" />
+      <pointLight position={[0, 6, 10]} intensity={0.7} color="#ffffff" />
       <OrbitControls
         enableZoom={false}
         enablePan={false}
-        autoRotate
-        autoRotateSpeed={0.6}
+        autoRotate={false}
+        minPolarAngle={Math.PI * 0.1}
+        maxPolarAngle={Math.PI * 0.9}
       />
       {GARLAND_3D_LAYOUT.map((b, i) => (
         <Balloon3D
           key={i}
-          position={[b[0]*0.95, b[1]*0.95, b[2]*0.95]}
+          position={[b[0], b[1], b[2]]}
           radius={b[3]}
           color={getColor(b)}
         />
@@ -609,9 +589,10 @@ function GarlandScene({ selectedColors, arrangement }) {
 }
 
 function GarlandPreview({ selectedColors, arrangement }) {
+  const bg = "#f8f0e4";
   if (selectedColors.length === 0) {
     return (
-      <div style={{height:300,display:"flex",alignItems:"center",justifyContent:"center",background:"#fdf5f8",borderRadius:14,border:`2px dashed ${BORDER}`}}>
+      <div style={{height:360,display:"flex",alignItems:"center",justifyContent:"center",background:bg,borderRadius:14,border:`2px dashed ${BORDER}`}}>
         <div style={{textAlign:"center"}}>
           <div style={{fontSize:32,marginBottom:6}}>🎈</div>
           <div style={{fontSize:12,color:"#bbb",fontFamily:"'Nunito',sans-serif"}}>Pick colors below to preview your 3D garland</div>
@@ -620,13 +601,14 @@ function GarlandPreview({ selectedColors, arrangement }) {
     );
   }
   return (
-    <div style={{borderRadius:14,overflow:"hidden",border:`1.5px solid ${BORDER}`,background:"#fdf5f8"}}>
-      <div style={{height:300}}>
-        <Canvas camera={{ position:[0, 0.2, 10], fov:62 }}>
+    <div style={{borderRadius:14,overflow:"hidden",border:`1.5px solid ${BORDER}`,background:bg}}>
+      <div style={{height:360,background:bg}}>
+        <Canvas camera={{ position:[0, 0.5, 13], fov:58 }} style={{background:bg}}>
+          <color attach="background" args={[bg]} />
           <GarlandScene selectedColors={selectedColors} arrangement={arrangement} />
         </Canvas>
       </div>
-      <div style={{textAlign:"center",fontSize:10,color:"#bbb",fontFamily:"'Nunito',sans-serif",padding:"5px 0 6px",background:"#fdf5f8",letterSpacing:"0.5px"}}>
+      <div style={{textAlign:"center",fontSize:10,color:"#bbb",fontFamily:"'Nunito',sans-serif",padding:"5px 0 6px",background:bg,letterSpacing:"0.5px"}}>
         ✦ Drag to rotate 360° ✦
       </div>
     </div>
@@ -3713,7 +3695,7 @@ function TablewearRecommendations({ selectedColors, cart, setCart }) {
 function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
   const [arrangement, setArrangement] = useState("mixed");
 
-  const maxColors = 4;
+  const maxColors = 5;
 
   const toggleColor = id => {
     setSelected(prev => {
@@ -3766,8 +3748,8 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
         </div>
         <div style={{fontSize:11,color:"#999",fontFamily:"'Nunito',sans-serif",marginBottom:8,lineHeight:1.5}}>
           {arrangement==="mixed"
-            ? "Colors are blended throughout the garland. Pick up to 4."
-            : "Each color fills its own section of the garland. Pick up to 4."}
+            ? "Colors are blended throughout the garland. Pick up to 5."
+            : "Each color fills its own section of the garland. Pick up to 5."}
         </div>
         <div style={{display:"flex",gap:8}}>
           {[{id:"mixed",label:"Mixed"},{id:"colorblock",label:"Color Block"}].map(o=>(
@@ -3783,7 +3765,7 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
       {/* Color palette grid */}
       <div style={{marginBottom:16}}>
         <div style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'Nunito',sans-serif",textTransform:"uppercase",letterSpacing:"0.8px",marginBottom:10}}>
-          Pick Up to 4 Colors
+          Pick Up to 5 Colors
           <span style={{marginLeft:8,fontWeight:400,color:"#bbb",textTransform:"none",letterSpacing:0}}>{selected.length}/{maxColors} selected</span>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:8}}>
