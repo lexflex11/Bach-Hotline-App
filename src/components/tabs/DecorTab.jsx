@@ -3723,7 +3723,7 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
     });
   };
 
-  const price = "$65";
+  const price = "$75";
 
   return (
     <div style={{marginTop:8,paddingTop:24,borderTop:`2px solid ${MID}`}}>
@@ -3839,18 +3839,6 @@ function GarlandBuilder({ cart, setCart, setTab, selected, setSelected }) {
         </div>
       </div>
 
-      {/* Price + CTA */}
-      <div style={{padding:"14px 16px",borderRadius:16,background:WHITE,border:`1.5px solid ${MID}`,display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}}>
-        <div>
-          <div style={{fontSize:10,color:DARK,fontFamily:"'Nunito',sans-serif",textTransform:"uppercase",letterSpacing:0.8}}>Starting at</div>
-          <div style={{fontSize:26,fontWeight:900,color:HOT,fontFamily:"'Nunito',sans-serif"}}>{price}</div>
-          <div style={{fontSize:10,color:DARK,fontFamily:"'Nunito',sans-serif"}}>Shipped to you</div>
-        </div>
-        <div style={{textAlign:"right",fontSize:11,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.5}}>
-          {selected.length} color{selected.length!==1?"s":""} selected<br/>
-          {arrangement==="mixed"?"Mixed arrangement":"Color block"}
-        </div>
-      </div>
       {/* Add garland to cart */}
       {selected.length > 0 && (
         <button onClick={()=>{
