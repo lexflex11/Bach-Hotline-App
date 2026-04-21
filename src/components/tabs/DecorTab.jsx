@@ -1497,8 +1497,14 @@ export const TABLEWARE = [
   // ── Napkins ───────────────────────────────────────────────────────────────────
   {
     id:"napkin-black-heart", type:"napkin", name:"Mini Heart Napkins",
-    desc:"24 ct · 5\" x 5\"", price:"$9.50",
-    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/679b92dd268ad1226ad9e6b9/1767921905280/Ebook+Thumbnail+with+Video+-+2025-01-30T091042.364.png?format=1500w",
+    desc:"Love is in the air and it is ready to be served with these sweet little details! Hand drawn with love, subtle, and style.",
+    bullets:["Set of 24","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$9.50",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6f3a7554-0330-4c94-88fb-51d1691727ee/Ebook+Thumbnail+with+Video+-+2025-01-30T091042.364.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b0e2ff05-c531-423b-8458-9770371303ca/Ebook+Thumbnail+with+Video+-+2025-01-30T091251.117.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6f3a7554-0330-4c94-88fb-51d1691727ee/Ebook+Thumbnail+with+Video+-+2025-01-30T091042.364.png?format=500w",
     bg:"#1A1A1A", accent:"#E8112D",
     tags:["black","gray-smoke","silver","white","red","scarlett","hotpink","sangria","crystal-burgundy","navy","purple"],
   },
@@ -1798,23 +1804,41 @@ export const TABLEWARE = [
 
   {
     id:"napkin-jackpot", type:"napkin", name:"Jackpot Napkins",
-    desc:"20 ct · 5\" x 5\"", price:"$10.00",
-    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/694b4d5918bbbd208c5057a6/1767828152834/Ebook+Thumbnail+with+Video-350.png?format=1500w",
+    desc:"Your all access pass to nonstop fun. Grab a ticket napkin and let the show begin!",
+    bullets:["Set of 16","Dimensions: 6.5\"l x 6.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$10.00",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/106f8db7-e80b-480b-a579-982eb75700b8/Ebook+Thumbnail+with+Video-350.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b54fb255-07bc-49c3-bcea-fdd6f1da7abf/Ebook+Thumbnail+with+Video-351.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/106f8db7-e80b-480b-a579-982eb75700b8/Ebook+Thumbnail+with+Video-350.png?format=500w",
     bg:"#FFD700", accent:"#E8112D",
     tags:["gold","metallic-gold","champagne","red","scarlett","black","white","silver","crystal-red","hotpink"],
   },
   {
     id:"napkin-rhombuses", type:"napkin", name:"Rhombuses Napkins",
-    desc:"20 ct · 5\" x 5\"", price:"$9.75",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c1eaeb14-5c91-4852-baf1-a3f42f5ebfe2/Ebook+Thumbnail+with+Video-348.png",
+    desc:"Fresh, fun patterned napkins made to brighten up your springtime celebration.",
+    bullets:["Set of 20","Dimensions: 6.5\"l x 6.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$9.75",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c1eaeb14-5c91-4852-baf1-a3f42f5ebfe2/Ebook+Thumbnail+with+Video-348.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0dad9371-1de4-45fb-b745-9495ed38653d/Ebook+Thumbnail+with+Video-349.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c1eaeb14-5c91-4852-baf1-a3f42f5ebfe2/Ebook+Thumbnail+with+Video-348.png?format=500w",
     bg:"#F8F8F8", accent:"#9C27B0",
     tags:["white","sugar","crystal-clear","silver","gold","hotpink","blush","purple","lavender","navy","black","champagne"],
   },
 
   {
     id:"napkin-zodiac", type:"napkin", name:"Zodiac Napkins",
-    desc:"20 ct · 5\" x 5\"", price:"$11.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/79657551-4204-487e-ad6d-67707692806c/Ebook+Thumbnail+with+Video+-+2025-06-24T144821.727.png",
+    desc:"Serve cosmic vibes and star powered style with these zodiac paper napkins perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
+    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$11.00",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/79657551-4204-487e-ad6d-67707692806c/Ebook+Thumbnail+with+Video+-+2025-06-24T144821.727.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a1ad09de-d711-4042-acdf-5e34801e7fcb/Ebook+Thumbnail+with+Video+-+2025-06-24T145348.204.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/79657551-4204-487e-ad6d-67707692806c/Ebook+Thumbnail+with+Video+-+2025-06-24T144821.727.png?format=500w",
     bg:"#1A1A1A", accent:"#FFD700",
     tags:["black","gold","metallic-gold","champagne","purple","plum","navy","metallic-midnight-blue","silver","white","crystal-clear"],
   },
