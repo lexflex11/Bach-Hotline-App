@@ -65,7 +65,7 @@ export default function App() {
       <div style={{ background:WHITE, position:"sticky", top:0, zIndex:100, boxShadow:`0 2px 8px rgba(0,0,0,0.08)` }}>
         {/* ── HEADER ROW ── */}
         <div style={{ padding:"0 16px", display:"flex", alignItems:"center", justifyContent:"space-between", maxWidth:1200, margin:"0 auto" }}>
-          <img src={LOGO_SRC} alt="Bach Hotline" style={{ height:127, width:"auto", objectFit:"contain" }} />
+          <img src={LOGO_SRC} alt="Bach Hotline" style={{ height:90, width:"auto", objectFit:"contain" }} />
           <div style={{ display:"flex", gap:16, alignItems:"center" }}>
             {user.email && (
               <div onClick={()=>setTab("alerts")} style={{ position:"relative", cursor:"pointer", display:"flex", alignItems:"center" }}>
@@ -85,7 +85,7 @@ export default function App() {
               <span style={{ fontSize:13, fontWeight:700, fontFamily:"'Nunito',sans-serif", color:DARK }}>{cart.length}</span>
             </div>
             {/* Profile */}
-            <div onClick={()=>setTab("profile")} style={{ width:28, height:28, borderRadius:"50%", background:`linear-gradient(135deg,#f472b0,${HOT})`, display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer" }}>
+            <div onClick={()=>setTab("profile")} style={{ width:28, height:28, borderRadius:"50%", background:PUNCH, display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="8" r="4"/>
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
