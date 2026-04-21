@@ -1742,6 +1742,7 @@ export const TABLEWARE = [
   },
   {
     id:"napkin-love-bunches", type:"napkin", name:"Love You Bunches Napkins",
+    desc:"Go bananas for love! These bright yellow napkins with a sweet 'Love You Bunches' message are the perfect way to show your a-peel for any special day.",
     bullets:["Set of 16","Dimensions: 6\"l x 6\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
