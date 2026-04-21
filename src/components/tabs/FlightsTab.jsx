@@ -101,26 +101,19 @@ export default function FlightsTab({ groupSize }) {
         <div style={{fontSize:13,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:10}}>
           Where are you going?
         </div>
-
-        {/* US / International toggle */}
-        <div style={{display:"flex",gap:6,marginBottom:12}}>
-          {[["us","US Cities"],["intl","International"]].map(([k,v]) => (
-            <button key={k} onClick={()=>setSection(k)} style={{...BG,flex:1,padding:"8px",fontSize:12,fontWeight:700,background:section===k?HOT:WHITE,color:section===k?WHITE:HOT,border:`1.5px solid ${section===k?HOT:BORDER}`,borderRadius:10}}>
-              {v}
-            </button>
-          ))}
-        </div>
-
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
-          {(section==="us" ? usDests : intlDests).map(d => (
-            <button key={d.id} onClick={()=>setDest(d.id)}
-              style={{background:dest===d.id?SOFT:WHITE,border:dest===d.id?`2px solid ${HOT}`:`1.5px solid ${BORDER}`,borderRadius:12,padding:"10px",cursor:"pointer",textAlign:"left",transition:"all 0.18s",boxShadow:dest===d.id?`0 2px 10px rgba(230,101,130,0.18)`:"none"}}>
-              <div style={{fontSize:12,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:dest===d.id?HOT:DARK}}>{d.name}</div>
-              <div style={{fontSize:10,color:HOT,fontFamily:"'Nunito',sans-serif",opacity:0.75,marginTop:2}}>{d.vibe}</div>
-              {d.international && <div style={{fontSize:9,marginTop:4,color:PUNCH,fontFamily:"'Nunito',sans-serif",fontWeight:700}}>{d.trend}</div>}
-            </button>
-          ))}
-        </div>
+        <select
+          value={dest || ""}
+          onChange={e => setDest(e.target.value || null)}
+          style={{width:"100%",padding:"10px 12px",borderRadius:10,border:`1.5px solid ${BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:13,color:DARK,background:WHITE,appearance:"none",cursor:"pointer"}}
+        >
+          <option value="">Choose a city…</option>
+          <optgroup label="US Cities">
+            {usDests.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
+          </optgroup>
+          <optgroup label="International">
+            {intlDests.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
+          </optgroup>
+        </select>
       </div>
 
       {/* ── STEP 3 — Dates & Times ── */}
