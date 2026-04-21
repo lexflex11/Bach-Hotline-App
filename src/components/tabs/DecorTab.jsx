@@ -1270,6 +1270,7 @@ export const TABLEWARE = [
   {
     id:"plate-denim-star", type:"plate", name:"Denim Star Stripes Plates",
     desc:"8 ct · 9\" x 9\"", price:"$12.50",
+    bullets:["Set of 8","Dimensions: 9\"w x 9\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3a6dc5b4-319a-4b72-b42f-74c2fb494cc6/Ebook+Thumbnail+with+Video+-+2025-05-09T083705.780.png",
     bg:"#1A3A6B", accent:"#E8112D",
     tags:["navy","naval","blue","royalty","metallic-blue","red","scarlett","white","crystal-sapphire","blue-slate"],
@@ -2608,7 +2609,7 @@ export const TABLEWARE = [
   {
     id:"cup-patriotic-cake", type:"cup", name:"Patriotic Cake Slice Cups",
     desc:"Celebrate the 4th of July with our slice of fun patriotic sipper set. A party collection of six cake slice-shaped cups designed to add a festive twist to any gathering.",
-    bullets:["6 cake sippers","Capacity: 12oz","Dimensions: 4\"l x 5\"h x 4\"w","Includes reusable straws"],
+    bullets:["Set of 6","Capacity: 12oz","Dimensions: 4\"l x 5\"h x 4\"w","Includes reusable straws"],
     price:"$49.99",
     images:[
       "https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/545921/6902762281/il_fullxfull.6902762281_ck4m.jpg",
@@ -4576,10 +4577,15 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
     const btnBg = added ? SOFT : `#f496c3`;
     const btnColor = added ? HOT : WHITE;
     const btnBorder = added ? `1.5px solid ${HOT}` : "none";
+    const displayItem = size === "tube" && item.tubeImage
+      ? { ...item, image: item.tubeImage }
+      : item;
     return (
-      <div key={item.id} style={{background:WHITE,borderRadius:18,overflow:"hidden",boxShadow:shadow,transition:"all 0.2s",display:"flex",flexDirection:"column"}}>
-        <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0}}>
-          <TablewearVisual item={item}/>
+      <div key={item.id} style={{background:WHITE,borderRadius:18,overflow:"hidden",boxShadow:shadow,transition:"all 0.2s",display:"flex",flexDirection:"column",position:"relative"}}>
+        <div style={{position:"absolute",top:0,left:0,width:36,height:36,background:"#f496c3",borderRadius:"0 0 100% 0",zIndex:1,pointerEvents:"none"}}/>
+        <div style={{position:"absolute",top:0,right:0,width:36,height:36,background:"#f496c3",borderRadius:"0 0 0 100%",zIndex:1,pointerEvents:"none"}}/>
+        <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0,background:"#fdf5f8"}}>
+          <TablewearVisual item={displayItem}/>
         </div>
         <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
           <div style={{fontSize:10,fontWeight:800,color:HOT,fontFamily:"'Nunito',sans-serif",lineHeight:1.25,marginBottom:4}}>{item.name}</div>
