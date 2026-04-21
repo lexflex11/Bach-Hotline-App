@@ -783,6 +783,7 @@ export const TABLEWARE = [
   {
     id:"plate-scorpio", type:"plate", name:"Scorpio Plates",
     desc:"8 ct · 10\" x 10\"", price:"$12.66",
+    bullets:["Set of 8","Dimensions: 10\"w x 10\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/69c961ce-45a6-486b-8994-fa2ba97ce94b/Ebook+Thumbnail+with+Video+-+2025-06-20T143712.766.png",
     bg:"#1A1A1A", accent:"#E8112D",
     tags:["black","red","scarlett","sangria","crystal-burgundy","purple","plum","crystal-purple","orange","burnt-orange","gray-smoke","navy"],
@@ -970,6 +971,7 @@ export const TABLEWARE = [
   {
     id:"plate-cowgirl-hat", type:"plate", name:"Cowgirl Hat Plates",
     desc:"8 ct · 9\" x 12\"", price:"$13.80",
+    bullets:["Set of 8","Dimensions: 9\"w x 12\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6849976ab91f060aa521e0e5/1767901042792/Ebook+Thumbnail+with+Video+-+2025-05-08T102554.943.png?format=1500w",
     bg:"#F4A7B9", accent:"#C4956A",
     tags:["hotpink","blush","baby-pink","pink","cameo","terracotta","muse","malted","champagne","lace","canyon-rose"],
@@ -1050,6 +1052,7 @@ export const TABLEWARE = [
   {
     id:"plate-yolks", type:"plate", name:"Yolks on You Plates",
     desc:"8 ct · 9\" x 9\"", price:"$12.50",
+    bullets:["Set of 8","Dimensions: 9\"w x 9\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8a0e60d7-79ad-44d6-ba7e-7203b1ffea28/Ebook+Thumbnail+with+Video+-+2025-05-11T155238.849.png",
     bg:"#FFE800", accent:"#FF6B1A",
     tags:["yellow","lemonade","goldenrod","mustard","orange","aloha","cheeky","white","sugar","champagne"],
@@ -1057,6 +1060,7 @@ export const TABLEWARE = [
   {
     id:"plate-monsters-eye", type:"plate", name:"Monsters Eye Plates",
     desc:"8 ct · 7.5\" x 7.5\"", price:"$15.23",
+    bullets:["Set of 8","Dimensions: 7.5\"w x 7.5\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68ba53d90ddc3c70e0e57097/1767901398270/Ebook+Thumbnail+with+Video+-+2025-09-04T221241.884.png?format=1500w",
     bg:"#4CAF50", accent:"#E91E8C",
     tags:["green","lime-green","evergreen","metallic-green","black","purple","plum","orange","burnt-orange","gray-smoke"],
@@ -1078,6 +1082,7 @@ export const TABLEWARE = [
   {
     id:"plate-witchy-hat", type:"plate", name:"Witchy Hat Plates",
     desc:"8 ct · 12.5\" x 11.5\"", price:"$15.54",
+    bullets:["Set of 8","Dimensions: 12.5\"w x 11.5\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68b8e3ddd0ce84605cb7f6e8/1767899967128/Ebook+Thumbnail+with+Video+-+2025-08-27T224152.162.png?format=1500w",
     bg:"#1A1A1A", accent:"#9C27B0",
     tags:["black","purple","plum","crystal-purple","sangria","orange","burnt-orange","evergreen","gray-smoke","metallic-midnight-blue"],
@@ -1085,6 +1090,7 @@ export const TABLEWARE = [
   {
     id:"plate-frills-thrills", type:"plate", name:"Frills & Thrills Plates",
     desc:"8 ct · 8.25\" x 8.25\"", price:"$16.00",
+    bullets:["Set of 8","Dimensions: 8.25\"w x 8.25\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/af1aa9ef-9a7d-4292-8ef6-475591340b6f/Ebook+Thumbnail+with+Video+-+2025-09-02T173858.536.png",
     bg:"#FFB5C2", accent:"#E91E8C",
     tags:["hotpink","blush","baby-pink","pink","cameo","coral","taffy","lavender","white","sugar","gold","champagne"],
@@ -1106,6 +1112,7 @@ export const TABLEWARE = [
   {
     id:"plate-sugar-skull", type:"plate", name:"Sugar Skull Plates",
     desc:"8 ct · 10\" x 7.25\"", price:"$12.66",
+    bullets:["Set of 8","Dimensions: 10\"w x 7.25\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68b9d7f2bb187f4ec7c279e0/1767899670354/Ebook+Thumbnail+with+Video+-+2025-07-20T134000.393.png?format=1500w",
     bg:"#CE93D8", accent:"#E91E8C",
     tags:["purple","lavender","plum","crystal-purple","hotpink","coral","orange","yellow","lemonade","teal","turquoise","black","white"],
@@ -1113,6 +1120,7 @@ export const TABLEWARE = [
   {
     id:"plate-penis", type:"plate", name:"Penis Plates",
     desc:"25 ct · 5\" x 7\"", price:"$13.03",
+    bullets:["Set of 25","Dimensions: 5\"w x 7\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/305dad4b-cffd-443d-a47b-31f6ee351444/Ebook+Thumbnail+with+Video+-+2025-02-16T113626.828.png",
     bg:"#F4A7B9", accent:"#E91E8C",
     tags:["hotpink","blush","pink","baby-pink","coral","taffy","pixie","metallic-fuchsia","white","gold","champagne"],
@@ -1127,6 +1135,7 @@ export const TABLEWARE = [
   {
     id:"plate-rainbow", type:"plate", name:"Rainbow Plates",
     desc:"8 ct · 9\" x 6\"", price:"$12.50",
+    bullets:["Set of 8","Dimensions: 9\"w x 6\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684881ae36c31823d93e6e25/1767899537951/Ebook+Thumbnail+with+Video+-+2025-05-08T105007.289.png?format=1500w",
     bg:"#FFE800", accent:"#E91E8C",
     tags:["confetti","hotpink","red","orange","yellow","lemonade","green","blue","lavender","turquoise","coral","lime-green"],
@@ -1134,6 +1143,7 @@ export const TABLEWARE = [
   {
     id:"plate-queen-of-hearts", type:"plate", name:"Queen of Hearts Plates",
     desc:"8 ct · 8\" x 10\"", price:"$14.50",
+    bullets:["Set of 8","Dimensions: 8\"w x 10\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/01f64bcb-5201-49c6-a7f7-14919103f9f3/Ebook+Thumbnail+with+Video+-+2025-06-08T010753.060.png",
     bg:"#E8112D", accent:"#FFD700",
     tags:["red","scarlett","samba","hotpink","crystal-red","gold","metallic-gold","black","white","sangria","crystal-burgundy"],
@@ -1155,6 +1165,7 @@ export const TABLEWARE = [
   {
     id:"plate-red-bow", type:"plate", name:"Red Bow Plates",
     desc:"8 ct · 9\" x 9\"", price:"$12.50",
+    bullets:["Set of 8","Dimensions: 9\"w x 9\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6793bc23268ad1226ad3646a/1767899095891/Ebook+Thumbnail+with+Video+-+2025-01-25T135854.526.png?format=1500w",
     bg:"#E8112D", accent:"#FFD700",
     tags:["red","scarlett","samba","crystal-red","gold","metallic-gold","champagne","white","black","sangria"],
@@ -1190,6 +1201,7 @@ export const TABLEWARE = [
   {
     id:"plate-happy-disco", type:"plate", name:"Happy Disco Plates",
     desc:"8 ct · 7\" x 7\"", price:"$12.22",
+    bullets:["Set of 8","Dimensions: 7\"w x 7\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/208a4d42-7cec-40fa-bbe0-b5d3c72fc61a/Ebook+Thumbnail+with+Video+-+2025-05-18T191748.541.png",
     bg:"#E91E8C", accent:"#FF6B1A",
     tags:["hotpink","orange","coral","taffy","aloha","cheeky","pixie","metallic-fuchsia","yellow","lemonade","burnt-orange"],
@@ -1204,6 +1216,7 @@ export const TABLEWARE = [
   {
     id:"plate-sweet-strawberry", type:"plate", name:"Sweet Strawberry Plates",
     desc:"8 ct · 8.5\" x 8.5\"", price:"$11.00",
+    bullets:["Set of 8","Dimensions: 8.5\"w x 8.5\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684a16ceb91f060aa5226859/1767898822640/Ebook+Thumbnail+with+Video+-+2025-05-18T120736.773.png?format=1500w",
     bg:"#E53935", accent:"#4CAF50",
     tags:["red","scarlett","hotpink","blush","coral","taffy","baby-pink","pink","green","lime-green","white","sugar"],
@@ -1218,6 +1231,7 @@ export const TABLEWARE = [
   {
     id:"plate-spooky-icons", type:"plate", name:"Spooky Icons Plates",
     desc:"8 ct · 9\" round", price:"$14.38",
+    bullets:["Set of 8","Dimensions: 9\" round"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6dc7c95c-7bf9-41f6-83c2-e9e5fdea2512/Ebook+Thumbnail+with+Video+-+2025-05-18T121452.243.png",
     bg:"#1A1A1A", accent:"#9C27B0",
     tags:["black","purple","plum","crystal-purple","sangria","evergreen","metallic-forest-green","orange","burnt-orange","gray-smoke"],
@@ -1225,6 +1239,7 @@ export const TABLEWARE = [
   {
     id:"plate-spicy-bottle", type:"plate", name:"Spicy Bottle Canape Plates",
     desc:"8 ct · 2.5\" x 5.5\"", price:"$10.22",
+    bullets:["Set of 8","Dimensions: 2.5\"w x 5.5\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8d160dad-74b6-4c50-aca5-29795e36f6cc/Ebook+Thumbnail+with+Video+-+2025-05-11T155124.164.png",
     bg:"#E8112D", accent:"#FF6B1A",
     tags:["red","scarlett","samba","crystal-red","orange","burnt-orange","taffy","coral","hotpink","black"],
