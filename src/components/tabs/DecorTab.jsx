@@ -659,9 +659,10 @@ export const TABLEWARE = [
     bullets:["Set of 8","Dimensions: 11\"w x 11\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.50",
     images:[
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767897977380/Ebook+Thumbnail+with+Video+-+2025-01-22T204555.167.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3032563d-005e-4659-834e-55f2fe71ad05/Ebook+Thumbnail+with+Video+-+2025-01-22T204555.167.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/275f23cb-8a0e-44d7-9687-35e61d624b86/Ebook+Thumbnail+with+Video+-+2025-01-22T204635.535.png?format=500w",
     ],
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767897977380/Ebook+Thumbnail+with+Video+-+2025-01-22T204555.167.png?format=500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3032563d-005e-4659-834e-55f2fe71ad05/Ebook+Thumbnail+with+Video+-+2025-01-22T204555.167.png?format=500w",
     bg:"#D0D0D0", accent:"#A0A0A0",
     tags:["silver","white","champagne","gold"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/foil-star-plates",
