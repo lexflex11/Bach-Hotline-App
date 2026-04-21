@@ -2229,8 +2229,21 @@ export const TABLEWARE = [
 
   {
     id:"napkin-leo", type:"napkin", name:"Leo Napkins",
-    desc:"20 ct · 5\" x 5\"", price:"$10.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/d1619272-b5e5-40c4-ab85-077afd670443/Ebook+Thumbnail+with+Video+-+2025-06-24T091155.266.png",
+    desc:"Serve cosmic vibes and star powered style with these leo paper napkins perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
+    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$10.00",
+    variantLabel:"Size",
+    variants:[
+      { label:"Guest Napkins", price:"11.00", imgIdx:0 },
+      { label:"Large Napkins", price:"10.00", imgIdx:1 },
+    ],
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b557d96e-2c33-4c99-a807-4af9d5cba5ea/Ebook+Thumbnail+with+Video+-+2025-06-24T091104.384.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/d1619272-b5e5-40c4-ab85-077afd670443/Ebook+Thumbnail+with+Video+-+2025-06-24T091155.266.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6860e3d7-c56b-4780-8f9a-e459d8e187c1/Ebook+Thumbnail+with+Video+-+2025-06-24T091609.253.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c41bae69-3209-47a8-812c-d22d88d7d7b1/Ebook+Thumbnail+with+Video+-+2025-06-24T091550.286.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b557d96e-2c33-4c99-a807-4af9d5cba5ea/Ebook+Thumbnail+with+Video+-+2025-06-24T091104.384.png?format=500w",
     bg:"#FFD700", accent:"#E8112D",
     tags:["gold","metallic-gold","champagne","orange","burnt-orange","aloha","red","scarlett","yellow","lemonade","white","crystal-clear"],
   },
