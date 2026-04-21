@@ -573,6 +573,7 @@ function GarlandScene({ selectedColors, arrangement }) {
         enableZoom={false}
         enablePan={false}
         autoRotate={false}
+        target={[0, 0.8, 0]}
         minPolarAngle={Math.PI * 0.1}
         maxPolarAngle={Math.PI * 0.9}
       />
@@ -603,7 +604,7 @@ function GarlandPreview({ selectedColors, arrangement }) {
   return (
     <div style={{borderRadius:14,overflow:"hidden",border:`1.5px solid ${BORDER}`,background:bg}}>
       <div style={{height:360,background:bg}}>
-        <Canvas camera={{ position:[0, 0.5, 13], fov:58 }} style={{background:bg}}>
+        <Canvas camera={{ position:[0, 1.5, 13], fov:58 }} style={{background:bg}}>
           <color attach="background" args={[bg]} />
           <GarlandScene selectedColors={selectedColors} arrangement={arrangement} />
         </Canvas>
