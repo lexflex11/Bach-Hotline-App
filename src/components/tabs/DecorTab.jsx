@@ -699,7 +699,12 @@ export const TABLEWARE = [
   },
   {
     id:"plate-sardine",  type:"plate", name:"Sardine Can Paper Plates",
-    desc:"Bachelorette Party",     price:"$13.98",
+    desc:"Make waves at dinner with our sardine can plate. Quirky, coastal, and ready to steal the show.",
+    bullets:["Set of 8","Dimensions: 6.5\"w x 8.5\"l","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$13.98",
+    images:[
+      "https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/b22232/7879236574/il_fullxfull.7879236574_k366.jpg",
+    ],
     image:"https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/b22232/7879236574/il_fullxfull.7879236574_k366.jpg",
     bg:"#81D4FA", accent:"#0288D1",
     tags:["blue","mint","white"],
