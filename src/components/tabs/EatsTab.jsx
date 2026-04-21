@@ -1208,7 +1208,7 @@ export default function EatsTab({ groupSize }) {
 
   return (
     <div>
-      <SH title="Find Restaurants" sub="The best tables for your group" />
+      <SH title="Bites & Sips" sub="Fuel for the festivities" />
 
       {/* Search form */}
       <div style={{ ...C, marginBottom:12 }}>
