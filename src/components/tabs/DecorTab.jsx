@@ -2421,8 +2421,14 @@ export const TABLEWARE = [
   },
   {
     id:"cup-butterfly", type:"cup", name:"Butterfly Cups",
-    desc:"8 ct · 9 oz", price:"$11.00",
-    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/69093158251a3c395b53abf3/1767902138322/Ebook+Thumbnail+with+Video+-+2025-11-03T165151.639.png?format=1500w",
+    desc:"Beautiful butterflies! With dreamy pastels and shimmering holographic foil, these butterfly cups make your hearts flutter.",
+    bullets:["Set of 8","Capacity: 9oz","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$11.00",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/2320f49d-dc9e-42df-8dfe-25561541ee22/Ebook+Thumbnail+with+Video+-+2025-11-03T165151.639.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/9c41c110-f22c-4156-8c6c-7c63eb7d3b58/Ebook+Thumbnail+with+Video+-+2025-11-03T165437.483.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/2320f49d-dc9e-42df-8dfe-25561541ee22/Ebook+Thumbnail+with+Video+-+2025-11-03T165151.639.png?format=500w",
     bg:"#CE93D8", accent:"#81D4FA",
     tags:["lavender","purple","blossom","baby-blue","monet","blush","baby-pink","hotpink","white","crystal-clear","silver","confetti"],
   },
