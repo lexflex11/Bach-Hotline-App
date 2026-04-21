@@ -1929,8 +1929,14 @@ export const TABLEWARE = [
   },
   {
     id:"napkin-hot-wheels", type:"napkin", name:"Hot Wheels Napkins",
-    desc:"20 ct · 5\" x 5\"", price:"$8.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c3d58fe3-ca6d-4c8b-bbed-a4fb7dedefb8/Ebook+Thumbnail+with+Video-409.png",
+    desc:"Rev up your bachelorette! These bold Hot Wheels inspired napkins bring racing vibes and party energy to your celebration.",
+    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$8.50",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8ba65571-28eb-4768-b638-c8302be1700d/Ebook+Thumbnail+with+Video-409.png?format=500w",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3f013ceb-6867-4ccb-908b-e77a7c8887e9/Ebook+Thumbnail+with+Video-410.png?format=500w",
+    ],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8ba65571-28eb-4768-b638-c8302be1700d/Ebook+Thumbnail+with+Video-409.png?format=500w",
     bg:"#E8112D", accent:"#1A1A1A",
     tags:["red","scarlett","orange","burnt-orange","black","yellow","lemonade","metallic-starfire-red"],
   },
