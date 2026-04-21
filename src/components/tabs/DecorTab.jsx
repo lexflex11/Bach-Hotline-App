@@ -3978,8 +3978,7 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,paddingTop:20,borderTop:`2px solid ${MID}`}}>
         <div style={{width:28,height:28,borderRadius:"50%",background:`#f496c3`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:WHITE,flexShrink:0}}>{stepNum}</div>
         <div>
-          <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{emoji ? `${emoji} ` : ""}{title}</div>
-          <div style={{fontSize:11,color:HOT,fontFamily:"'Nunito',sans-serif",opacity:0.8}}>{subtitle}</div>
+          <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{title}</div>
         </div>
       </div>
       {selectedColors.length === 0 ? (
@@ -4505,8 +4504,7 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,paddingTop:20,borderTop:`2px solid ${MID}`}}>
         <div style={{width:28,height:28,borderRadius:"50%",background:`#f496c3`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:WHITE,flexShrink:0}}>{stepNum}</div>
         <div>
-          <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>🎉 Party Accessories</div>
-          <div style={{fontSize:11,color:HOT,fontFamily:"'Nunito',sans-serif",opacity:0.8}}>Fun extras to complete your party vibe</div>
+          <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>Party Accessories</div>
         </div>
       </div>
       {PARTY_ACCESSORIES.length === 0 ? (
@@ -4600,8 +4598,7 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,paddingTop:20,borderTop:`2px solid ${MID}`}}>
         <div style={{width:28,height:28,borderRadius:"50%",background:`#f496c3`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:WHITE,flexShrink:0}}>{stepNum}</div>
         <div>
-          <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>🎊 Add Some Confetti</div>
-          <div style={{fontSize:11,color:HOT,fontFamily:"'Nunito',sans-serif",opacity:0.8}}>The perfect finishing touch — choose your size</div>
+          <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>Add Some Confetti</div>
         </div>
       </div>
       {selectedColors.length === 0 ? (
@@ -4720,7 +4717,6 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
         <div style={{width:28,height:28,borderRadius:"50%",background:`#f496c3`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:WHITE,flexShrink:0}}>{stepNum}</div>
         <div>
           <div style={{fontSize:14,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>Add Foil Balloons</div>
-          <div style={{fontSize:11,color:HOT,fontFamily:"'Nunito',sans-serif",opacity:0.8}}>Number balloons, letters, shapes & more</div>
         </div>
       </div>
       {selectedColors.length === 0 ? (
@@ -4955,23 +4951,23 @@ export default function DecorTab({ groupSize, cart, setCart, setTab, openCart })
       {/* ── Step 3: Plates ── */}
       <ProductStep
         stepNum={3} emoji="" title="Pick Your Plates"
-        subtitle="Add as many as you like, mix and match"
+        subtitle=""
         type="plate" selectedColors={selected}
         cart={cart||[]} setCart={setCart||(_=>{})}
       />
 
       {/* ── Step 4: Cups ── */}
       <ProductStep
-        stepNum={4} emoji="🥂" title="Pick Your Cups"
-        subtitle="Sorted by your garland colors when selected"
+        stepNum={4} emoji="" title="Pick Your Cups"
+        subtitle=""
         type="cup" selectedColors={selected}
         cart={cart||[]} setCart={setCart||(_=>{})}
       />
 
       {/* ── Step 5: Napkins ── */}
       <ProductStep
-        stepNum={5} emoji="🎀" title="Pick Your Napkins"
-        subtitle="From fun to fancy"
+        stepNum={5} emoji="" title="Pick Your Napkins"
+        subtitle=""
         type="napkin" selectedColors={selected}
         cart={cart||[]} setCart={setCart||(_=>{})}
       />
@@ -4984,16 +4980,16 @@ export default function DecorTab({ groupSize, cart, setCart, setTab, openCart })
 
       {/* ── Step 7: Treat Bags ── */}
       <ProductStep
-        stepNum={7} emoji="🎁" title="Pick Your Treat Bags"
-        subtitle="Sweet little extras for your crew"
+        stepNum={7} emoji="" title="Pick Your Treat Bags"
+        subtitle=""
         type="treatbag" selectedColors={selected}
         cart={cart||[]} setCart={setCart||(_=>{})}
       />
 
       {/* ── Step 8: Banners & Backdrops ── */}
       <ProductStep
-        stepNum={8} emoji="🎊" title="Banners & Backdrops"
-        subtitle="Set the scene for your squad"
+        stepNum={8} emoji="" title="Banners & Backdrops"
+        subtitle=""
         type="banner" selectedColors={selected}
         cart={cart||[]} setCart={setCart||(_=>{})}
       />
