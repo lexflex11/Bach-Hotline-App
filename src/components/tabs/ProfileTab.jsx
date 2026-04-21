@@ -225,34 +225,56 @@ const MOMENTS = [
   { id:"other",        label:"Other"           },
 ];
 
+const CLOUDINARY_CLOUD = "du3qkblhi";
+const CLOUDINARY_PRESET = "Bach Hotline";
+
 function MediaSection({ user }) {
   const fileRef = useRef();
   const [dest,      setDest]      = useState("");
   const [moment,    setMoment]    = useState("");
   const [caption,   setCaption]   = useState("");
-  const [files,     setFiles]     = useState([]);
+  const [files,     setFiles]     = useState([]); // { id, url, name, isVideo, raw }
   const [submitted, setSubmitted] = useState([]);
   const [success,   setSuccess]   = useState(false);
   const [dragging,  setDragging]  = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [progress,  setProgress]  = useState(0);
 
   const processFiles = rawFiles => {
     Array.from(rawFiles).forEach(file => {
       const reader = new FileReader();
       const isVideo = file.type.startsWith("video/");
-      reader.onload = ev => setFiles(p => [...p, { id:Date.now()+Math.random(), url:ev.target.result, name:file.name, isVideo }]);
+      reader.onload = ev => setFiles(p => [...p, { id:Date.now()+Math.random(), url:ev.target.result, name:file.name, isVideo, raw:file }]);
       reader.readAsDataURL(file);
     });
   };
   const handleDrop = e => { e.preventDefault(); setDragging(false); processFiles(e.dataTransfer.files); };
   const removeFile = id => setFiles(p => p.filter(f => f.id !== id));
-  const canSubmit = dest && moment && files.length > 0;
-  const submit = () => {
+  const canSubmit = dest && moment && files.length > 0 && !uploading;
+
+  const submit = async () => {
     if (!canSubmit) return;
-    const destObj = DESTS.find(d => d.id === dest);
+    setUploading(true); setProgress(0);
+    const destObj   = DESTS.find(d => d.id === dest);
     const momentObj = MOMENTS.find(m => m.id === moment);
-    setSubmitted(p => [...p, { id:Date.now(), dest:destObj?.name||dest, moment:momentObj?.label||moment, caption, files:[...files], date:new Date().toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}) }]);
+    const folder    = `bach-hotline/${destObj?.name||dest}/${momentObj?.label||moment}`;
+    const uploaded  = [];
+    for (let i = 0; i < files.length; i++) {
+      const f = files[i];
+      const fd = new FormData();
+      fd.append("file", f.raw);
+      fd.append("upload_preset", CLOUDINARY_PRESET);
+      fd.append("folder", folder);
+      if (caption) fd.append("context", `caption=${caption}|user=${user?.name||"guest"}`);
+      const res  = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/auto/upload`, { method:"POST", body:fd });
+      const data = await res.json();
+      uploaded.push({ url:f.url, secure_url:data.secure_url, isVideo:f.isVideo });
+      setProgress(Math.round(((i+1)/files.length)*100));
+    }
+    setSubmitted(p => [...p, { id:Date.now(), dest:destObj?.name||dest, moment:momentObj?.label||moment, caption, files:uploaded, date:new Date().toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}) }]);
     setDest(""); setMoment(""); setCaption(""); setFiles([]);
-    setSuccess(true); setTimeout(() => setSuccess(false), 4000);
+    setUploading(false); setProgress(0);
+    setSuccess(true); setTimeout(() => setSuccess(false), 5000);
   };
 
   return (
@@ -332,10 +354,21 @@ function MediaSection({ user }) {
             style={{ width:"100%", border:`1.5px solid ${BORDER}`, borderRadius:12, padding:"11px 14px", fontFamily:"'Nunito',sans-serif", fontSize:13, background:"#fdf8fb", color:DARK, outline:"none", boxSizing:"border-box", resize:"none", lineHeight:1.5 }} />
         </div>
         <div style={{ fontSize:11, color:"#bbb", fontFamily:"'Nunito',sans-serif", marginBottom:12, lineHeight:1.5 }}>
-          If it makes the cut, your content could be featured in the Bach Hotline community.
+          Your upload goes directly to our media library so we can review and share it.
         </div>
+        {uploading && (
+          <div style={{ marginBottom:12 }}>
+            <div style={{ display:"flex", justifyContent:"space-between", marginBottom:4 }}>
+              <span style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif", fontWeight:700 }}>Uploading...</span>
+              <span style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif" }}>{progress}%</span>
+            </div>
+            <div style={{ height:6, borderRadius:6, background:SOFT, overflow:"hidden" }}>
+              <div style={{ height:"100%", width:`${progress}%`, background:`linear-gradient(90deg,#f472b0,${HOT})`, borderRadius:6, transition:"width 0.3s" }} />
+            </div>
+          </div>
+        )}
         <button onClick={submit} disabled={!canSubmit} style={{ ...btn1, opacity:canSubmit?1:0.4, cursor:canSubmit?"pointer":"not-allowed" }}>
-          Submit
+          {uploading ? `Uploading ${progress}%...` : "Submit"}
         </button>
       </div>
 
