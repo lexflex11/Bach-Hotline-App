@@ -3409,6 +3409,7 @@ export const TABLEWARE = [
     id:"confetti-peace-love", type:"confetti", name:"Peace & Love Confetti",
     desc:"table scatter", price:"$8.99",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/d07abd32-5f07-40a5-8dea-a0c80d1b0fc5/Ebook+Thumbnail+with+Video+-+2025-08-04T203531.863.png",
+    tubeImage:"https://i.etsystatic.com/40669879/r/il/0b2d83/7081259658/il_fullxfull.7081259658_7vjl.jpg",
     bg:"#9C27B0", accent:"#FFD700",
     tags:["purple","plum","lavender","blossom","hotpink","blush","baby-pink","pink","yellow","lemonade","goldenrod","blue","baby-blue","monet","white","crystal-clear","sugar","gold","metallic-gold","champagne"],
   },
