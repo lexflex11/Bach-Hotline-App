@@ -3284,7 +3284,7 @@ export const TABLEWARE = [
   {
     id:"treatbag-shell", type:"treatbag", name:"Shell Treat Bags",
     desc:"8 ct · 6.5\"h × 6\"l × 3\"w", price:"$26.84",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/01a39f20-fdc6-4b0f-9795-429ba68f83d9/Ebook+Thumbnail+with+Video+-+2025-05-13T194717.269.png",
+    image:"https://i.etsystatic.com/40669879/r/il/22cd03/6871762780/il_fullxfull.6871762780_fmjj.jpg",
     bg:"#E0F7FA", accent:"#F48FB1",
     tags:["teal","blue","baby-blue","monet","pink","baby-pink","blush","peach","iridescent","silver","white","coastal","tropical","mermaid"],
   },
