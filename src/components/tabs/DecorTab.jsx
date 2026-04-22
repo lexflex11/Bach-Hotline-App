@@ -4700,9 +4700,9 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
           <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0}}>
             <TablewearVisual item={item}/>
           </div>
-          <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+          <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column"}}>
             <div style={{fontSize:13,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2}}>{item.name}</div>
-            <div style={{marginTop:5}}>
+            <div>
               <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:4}}>{item.price} each</div>
               <button onClick={() => setActiveNumId(activeNumId === item.id ? null : item.id)} style={{
                 width:"100%", background:btnBg, color:btnColor, border:btnBorder,
