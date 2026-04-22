@@ -78,7 +78,7 @@ function ProductTile({ p, onView }) {
       <div style={{
         position:"relative", width:"100%", aspectRatio:"1/1",
         background:WHITE,
-        marginBottom:10,
+        marginBottom:4,
       }}>
         {!err && p.image ? (
           <img
