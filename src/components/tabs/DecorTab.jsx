@@ -4859,7 +4859,7 @@ function CuratedThemes({ cart, setCart }) {
                       }
                       <div style={{flex:1,minWidth:0}}>
                         <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,fontWeight:300,color:added?HOT:DARK,lineHeight:1.3,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{added?"✓ ":""}{item.name}</div>
-                        <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,fontWeight:700,color:added?HOT:PUNCH,marginTop:1}}>{item.price}</div>
+                        <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,fontWeight:300,color:added?HOT:DARK,marginTop:1}}>{item.price}</div>
                       </div>
                     </div>
                   );
