@@ -61,6 +61,7 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
   url:       p.etsyUrl || "",
   desc:      p.type === "foil" ? (() => { const m = p.name.match(/^(\d+)"/); return m ? `Set of 1 · Size: ${m[1]}"` : p.desc || ""; })() : p.desc || "",
   bullets:   p.bullets || [],
+  tags:      p.tags || [],
   variants:     p.variants || [],
   variantLabel: p.variantLabel || "",
   isDigital: false,
@@ -391,13 +392,39 @@ export default function ShopTab({ cart, setCart }) {
   const add    = p  => { if (!inCart(p.id)) setCart(prev=>[...prev,p]); };
   const remove = id => setCart(prev=>prev.filter(c=>c.id!==id));
 
-  // Memoize so random shuffle only runs when selected product changes, not on every cart update
+  // Cross-category recommendations: show items from OTHER categories that share tags
   const recommended = React.useMemo(() => {
     if (!selected) return [];
-    return DECOR_PRODUCTS
-      .filter(p => p.id !== selected.id && p.category === selected.category)
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 4);
+    const selTags = new Set(selected.tags || []);
+    if (selTags.size === 0) return [];
+
+    // Score every product from a DIFFERENT category by tag overlap
+    const scored = DECOR_PRODUCTS
+      .filter(p => p.id !== selected.id && p.category !== selected.category)
+      .map(p => ({ ...p, _score: p.tags.filter(t => selTags.has(t)).length }))
+      .filter(p => p._score > 0)
+      .sort((a, b) => b._score - a._score);
+
+    // Pick best match per category so the user sees a full set
+    const seen = new Set();
+    const picks = [];
+    for (const p of scored) {
+      if (!seen.has(p.category)) {
+        seen.add(p.category);
+        picks.push(p);
+        if (picks.length >= 4) break;
+      }
+    }
+    // If fewer than 4, fill with next best across any category
+    if (picks.length < 4) {
+      for (const p of scored) {
+        if (!picks.find(x => x.id === p.id)) {
+          picks.push(p);
+          if (picks.length >= 4) break;
+        }
+      }
+    }
+    return picks;
   }, [selected?.id]);
 
   const filtered = DECOR_PRODUCTS.filter(p => {

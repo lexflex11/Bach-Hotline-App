@@ -1087,8 +1087,13 @@ export const TABLEWARE = [
   },
   {
     id:"plate-olive", type:"plate", name:"Olive Plates",
+    desc:"A martini-worthy spread! These olive paper plates bring a playful, sophisticated touch to your cocktail-themed bachelorette party.",
     bullets:["Set of 8","Dimensions: 6.75\"l x 8\"w"],
     price:"$12.50",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ff9c3a63-a31e-4200-b47c-e7c56bdad7c0/Ebook+Thumbnail+with+Video+-+2025-07-06T205033.943.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c91ba942-5696-40d0-bf54-f7aef3f87d84/Ebook+Thumbnail+with+Video+-+2025-07-06T205046.203.png",
+    ],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ff9c3a63-a31e-4200-b47c-e7c56bdad7c0/Ebook+Thumbnail+with+Video+-+2025-07-06T205033.943.png",
     bg:"#76A96C", accent:"#C8A882",
     tags:["green","meadow","sage","willow","evergreen","empower-mint","fiona","olive","terracotta","muse","lace","champagne"],
