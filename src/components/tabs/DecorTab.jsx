@@ -3999,7 +3999,6 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
     const shadow = added
       ? `0 0 0 2px ${HOT}, 0 4px 16px rgba(233,30,140,0.15)`
       : "0 4px 16px rgba(0,0,0,0.09)";
-    const countSize = getCountSize(item);
     return (
       <div key={item.id} style={{background:WHITE,borderRadius:18,overflow:"hidden",boxShadow:shadow,transition:"all 0.2s",display:"flex",flexDirection:"column",position:"relative"}}>
         <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0,background:"#fff"}}>
@@ -4007,7 +4006,12 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
         </div>
         <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column"}}>
           <div style={{fontSize:11,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2}}>{item.name}</div>
-          {countSize && <div style={{fontSize:8,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>}
+          {item.bullets?.length >= 1 && (
+            <div style={{fontSize:8,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.6,marginBottom:4}}>
+              <div>{item.bullets[0]}</div>
+              {item.bullets[1] && <div>{item.bullets[1].replace(/^Dimensions:/i,"Size:").replace(/^Capacity:\s*(\S+)/i,"$1 capacity")}</div>}
+            </div>
+          )}
           <div style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
             <button onClick={()=>adjQty(item.id, qty-1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>−</button>
@@ -4530,7 +4534,6 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
     const added = inCart(item.id);
     const qty = getQty(item.id);
     const shadow = added ? `0 0 0 2px ${HOT}, 0 4px 16px rgba(233,30,140,0.15)` : "0 4px 16px rgba(0,0,0,0.09)";
-    const countSize = getCountSize(item);
     return (
       <div key={item.id} style={{background:WHITE,borderRadius:18,overflow:"hidden",boxShadow:shadow,transition:"all 0.2s",display:"flex",flexDirection:"column",position:"relative"}}>
         <div style={{position:"relative",width:"100%",aspectRatio:"1/1",overflow:"hidden",flexShrink:0,background:"#fff"}}>
@@ -4538,7 +4541,12 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
         </div>
         <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column"}}>
           <div style={{fontSize:11,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2}}>{item.name}</div>
-          {countSize && <div style={{fontSize:8,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>}
+          {item.bullets?.length >= 1 && (
+            <div style={{fontSize:8,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.6,marginBottom:4}}>
+              <div>{item.bullets[0]}</div>
+              {item.bullets[1] && <div>{item.bullets[1].replace(/^Dimensions:/i,"Size:").replace(/^Capacity:\s*(\S+)/i,"$1 capacity")}</div>}
+            </div>
+          )}
           <div style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
             <button onClick={()=>adjQty(item.id, qty-1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>−</button>
