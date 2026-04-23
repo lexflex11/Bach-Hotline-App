@@ -2594,7 +2594,7 @@ export const TABLEWARE = [
   {
     id:"cup-blood-bags", type:"cup", name:"Blood Plastic Bags",
     desc:"Fill them with 'blood' (or booze!) These drink pouches bring the perfect bite to your spooky bash.",
-    bullets:["Set of 5 pouches","Dimensions: 8.27\"l x 4.72\"w","Includes 1 funnel"],
+    bullets:["Set of 5","Dimensions: 8.27\"l x 4.72\"w","Includes 1 funnel"],
     price:"$20.68",
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68b7992764121927f4c311ea/1767902296319/Ebook+Thumbnail+with+Video+-+2025-09-02T182534.261.png?format=500w",
