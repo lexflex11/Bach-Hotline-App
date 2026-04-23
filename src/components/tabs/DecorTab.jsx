@@ -784,7 +784,7 @@ export const TABLEWARE = [
   {
     id:"plate-scorpio", type:"plate", name:"Scorpio Plates",
     desc:"Serve cosmic vibes and star powered style with these Scorpio paper plates perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 8","Dimensions: 10\" x 10\"","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/69c961ce-45a6-486b-8994-fa2ba97ce94b/Ebook+Thumbnail+with+Video+-+2025-06-20T143712.766.png",
     bg:"#1A1A1A", accent:"#E8112D",
@@ -871,7 +871,7 @@ export const TABLEWARE = [
   {
     id:"plate-capricorn", type:"plate", name:"Capricorn Plates",
     desc:"Serve cosmic vibes and star powered style with these Capricorn paper plates perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 8","Dimensions: 10\" x 10\"","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/48f333d2-3281-4a7a-b363-b3298b828e93/Ebook+Thumbnail+with+Video+-+2025-06-19T143322.139.png",
     bg:"#1A1A1A", accent:"#C8A882",
@@ -1033,7 +1033,7 @@ export const TABLEWARE = [
   {
     id:"plate-lemon-zest", type:"plate", name:"Lemon Zest Plates",
     desc:"Fresh colors, lemony flair, and major summer vibes; perfect party plates that are full of color and charm.",
-    bullets:["Set of 8","Size: 8.5\"","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 8.5\" diameter","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.25",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/69501ea618bbbd208c522116/1768078219828/Ebook+Thumbnail+with+Video-379.png?format=1500w",
     bg:"#FFEA5A", accent:"#4CAF50",
@@ -1041,7 +1041,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-girl-power", type:"plate", name:"Girl Power Plates",
-    bullets:["Set of 8","Dimensions: 7.5\" x 7.5\""],
+    bullets:["Set of 8","Dimensions: 7.5\"l x 7.5\"w"],
     price:"$12.50",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68487d911ef4b52dec0565fb/1767901315872/Ebook+Thumbnail+with+Video+-+2025-05-18T120725.978.png?format=1500w",
     bg:"#F4A7B9", accent:"#C0C0C0",
@@ -1049,7 +1049,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-vinyl-disco", type:"plate", name:"Vinyl Disco Plates",
-    bullets:["Set of 8","Dimensions: 9\" x 9\""],
+    bullets:["Set of 8","Dimensions: 9\"l x 9\"w"],
     price:"$11.22",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68ebfd05c8d07324547aaea0/1767901345848/Ebook+Thumbnail+with+Video-123.png?format=1500w",
     bg:"#1A1A1A", accent:"#C0C0C0",
@@ -1073,7 +1073,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-sweet-spots", type:"plate", name:"Sweet Spots Plates",
-    bullets:["Set of 8","Dimensions: 7\" x 7\""],
+    bullets:["Set of 8","Dimensions: 7\"l x 7\"w"],
     price:"$12.66",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68ba43aa91ca2a75c5a96789/1767901430686/Ebook+Thumbnail+with+Video+-+2025-07-10T190101.641.png?format=1500w",
     bg:"#F4A7B9", accent:"#E91E8C",
@@ -1081,7 +1081,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-olive", type:"plate", name:"Olive Plates",
-    bullets:["Set of 8","Dimensions: 6.75\" x 8\""],
+    bullets:["Set of 8","Dimensions: 6.75\"l x 8\"w"],
     price:"$12.50",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ff9c3a63-a31e-4200-b47c-e7c56bdad7c0/Ebook+Thumbnail+with+Video+-+2025-07-06T205033.943.png",
     bg:"#76A96C", accent:"#C8A882",
@@ -1105,7 +1105,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-camp-bach", type:"plate", name:"Camp Bachelorette Plates",
-    bullets:["Set of 8","Dimensions: 10\" x 10\""],
+    bullets:["Set of 8","Dimensions: 10\"l x 10\"w"],
     price:"$12.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68acdc1610a90473ab295ae8/1767899924417/Ebook+Thumbnail+with+Video+-+2025-11-06T123554.536.png?format=1500w",
     bg:"#76A96C", accent:"#C4956A",
@@ -1113,7 +1113,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-rock-on-skeleton", type:"plate", name:"Rock On Skeleton Plates",
-    bullets:["Set of 8","Dimensions: 10\" x 10\""],
+    bullets:["Set of 8","Dimensions: 10\"l x 10\"w"],
     price:"$12.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/690cf49b03d8727c4c7c0abc/1767899702325/Ebook+Thumbnail+with+Video+-+2025-11-07T112344.695.png?format=1500w",
     bg:"#1A1A1A", accent:"#E91E8C",
@@ -1138,7 +1138,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-summer-bow", type:"plate", name:"Summer Bow Plates",
-    bullets:["Set of 8","Dimensions: 9\" x 9\""],
+    bullets:["Set of 8","Dimensions: 9\"l x 9\"w"],
     price:"$13.21",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/2ffa8158-a306-49d8-a764-06fb1a2a998d/Ebook+Thumbnail+with+Video+-+2025-06-06T130811.387.png",
     bg:"#FFB5C2", accent:"#FFD700",
@@ -1162,7 +1162,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-ephemera-skeleton", type:"plate", name:"Ephemera Skeleton Plates",
-    bullets:["Set of 8","Dimensions: 5.5\" x 9\""],
+    bullets:["Set of 8","Dimensions: 5.5\"l x 9\"w"],
     price:"$12.10",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6793bc8c6c9a8e41d1c331e4/1767899122995/Ebook+Thumbnail+with+Video+-+2025-01-26T154613.995.png?format=1500w",
     bg:"#1A1A1A", accent:"#CE93D8",
@@ -1170,7 +1170,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-ditzy-floral", type:"plate", name:"Ditzy Floral Plates",
-    bullets:["Set of 8","Dimensions: 9\" x 9\""],
+    bullets:["Set of 8","Dimensions: 9\"l x 9\"w"],
     price:"$12.50",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/74f640a7-59c7-46f9-ab43-03a6cb3c7dc1/Ebook+Thumbnail+with+Video+-+2025-01-30T095126.115.png",
     bg:"#F4A7B9", accent:"#76A96C",
@@ -1186,7 +1186,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-let-love-bloom", type:"plate", name:"Let Love Bloom Plates",
-    bullets:["Set of 8","Dimensions: 9\" x 9\""],
+    bullets:["Set of 8","Dimensions: 9\"l x 9\"w"],
     price:"$11.48",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6793bc689ae1111daaf83736/1767899074707/Ebook+Thumbnail+with+Video+-+2025-01-25T183851.969.png?format=1500w",
     bg:"#F4A7B9", accent:"#76A96C",
@@ -1194,7 +1194,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-floral-skull", type:"plate", name:"Floral Skull Spider Plates",
-    bullets:["Set of 8","Dimensions: 8.25\""],
+    bullets:["Set of 8","Dimensions: 8.25\" diameter"],
     price:"$10.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6849a132b7ad9e539ec661a9/1767898996372/Ebook+Thumbnail+with+Video+-+2025-05-18T121452.243.png?format=1500w",
     bg:"#1A1A1A", accent:"#CE93D8",
