@@ -481,7 +481,7 @@ const GARLAND_3D_LAYOUT = [
   [-0.49,-1.59,  0.0, 0.28, 2],  // touches secondary at [-1.3,-1.0]
   [ 0.92,-1.06,  0.1, 0.30, 3],  // touches secondary at [0.4,-0.2]
   [ 2.33,-0.63,  0.0, 0.28, 4],  // touches secondary at [2.1,0.3]
-  [ 3.8, -1.2,  0.1, 0.30, 0],
+  [ 3.8, -1.35, 0.1, 0.30, 0],   // moved to touch secondary at [3.8,-0.4]
   [ 4.68,-0.69,  0.0, 0.28, 1],  // touches secondary at [3.8,-0.4]
   [ 5.43, 0.65,  0.1, 0.30, 2],  // touches large at [5.0,1.5]
 
@@ -515,15 +515,15 @@ const GARLAND_3D_LAYOUT = [
   [ 1.5, -0.2,  0.0, 0.17, 0],
   [ 2.5,  2.2,  0.0, 0.17, 1],
   [ 3.5,  1.7,  0.0, 0.17, 2],
-  [-3.0,  2.5,  0.0, 0.17, 3],
-  [-1.0,  3.0,  0.0, 0.17, 4],
-  [ 1.0,  3.1,  0.0, 0.17, 0],
-  [ 4.0, -1.0,  0.0, 0.17, 1],
-  [-2.47,-2.55,  0.0, 0.17, 2],  // was [-2.0,-3.2] — moved to touch secondary
-  [-0.62,-1.57, -0.1, 0.17, 3],  // was [0.5,-2.5] — moved to touch secondary
-  [ 3.51,-1.16,  0.1, 0.17, 4],  // was [3.2,-2.0] — moved to touch secondary
-  [-5.5,  0.2,  0.0, 0.17, 0],
-  [ 5.8,  1.2,  0.0, 0.17, 1],
+  [-2.85, 2.36,  0.0, 0.17, 3],   // moved to touch small at [-2.52,2.06]
+  [-1.04, 2.95,  0.0, 0.17, 4],   // moved to touch small at [-1.35,2.61]
+  [ 0.74, 3.17,  0.0, 0.17, 0],   // moved to touch small at [0.30,3.28]
+  [ 4.06,-1.18,  0.0, 0.17, 1],   // moved to touch secondary at [3.8,-0.4]
+  [-2.47,-2.55,  0.0, 0.17, 2],   // touches secondary at [-3.0,-1.8]
+  [-0.62,-1.57, -0.1, 0.17, 3],   // touches secondary at [-1.3,-1.0]
+  [ 3.51,-1.16,  0.1, 0.17, 4],   // touches secondary at [3.8,-0.4]
+  [-5.55, 0.25,  0.0, 0.17, 0],   // moved to touch secondary at [-4.9,-0.4]
+  [ 5.77, 1.21,  0.0, 0.17, 1],   // moved to touch large at [5.0,1.5]
 ];
 
 function Balloon3D({ position, radius, color }) {
