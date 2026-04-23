@@ -797,9 +797,6 @@ export const TABLEWARE = [
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/f0ef11d9-488e-4a47-941e-63450f45c451/Ebook+Thumbnail+with+Video+-+2025-06-20T145011.368.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/be180bf9-8fca-45bd-8eed-c8b4ec922140/Ebook+Thumbnail+with+Video+-+2025-06-20T145537.202.png?format=500w",
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ca7815a9-65a1-4b6d-b7b0-d591d1b82db2/Ebook+Thumbnail+with+Video+-+2025-06-24T100417.041.png?format=500w",
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/94176415-b6e0-471e-80cc-43a455daf278/Ebook+Thumbnail+with+Video+-+2025-06-24T100141.814.png?format=500w",
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/79657551-4204-487e-ad6d-67707692806c/Ebook+Thumbnail+with+Video+-+2025-06-24T144821.727.png?format=500w",
     ],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/f0ef11d9-488e-4a47-941e-63450f45c451/Ebook+Thumbnail+with+Video+-+2025-06-20T145011.368.png?format=500w",
     bg:"#76A96C", accent:"#FFD700",
