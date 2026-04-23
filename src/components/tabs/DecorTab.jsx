@@ -1088,6 +1088,7 @@ export const TABLEWARE = [
   {
     id:"plate-olive", type:"plate", name:"Olive Plates",
     desc:"A martini-worthy spread! These olive paper plates bring a playful, sophisticated touch to your cocktail-themed bachelorette party.",
+    related:["napkin-dirty"],
     bullets:["Set of 8","Dimensions: 6.75\"l x 8\"w"],
     price:"$12.50",
     images:[
