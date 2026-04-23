@@ -3980,7 +3980,7 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
   };
 
   const getCountSize = (item) => {
-    if (item.bullets?.length >= 2) return `${item.bullets[0]} · ${item.bullets[1]}`;
+    if (item.bullets?.length >= 2) return `${item.bullets[0]} · ${item.bullets[1].replace(/^Dimensions:/i, "Size:")}`;
     if (item.bullets?.length === 1) return item.bullets[0];
     if (item.desc) return item.desc;
     return null;
@@ -4508,7 +4508,7 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
   };
 
   const getCountSize = (item) => {
-    if (item.bullets?.length >= 2) return `${item.bullets[0]} · ${item.bullets[1]}`;
+    if (item.bullets?.length >= 2) return `${item.bullets[0]} · ${item.bullets[1].replace(/^Dimensions:/i, "Size:")}`;
     if (item.bullets?.length === 1) return item.bullets[0];
     if (item.desc) return item.desc;
     return null;
