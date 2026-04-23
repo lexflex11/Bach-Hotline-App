@@ -1311,7 +1311,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684ae85e64f4dd59c05b2093/1767898689607/Ebook+Thumbnail+with+Video+-+2025-05-18T191011.864.png?format=1500w",
     ],
-    bullets:["Set of 8","Dimensions: 8\"h x 8\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Dimensions: 8\"w x 8\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#FFB5C2", accent:"#E91E8C",
     tags:["hotpink","blush","baby-pink","pink","cameo","white","sugar","red","scarlett","lavender"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/hello-kitty-plates",
