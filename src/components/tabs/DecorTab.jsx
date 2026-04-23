@@ -870,7 +870,9 @@ export const TABLEWARE = [
   },
   {
     id:"plate-capricorn", type:"plate", name:"Capricorn Plates",
-    desc:"8 ct · 10\" x 10\"", price:"$12.66",
+    desc:"Serve cosmic vibes and star powered style with these Capricorn paper plates perfect for celestial queens and astrology lovers alike!",
+    bullets:["Set of 8","Dimensions: 10\" x 10\"","Durable, lightweight, and disposable for easy cleanup"],
+    price:"$12.66",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/48f333d2-3281-4a7a-b363-b3298b828e93/Ebook+Thumbnail+with+Video+-+2025-06-19T143322.139.png",
     bg:"#1A1A1A", accent:"#C8A882",
     tags:["black","navy","metallic-midnight-blue","stone","muse","lace","champagne","silver","gold","metallic-gold","evergreen"],
