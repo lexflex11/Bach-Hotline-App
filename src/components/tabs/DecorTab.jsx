@@ -3982,8 +3982,8 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
         </div>
         <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column"}}>
           <div style={{fontSize:11,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{item.name}</div>
-          {countSize && <div style={{fontSize:8,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>}
-          <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
+          {countSize && <div style={{fontSize:8,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>}
+          <div style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
             <button onClick={()=>adjQty(item.id, qty-1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>−</button>
             <span style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
@@ -4508,8 +4508,8 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
         </div>
         <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column"}}>
           <div style={{fontSize:11,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{item.name}</div>
-          {countSize && <div style={{fontSize:8,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>}
-          <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
+          {countSize && <div style={{fontSize:8,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>}
+          <div style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
             <button onClick={()=>adjQty(item.id, qty-1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>−</button>
             <span style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
@@ -4607,7 +4607,7 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
               }}>{opt.label}</button>
             ))}
           </div>
-          <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>${sizePrice}</div>
+          <div style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>${sizePrice}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
             <button onClick={()=>adjQty(item.id, qty-1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>−</button>
             <span style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
@@ -4725,9 +4725,9 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
           </div>
           <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column"}}>
             <div style={{fontSize:13,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2}}>{displayName}</div>
-            <div style={{fontSize:8,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>
+            <div style={{fontSize:8,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>
             <div>
-              <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:4}}>{item.price} each</div>
+              <div style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:4}}>{item.price} each</div>
               <button onClick={() => setActiveNumId(activeNumId === item.id ? null : item.id)} style={{
                 width:"100%", background:btnBg, color:btnColor, border:btnBorder,
                 borderRadius:20, padding:"5px 0",
@@ -4748,8 +4748,8 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
         </div>
         <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column"}}>
           <div style={{fontSize:11,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{displayName}</div>
-          <div style={{fontSize:8,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>
-          <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
+          <div style={{fontSize:8,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>
+          <div style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
             <button onClick={e=>{e.stopPropagation();adjFoilQty(item,-1);}} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>&minus;</button>
             <span style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>

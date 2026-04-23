@@ -169,7 +169,7 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView, setCart 
       <h2 style={{ fontFamily:"'Acme',sans-serif", fontSize:mobile?22:30, fontWeight:400, fontStyle:"normal", color:"#f496c3", margin:"0 0 10px", lineHeight:1.2 }}>
         {p.fullName || p.name || ""}
       </h2>
-      <div style={{ fontSize:mobile?17:20, fontWeight:400, color:DARK, fontFamily:"'Nunito',sans-serif", marginBottom:20, paddingBottom:20, borderBottom:`1px solid ${BORDER}` }}>
+      <div style={{ fontSize:mobile?17:20, fontWeight:300, color:DARK, fontFamily:"'Nunito',sans-serif", marginBottom:20, paddingBottom:20, borderBottom:`1px solid ${BORDER}` }}>
         ${price.toFixed(2)}
       </div>
       {p.variants?.length > 0 && (
@@ -268,7 +268,7 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView, setCart 
                 {/* Name + price */}
                 <div style={{ flex:1, minWidth:0 }}>
                   <div style={{ fontFamily:"'Acme',sans-serif", fontSize:15, color:"#f496c3", lineHeight:1.3, marginBottom:3 }}>{r.name}</div>
-                  <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:13, color:DARK }}>${(+r.price||0).toFixed(2)}</div>
+                  <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:13, fontWeight:300, color:DARK }}>${(+r.price||0).toFixed(2)}</div>
                 </div>
                 {/* Qty stepper — adjusting qty auto-adds/updates cart */}
                 {(() => {
