@@ -4726,7 +4726,7 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
     const sizeMatch = item.name.match(/^(\d+)"\s*/);
     const inchSize = sizeMatch ? sizeMatch[1] : null;
     const displayName = item.name.replace(/^\d+"\s*/, "");
-    const countSize = inchSize ? `Set of 1 · ${inchSize}"` : "Set of 1";
+    const countSize = inchSize ? `Set of 1 · Size: ${inchSize}"` : "Set of 1";
 
     if (item.numberBalloon) {
       const selectedNums = [0,1,2,3,4,5,6,7,8,9].filter(n => numInCart(item,n));

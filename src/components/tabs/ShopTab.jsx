@@ -59,7 +59,7 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
   image:     imgs[0] || "",
   images:    imgs,
   url:       p.etsyUrl || "",
-  desc:      p.type === "foil" ? (() => { const m = p.name.match(/^(\d+)"/); return m ? `Set of 1 · ${m[1]}"` : p.desc || ""; })() : p.desc || "",
+  desc:      p.type === "foil" ? (() => { const m = p.name.match(/^(\d+)"/); return m ? `Set of 1 · Size: ${m[1]}"` : p.desc || ""; })() : p.desc || "",
   bullets:   p.bullets || [],
   variants:     p.variants || [],
   variantLabel: p.variantLabel || "",
