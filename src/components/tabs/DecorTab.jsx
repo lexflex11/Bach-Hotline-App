@@ -1128,9 +1128,10 @@ export const TABLEWARE = [
   },
   {
     id:"plate-penis", type:"plate", name:"Penis Plates",
-    desc:"25 ct · 5\" x 7\"", price:"$13.03",
-    bullets:["Set of 25","Dimensions: 5\"w x 7\"l"],
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/305dad4b-cffd-443d-a47b-31f6ee351444/Ebook+Thumbnail+with+Video+-+2025-02-16T113626.828.png",
+    desc:"Say it loud, say it proud: SAME PENIS FOREVER! Celebrate the end of your single life in the most playful way with our penis shaped foil paper plates!",
+    price:"$13.03",
+    bullets:["Set of 25","Size: 5\"w x 7\"l","Durable, lightweight, and disposable for easy cleanup"],
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684a1080b91f060aa52262f5/1767899624325/Ebook+Thumbnail+with+Video+-+2025-02-16T113626.828.png?format=1500w",
     bg:"#F4A7B9", accent:"#E91E8C",
     tags:["hotpink","blush","pink","baby-pink","coral","taffy","pixie","metallic-fuchsia","white","gold","champagne"],
   },
