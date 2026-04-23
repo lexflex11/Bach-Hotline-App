@@ -62,6 +62,7 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
   desc:      p.type === "foil" ? (() => { const m = p.name.match(/^(\d+)"/); return m ? `Set of 1 · Size: ${m[1]}"` : p.desc || ""; })() : p.desc || "",
   bullets:   p.bullets || [],
   tags:      p.tags || [],
+  related:   p.related || [],
   variants:     p.variants || [],
   variantLabel: p.variantLabel || "",
   isDigital: false,
@@ -392,39 +393,45 @@ export default function ShopTab({ cart, setCart }) {
   const add    = p  => { if (!inCart(p.id)) setCart(prev=>[...prev,p]); };
   const remove = id => setCart(prev=>prev.filter(c=>c.id!==id));
 
-  // Cross-category recommendations: show items from OTHER categories that share tags
+  // Recommendations: use pinned `related` IDs first, then fill with tag-matched cross-category items
   const recommended = React.useMemo(() => {
     if (!selected) return [];
-    const selTags = new Set(selected.tags || []);
-    if (selTags.size === 0) return [];
 
-    // Score every product from a DIFFERENT category by tag overlap
+    // Step 1: resolve any pinned related IDs (in order)
+    const pinned = (selected.related || [])
+      .map(id => DECOR_PRODUCTS.find(p => p.id === id))
+      .filter(Boolean);
+
+    if (pinned.length >= 4) return pinned.slice(0, 4);
+
+    // Step 2: fill remaining slots with tag-matched cross-category items
+    const pinnedIds = new Set(pinned.map(p => p.id));
+    const selTags = new Set(selected.tags || []);
+    const seen = new Set(pinned.map(p => p.category));
+
     const scored = DECOR_PRODUCTS
-      .filter(p => p.id !== selected.id && p.category !== selected.category)
+      .filter(p => p.id !== selected.id && !pinnedIds.has(p.id) && p.category !== selected.category)
       .map(p => ({ ...p, _score: p.tags.filter(t => selTags.has(t)).length }))
       .filter(p => p._score > 0)
       .sort((a, b) => b._score - a._score);
 
-    // Pick best match per category so the user sees a full set
-    const seen = new Set();
-    const picks = [];
+    const fills = [];
     for (const p of scored) {
       if (!seen.has(p.category)) {
         seen.add(p.category);
-        picks.push(p);
-        if (picks.length >= 4) break;
+        fills.push(p);
+        if (pinned.length + fills.length >= 4) break;
       }
     }
-    // If fewer than 4, fill with next best across any category
-    if (picks.length < 4) {
+    if (pinned.length + fills.length < 4) {
       for (const p of scored) {
-        if (!picks.find(x => x.id === p.id)) {
-          picks.push(p);
-          if (picks.length >= 4) break;
+        if (!fills.find(x => x.id === p.id)) {
+          fills.push(p);
+          if (pinned.length + fills.length >= 4) break;
         }
       }
     }
-    return picks;
+    return [...pinned, ...fills];
   }, [selected?.id]);
 
   const filtered = DECOR_PRODUCTS.filter(p => {
