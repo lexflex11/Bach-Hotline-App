@@ -193,7 +193,7 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView, setCart 
       <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:28, paddingBottom:28, borderBottom:`1px solid ${BORDER}` }}>
         <div style={{ display:"flex", alignItems:"center", gap:10, border:`1px solid ${BORDER}`, borderRadius:50, padding:"4px 12px" }}>
           <button onClick={()=>setQty(q=>Math.max(1,q-1))} style={{ background:"none", border:"none", cursor:"pointer", fontSize:16, color:DARK, lineHeight:1, padding:0 }}>−</button>
-          <span style={{ fontSize:13, fontWeight:700, fontFamily:"'Nunito',sans-serif", color:DARK, minWidth:16, textAlign:"center" }}>{qty}</span>
+          <span style={{ fontSize:13, fontWeight:300, fontFamily:"'Nunito',sans-serif", color:DARK, minWidth:16, textAlign:"center" }}>{qty}</span>
           <button onClick={()=>setQty(q=>q+1)} style={{ background:"none", border:"none", cursor:"pointer", fontSize:16, color:DARK, lineHeight:1, padding:0 }}>+</button>
         </div>
         <button onClick={()=>onAdd(p)} style={{
@@ -291,7 +291,7 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView, setCart 
                   return (
                     <div onClick={e=>e.stopPropagation()} style={{ display:"flex", alignItems:"center", gap:0, border:`1.5px solid #F496C2`, borderRadius:50, overflow:"hidden", flexShrink:0 }}>
                       <button onClick={dec} style={{ background:"none", border:"none", cursor:"pointer", fontSize:16, color:"#F496C2", fontWeight:700, padding:"5px 10px", lineHeight:1, opacity: qty===0?0.3:1 }}>−</button>
-                      <span style={{ fontSize:13, fontWeight:700, fontFamily:"'Nunito',sans-serif", color:DARK, minWidth:20, textAlign:"center" }}>{qty}</span>
+                      <span style={{ fontSize:13, fontWeight:300, fontFamily:"'Nunito',sans-serif", color:DARK, minWidth:20, textAlign:"center" }}>{qty}</span>
                       <button onClick={inc} style={{ background:"none", border:"none", cursor:"pointer", fontSize:16, color:"#F496C2", fontWeight:700, padding:"5px 10px", lineHeight:1 }}>+</button>
                     </div>
                   );

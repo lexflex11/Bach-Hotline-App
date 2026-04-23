@@ -3986,7 +3986,7 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
           <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
             <button onClick={()=>adjQty(item.id, qty-1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>−</button>
-            <span style={{fontSize:11,fontWeight:700,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
+            <span style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
             <button onClick={()=>adjQty(item.id, qty+1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>+</button>
           </div>
           <button onClick={()=>toggle(item)} style={{
@@ -4512,7 +4512,7 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
           <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
             <button onClick={()=>adjQty(item.id, qty-1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>−</button>
-            <span style={{fontSize:11,fontWeight:700,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
+            <span style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
             <button onClick={()=>adjQty(item.id, qty+1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>+</button>
           </div>
           <button onClick={()=>toggle(item)} style={{
@@ -4610,7 +4610,7 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
           <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>${sizePrice}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
             <button onClick={()=>adjQty(item.id, qty-1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>−</button>
-            <span style={{fontSize:11,fontWeight:700,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
+            <span style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
             <button onClick={()=>adjQty(item.id, qty+1)} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>+</button>
           </div>
           <button onClick={() => toggle(item, size)} style={{
@@ -4752,7 +4752,7 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
           <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
             <button onClick={e=>{e.stopPropagation();adjFoilQty(item,-1);}} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>&minus;</button>
-            <span style={{fontSize:11,fontWeight:700,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
+            <span style={{fontSize:11,fontWeight:300,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:14,textAlign:"center"}}>{qty}</span>
             <button onClick={e=>{e.stopPropagation();adjFoilQty(item,1);}} style={{width:20,height:20,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:13,color:HOT,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>+</button>
           </div>
           <button onClick={e=>{e.stopPropagation();adjFoilQty(item, added?-qty:1);}} style={{
