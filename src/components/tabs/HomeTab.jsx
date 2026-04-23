@@ -17,12 +17,11 @@ export default function HomeTab({ groupSize, setGroupSize, setTab, user }) {
       </div>
       <div style={{ ...C, marginBottom:14, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
         <div>
-          <div style={{ fontSize:14, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>👯 Your Bride Tribe</div>
-          <div style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif", marginTop:2, opacity:0.8 }}>Prices auto-calculate for your group</div>
+          <div style={{ fontSize:14, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>Your Bride Tribe</div>
         </div>
         <div style={{ display:"flex", alignItems:"center", gap:10 }}>
           <button onClick={()=>setGroupSize(Math.max(2,groupSize-1))} style={SM}>−</button>
-          <span style={{ fontWeight:900, color:WHITE, fontSize:16, minWidth:36, textAlign:"center", fontFamily:"'Nunito',sans-serif", background:`linear-gradient(135deg,#f472b0,${HOT})`, borderRadius:20, padding:"4px 12px" }}>{groupSize}</span>
+          <span style={{ fontWeight:900, color:DARK, fontSize:16, minWidth:36, textAlign:"center", fontFamily:"'Nunito',sans-serif", borderRadius:20, padding:"4px 12px" }}>{groupSize}</span>
           <button onClick={()=>setGroupSize(groupSize+1)} style={SM}>+</button>
         </div>
       </div>

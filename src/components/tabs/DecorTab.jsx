@@ -474,23 +474,23 @@ const GARLAND_3D_LAYOUT = [
 
   // ── SMALL cluster balloons — bottom edge ──────────────────────────────
   [-5.2, -1.5,  0.1, 0.32, 2],
-  [-4.8, -2.7,  0.0, 0.30, 3],
-  [-3.8, -3.0,  0.1, 0.30, 4],
+  [-4.49,-2.17,  0.0, 0.30, 3],  // touches extra-large at [-3.8,-1.0]
+  [-3.58,-2.67,  0.1, 0.30, 4],  // touches secondary at [-3.0,-1.8]
   [-2.6, -2.6,  0.0, 0.28, 0],
-  [-1.4, -2.2,  0.1, 0.30, 1],
-  [-0.2, -1.8,  0.0, 0.28, 2],
-  [ 1.0, -1.2,  0.1, 0.30, 3],
-  [ 2.4, -0.9,  0.0, 0.28, 4],
+  [-1.38,-2.02,  0.1, 0.30, 1],  // touches secondary at [-1.3,-1.0]
+  [-0.49,-1.59,  0.0, 0.28, 2],  // touches secondary at [-1.3,-1.0]
+  [ 0.92,-1.06,  0.1, 0.30, 3],  // touches secondary at [0.4,-0.2]
+  [ 2.33,-0.63,  0.0, 0.28, 4],  // touches secondary at [2.1,0.3]
   [ 3.8, -1.2,  0.1, 0.30, 0],
-  [ 5.0, -0.8,  0.0, 0.28, 1],
-  [ 5.5,  0.5,  0.1, 0.30, 2],
+  [ 4.68,-0.69,  0.0, 0.28, 1],  // touches secondary at [3.8,-0.4]
+  [ 5.43, 0.65,  0.1, 0.30, 2],  // touches large at [5.0,1.5]
 
   // ── SMALL cluster balloons — top edge ────────────────────────────────
-  [-5.0,  0.8,  0.0, 0.30, 3],
-  [-4.3,  1.8,  0.1, 0.30, 4],
-  [-2.8,  2.2,  0.0, 0.28, 0],
-  [-1.3,  2.8,  0.1, 0.30, 1],
-  [ 0.3,  3.3,  0.0, 0.28, 2],
+  [-4.99, 0.65,  0.0, 0.30, 3],  // touches secondary at [-4.9,-0.4]
+  [-3.96, 1.46,  0.1, 0.30, 4],  // touches secondary at [-3.2,0.7]
+  [-2.52, 2.06,  0.0, 0.28, 0],  // touches secondary at [-1.6,1.6]
+  [-1.35, 2.61,  0.1, 0.30, 1],  // touches secondary at [-1.6,1.6]
+  [ 0.30, 3.28,  0.0, 0.28, 2],  // touches secondary at [0.2,2.3]
   [ 1.8,  3.5,  0.1, 0.30, 3],
   [ 3.2,  3.0,  0.0, 0.28, 4],
   [ 4.5,  2.6,  0.1, 0.30, 0],
@@ -498,11 +498,11 @@ const GARLAND_3D_LAYOUT = [
 
   // ── SMALL clusters — front/back depth ────────────────────────────────
   [-4.0, -0.8,  2.0, 0.28, 2],
-  [-1.5,  0.0,  2.2, 0.28, 3],
+  [-1.57, 0.13, 2.02, 0.28, 3],  // touches medium front at [-1.8,0.6,1.4]
   [ 1.2,  0.5,  2.2, 0.28, 4],
-  [ 3.2,  0.3,  2.0, 0.28, 0],
+  [ 3.24, 0.42, 1.90, 0.28, 0],  // touches medium front at [3.4,1.0,1.4]
   [-2.5,  0.5, -2.0, 0.28, 1],
-  [ 0.5,  0.8, -2.0, 0.28, 2],
+  [ 0.67, 1.07,-1.77, 0.28, 2],  // touches medium back at [1.0,1.6,-1.3]
   [ 2.8,  0.5, -1.8, 0.28, 3],
 
   // ── TINY gap fillers ──────────────────────────────────────────────────
@@ -519,9 +519,9 @@ const GARLAND_3D_LAYOUT = [
   [-1.0,  3.0,  0.0, 0.17, 4],
   [ 1.0,  3.1,  0.0, 0.17, 0],
   [ 4.0, -1.0,  0.0, 0.17, 1],
-  [-2.0, -3.2,  0.0, 0.17, 2],
-  [ 0.5, -2.5,  0.0, 0.17, 3],
-  [ 3.2, -2.0,  0.0, 0.17, 4],
+  [-2.47,-2.55,  0.0, 0.17, 2],  // was [-2.0,-3.2] — moved to touch secondary
+  [-0.62,-1.57, -0.1, 0.17, 3],  // was [0.5,-2.5] — moved to touch secondary
+  [ 3.51,-1.16,  0.1, 0.17, 4],  // was [3.2,-2.0] — moved to touch secondary
   [-5.5,  0.2,  0.0, 0.17, 0],
   [ 5.8,  1.2,  0.0, 0.17, 1],
 ];
@@ -3964,6 +3964,7 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
   const getCountSize = (item) => {
     if (item.bullets?.length >= 2) return `${item.bullets[0]} · ${item.bullets[1]}`;
     if (item.bullets?.length === 1) return item.bullets[0];
+    if (item.desc) return item.desc;
     return null;
   };
 
@@ -3980,7 +3981,7 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
           <TablewearVisual item={item}/>
         </div>
         <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column"}}>
-          <div style={{fontSize:13,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2}}>{item.name}</div>
+          <div style={{fontSize:11,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{item.name}</div>
           {countSize && <div style={{fontSize:8,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>}
           <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
@@ -4491,6 +4492,7 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
   const getCountSize = (item) => {
     if (item.bullets?.length >= 2) return `${item.bullets[0]} · ${item.bullets[1]}`;
     if (item.bullets?.length === 1) return item.bullets[0];
+    if (item.desc) return item.desc;
     return null;
   };
 
@@ -4505,7 +4507,7 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
           <TablewearVisual item={item}/>
         </div>
         <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column"}}>
-          <div style={{fontSize:13,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2}}>{item.name}</div>
+          <div style={{fontSize:11,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{item.name}</div>
           {countSize && <div style={{fontSize:8,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>}
           <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:5}}>
@@ -4686,11 +4688,27 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
 
   const activeNumItem = scored.find(i => i.id === activeNumId);
 
+  const [foilQty, setFoilQty] = useState({});
+  const getFoilQty = id => foilQty[id] || 0;
+  const adjFoilQty = (item, delta) => {
+    const unitPrice = parseFloat(item.price.replace("$",""));
+    const cur = getFoilQty(item.id);
+    const nq = Math.max(0, cur + delta);
+    setFoilQty(q => { const n={...q}; if(nq===0){delete n[item.id]}else{n[item.id]=nq}; return n; });
+    if (nq === 0) {
+      setCart(prev => prev.filter(c => c.id !== item.id));
+    } else if (cur === 0) {
+      setCart(prev => [...prev, { id:item.id, name:item.name, price:unitPrice*nq, image:item.image, category:"foil" }]);
+    } else {
+      setCart(prev => prev.map(c => c.id===item.id ? {...c, price:unitPrice*nq} : c));
+    }
+  };
+
   const renderFoilItem = (item) => {
     const sizeMatch = item.name.match(/^(\d+)"\s*/);
     const inchSize = sizeMatch ? sizeMatch[1] : null;
     const displayName = item.name.replace(/^\d+"\s*/, "");
-    const countSize = inchSize ? `Set of 1 · Dimensions: ${inchSize}"` : "Set of 1";
+    const countSize = inchSize ? `Set of 1 · ${inchSize}"` : "Set of 1";
 
     if (item.numberBalloon) {
       const selectedNums = [0,1,2,3,4,5,6,7,8,9].filter(n => numInCart(item,n));
@@ -4720,7 +4738,8 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
         </div>
       );
     }
-    const added = inCart(item.id);
+    const qty = getFoilQty(item.id);
+    const added = qty > 0;
     const shadow = added ? `0 0 0 2px ${HOT}, 0 4px 16px rgba(233,30,140,0.15)` : "0 4px 16px rgba(0,0,0,0.09)";
     return (
       <div key={item.id} style={{background:WHITE,borderRadius:18,overflow:"hidden",boxShadow:shadow,transition:"all 0.2s",display:"flex",flexDirection:"column"}}>
@@ -4728,16 +4747,14 @@ function FoilStep({ stepNum, selectedColors, cart, setCart }) {
           <TablewearVisual item={item}/>
         </div>
         <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column"}}>
-          <div style={{fontSize:13,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2}}>{displayName}</div>
+          <div style={{fontSize:11,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:2,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{displayName}</div>
           <div style={{fontSize:8,color:DARK,fontFamily:"'Nunito',sans-serif",lineHeight:1.3,marginBottom:4}}>{countSize}</div>
           <div style={{fontSize:11,fontWeight:400,color:DARK,fontFamily:"'Nunito',sans-serif",marginBottom:5}}>{item.price}</div>
-          <button onClick={() => toggle(item)} style={{
-            background:added?SOFT:`#f496c3`,
-            color:added?HOT:WHITE,
-            border:added?`1.5px solid ${HOT}`:"none",
-            borderRadius:20, padding:"5px 0", width:"100%",
-            fontFamily:"'Nunito',sans-serif", fontSize:9, fontWeight:700, cursor:"pointer",
-          }}>{added ? "✓ Added" : "+ Add"}</button>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6}}>
+            <button onClick={e=>{e.stopPropagation();adjFoilQty(item,-1);}} style={{width:24,height:24,borderRadius:"50%",border:`1.5px solid ${HOT}`,background:WHITE,color:HOT,fontSize:14,fontWeight:700,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",lineHeight:1}}>&minus;</button>
+            <span style={{fontSize:13,fontWeight:600,color:DARK,fontFamily:"'Nunito',sans-serif",minWidth:16,textAlign:"center"}}>{qty}</span>
+            <button onClick={e=>{e.stopPropagation();adjFoilQty(item,1);}} style={{width:24,height:24,borderRadius:"50%",border:`1.5px solid ${HOT}`,background:HOT,color:WHITE,fontSize:14,fontWeight:700,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",lineHeight:1}}>+</button>
+          </div>
         </div>
       </div>
     );
@@ -4907,13 +4924,13 @@ function CuratedThemes({ cart, setCart }) {
                   const added = cart.some(c => c.id === id);
                   const imgSrc = (item.images && item.images[0]) || item.image || "";
                   return (
-                    <div key={id} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 8px",borderRadius:10,background:added?SOFT:WHITE,border:`1px solid ${added?HOT:BORDER}`}}>
+                    <div key={id} style={{display:"flex",alignItems:"flex-start",gap:6,padding:"6px 8px",borderRadius:10,background:added?SOFT:WHITE,border:`1px solid ${added?HOT:BORDER}`}}>
                       {imgSrc
-                        ? <img src={imgSrc} alt={item.name} style={{width:40,height:40,objectFit:"contain",borderRadius:6,background:"#fff",flexShrink:0,border:`1px solid ${BORDER}`,padding:2,boxSizing:"border-box"}}/>
-                        : <div style={{width:40,height:40,borderRadius:6,background:SOFT,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:16}}>🎀</div>
+                        ? <img src={imgSrc} alt={item.name} style={{width:32,height:32,objectFit:"contain",borderRadius:6,background:"#fff",flexShrink:0,border:`1px solid ${BORDER}`,padding:2,boxSizing:"border-box",marginTop:2}}/>
+                        : <div style={{width:32,height:32,borderRadius:6,background:SOFT,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:14,marginTop:2}}>🎀</div>
                       }
                       <div style={{flex:1,minWidth:0}}>
-                        <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,fontWeight:300,color:added?HOT:DARK,lineHeight:1.3,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{added?"✓ ":""}{item.name}</div>
+                        <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,fontWeight:300,color:added?HOT:DARK,lineHeight:1.3,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{added?"✓ ":""}{item.name}</div>
                         <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,fontWeight:300,color:added?HOT:DARK,marginTop:1}}>{item.price}</div>
                       </div>
                     </div>

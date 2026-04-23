@@ -123,7 +123,7 @@ export default function FlightsTab({ groupSize }) {
         {/* Departure row */}
         <div style={{marginBottom:14}}>
           <div style={{fontSize:10,color:HOT,fontFamily:"'Nunito',sans-serif",fontWeight:700,marginBottom:6,textTransform:"uppercase",letterSpacing:0.5}}>Departure</div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:8}}>
+          <div style={{marginBottom:8}}>
             <input
               type="date"
               value={depDate}
@@ -131,9 +131,6 @@ export default function FlightsTab({ groupSize }) {
               onChange={e => { setDepDate(e.target.value); if(retDate && e.target.value >= retDate) setRetDate(""); }}
               style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${depDate?HOT:BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box"}}
             />
-            <div style={{fontSize:10,color:"#bbb",fontFamily:"'Nunito',sans-serif",display:"flex",alignItems:"center"}}>
-              {depDate ? "Pick a time below ↓" : "Add date first"}
-            </div>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:6}}>
             {TIMES.map(t => (
@@ -149,7 +146,7 @@ export default function FlightsTab({ groupSize }) {
         {/* Return row */}
         <div style={{paddingTop:12,borderTop:`1px solid ${SOFT}`}}>
           <div style={{fontSize:10,color:HOT,fontFamily:"'Nunito',sans-serif",fontWeight:700,marginBottom:6,textTransform:"uppercase",letterSpacing:0.5}}>Return</div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:8}}>
+          <div style={{marginBottom:8}}>
             <input
               type="date"
               value={retDate}
@@ -157,9 +154,6 @@ export default function FlightsTab({ groupSize }) {
               onChange={e => setRetDate(e.target.value)}
               style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${retDate?HOT:BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box"}}
             />
-            <div style={{fontSize:10,color:"#bbb",fontFamily:"'Nunito',sans-serif",display:"flex",alignItems:"center"}}>
-              {retDate ? "Pick a time below ↓" : "Leave blank = one way"}
-            </div>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:6}}>
             {TIMES.map(t => (
