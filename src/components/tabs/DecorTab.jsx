@@ -2768,7 +2768,7 @@ export const TABLEWARE = [
   {
     id:"foil-silver-starburst", type:"foil", name:"40\" Silver Starburst Balloon",
     desc:"40\" specialty foil balloon", price:"$7.25",
-    image:null,
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6951c7f49e309b737483876a/1768084248069/Ebook+Thumbnail+with+Video+-+2025-12-30T163546.241.png?format=1500w",
     bg:"#C0C0C0", accent:"#F8F8F8",
     tags:["silver","gray-smoke","fog","white","crystal-clear","metallic-silver","champagne","gold","metallic-gold","navy","black"],
   },
