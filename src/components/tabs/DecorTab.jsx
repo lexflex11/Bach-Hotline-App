@@ -1032,9 +1032,10 @@ export const TABLEWARE = [
   },
   {
     id:"plate-lemon-zest", type:"plate", name:"Lemon Zest Plates",
-    bullets:["Set of 8","Dimensions: 8.5\""],
+    desc:"Fresh colors, lemony flair, and major summer vibes; perfect party plates that are full of color and charm.",
+    bullets:["Set of 8","Size: 8.5\"","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.25",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/9e0d4bad-aaae-4ac8-ad81-5073c2592a50/Ebook+Thumbnail+with+Video-379.png",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/69501ea618bbbd208c522116/1768078219828/Ebook+Thumbnail+with+Video-379.png?format=1500w",
     bg:"#FFEA5A", accent:"#4CAF50",
     tags:["yellow","lemonade","goldenrod","mustard","lime-green","green","meadow","white","sugar","crystal-yellow"],
   },
