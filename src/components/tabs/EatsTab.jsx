@@ -1480,7 +1480,7 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
           <div style={{ fontSize:20, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:HOT, marginBottom:4 }}>
             Book Your Table
           </div>
-          <div style={{ fontSize:12, color:DARK, fontFamily:"'Nunito',sans-serif", marginBottom:16, opacity:0.7 }}>
+          <div style={{ fontSize:12, color:DARK, fontFamily:"'Nunito',sans-serif", marginBottom:16 }}>
             {groupSize} guests{date ? ` · ${date}` : ""}: secure your spot before it fills up
           </div>
           <a href={r.reserveUrl} target="_blank" rel="noreferrer" style={{ textDecoration:"none" }}>
