@@ -236,11 +236,12 @@ const RESTAURANTS = {
       vibe:"Historic · Iconic · Tableside Cocktails",
       rating:4.9, reviews:1089, groupMin:2, groupMax:30,
       tags:["Iconic","Creole","Historic"],
-      image:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+      image:"https://cdn.prod.website-files.com/67042d3fabc70a091f4acacc/692f4923777776c4f9e3cf3d_cp_home_hero.avif",
       images:[
-        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
-        "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=80",
-        "https://images.unsplash.com/photo-1481833761820-0509d3217039?w=800&q=80",
+        "https://cdn.prod.website-files.com/67042d3fabc70a091f4acacc/692f4923777776c4f9e3cf3d_cp_home_hero.avif",
+        "https://cdn.prod.website-files.com/67042d3fabc70a091f4acacc/67db383d8b757abb01857979_G98A9687_resized.avif",
+        "https://cdn.prod.website-files.com/67042d3fabc70a091f4acacc/68265d43645741f70d1cecf7_50bb1a1972084945b038c1424c2f4789_cp_home_martini.avif",
+        "https://cdn.prod.website-files.com/67042d3fabc70a091f4acacc/692f849df83fb6ea93984a13_cp_home_slide-1.avif",
       ],
       hours:"Mon–Fri 11:30am–1:30pm · Daily 6:30pm–9:30pm · Sat–Sun Brunch 10:30am–1:30pm",
       address:"1403 Washington Ave, New Orleans, LA 70130",
@@ -308,13 +309,14 @@ const RESTAURANTS = {
       vibe:"Iconic · Warehouse District · Celebratory",
       rating:4.8, reviews:1103, groupMin:2, groupMax:24,
       tags:["Iconic","Fine Dining","Celebratory"],
-      image:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+      image:"https://emerilsrestaurant.com/wp-content/uploads/2023/08/ER-about-main-1080x675.jpg",
       images:[
-        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
-        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80",
-        "https://images.unsplash.com/photo-1428515613728-6b4607e44363?w=800&q=80",
+        "https://emerilsrestaurant.com/wp-content/uploads/2023/08/ER-about-main-1080x675.jpg",
+        "https://emerilsrestaurant.com/wp-content/uploads/2023/08/new-menu-pic-1080x675.jpg",
+        "https://emerilsrestaurant.com/wp-content/uploads/2023/08/menu-pic-1080x675.jpg",
+        "https://emerilsrestaurant.com/wp-content/uploads/2023/08/ER-menu-classics-1080x675.jpg",
       ],
-      hours:"Tue–Sat 6pm–9:30pm",
+      hours:"Tue–Thu 5:30pm–9:30pm · Fri–Sat 5:30pm–10:30pm",
       address:"800 Tchoupitoulas St, New Orleans, LA 70130",
       desc:"The restaurant that put New Orleans on the national fine dining map. Emeril's blends Louisiana soul with refined technique — now led by son E.J. Lagasse. The tasting menus are showstopping and perfect for a celebratory bach dinner.",
       menuHighlights:["Gulf Fish with Creole Meunière","Shrimp & Andouille Cheesecake","New Orleans BBQ Shrimp","Banana Cream Pie","Andouille-Crusted Gulf Fish"],
@@ -1411,9 +1413,9 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10, marginBottom:16 }}>
             <div style={{ background:SOFT, borderRadius:12, padding:"10px 12px" }}>
               <div style={{ fontSize:10, fontWeight:700, color:HOT, fontFamily:"'Nunito',sans-serif", textTransform:"uppercase", letterSpacing:1, marginBottom:4 }}>Hours</div>
-              <div style={{ fontSize:12, color:DARK, fontFamily:"'Nunito',sans-serif", lineHeight:1.6 }}>
+              <div style={{ fontSize:12, color:DARK, fontFamily:"'Nunito',sans-serif" }}>
                 {r.hours.split(" · ").map((slot, i) => (
-                  <div key={i}>{slot}</div>
+                  <div key={i} style={{ marginBottom:6 }}>{slot}</div>
                 ))}
               </div>
             </div>
@@ -1454,15 +1456,7 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
             Why We Love It for Your Group
           </div>
           {r.whyWeLoveIt.map((reason, i) => (
-            <div key={i} style={{ display:"flex", gap:10, marginBottom:10, alignItems:"flex-start" }}>
-              <div style={{
-                width:22, height:22, borderRadius:"50%", flexShrink:0,
-                background:`linear-gradient(135deg,#f472b0,${HOT})`,
-                display:"flex", alignItems:"center", justifyContent:"center",
-                fontSize:11, fontWeight:700, color:WHITE, fontFamily:"'Nunito',sans-serif",
-              }}>{i+1}</div>
-              <div style={{ fontSize:13, color:DARK, fontFamily:"'Nunito',sans-serif", lineHeight:1.6, paddingTop:2 }}>{reason}</div>
-            </div>
+            <div key={i} style={{ fontSize:13, color:DARK, fontFamily:"'Nunito',sans-serif", lineHeight:1.6, marginBottom:10 }}>{reason}</div>
           ))}
         </div>
 
