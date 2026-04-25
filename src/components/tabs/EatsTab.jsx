@@ -1952,8 +1952,13 @@ const CUISINE_CATS = [
   { id:"sushi-seafood",label:"Sushi & Seafood",  emoji:"🍣" },
   { id:"mexican",      label:"Mexican",          emoji:"🌮" },
   { id:"american",     label:"American",         emoji:"🍔" },
+  { id:"steakhouse",   label:"Steakhouse",       emoji:"🥩" },
+  { id:"bbq",          label:"BBQ",              emoji:"🔥" },
+  { id:"mediterranean",label:"Mediterranean",    emoji:"🫒" },
   { id:"cocktails",    label:"Sips",             emoji:"🍷" },
   { id:"asian",        label:"Asian",            emoji:"🥢" },
+  { id:"italian",      label:"Italian",          emoji:"🍝" },
+  { id:"plantbased",   label:"Plant-Based",      emoji:"🌿" },
   { id:"coffee",       label:"Coffee",           emoji:"☕" },
   { id:"sweets",       label:"Sweet Treats",     emoji:"🍰" },
 ];
@@ -1965,11 +1970,16 @@ function matchCategory(r, cat) {
     brunch:        ["brunch","breakfast","mimosa","morning"],
     "sushi-seafood":["sushi","japanese","robata","omakase","seafood","fish","lobster","oyster","crab","shrimp","fins"],
     mexican:       ["mexican","taco","cantina","tequila"],
-    american:      ["american","southern","burger","farm","bbq","brasserie"],
+    american:      ["american","southern","burger","farm","brasserie","diner","grill"],
+    steakhouse:    ["steak","chop","prime","beef","butcher","wagyu"],
+    bbq:           ["bbq","barbecue","barbeque","smoked","smokehouse","ribs","brisket"],
+    mediterranean: ["mediterranean","greek","lebanese","turkish","mezze","falafel","hummus","tapas"],
     cocktails:     ["cocktail","bar","drinks","speakeasy","wine","sips","spirits","rooftop"],
-    asian:         ["asian","fusion","chinese","korean","thai","vietnamese"],
+    asian:         ["asian","fusion","chinese","korean","thai","vietnamese","indian","ramen"],
+    italian:       ["italian","pasta","pizza","trattoria","osteria","risotto"],
+    plantbased:    ["vegan","vegetarian","plant","plant-based","plant based","meatless"],
     coffee:        ["coffee","cafe","espresso","latte"],
-    sweets:        ["sweet","dessert","bakery","pastry","cake","ice cream"],
+    sweets:        ["sweet","dessert","bakery","pastry","cake","ice cream","beignet","praline"],
   };
   return (map[cat]||[]).some(kw => haystack.includes(kw));
 }
