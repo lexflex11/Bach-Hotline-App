@@ -1262,8 +1262,9 @@ function Stars({ rating }) {
 }
 
 // ─── Restaurant Card ──────────────────────────────────────────────────────────
-function RestaurantCard({ r, onView }) {
+function RestaurantCard({ r, onView, favorites, onToggleFavorite }) {
   const [imgLoaded, setImgLoaded] = useState(false);
+  const isFav = favorites.includes(r.id);
   return (
     <div style={{
       background:WHITE, borderRadius:20, overflow:"hidden",
@@ -1278,13 +1279,22 @@ function RestaurantCard({ r, onView }) {
           onLoad={()=>setImgLoaded(true)}
           style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", opacity:imgLoaded?1:0, transition:"opacity 0.3s" }}
         />
-        {/* Price badge */}
-        <div style={{
-          position:"absolute", top:10, right:10,
-          background:"rgba(0,0,0,0.72)", color:WHITE,
-          fontSize:11, fontWeight:700, fontFamily:"'Nunito',sans-serif",
-          padding:"3px 8px", borderRadius:20, letterSpacing:"0.3px",
-        }}>{r.priceRange}</div>
+        {/* Favorite heart */}
+        <button
+          onClick={e=>{ e.stopPropagation(); onToggleFavorite(r.id); }}
+          style={{
+            position:"absolute", top:10, right:10,
+            background: isFav ? HOT : "rgba(255,255,255,0.85)",
+            border:"none", borderRadius:"50%",
+            width:36, height:36, cursor:"pointer",
+            display:"flex", alignItems:"center", justifyContent:"center",
+            boxShadow:"0 2px 8px rgba(230,101,130,0.25)",
+            transition:"all 0.2s",
+          }}
+          aria-label={isFav ? "Remove from favorites" : "Add to favorites"}
+        >
+          <span style={{ fontSize:18, lineHeight:1 }}>{isFav ? "♥" : "♡"}</span>
+        </button>
         {/* Tags */}
         <div style={{ position:"absolute", bottom:10, left:10, display:"flex", gap:5, flexWrap:"wrap" }}>
           {r.tags.slice(0,2).map(t => (
@@ -1480,7 +1490,7 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
           <div style={{ fontSize:20, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:HOT, marginBottom:4 }}>
             Book Your Table
           </div>
-          <div style={{ fontSize:12, color:HOT, fontFamily:"'Nunito',sans-serif", marginBottom:16, opacity:0.7 }}>
+          <div style={{ fontSize:12, color:DARK, fontFamily:"'Nunito',sans-serif", marginBottom:16, opacity:0.7 }}>
             {groupSize} guests{date ? ` · ${date}` : ""}: secure your spot before it fills up
           </div>
           <div style={{ background:SOFT, borderRadius:14, padding:"14px", marginBottom:14, border:`1px solid ${BORDER}` }}>
@@ -1552,6 +1562,18 @@ export default function EatsTab({ groupSize: initialGroupSize }) {
   const [category,   setCategory]   = useState("all");
   const [results,    setResults]    = useState(null);  // null = not searched yet
   const [selected,   setSelected]   = useState(null);  // restaurant detail view
+  const [favorites,  setFavorites]  = useState(() => {
+    try { return JSON.parse(localStorage.getItem("eats_favorites") || "[]"); }
+    catch { return []; }
+  });
+
+  function toggleFavorite(id) {
+    setFavorites(prev => {
+      const next = prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id];
+      try { localStorage.setItem("eats_favorites", JSON.stringify(next)); } catch {}
+      return next;
+    });
+  }
 
   const selectedDest = DESTS.find(d => d.id === city);
 
@@ -1692,7 +1714,7 @@ export default function EatsTab({ groupSize: initialGroupSize }) {
             </div>
           ) : (
             filteredResults.map(r => (
-              <RestaurantCard key={r.id} r={r} onView={setSelected} />
+              <RestaurantCard key={r.id} r={r} onView={setSelected} favorites={favorites} onToggleFavorite={toggleFavorite} />
             ))
           )}
         </>
