@@ -1312,7 +1312,6 @@ function RestaurantCard({ r, onView, favorites, onToggleFavorite }) {
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:4 }}>
           <div style={{ flex:1, paddingRight:8 }}>
             <div style={{ fontSize:16, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:2 }}>{r.name}</div>
-            <div style={{ fontSize:12, color:HOT, fontFamily:"'Nunito',sans-serif", marginBottom:4 }}>{r.cuisine}</div>
           </div>
         </div>
         <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:6 }}>
