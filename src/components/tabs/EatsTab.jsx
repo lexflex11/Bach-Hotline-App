@@ -287,7 +287,7 @@ const RESTAURANTS = {
     },
     {
       id:"nola-4", name:"Cochon", cuisine:"Cajun / Creole", priceRange:"$$",
-      vibe:"Rustic · Warehouse District · Crowd-Pleaser",
+      vibe:"Rustic · Warehouse District",
       rating:4.7, reviews:764, groupMin:2, groupMax:22,
       tags:["Cajun","Group-Friendly","Craft Cocktails"],
       image:"https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
@@ -1307,7 +1307,7 @@ function RestaurantCard({ r, onView, favorites, onToggleFavorite }) {
         </div>
         <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:6 }}>
           <Stars rating={r.rating} />
-          <span style={{ fontSize:12, fontWeight:700, color:DARK, fontFamily:"'Nunito',sans-serif" }}>{r.rating}</span>
+          <span style={{ fontSize:12, fontWeight:300, color:DARK, fontFamily:"'Nunito',sans-serif" }}>{r.rating}</span>
           <span style={{ fontSize:11, color:"#aaa", fontFamily:"'Nunito',sans-serif" }}>({r.reviews} reviews)</span>
         </div>
         <div style={{ fontSize:11, color:"#888", fontFamily:"'Nunito',sans-serif", marginBottom:12, lineHeight:1.4 }}>
