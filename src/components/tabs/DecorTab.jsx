@@ -3128,7 +3128,9 @@ export const TABLEWARE = [
   },
   {
     id:"foil-poppin-bride", type:"foil", name:"36\" Poppin' Bride Balloon",
-    desc:"36\" specialty foil balloon", price:"$16.00",
+    desc:"Pop the bubbly, she's getting wifed up! This poppin' bride 36\" foil balloon makes a fab photo prop or party centerpiece. Cheers to love and champagne!",
+    bullets:["Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$16.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68d313f576809b67b84bf71d/1767987991603/Ebook+Thumbnail+with+Video+-+2025-05-18T172228.075.png?format=1500w",
     bg:"#FCE4EC", accent:"#FFD700",
     tags:["hotpink","pink","baby-pink","blush","gold","champagne","white","glam","bachelorette","bride","green","lime-green","empower-mint"],
