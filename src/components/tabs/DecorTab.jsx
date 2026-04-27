@@ -3094,7 +3094,9 @@ export const TABLEWARE = [
   },
   {
     id:"foil-celebrate-bubbly-bottle", type:"foil", name:"39\" Celebrate Bubbly Bottle Balloon",
-    desc:"39\" specialty foil balloon", price:"$10.00",
+    desc:"Pop the bubbly, it's time to celebrate! This 39\" champagne bottle foil balloon is the perfect addition to any glam gathering.",
+    bullets:["Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$10.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6941a776144d875d2d96d9ba/1767987163285/Ebook+Thumbnail+with+Video+-+2025-01-05T144837.496.png?format=1500w",
     bg:"#FFF8E1", accent:"#FFD700",
     tags:["gold","champagne","cream","white","silver","glam","bachelorette","celebrate"],
