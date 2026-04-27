@@ -5013,7 +5013,7 @@ function CuratedThemes({ cart, setCart }) {
                   ))}
                 </div>
               </div>
-              <div style={{marginBottom:12,display:"flex",flexDirection:"column",gap:6}}>
+              <div style={{marginBottom:12,display:"grid",gridTemplateColumns:"1fr 1fr",gap:6}}>
                 {theme.items.map(id => {
                   const item = allItems(id);
                   if (!item) return null;
