@@ -4075,7 +4075,7 @@ export default function EatsTab({ groupSize: initialGroupSize }) {
       {/* Search form */}
       <div style={{ ...C, marginBottom:12 }}>
         <div style={labelStyle}>Destination</div>
-        <select value={city} onChange={e=>{ setCity(e.target.value); setResults(null); }} style={{ ...inputStyle, appearance:"none" }}>
+        <select value={city} onChange={e=>{ const v=e.target.value; setCity(v); setResults(v ? RESTAURANTS[v] || DEFAULT_RESTAURANTS : null); }} style={{ ...inputStyle, appearance:"none" }}>
           <option value="">Choose a city…</option>
           {DESTS.filter(d => d.id !== "all").map(d => (
             <option key={d.id} value={d.id}>{d.name}</option>
@@ -4126,7 +4126,7 @@ export default function EatsTab({ groupSize: initialGroupSize }) {
 
       {/* CTA / Find button */}
       <div style={{ ...C, background:SOFT, border:`1.5px solid ${MID}`, marginBottom:20 }}>
-        {city ? (
+        {city && (
           <>
             <div style={{ fontSize:14, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:4 }}>
               {selectedDest?.name}
@@ -4134,29 +4134,21 @@ export default function EatsTab({ groupSize: initialGroupSize }) {
             <div style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif", marginBottom:14, opacity:0.85 }}>
               {groupSize} guests{date ? ` · ${date}` : " · flexible date"}{time ? ` at ${time}` : ""}
             </div>
-            <button onClick={findEats} style={{
-              width:"100%",
-              background:`linear-gradient(135deg,#f472b0,${HOT})`,
-              color:WHITE, border:"none", borderRadius:14,
-              padding:"15px", cursor:"pointer",
-              fontFamily:"'Nunito',sans-serif", fontSize:14, fontWeight:800,
-              letterSpacing:"0.3px",
-            }}>
-                      Find Best Tables
-            </button>
-            <div style={{ fontSize:10, color:"#bbb", fontFamily:"'Nunito',sans-serif", marginTop:8, textAlign:"center" }}>
-              Curated spots perfect for bachelorette groups
-            </div>
           </>
-        ) : (
-          <div style={{ textAlign:"center", padding:"8px 0" }}>
-            <div style={{ fontSize:22, marginBottom:6 }}>🍽️</div>
-            <div style={{ fontSize:13, color:DARK, fontFamily:"'Playfair Display',Georgia,serif" }}>Pick a destination above</div>
-            <div style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif", marginTop:4, opacity:0.75 }}>
-              Then we'll find the best tables for {groupSize} people
-            </div>
-          </div>
         )}
+        <button onClick={findEats} disabled={!city} style={{
+          width:"100%",
+          background: city ? `linear-gradient(135deg,#f472b0,${HOT})` : MID,
+          color:WHITE, border:"none", borderRadius:14,
+          padding:"15px", cursor: city ? "pointer" : "not-allowed",
+          fontFamily:"'Nunito',sans-serif", fontSize:14, fontWeight:800,
+          letterSpacing:"0.3px", opacity: city ? 1 : 0.55,
+        }}>
+          Find Best Tables
+        </button>
+        <div style={{ fontSize:10, color:"#bbb", fontFamily:"'Nunito',sans-serif", marginTop:8, textAlign:"center" }}>
+          {city ? "Curated spots perfect for bachelorette groups" : "Pick a destination above to get started"}
+        </div>
       </div>
 
       {/* ── View Toggle ── */}
