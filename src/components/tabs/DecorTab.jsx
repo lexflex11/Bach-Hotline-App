@@ -5029,7 +5029,8 @@ function CuratedThemes({ cart, setCart }) {
                       }
                       <div style={{flex:1,minWidth:0}}>
                         <div style={{fontFamily:"'Nunito',sans-serif",fontSize:11,fontWeight:400,color:added?HOT:DARK,lineHeight:1.3,overflow:"hidden",whiteSpace:"nowrap",textOverflow:"ellipsis"}}>{added?"✓ ":""}{item.name}</div>
-                        <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,color:"#aaa",marginTop:1}}>{item.price}{setSize > 1 ? ` · Set of ${setSize}` : ""}</div>
+                        {setSize > 1 && <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,color:"#aaa",marginTop:1}}>Set of {setSize}</div>}
+                        <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,color:"#aaa",marginTop:1}}>{item.price}</div>
                       </div>
                       <div style={{display:"flex",alignItems:"center",gap:5,flexShrink:0}}>
                         <button onClick={e=>{e.stopPropagation();setItemQty(id, qty-1);}} style={{width:22,height:22,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:WHITE,color:DARK,fontSize:14,fontWeight:700,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",padding:0,lineHeight:1}}>−</button>
