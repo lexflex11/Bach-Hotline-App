@@ -4998,11 +4998,6 @@ function CuratedThemes({ cart, setCart }) {
 
   return (
     <div style={{marginTop:28,paddingTop:20,borderTop:`2px solid ${MID}`}}>
-      <div style={{textAlign:"center",marginBottom:14}}>
-        <div style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'Nunito',sans-serif",letterSpacing:"1.5px",textTransform:"uppercase",marginBottom:4}}>Not sure where to start?</div>
-        <div style={{fontSize:18,fontWeight:300,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:4}}>Shop Curated Themes</div>
-        <div style={{fontSize:12,color:"#aaa",fontFamily:"'Nunito',sans-serif",marginTop:2}}>Pre styled sets, add everything with one tap</div>
-      </div>
       {/* Party size selector */}
       <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8,marginBottom:18,padding:"10px 14px",background:SOFT,borderRadius:14,border:`1.5px solid ${MID}`}}>
         <span style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'Nunito',sans-serif",letterSpacing:"0.5px",textTransform:"uppercase",marginRight:4}}>Party Size:</span>
