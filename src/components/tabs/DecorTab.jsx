@@ -3119,7 +3119,9 @@ export const TABLEWARE = [
   },
   {
     id:"foil-crown", type:"foil", name:"17\" Crown Balloon",
-    desc:"17\" specialty foil balloon", price:"$13.36",
+    desc:"Bring the glam with this sassy crown balloon. Fit for the bride and her royal crew!",
+    bullets:["Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$13.36",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68d1befc76809b67b84ad142/1767987354198/Ebook+Thumbnail+with+Video+-+2025-08-07T191055.png?format=1500w",
     bg:"#FFF8E1", accent:"#FFD700",
     tags:["gold","champagne","cream","white","silver","glam","bachelorette","bride"],
