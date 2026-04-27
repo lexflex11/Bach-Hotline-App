@@ -17,7 +17,7 @@ export default function HomeTab({ groupSize, setGroupSize, setTab, user }) {
       </div>
       <div style={{ ...C, marginBottom:14, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
         <div>
-          <div style={{ fontSize:14, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>Your Bride Tribe</div>
+          <div style={{ fontSize:14, fontWeight:300, fontFamily:"'Playfair Display',Georgia,serif", color:DARK }}>Your Bride Tribe</div>
         </div>
         <div style={{ display:"flex", alignItems:"center", gap:10 }}>
           <button onClick={()=>setGroupSize(Math.max(2,groupSize-1))} style={SM}>−</button>
