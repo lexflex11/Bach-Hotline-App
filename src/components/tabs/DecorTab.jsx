@@ -2698,13 +2698,6 @@ export const TABLEWARE = [
   },
 
 
-  {
-    id:"foil-blue-polka-number", type:"foil", numberBalloon:true, name:"34\" Blue Polka Dot Number Balloon",
-    desc:"34\" foil number balloon", price:"$9.99",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6dcbd859-3897-4890-bd28-1b89c724860f/Ebook+Thumbnail+with+Video+-+2025-03-13T185118.850.png",
-    bg:"#29B6F6", accent:"#F8F8F8",
-    tags:["blue","baby-blue","monet","georgia","blue-slate","navy","crystal-sapphire","white","crystal-clear","silver"],
-  },
 
   {
     id:"foil-hot-pink-number", type:"foil", numberBalloon:true, name:"34\" Hot Pink Number Balloon",
@@ -2727,13 +2720,6 @@ export const TABLEWARE = [
     tags:["hotpink","neon-pink","crystal-magenta","metallic-fuchsia","blush","baby-pink","pink","white","crystal-clear"],
   },
 
-  {
-    id:"foil-hotpink-number", type:"foil", numberBalloon:true, name:"34\" Hot Pink Number Balloon",
-    desc:"34\" foil number balloon", price:"$8.99",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ce1235a3-0275-4d1f-a0d4-b9b69e7ad843/Ebook+Thumbnail+with+Video-121.png",
-    bg:"#E91E8C", accent:"#FFB5C2",
-    tags:["hotpink","blush","baby-pink","pink","coral","taffy","metallic-fuchsia","crystal-magenta","white","crystal-clear"],
-  },
 
   {
     id:"foil-rainbow-number", type:"foil", numberBalloon:true, name:"34\" Rainbow Number Balloon",
