@@ -21,7 +21,7 @@ export default function HomeTab({ groupSize, setGroupSize, setTab, user }) {
         </div>
         <div style={{ display:"flex", alignItems:"center", gap:10 }}>
           <button onClick={()=>setGroupSize(Math.max(2,groupSize-1))} style={SM}>−</button>
-          <span style={{ fontWeight:900, color:DARK, fontSize:16, minWidth:36, textAlign:"center", fontFamily:"'Nunito',sans-serif", borderRadius:20, padding:"4px 12px" }}>{groupSize}</span>
+          <span style={{ fontWeight:300, color:DARK, fontSize:16, minWidth:36, textAlign:"center", fontFamily:"'Nunito',sans-serif", borderRadius:20, padding:"4px 12px" }}>{groupSize}</span>
           <button onClick={()=>setGroupSize(groupSize+1)} style={SM}>+</button>
         </div>
       </div>
