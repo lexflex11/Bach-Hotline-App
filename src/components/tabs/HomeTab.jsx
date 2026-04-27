@@ -25,7 +25,7 @@ export default function HomeTab({ groupSize, setGroupSize, setTab, user }) {
           <button onClick={()=>setGroupSize(groupSize+1)} style={SM}>+</button>
         </div>
       </div>
-      <SH title="What do you need?" />
+      <SH title="What do you need?" weight={300} />
       {[
         { icon:"✈️", label:"Group Flights",      sub:"Seamless travel for your entire crew",     tab:"flights"      },
         { icon:"🏠", label:"Accommodations",     sub:"Stay together in style",                   tab:"stays"        },
@@ -42,7 +42,7 @@ export default function HomeTab({ groupSize, setGroupSize, setTab, user }) {
           <span style={{ color:HOT, fontSize:20 }}>›</span>
         </button>
       ))}
-      <SH title="Trending Destinations 🔥" sub="Where bride tribes are booking right now" />
+      <SH title="Trending Destinations" weight={300} />
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10, marginBottom:20 }}>
         {DESTS.filter(d => d.featured).map(d => (
           <button key={d.id} onClick={()=>setTab("flights")} style={{ ...C, textAlign:"left", cursor:"pointer", padding:"13px 12px", display:"block" }}>
