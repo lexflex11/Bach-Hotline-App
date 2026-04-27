@@ -4998,19 +4998,6 @@ function CuratedThemes({ cart, setCart }) {
 
   return (
     <div style={{marginTop:28,paddingTop:20,borderTop:`2px solid ${MID}`}}>
-      {/* Party size selector */}
-      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8,marginBottom:18,padding:"10px 14px",background:SOFT,borderRadius:14,border:`1.5px solid ${MID}`}}>
-        <span style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'Nunito',sans-serif",letterSpacing:"0.5px",textTransform:"uppercase",marginRight:4}}>Party Size:</span>
-        {[8,16,24].map(n => (
-          <button key={n} onClick={()=>setPartySize(n)} style={{
-            padding:"5px 14px",borderRadius:20,fontSize:12,fontFamily:"'Nunito',sans-serif",fontWeight:700,cursor:"pointer",
-            border:`1.5px solid ${partySize===n?HOT:BORDER}`,
-            background:partySize===n?HOT:WHITE,
-            color:partySize===n?WHITE:DARK,
-            transition:"all 0.15s",
-          }}>{n}</button>
-        ))}
-      </div>
       <div style={{display:"flex",flexDirection:"column",gap:14}}>
         {CURATED_THEMES.map(theme => {
           const allAdded = themeAllAdded(theme);
