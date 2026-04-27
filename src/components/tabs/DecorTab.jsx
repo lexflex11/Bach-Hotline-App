@@ -2995,7 +2995,9 @@ export const TABLEWARE = [
 
   {
     id:"foil-polka-dot-bow", type:"foil", name:"40\" Polka Dot Bow Balloon",
-    desc:"40\" specialty foil balloon", price:"$12.50",
+    desc:"Add a pop of playful charm with our 40\" polka dot bow foil balloon! With its oversized bow shape and sweet polka dot print, use it as a photo backdrop, centerpiece, or stylish party accent that's full of flirty fun!",
+    bullets:["Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$12.50",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68d4972576809b67b84d6704/1767991290378/Ebook+Thumbnail+with+Video+-+2025-05-18T171923.294.png?format=1500w",
     bg:"#F4A7B9", accent:"#F8F8F8",
     tags:["blush","hotpink","baby-pink","pink","white","crystal-clear","sugar","lavender","champagne","cameo"],
