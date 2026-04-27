@@ -3339,13 +3339,6 @@ export const TABLEWARE = [
     tags:["pink","baby-pink","blush","lavender","purple","white","pastel","floral","blossom","bachelorette"],
   },
   {
-    id:"treatbag-fringe", type:"treatbag", name:"Fringe Treat Bags",
-    desc:"Assorted sizes", bullets:["Assorted sizes"], price:"$22.21",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b3ef3e6e-10ae-42c2-90f1-74697391dae0/Ebook+Thumbnail+with+Video+-+2025-12-29T210340.995.png",
-    bg:"#FCE4EC", accent:"#E91E8C",
-    tags:["hotpink","pink","baby-pink","blush","rainbow","colorful","glam","bachelorette"],
-  },
-  {
     id:"treatbag-black-stripes", type:"treatbag", name:"Black Stripes Treat Bags",
     desc:"16 ct · 5.25\"h × 3.25\"w × 8\"l", bullets:["Set of 16","Size: 8\"l x 3.25\"w x 5.25\"h"], price:"$16.00",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/550c2ad0-964a-497b-868b-88179dae489d/Ebook+Thumbnail+with+Video-403.png",
@@ -4937,7 +4930,6 @@ const CURATED_THEMES = [
       "cup-blues-checker",
       "napkin-love-heart",
       "napkin-wavy",
-      "treatbag-fringe",
       "banner-molly-paper-lanterns",
       "banner-floral-garland",
       "confetti-whimsy",
@@ -4995,7 +4987,7 @@ function CuratedThemes({ cart, setCart }) {
       <div style={{textAlign:"center",marginBottom:18}}>
         <div style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'Nunito',sans-serif",letterSpacing:"1.5px",textTransform:"uppercase",marginBottom:4}}>Not sure where to start?</div>
         <div style={{fontSize:18,fontWeight:300,fontFamily:"'Playfair Display',Georgia,serif",color:DARK,marginBottom:4}}>Shop Curated Themes</div>
-        <div style={{fontSize:12,color:"#aaa",fontFamily:"'Nunito',sans-serif",marginTop:2}}>Pre styled sets — add everything with one tap</div>
+        <div style={{fontSize:12,color:"#aaa",fontFamily:"'Nunito',sans-serif",marginTop:2}}>Pre styled sets, add everything with one tap</div>
       </div>
       <div style={{display:"flex",flexDirection:"column",gap:14}}>
         {CURATED_THEMES.map(theme => {
