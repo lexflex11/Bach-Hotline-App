@@ -3727,9 +3727,8 @@ function Stars({ rating }) {
 }
 
 // ─── Restaurant Card ──────────────────────────────────────────────────────────
-function RestaurantCard({ r, onView, favorites, onToggleFavorite }) {
+function RestaurantCard({ r, onView }) {
   const [imgLoaded, setImgLoaded] = useState(false);
-  const isFav = favorites.includes(r.id);
   return (
     <div style={{
       background:WHITE, borderRadius:20, overflow:"hidden",
@@ -3744,22 +3743,6 @@ function RestaurantCard({ r, onView, favorites, onToggleFavorite }) {
           onLoad={()=>setImgLoaded(true)}
           style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", opacity:imgLoaded?1:0, transition:"opacity 0.3s" }}
         />
-        {/* Favorite heart */}
-        <button
-          onClick={e=>{ e.stopPropagation(); onToggleFavorite(r.id); }}
-          style={{
-            position:"absolute", top:10, right:10,
-            background: isFav ? HOT : "rgba(255,255,255,0.85)",
-            border:"none", borderRadius:"50%",
-            width:36, height:36, cursor:"pointer",
-            display:"flex", alignItems:"center", justifyContent:"center",
-            boxShadow:"0 2px 8px rgba(230,101,130,0.25)",
-            transition:"all 0.2s",
-          }}
-          aria-label={isFav ? "Remove from favorites" : "Add to favorites"}
-        >
-          <span style={{ fontSize:18, lineHeight:1, color: isFav ? WHITE : HOT }}>{isFav ? "♥" : "♡"}</span>
-        </button>
       </div>
 
       {/* Info */}
@@ -4004,40 +3987,6 @@ export default function EatsTab({ groupSize: initialGroupSize }) {
   const [category,   setCategory]   = useState("all");
   const [results,    setResults]    = useState(null);  // null = not searched yet
   const [selected,   setSelected]   = useState(null);  // restaurant detail view
-  const [eatsView,   setEatsView]   = useState("browse"); // "browse" | "itinerary"
-  const [favorites,  setFavorites]  = useState(() => {
-    try { return JSON.parse(localStorage.getItem("eats_favorites") || "[]"); }
-    catch { return []; }
-  });
-  const [planData, setPlanData] = useState(() => {
-    try { return JSON.parse(localStorage.getItem("eats_plan") || "{}"); }
-    catch { return {}; }
-  }); // { id: { day:1, meal:"dinner" } }
-  const [tripDays, setTripDays] = useState(3);
-
-  function toggleFavorite(id) {
-    setFavorites(prev => {
-      const isAdding = !prev.includes(id);
-      const next = isAdding ? [...prev, id] : prev.filter(x => x !== id);
-      try { localStorage.setItem("eats_favorites", JSON.stringify(next)); } catch {}
-      if (isAdding) {
-        setPlanData(p => {
-          const np = { ...p, [id]: p[id] || { day:1, meal:"dinner" } };
-          try { localStorage.setItem("eats_plan", JSON.stringify(np)); } catch {}
-          return np;
-        });
-      }
-      return next;
-    });
-  }
-
-  function updatePlanItem(id, field, value) {
-    setPlanData(prev => {
-      const next = { ...prev, [id]: { ...(prev[id] || { day:1, meal:"dinner" }), [field]: value } };
-      try { localStorage.setItem("eats_plan", JSON.stringify(next)); } catch {}
-      return next;
-    });
-  }
 
   const selectedDest = DESTS.find(d => d.id === city);
 
@@ -4152,35 +4101,9 @@ export default function EatsTab({ groupSize: initialGroupSize }) {
       </div>
 
       {/* ── View Toggle ── */}
-      {results && (
-        <div style={{ display:"flex", gap:8, marginBottom:16 }}>
-          {[
-            { id:"browse",    label:"Browse",       emoji:"🍽️" },
-            { id:"itinerary", label:"My Itinerary",  emoji:"📋", count: favorites.length },
-          ].map(v => (
-            <button key={v.id} onClick={()=>setEatsView(v.id)} style={{
-              flex:1, padding:"10px 8px", borderRadius:12,
-              border: eatsView===v.id ? "none" : `1.5px solid ${BORDER}`,
-              background: eatsView===v.id ? `linear-gradient(135deg,#f472b0,${HOT})` : WHITE,
-              color: eatsView===v.id ? WHITE : DARK,
-              fontFamily:"'Nunito',sans-serif", fontSize:13, fontWeight:700,
-              cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", gap:6,
-            }}>
-              <span>{v.emoji}</span>{v.label}
-              {v.count > 0 && (
-                <span style={{
-                  background: eatsView===v.id ? "rgba(255,255,255,0.3)" : HOT,
-                  color: WHITE, borderRadius:50, fontSize:10, fontWeight:800,
-                  padding:"1px 7px", marginLeft:2,
-                }}>{v.count}</span>
-              )}
-            </button>
-          ))}
-        </div>
-      )}
 
-      {/* ── Results (Browse) ── */}
-      {filteredResults && eatsView === "browse" && (
+      {/* ── Results ── */}
+      {filteredResults && (
         <>
           <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12 }}>
             <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:17, fontWeight:700, color:DARK }}>
@@ -4198,170 +4121,12 @@ export default function EatsTab({ groupSize: initialGroupSize }) {
             </div>
           ) : (
             filteredResults.map(r => (
-              <RestaurantCard key={r.id} r={r} onView={setSelected} favorites={favorites} onToggleFavorite={toggleFavorite} />
+              <RestaurantCard key={r.id} r={r} onView={setSelected} />
             ))
           )}
         </>
       )}
 
-      {/* ── Itinerary View ── */}
-      {results && eatsView === "itinerary" && (
-        <div>
-          {/* Trip length picker */}
-          <div style={{ ...C, marginBottom:14 }}>
-            <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:10 }}>
-              <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:16, fontWeight:700, color:DARK }}>
-                Your Dining Itinerary
-              </div>
-              <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-                <span style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif" }}>Trip days:</span>
-                {[2,3,4,5].map(n => (
-                  <button key={n} onClick={()=>setTripDays(n)} style={{
-                    width:28, height:28, borderRadius:"50%", fontSize:12, fontWeight:700,
-                    border: tripDays===n ? "none" : `1.5px solid ${BORDER}`,
-                    background: tripDays===n ? HOT : WHITE,
-                    color: tripDays===n ? WHITE : DARK,
-                    cursor:"pointer", fontFamily:"'Nunito',sans-serif",
-                  }}>{n}</button>
-                ))}
-              </div>
-            </div>
-            <div style={{ fontSize:12, color:HOT, fontFamily:"'Nunito',sans-serif", opacity:0.8 }}>
-              Heart restaurants to add them here, then assign each to a day and meal
-            </div>
-          </div>
-
-          {favorites.length === 0 ? (
-            <div style={{ textAlign:"center", padding:"40px 20px", background:SOFT, borderRadius:20 }}>
-              <div style={{ fontSize:36, marginBottom:12 }}>♡</div>
-              <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:16, fontWeight:700, color:DARK, marginBottom:6 }}>No saved spots yet</div>
-              <div style={{ fontSize:12, color:HOT, fontFamily:"'Nunito',sans-serif", opacity:0.8 }}>
-                Tap Browse and heart the restaurants you want to visit
-              </div>
-              <button onClick={()=>setEatsView("browse")} style={{
-                marginTop:14, padding:"10px 22px", borderRadius:50,
-                background:`linear-gradient(135deg,#f472b0,${HOT})`,
-                color:WHITE, border:"none", fontFamily:"'Nunito',sans-serif",
-                fontSize:13, fontWeight:700, cursor:"pointer",
-              }}>Browse Restaurants</button>
-            </div>
-          ) : (
-            Array.from({length:tripDays},(_,di)=>di+1).map(day => {
-              const MEALS = [
-                { id:"brunch",  label:"Brunch",    emoji:"🥂" },
-                { id:"lunch",   label:"Lunch",     emoji:"🥗" },
-                { id:"dinner",  label:"Dinner",    emoji:"🍽️" },
-                { id:"latenight",label:"Late Night",emoji:"🌙" },
-              ];
-              return (
-                <div key={day} style={{ marginBottom:20 }}>
-                  <div style={{
-                    display:"flex", alignItems:"center", gap:10, marginBottom:10,
-                    paddingBottom:8, borderBottom:`2px solid ${MID}`,
-                  }}>
-                    <div style={{
-                      width:32, height:32, borderRadius:"50%",
-                      background:`linear-gradient(135deg,#f472b0,${HOT})`,
-                      display:"flex", alignItems:"center", justifyContent:"center",
-                      fontSize:13, fontWeight:800, color:WHITE, fontFamily:"'Nunito',sans-serif", flexShrink:0,
-                    }}>{day}</div>
-                    <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:16, fontWeight:700, color:DARK }}>Day {day}</div>
-                  </div>
-                  {MEALS.map(meal => {
-                    const assigned = favorites
-                      .map(id => results.find(r => r.id === id))
-                      .filter(r => r && planData[r.id]?.day === day && planData[r.id]?.meal === meal.id);
-                    return (
-                      <div key={meal.id} style={{ marginBottom:10 }}>
-                        <div style={{ fontSize:11, fontWeight:700, color:HOT, fontFamily:"'Nunito',sans-serif", textTransform:"uppercase", letterSpacing:0.8, marginBottom:6, display:"flex", alignItems:"center", gap:5 }}>
-                          <span>{meal.emoji}</span>{meal.label}
-                        </div>
-                        {assigned.length > 0 ? assigned.map(r => (
-                          <div key={r.id} style={{
-                            background:WHITE, borderRadius:14, border:`1.5px solid ${BORDER}`,
-                            padding:"10px 14px", marginBottom:8,
-                            display:"flex", alignItems:"center", gap:12,
-                          }}>
-                            <img src={r.image} alt={r.name} style={{ width:48, height:48, borderRadius:10, objectFit:"cover", flexShrink:0 }} />
-                            <div style={{ flex:1, minWidth:0 }}>
-                              <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:13, fontWeight:700, color:DARK, marginBottom:2 }}>{r.name}</div>
-                              <div style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif", opacity:0.8 }}>{r.vibe}</div>
-                            </div>
-                            <div style={{ display:"flex", flexDirection:"column", gap:4, flexShrink:0 }}>
-                              <select
-                                value={planData[r.id]?.day || 1}
-                                onChange={e=>updatePlanItem(r.id,"day",Number(e.target.value))}
-                                style={{ fontSize:10, borderRadius:8, border:`1px solid ${BORDER}`, padding:"2px 4px", fontFamily:"'Nunito',sans-serif", color:DARK, background:WHITE }}
-                              >
-                                {Array.from({length:tripDays},(_,i)=><option key={i+1} value={i+1}>Day {i+1}</option>)}
-                              </select>
-                              <select
-                                value={planData[r.id]?.meal || "dinner"}
-                                onChange={e=>updatePlanItem(r.id,"meal",e.target.value)}
-                                style={{ fontSize:10, borderRadius:8, border:`1px solid ${BORDER}`, padding:"2px 4px", fontFamily:"'Nunito',sans-serif", color:DARK, background:WHITE }}
-                              >
-                                {MEALS.map(m=><option key={m.id} value={m.id}>{m.label}</option>)}
-                              </select>
-                            </div>
-                          </div>
-                        )) : (
-                          <div style={{ fontSize:12, color:"#ccc", fontFamily:"'Nunito',sans-serif", padding:"8px 12px", background:SOFT, borderRadius:10, fontStyle:"italic" }}>
-                            No {meal.label.toLowerCase()} planned yet
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              );
-            })
-          )}
-
-          {/* Unassigned favorites */}
-          {favorites.length > 0 && (() => {
-            const unassigned = favorites
-              .map(id => results.find(r => r.id === id))
-              .filter(r => r && !planData[r.id]);
-            if (!unassigned.length) return null;
-            return (
-              <div style={{ marginTop:4, marginBottom:20 }}>
-                <div style={{ fontSize:12, fontWeight:700, color:HOT, fontFamily:"'Nunito',sans-serif", textTransform:"uppercase", letterSpacing:0.8, marginBottom:8 }}>
-                  Saved but not yet scheduled
-                </div>
-                {unassigned.map(r => (
-                  <div key={r.id} style={{
-                    background:WHITE, borderRadius:14, border:`1.5px dashed ${BORDER}`,
-                    padding:"10px 14px", marginBottom:8,
-                    display:"flex", alignItems:"center", gap:12,
-                  }}>
-                    <img src={r.image} alt={r.name} style={{ width:48, height:48, borderRadius:10, objectFit:"cover", flexShrink:0 }} />
-                    <div style={{ flex:1, minWidth:0 }}>
-                      <div style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:13, fontWeight:700, color:DARK }}>{r.name}</div>
-                    </div>
-                    <div style={{ display:"flex", flexDirection:"column", gap:4, flexShrink:0 }}>
-                      <select
-                        value=""
-                        onChange={e=>updatePlanItem(r.id,"day",Number(e.target.value))}
-                        style={{ fontSize:10, borderRadius:8, border:`1px solid ${BORDER}`, padding:"2px 4px", fontFamily:"'Nunito',sans-serif", color:DARK, background:WHITE }}
-                      >
-                        <option value="">Day?</option>
-                        {Array.from({length:tripDays},(_,i)=><option key={i+1} value={i+1}>Day {i+1}</option>)}
-                      </select>
-                      <select
-                        defaultValue="dinner"
-                        onChange={e=>updatePlanItem(r.id,"meal",e.target.value)}
-                        style={{ fontSize:10, borderRadius:8, border:`1px solid ${BORDER}`, padding:"2px 4px", fontFamily:"'Nunito',sans-serif", color:DARK, background:WHITE }}
-                      >
-                        {[{id:"brunch",label:"Brunch"},{id:"lunch",label:"Lunch"},{id:"dinner",label:"Dinner"},{id:"latenight",label:"Late Night"}].map(m=><option key={m.id} value={m.id}>{m.label}</option>)}
-                      </select>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            );
-          })()}
-        </div>
-      )}
     </div>
   );
 }
