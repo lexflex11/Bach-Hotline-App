@@ -31,7 +31,7 @@ export default function HomeTab({ groupSize, setGroupSize, setTab, user }) {
         { icon:"🏠", label:"Accommodations",     sub:"Stay together in style",                   tab:"stays"        },
         { icon:"🍽️", label:"Bites & Sips",        sub:"Top spots for every vibe from day to night", tab:"eats"         },
         { icon:"🎉", label:"Experiences",        sub:"Curated activities for your perfect itinerary", tab:"experiences"  },
-        { icon:"🎀", label:"Party Supply Shop",  sub:"Your real Etsy products — 534 items",      tab:"shop"         },
+        { icon:"🎀", label:"Party Supply Shop",  sub:"Decor, details, and party must haves",     tab:"shop"         },
       ].map(item => (
         <button key={item.tab} onClick={()=>setTab(item.tab)} style={{ ...C, display:"flex", alignItems:"center", gap:14, cursor:"pointer", textAlign:"left", width:"100%", marginBottom:8 }}>
           <span style={{ fontSize:24 }}>{item.icon}</span>
