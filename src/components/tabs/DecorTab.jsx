@@ -4642,7 +4642,7 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
     score: item.tags.filter(t => selectedColors.includes(t)).length,
   })).sort((a,b) => b.score - a.score);
 
-  const getSize = id => sizes[id] || "mini";
+  const getSize = id => sizes[id] || "tube";
   const cartId  = (id, size) => `${id}-${size}`;
 
   const inCart = (id, size) => cart.some(c => c.id === cartId(id, size));
