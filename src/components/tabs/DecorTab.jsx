@@ -4679,7 +4679,7 @@ function ConfettiStep({ stepNum, selectedColors, cart, setCart }) {
         <div style={{padding:"7px 8px 8px",flex:1,display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
           <div style={{fontSize:13,fontWeight:400,color:"#f496c3",fontFamily:"'Acme',sans-serif",lineHeight:1.3,marginBottom:4}}>{item.name}</div>
           <div style={{display:"flex",gap:3,marginBottom:5}}>
-            {[{id:"mini",label:"Mini"},{id:"tube",label:"Tube"}].map(opt => (
+            {[{id:"mini",label:"Mini: 0.25oz"},{id:"tube",label:"Tube: 1oz"}].map(opt => (
               <button key={opt.id} onClick={() => setSizes(prev => ({...prev,[item.id]:opt.id}))} style={{
                 flex:1, padding:"2px 0", borderRadius:6, cursor:"pointer",
                 fontFamily:"'Nunito',sans-serif", fontSize:8, fontWeight:700,
