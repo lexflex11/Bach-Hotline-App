@@ -4968,7 +4968,8 @@ function CuratedThemes({ cart, setCart }) {
       const sizeLabel = size === "mini" ? "Mini: 0.25oz" : "Tube: 1oz";
       const sizePrice = size === "mini" ? parseFloat(item.price.replace("$","")) : parseFloat(item.price.replace("$","")) * 2;
       const sizeBullets = size === "tube" ? ["Set of 1"] : item.bullets;
-      return { ...item, id, name:`${item.name} — ${sizeLabel}`, price:`$${sizePrice.toFixed(2)}`, bullets: sizeBullets };
+      const sizeImage = size === "tube" ? (item.tubeImage || item.image) : item.image;
+      return { ...item, id, name:`${item.name} — ${sizeLabel}`, price:`$${sizePrice.toFixed(2)}`, bullets: sizeBullets, image: sizeImage };
     }
     return TABLEWARE.find(i => i.id === id) || null;
   };
