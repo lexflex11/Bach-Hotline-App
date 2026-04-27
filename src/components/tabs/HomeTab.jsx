@@ -29,7 +29,7 @@ export default function HomeTab({ groupSize, setGroupSize, setTab, user }) {
       {[
         { icon:"✈️", label:"Group Flights",      sub:"Find best fares for your whole crew",      tab:"flights"      },
         { icon:"🏠", label:"Accommodations",     sub:"Best stays for your group",                tab:"stays"        },
-        { icon:"🍽️", label:"Eats",               sub:"Restaurants & brunch spots",               tab:"eats"         },
+        { icon:"🍽️", label:"Bites & Sips",        sub:"Restaurants & brunch spots",               tab:"eats"         },
         { icon:"🎉", label:"Experiences",        sub:"Activities, shows & adventures",           tab:"experiences"  },
         { icon:"🎀", label:"Party Supply Shop",  sub:"Your real Etsy products — 534 items",      tab:"shop"         },
       ].map(item => (
