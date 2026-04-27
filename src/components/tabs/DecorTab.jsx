@@ -4965,7 +4965,7 @@ function CuratedThemes({ cart, setCart }) {
       const size   = id.endsWith("-mini") ? "mini" : "tube";
       const item   = TABLEWARE.find(i => i.id === baseId);
       if (!item) return null;
-      const sizeLabel = size === "mini" ? "Mini Pack ¼oz" : "Tube 1oz";
+      const sizeLabel = size === "mini" ? "Mini: 0.25oz" : "Tube: 1oz";
       const sizePrice = size === "mini" ? parseFloat(item.price.replace("$","")) : parseFloat(item.price.replace("$","")) * 2;
       return { ...item, id, name:`${item.name} — ${sizeLabel}`, price:`$${sizePrice.toFixed(2)}` };
     }
