@@ -2856,8 +2856,10 @@ export const TABLEWARE = [
 
   {
     id:"foil-flamingle", type:"foil", name:"31\" Let's Flamingle Drink Balloon",
-    desc:"31\" specialty foil balloon", price:"$11.54",
-    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6940b8de144d875d2d962032/1768008824827/Ebook+Thumbnail+with+Video+-+2025-05-18T172704.423.png?format=1500w",
+    desc:"Turn up the fun with our 31\" let's flamingle drink foil balloon. Sip, mingle, and party in style with this festive decor!",
+    bullets:["Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$11.54",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/f33cab70-33a5-4ff4-83da-b7bf3520aaab/Ebook+Thumbnail+with+Video+-+2025-05-18T172704.423.png",
     bg:"#E91E8C", accent:"#FF6B1A",
     tags:["hotpink","blush","baby-pink","pink","coral","taffy","orange","aloha","teal","turquoise","white","crystal-clear"],
   },
