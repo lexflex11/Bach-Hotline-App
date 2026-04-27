@@ -2707,11 +2707,24 @@ export const TABLEWARE = [
   },
 
   {
-    id:"foil-floral-number", type:"foil", numberBalloon:true, name:"40\" Floral Number Balloon",
-    desc:"40\" foil number balloon", price:"$19.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/cffbfe26-1d67-475b-8c52-31afefe61a80/Ebook+Thumbnail+with+Video+-+2025-01-20T102142.152.png",
-    bg:"#F4A7B9", accent:"#4CAF50",
-    tags:["blush","hotpink","baby-pink","pink","green","meadow","lime-green","white","sugar","crystal-clear","champagne","lavender","coral"],
+    id:"foil-hot-pink-number", type:"foil", numberBalloon:true, name:"34\" Hot Pink Number Balloon",
+    desc:"Spruce up your bash with a splash of pizzazz using these fabulous 34\" hot pink foil number balloons! This dazzling collection has every number from 0 to 9, so you can mix and match like a party picasso!",
+    bullets:["1 count, each number is sold separately","Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$8.99",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/bb47d140-c601-41ec-9f16-c5b31b0e039c/Ebook+Thumbnail+with+Video+-+2025-01-04T151333.195.png",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/bb47d140-c601-41ec-9f16-c5b31b0e039c/Ebook+Thumbnail+with+Video+-+2025-01-04T151333.195.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/18c8aa26-b1af-4f22-a628-54aba3604c6b/Ebook+Thumbnail+with+Video+-+2025-01-04T151349.047.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b3a2efce-d692-4fdc-bcd0-de1017ee4c75/Ebook+Thumbnail+with+Video+-+2025-01-04T154311.200.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ce1235a3-0275-4d1f-a0d4-b9b69e7ad843/Ebook+Thumbnail+with+Video-121.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/06788b66-81ea-46c9-a857-473708110f91/Ebook+Thumbnail+with+Video+-+2025-01-04T154323.803.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b8af6367-5a5f-4bcd-b452-32f8e5971594/Ebook+Thumbnail+with+Video+-+2025-01-04T154925.106.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/de2ec924-f5c5-4eb9-bb82-6b5523874df0/Ebook+Thumbnail+with+Video+-+2025-01-04T154543.401.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b6d02464-c132-4c1f-9800-6f053d3b47f6/Ebook+Thumbnail+with+Video+-+2025-01-04T154707.944.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/060a7bcb-e7ba-4f8e-8117-69e493199212/Ebook+Thumbnail+with+Video+-+2025-01-04T155013.784.png",
+    ],
+    bg:"#F8BBD9", accent:"#E91E8C",
+    tags:["hotpink","neon-pink","crystal-magenta","metallic-fuchsia","blush","baby-pink","pink","white","crystal-clear"],
   },
 
   {
