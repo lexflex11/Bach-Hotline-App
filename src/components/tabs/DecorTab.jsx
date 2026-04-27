@@ -3014,8 +3014,10 @@ export const TABLEWARE = [
 
   {
     id:"foil-martini-glass", type:"foil", name:"40\" Martini Glass Balloon",
-    desc:"40\" specialty foil balloon", price:"$13.00",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1b00f3a8-7d21-47b7-8a9f-35e395047e57/Ebook+Thumbnail+with+Video+-+2025-05-25T232657.639.png",
+    desc:"Shake it, stir it, serve it cute! This 40\" martini glass foil balloon is giving vintage glam with a modern party twist; just like your bride squad.",
+    bullets:["Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$13.00",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68d3281e76809b67b84c0ae3/1767990620035/Ebook+Thumbnail+with+Video+-+2025-05-25T232657.639.png?format=1500w",
     bg:"#E91E8C", accent:"#FFD700",
     tags:["hotpink","blush","baby-pink","pink","coral","taffy","gold","metallic-gold","champagne","black","gray-smoke","white","crystal-clear"],
   },
