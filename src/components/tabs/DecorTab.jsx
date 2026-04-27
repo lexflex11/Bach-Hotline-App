@@ -3121,6 +3121,15 @@ export const TABLEWARE = [
     tags:["black","neon","hotpink","pink","purple","green","lime-green","yellow","orange","red","rainbow","spooky"],
   },
   {
+    id:"foil-holographic-butterfly", type:"foil", name:"30\" Butterfly Balloon",
+    desc:"Add fairycore magic with this 30\" holographic teal & pink butterfly foil balloon! Shimmering vibes made for bachelorettes, garden showers, or any dreamy celebration.",
+    bullets:["Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$11.54",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68d1f17576809b67b84afe3d/1767990599130/Ebook+Thumbnail+with+Video+-+2025-05-17T230146.973.png?format=1500w",
+    bg:"#00BCD4", accent:"#E91E8C",
+    tags:["teal","turquoise","aqua","empower-mint","hotpink","blush","baby-pink","iridescent","rainbow","white","crystal-clear"],
+  },
+  {
     id:"foil-lovely-butterfly", type:"foil", name:"34\" Lovely Butterfly Balloon",
     desc:"34\" specialty foil balloon", price:"$8.99",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68c6fa56f4bdc7234d3535c8/1767988050594/Ebook+Thumbnail+with+Video+-+2025-01-06T172741.825.png?format=1500w",
