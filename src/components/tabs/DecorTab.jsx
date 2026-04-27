@@ -2730,6 +2730,28 @@ export const TABLEWARE = [
     tags:["red","orange","yellow","green","blue","purple","hotpink","rainbow","confetti","white","crystal-clear"],
   },
   {
+    id:"foil-floral-number", type:"foil", numberBalloon:true, name:"40\" Floral Number Balloon",
+    desc:"Spruce up your bash with a splash of pizzazz using these fabulous 40\" floral number foil balloons! This dazzling collection has every number from 0 to 9, so you can mix and match like a party garden picasso!",
+    bullets:["1 count, each number is sold separately","Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$19.00",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/44670318-fdcc-46c6-ae30-386f9609c5fe/Ebook+Thumbnail+with+Video+-+2025-01-20T100621.717.png",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/44670318-fdcc-46c6-ae30-386f9609c5fe/Ebook+Thumbnail+with+Video+-+2025-01-20T100621.717.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6890cef4-9a0d-41aa-8df2-39b71ae1dea8/Ebook+Thumbnail+with+Video+-+2025-01-20T100725.960.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/d008160a-1b83-4b26-bd92-bcf8f7f42cdb/Ebook+Thumbnail+with+Video+-+2025-01-20T101716.421.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/cffbfe26-1d67-475b-8c52-31afefe61a80/Ebook+Thumbnail+with+Video+-+2025-01-20T102142.152.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/56a0d5d0-16c6-4cbd-b4c9-9a178776850f/Ebook+Thumbnail+with+Video+-+2025-01-20T101748.403.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/15124674-ae28-4968-8afe-619624a78e79/Ebook+Thumbnail+with+Video+-+2025-01-20T101807.494.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8c9e7e3a-ab69-4a85-846f-fbbaad1bddd3/Ebook+Thumbnail+with+Video+-+2025-01-20T101836.705.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/2b50ad44-9665-4c91-bbb9-5f2ad76b4d0d/Ebook+Thumbnail+with+Video+-+2025-01-20T101906.180.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/065ba499-cb39-4b5f-8bb9-8d43280679a8/Ebook+Thumbnail+with+Video+-+2025-01-20T101953.479.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/7364ef2e-60b4-4a86-bc7f-370b54ce69ec/Ebook+Thumbnail+with+Video+-+2025-01-20T102116.128.png",
+    ],
+    bg:"#E8F5E9", accent:"#E91E8C",
+    tags:["hotpink","blush","baby-pink","pink","green","lime-green","meadow","floral","white","crystal-clear","rainbow"],
+  },
+
+  {
     id:"foil-blue-polka-dot-number", type:"foil", numberBalloon:true, name:"34\" Blue Polka Dot Number Balloon",
     desc:"Make your celebration pop with the vibrant 34\" baby blue polka dots number foil balloon!",
     bullets:["1 count, each number is sold separately","Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
