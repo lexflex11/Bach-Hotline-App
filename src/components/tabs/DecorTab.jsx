@@ -4915,8 +4915,8 @@ const CURATED_THEMES = [
       "treatbag-envelope-boxes",
       "foil-blue-bell-bowknot",
       "banner-baby-pink-fringe-backdrop",
-      "confetti-dream",
-      "confetti-popcorn",
+      "confetti-dream-tube",
+      "confetti-popcorn-tube",
     ],
   },
   {
@@ -4932,8 +4932,8 @@ const CURATED_THEMES = [
       "napkin-wavy",
       "banner-molly-paper-lanterns",
       "banner-floral-garland",
-      "confetti-whimsy",
-      "confetti-butterfly",
+      "confetti-whimsy-tube",
+      "confetti-butterfly-tube",
     ],
   },
   {
@@ -4948,9 +4948,9 @@ const CURATED_THEMES = [
       "cup-dusty-pinky",
       "foil-zebra",
       "foil-zebra-number",
-      "confetti-cherries",
-      "confetti-lovestruck",
-      "confetti-licorice",
+      "confetti-cherries-tube",
+      "confetti-lovestruck-tube",
+      "confetti-licorice-tube",
     ],
   },
 ];
@@ -4967,7 +4967,8 @@ function CuratedThemes({ cart, setCart }) {
       if (!item) return null;
       const sizeLabel = size === "mini" ? "Mini: 0.25oz" : "Tube: 1oz";
       const sizePrice = size === "mini" ? parseFloat(item.price.replace("$","")) : parseFloat(item.price.replace("$","")) * 2;
-      return { ...item, id, name:`${item.name} — ${sizeLabel}`, price:`$${sizePrice.toFixed(2)}` };
+      const sizeBullets = size === "tube" ? ["Set of 1"] : item.bullets;
+      return { ...item, id, name:`${item.name} — ${sizeLabel}`, price:`$${sizePrice.toFixed(2)}`, bullets: sizeBullets };
     }
     return TABLEWARE.find(i => i.id === id) || null;
   };
@@ -5029,7 +5030,7 @@ function CuratedThemes({ cart, setCart }) {
                       }
                       <div style={{flex:1,minWidth:0}}>
                         <div style={{fontFamily:"'Nunito',sans-serif",fontSize:11,fontWeight:400,color:added?HOT:DARK,lineHeight:1.3,overflow:"hidden",whiteSpace:"nowrap",textOverflow:"ellipsis"}}>{added?"✓ ":""}{item.name}</div>
-                        {setSize > 1 && <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,color:"#aaa",marginTop:1}}>Set of {setSize}</div>}
+                        <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,color:"#aaa",marginTop:1}}>Set of {setSize}</div>
                         <div style={{fontFamily:"'Nunito',sans-serif",fontSize:10,color:"#aaa",marginTop:1}}>{item.price}</div>
                       </div>
                       <div style={{display:"flex",alignItems:"center",gap:5,flexShrink:0}}>
