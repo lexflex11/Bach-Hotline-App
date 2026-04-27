@@ -3058,7 +3058,9 @@ export const TABLEWARE = [
   },
   {
     id:"foil-pink-prowl", type:"foil", name:"40\" Pink Prowl Balloon",
-    desc:"40\" specialty foil balloon", price:"$14.20",
+    desc:"Unleash your wild side with this stunning pink and gold leopard balloon. The perfect mix of fierce and fabulous!",
+    bullets:["Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$14.20",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68d4905976809b67b84d6283/1767989775466/Ebook+Thumbnail+with+Video+-+2025-05-13T183658.239.png?format=1500w",
     bg:"#F48FB1", accent:"#FFD700",
     tags:["hotpink","pink","baby-pink","blush","gold","leopard","glam","bachelorette"],
