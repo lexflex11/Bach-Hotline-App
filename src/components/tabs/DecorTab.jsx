@@ -3031,7 +3031,9 @@ export const TABLEWARE = [
   },
   {
     id:"foil-pearl-white-dove", type:"foil", name:"34\" Pearl White Dove Balloon",
-    desc:"34\" specialty foil balloon", price:"$9.00",
+    desc:"Symbolize new beginnings in style with this dreamy 34\" dove foil balloon. Simple, chic, and full of love.",
+    bullets:["Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
+    price:"$9.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68c705f08328676059d29666/1767990464132/Ebook+Thumbnail+with+Video+-+2025-01-08T194309.437.png?format=1500w",
     bg:"#F8F8F8", accent:"#C0C0C0",
     tags:["white","crystal-clear","sugar","silver","fog","lace","champagne","blush","baby-pink","lavender"],
