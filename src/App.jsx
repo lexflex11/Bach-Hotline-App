@@ -144,7 +144,6 @@ export default function App() {
                   { id:"stays",   label:"Stays",     sub:"Airbnb, Vrbo & hotels"   },
                   { id:"eats",         label:"Bites & Sips", sub:"Restaurants & brunch"       },
                   { id:"experiences", label:"Experiences", sub:"Activities & adventures"   },
-                  { id:"plan",    label:"Itinerary",  sub:"Trip builder"             },
                   ...(user.email ? [
                     { id:"split", label:"Split",     sub:"Divide expenses"          },
                     { id:"dayof", label:"Day-Of",    sub:"Live itinerary mode"      },
