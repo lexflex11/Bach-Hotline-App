@@ -1431,11 +1431,7 @@ export const TABLEWARE = [
     id:"plate-pastel-stripe", type:"plate", name:"Pastel Stripe Plates",
     desc:"Pastel stripes + gold foil = instant party magic! Perfect for bridal showers, spring bachelorettes, and stylish table setups.",
     price:"$12.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b3ef3e6e-10ae-42c2-90f1-74697391dae0/Ebook+Thumbnail+with+Video+-+2025-12-29T210340.995.png?format=500w",
-    images:[
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b3ef3e6e-10ae-42c2-90f1-74697391dae0/Ebook+Thumbnail+with+Video+-+2025-12-29T210340.995.png?format=500w",
-      "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684b291b0a63794fee8a83fe/1767898248315/Ebook+Thumbnail+with+Video+-+2025-06-18T113037.037.png?format=1500w",
-    ],
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684b291b0a63794fee8a83fe/1767898248315/Ebook+Thumbnail+with+Video+-+2025-06-18T113037.037.png?format=1500w",
     bullets:["Set of 8","Dimensions: 9\"l x 9\"w","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#F4A7B9", accent:"#FFD700",
     tags:["blush","lavender","mint","baby-blue","baby-pink","gold","champagne","sugar","lemonade","monet","sea-glass"],
