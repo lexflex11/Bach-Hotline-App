@@ -3628,8 +3628,11 @@ export const TABLEWARE = [
   // ── Banners & Backdrops ───────────────────────────────────────────────────────
   {
     id:"banner-star", type:"banner", name:"Star Banner",
-    desc:"6ft–10ft", price:"$55.00",
+    desc:"Written in the stars. This banner brings cosmic sparkle to bachelorette nights and party perfect moments.",
+    bullets:["Set of 1","Size: 6ft–10ft"],
+    price:"$55.00",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/94993674-2307-427c-9b81-e91e477b2c37/Ebook+Thumbnail+with+Video-405.png",
+    etsyUrl:"https://bachhotline.squarespace.com/decorations/p/star-banner",
     bg:"#1A1A2E", accent:"#FFD700",
     tags:["gold","silver","white","crystal-clear","iridescent","glam","bachelorette","rainbow","holographic"],
   },
