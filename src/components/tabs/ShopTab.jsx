@@ -64,7 +64,10 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
     const base = p.bullets || [];
     if (p.type === "foil") {
       const m = p.name.match(/^(\d+)"/);
-      if (m) return [`Size: ${m[1]}"`, ...base];
+      if (m) {
+        const hasCount = base.some(b => b.startsWith("1 count") || b.toLowerCase().startsWith("set of 1"));
+        return [`Size: ${m[1]}"`, ...(hasCount ? [] : ["Set of 1"]), ...base];
+      }
     }
     return base;
   })(),
