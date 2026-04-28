@@ -3648,8 +3648,11 @@ export const TABLEWARE = [
   },
   {
     id:"banner-molly-paper-lanterns", type:"banner", name:"Molly Paper Lanterns",
-    desc:"Varies", price:"$38.00",
+    desc:"Light up the party! These paper lanterns are used for garden themed bachelorettes, backyard soirées, and festive outdoor fun.",
+    bullets:["Set of 3","3 Designs: 1 of each","Size: Oval 17.75\"h, Wavy 19.75\"h, Round 16\"h","Ships flat, easy to assemble"],
+    price:"$38.00",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b3ef3e6e-10ae-42c2-90f1-74697391dae0/Ebook+Thumbnail+with+Video+-+2025-12-29T210340.995.png",
+    etsyUrl:"https://bachhotline.squarespace.com/decorations/p/molly-paper-lanterns",
     bg:"#FCE4EC", accent:"#CE93D8",
     tags:["pink","baby-pink","blush","lavender","purple","white","pastel","whimsy","bachelorette"],
   },
