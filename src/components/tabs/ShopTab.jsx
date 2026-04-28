@@ -50,6 +50,13 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
   const imgs = (p.images || []).map(cleanImg).filter(Boolean);
   const main = cleanImg(p.image);
   if (main && !imgs.includes(main)) imgs.unshift(main);
+  // Auto-add tubeImage for confetti products
+  const tubeClean = cleanImg(p.tubeImage);
+  if (tubeClean && !imgs.includes(tubeClean)) imgs.push(tubeClean);
+  // Auto-generate Size variants for confetti with a tubeImage
+  const autoVariants = (p.type === "confetti" && p.tubeImage && !p.variants?.length)
+    ? [{ label: "Mini", imgIdx: 0 }, { label: "Tube", imgIdx: imgs.length - 1 }]
+    : [];
   return {
   id:        p.id,
   name:      p.type === "foil" ? p.name.replace(/^\d+"\s*/, "") : p.name,
@@ -74,8 +81,8 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
   })(),
   tags:      p.tags || [],
   related:   p.related || [],
-  variants:     p.variants || [],
-  variantLabel: p.variantLabel || "",
+  variants:     p.variants?.length ? p.variants : autoVariants,
+  variantLabel: p.variantLabel || (autoVariants.length ? "Size" : ""),
   isDigital: false,
   bestseller:false,
   };
