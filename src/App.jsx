@@ -65,7 +65,7 @@ export default function App() {
       <div style={{ background:WHITE, position:"sticky", top:0, zIndex:100, boxShadow:`0 1px 4px rgba(0,0,0,0.06)` }}>
         <div style={{ padding:"0 24px", display:"flex", alignItems:"center", justifyContent:"space-between", maxWidth:1200, margin:"0 auto", height:76 }}>
           {/* Logo */}
-          <img src={LOGO_SRC} alt="Bach Hotline" style={{ height:68, width:"auto", objectFit:"contain" }} />
+          <img src={LOGO_SRC} alt="Bach Hotline" style={{ height:100, width:"auto", objectFit:"contain" }} />
           {/* Nav + icons */}
           <div style={{ display:"flex", alignItems:"center", gap:4 }}>
             {[
