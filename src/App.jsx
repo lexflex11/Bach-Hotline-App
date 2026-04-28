@@ -65,7 +65,7 @@ export default function App() {
       <div style={{ background:WHITE, position:"sticky", top:0, zIndex:100, boxShadow:`0 2px 8px rgba(0,0,0,0.08)` }}>
         {/* ── HEADER ROW ── */}
         <div style={{ padding:"0 16px", display:"flex", alignItems:"center", justifyContent:"space-between", maxWidth:1200, margin:"0 auto" }}>
-          <img src={LOGO_SRC} alt="Bach Hotline" style={{ height:150, width:"auto", objectFit:"contain", marginBottom:-10 }} />
+          <img src={LOGO_SRC} alt="Bach Hotline" style={{ height:120, width:"auto", objectFit:"contain", marginBottom:-8 }} />
           <div style={{ display:"flex", gap:16, alignItems:"center" }}>
             {user.email && (
               <div onClick={()=>setTab("alerts")} style={{ position:"relative", cursor:"pointer", display:"flex", alignItems:"center" }}>
@@ -109,7 +109,7 @@ export default function App() {
                 style={{ flex:1, padding:"10px 4px 10px", background:"none", border:"none", cursor:"pointer",
                   display:"flex", flexDirection:"column", alignItems:"center", gap:2,
                   borderBottom: isActive ? `2.5px solid ${HOT}` : "2.5px solid transparent",
-                  color: isActive ? HOT : "#999",
+                  color: isActive ? HOT : DARK,
                   transition:"color 0.18s",
                 }}>
                 <span style={{ fontSize:11, fontFamily:"'Nunito',sans-serif", fontWeight:700, letterSpacing:"0.6px", textTransform:"uppercase" }}>{n.label}</span>
