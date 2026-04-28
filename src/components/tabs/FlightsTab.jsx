@@ -121,15 +121,15 @@ export default function FlightsTab({ groupSize }) {
 
 
         {/* Departure row */}
-        <div style={{marginBottom:14}}>
+        <div style={{marginBottom:14, overflow:"hidden"}}>
           <div style={{fontSize:10,color:HOT,fontFamily:"'Nunito',sans-serif",fontWeight:700,marginBottom:6,textTransform:"uppercase",letterSpacing:0.5}}>Departure</div>
-          <div style={{marginBottom:8}}>
+          <div style={{marginBottom:8, overflow:"hidden", borderRadius:10}}>
             <input
               type="date"
               value={depDate}
               min={minDate}
               onChange={e => { setDepDate(e.target.value); if(retDate && e.target.value >= retDate) setRetDate(""); }}
-              style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${depDate?HOT:BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box",maxWidth:"100%"}}
+              style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${depDate?HOT:BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box",display:"block"}}
             />
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:6}}>
@@ -144,15 +144,15 @@ export default function FlightsTab({ groupSize }) {
         </div>
 
         {/* Return row */}
-        <div style={{paddingTop:12,borderTop:`1px solid ${SOFT}`}}>
+        <div style={{paddingTop:12,borderTop:`1px solid ${SOFT}`, overflow:"hidden"}}>
           <div style={{fontSize:10,color:HOT,fontFamily:"'Nunito',sans-serif",fontWeight:700,marginBottom:6,textTransform:"uppercase",letterSpacing:0.5}}>Return</div>
-          <div style={{marginBottom:8}}>
+          <div style={{marginBottom:8, overflow:"hidden", borderRadius:10}}>
             <input
               type="date"
               value={retDate}
               min={depDate || minDate}
               onChange={e => setRetDate(e.target.value)}
-              style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${retDate?HOT:BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box",maxWidth:"100%"}}
+              style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${retDate?HOT:BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box",display:"block"}}
             />
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:6}}>
