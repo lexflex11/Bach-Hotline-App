@@ -2805,7 +2805,6 @@ export const TABLEWARE = [
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/9e217a40-7a6a-43bb-93c6-867a5a4a252a/Ebook+Thumbnail+with+Video+-+2025-01-20T133502.239.png",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/9e217a40-7a6a-43bb-93c6-867a5a4a252a/Ebook+Thumbnail+with+Video+-+2025-01-20T133502.239.png",
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/fdba2d25-53b1-4db7-8cf2-5f9fcff2c5cb/Ebook+Thumbnail+with+Video+-+2025-01-06T171546.183.png",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5daa3d3b-50bd-45ec-8dfd-4968ae2c52e0/Ebook+Thumbnail+with+Video+-+2025-01-06T165405.036.png",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/891228ac-7b63-4fdc-a774-47f2db428a40/Ebook+Thumbnail+with+Video+-+2025-01-06T171234.878.png",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/94588426-a385-4cc1-8f63-4f304c7cad45/Ebook+Thumbnail+with+Video+-+2025-01-06T170600.326.png",
@@ -2814,6 +2813,7 @@ export const TABLEWARE = [
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0327069e-fa9a-4727-9a0d-2bac483218df/Ebook+Thumbnail+with+Video+-+2025-01-06T170736.482.png",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/d7ab7971-8c08-42c9-8246-7fbef1e33639/Ebook+Thumbnail+with+Video+-+2025-01-06T170842.035.png",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/50e63ff7-671a-4558-bd89-b35b9cf8fe4d/Ebook+Thumbnail+with+Video+-+2025-01-06T170820.795.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/fdba2d25-53b1-4db7-8cf2-5f9fcff2c5cb/Ebook+Thumbnail+with+Video+-+2025-01-06T171546.183.png",
     ],
     bg:"#1A1A1A", accent:"#F8F8F8",
     tags:["black","white","crystal-clear","gray-smoke","silver","dalmatian","cow"],
