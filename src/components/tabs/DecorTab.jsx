@@ -632,7 +632,7 @@ export const TABLEWARE = [
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5be21dd3-07af-42ae-b7f1-380e6653c5c2/Ebook+Thumbnail+with+Video+-+2025-01-23T115601.216.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a57cd80c-b01d-4be3-8d5a-c2ab7dfcf4f6/Ebook+Thumbnail+with+Video+-+2025-01-23T115549.081.png?format=500w",
     ],
-    bullets:["Set of 8","Dimensions: 9\"w x 9\"l","Durable, disposable plates for easy cleanup"],
+    bullets:["Set of 8","Size: 9\"w x 9\"l","Durable, disposable plates for easy cleanup"],
     bg:"#F4A7B9", accent:"#CC0000",
     tags:["blush","hotpink","red","mauve","confetti"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/xo-plates",
@@ -646,7 +646,7 @@ export const TABLEWARE = [
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6bbd351b-a87b-4518-9f72-85f829fa8c2a/Ebook+Thumbnail+with+Video+-+2025-01-22T193036.107.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/80b03024-a550-4a0c-b827-89296d0b5c28/Ebook+Thumbnail+with+Video+-+2025-01-22T193723.437.png?format=500w",
     ],
-    bullets:["Set of 8","Dimensions: 7\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 7\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#E53935", accent:"#B71C1C",
     tags:["red","hotpink","blush"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/strawberry-plates",
@@ -654,7 +654,7 @@ export const TABLEWARE = [
   {
     id:"plate-star",     type:"plate", name:"Foil Star Paper Plates",
     desc:"Shine bright, bride tribe! These silver star-shaped plates bring glamour to bachelorette celebrations, perfect for snacks, sweets, and star studded vibes.",
-    bullets:["Set of 8","Dimensions: 11\"w x 11\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 11\"w x 11\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3032563d-005e-4659-834e-55f2fe71ad05/Ebook+Thumbnail+with+Video+-+2025-01-22T204555.167.png?format=500w",
@@ -668,7 +668,7 @@ export const TABLEWARE = [
   {
     id:"plate-romcom",   type:"plate", name:"RomCom Paper Plates",
     desc:"Add a little movie magic to mealtime with our romcom dinner plates. Playful, cute, and ready for popcorn, pasta, and all the feel good moments.",
-    bullets:["Set of 8","Dimensions: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$13.50",
     images:[
       "https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/e66bc5/7879283220/il_fullxfull.7879283220_8chy.jpg",
@@ -681,7 +681,7 @@ export const TABLEWARE = [
   {
     id:"plate-sardine",  type:"plate", name:"Sardine Can Paper Plates",
     desc:"Make waves at dinner with our sardine can plate. Quirky, coastal, and ready to steal the show.",
-    bullets:["Set of 8","Dimensions: 6.5\"w x 8.5\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 6.5\"w x 8.5\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$13.98",
     images:[
       "https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/b22232/7879236574/il_fullxfull.7879236574_k366.jpg",
@@ -694,7 +694,7 @@ export const TABLEWARE = [
   {
     id:"plate-vegas",    type:"plate", name:"Vegas Casino Paper Plates",
     desc:"Totally giving \"Welcome to Fabulous Bachelorette!\" They're the perfect mix of cute, glam, and easy cleanup for a night your girls won't forget.",
-    bullets:["Set of 8","Dimensions: 6.5\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 6.5\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.95",
     images:[
       "https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/41c451/7875376356/il_fullxfull.7875376356_mnir.jpg",
@@ -713,7 +713,7 @@ export const TABLEWARE = [
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8da61868-ac7a-4732-8951-10c484f16311/Ebook+Thumbnail+with+Video+-+2025-07-20T134000.393.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/79d746e3-b099-428d-9468-b170b9309479/Ebook+Thumbnail+with+Video+-+2025-07-20T134829.380.png?format=500w",
     ],
-    bullets:["Set of 8","Dimensions: 10\"l x 7.25\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 7.25\"w","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#F8F8F8", accent:"#CE93D8",
     tags:["white","lavender","mint","sage"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/sugar-skull-plates",
@@ -727,7 +727,7 @@ export const TABLEWARE = [
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/bbab1182-74e8-4885-bcbd-4e0447de025c/Ebook+Thumbnail+with+Video+-+2025-07-20T111448.980.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/57d6e234-ee40-4307-a6d1-a364c161f516/Ebook+Thumbnail+with+Video+-+2025-07-20T111459.848.png?format=500w",
     ],
-    bullets:["Set of 4","Dimensions: 19.25\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 4","Size: 19.25\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#D0D0D0", accent:"#9E9E9E",
     tags:["silver","white","gold","champagne"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/shooting-star-plates",
@@ -736,7 +736,7 @@ export const TABLEWARE = [
     id:"plate-aries", type:"plate", name:"Aries Plates",
     related:["napkin-aries"],
     desc:"Serve cosmic vibes and star powered style with these aries paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ac80afce-7744-42d5-8f73-5ae19006c190/Ebook+Thumbnail+with+Video+-+2025-06-19T142057.849.png?format=500w",
@@ -750,7 +750,7 @@ export const TABLEWARE = [
     id:"plate-sagittarius", type:"plate", name:"Sagittarius Plates",
     related:["napkin-sagittarius"],
     desc:"Serve cosmic vibes and star powered style with these sagittarius paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/bb8685aa-d811-4507-a5d4-c4c2bcf294ac/Ebook+Thumbnail+with+Video+-+2025-06-19T153901.572.png?format=500w",
@@ -764,7 +764,7 @@ export const TABLEWARE = [
     id:"plate-leo", type:"plate", name:"Leo Plates",
     related:["napkin-leo"],
     desc:"Serve cosmic vibes and star powered style with these leo paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8e9ceb65-f8f7-4f63-9681-c7e035578b5a/Ebook+Thumbnail+with+Video+-+2025-06-19T145332.931.png?format=500w",
@@ -777,7 +777,7 @@ export const TABLEWARE = [
   {
     id:"plate-virgo", type:"plate", name:"Virgo Plates",
     related:["napkin-virgo"],
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w"],
     price:"$12.66",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/f254e469-94e7-4419-9e2f-917376020702/Ebook+Thumbnail+with+Video+-+2025-06-20T144445.334.png",
     bg:"#76A96C", accent:"#C8A882",
@@ -787,7 +787,7 @@ export const TABLEWARE = [
     id:"plate-scorpio", type:"plate", name:"Scorpio Plates",
     related:["napkin-scorpio"],
     desc:"Serve cosmic vibes and star powered style with these Scorpio paper plates perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/69c961ce-45a6-486b-8994-fa2ba97ce94b/Ebook+Thumbnail+with+Video+-+2025-06-20T143712.766.png",
     bg:"#1A1A1A", accent:"#E8112D",
@@ -797,7 +797,7 @@ export const TABLEWARE = [
     id:"plate-taurus", type:"plate", name:"Taurus Plates",
     related:["napkin-taurus"],
     desc:"Serve cosmic vibes and star powered style with these taurus paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.99",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/f0ef11d9-488e-4a47-941e-63450f45c451/Ebook+Thumbnail+with+Video+-+2025-06-20T145011.368.png?format=500w",
@@ -811,7 +811,7 @@ export const TABLEWARE = [
     id:"plate-cancer", type:"plate", name:"Cancer Plates",
     related:["napkin-cancer"],
     desc:"Serve cosmic vibes and star powered style with these cancer paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0a329598-a458-40ab-b0be-20d735e68542/Ebook+Thumbnail+with+Video+-+2025-06-19T140359.246.png?format=500w",
@@ -825,7 +825,7 @@ export const TABLEWARE = [
     id:"plate-libra", type:"plate", name:"Libra Plates",
     related:["napkin-libra"],
     desc:"Serve cosmic vibes and star powered style with these Libra paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/685dce002eea6715dcbbd0d5/1767900151827/Ebook+Thumbnail+with+Video+-+2025-06-19T151048.912.png?format=1500w",
     bg:"#F4A7B9", accent:"#FFD700",
@@ -835,7 +835,7 @@ export const TABLEWARE = [
     id:"plate-gemini", type:"plate", name:"Gemini Plates",
     related:["napkin-gemini"],
     desc:"Serve cosmic vibes and star powered style with these gemini paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/f18f71b8-38ce-4f55-b260-64ca5c3038e4/Ebook+Thumbnail+with+Video+-+2025-06-19T144433.522.png?format=500w",
@@ -849,7 +849,7 @@ export const TABLEWARE = [
     id:"plate-aquarius", type:"plate", name:"Aquarius Plates",
     related:["napkin-aquarius"],
     desc:"Serve cosmic vibes and star powered style with these aquarius paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/f071f614-6a90-4346-bdbe-a806bfc89af5/Ebook+Thumbnail+with+Video+-+2025-06-19T141417.059.png?format=500w",
@@ -863,7 +863,7 @@ export const TABLEWARE = [
     id:"plate-pisces", type:"plate", name:"Pisces Plates",
     related:["napkin-pisces"],
     desc:"Serve cosmic vibes and star powered style with these pisces paper plates perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a259f71b-f309-4ef6-a236-19c86c54209a/Ebook+Thumbnail+with+Video+-+2025-06-19T153612.085.png?format=500w",
@@ -877,7 +877,7 @@ export const TABLEWARE = [
     id:"plate-capricorn", type:"plate", name:"Capricorn Plates",
     related:["napkin-capricorn"],
     desc:"Serve cosmic vibes and star powered style with these Capricorn paper plates perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.66",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/48f333d2-3281-4a7a-b363-b3298b828e93/Ebook+Thumbnail+with+Video+-+2025-06-19T143322.139.png",
     bg:"#1A1A1A", accent:"#C8A882",
@@ -886,7 +886,7 @@ export const TABLEWARE = [
   {
     id:"plate-zodiac", type:"plate", name:"Zodiac Plates",
     desc:"Celebrate alllll the zodiac signs with our combined signs dessert paper plate. Whether for a mysterious Scorpio or thoughtful Virgo, there's a star sign to celebrate.",
-    bullets:["Set of 8","Dimensions: 7.25\"l x 7.25\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 7.25\"l x 7.25\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6149c360-56e9-478e-854a-a7ea9d2ec608/Ebook+Thumbnail+with+Video+-+2025-06-20T154150.275.png?format=500w",
@@ -899,7 +899,7 @@ export const TABLEWARE = [
   {
     id:"plate-queen-playing-card", type:"plate", name:"Queen Playing Card Plates",
     desc:"Deal up some love with these queen playing card plates! With bold red and pink details, they're perfect for galentine's brunch or a whimsical party.",
-    bullets:["Set of 8","Dimensions: 6\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 6\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c22b0dcc-dc8b-49ee-8b6b-c1c641cc7102/Ebook+Thumbnail+with+Video+-+2025-05-18T120552.586.png?format=500w",
@@ -912,7 +912,7 @@ export const TABLEWARE = [
   {
     id:"plate-lunar-dragon", type:"plate", name:"Lunar Dragon Plates",
     desc:"Serve up good fortune and great food with these eye catching dragon plates made for lunar new year magic and memorable meals.",
-    bullets:["Set of 12","Dimensions: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 12","Size: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/061a9243-cfb5-4b8d-8595-a1504f7369ea/Ebook+Thumbnail+with+Video+-+2025-07-06T223607.433.png?format=500w",
@@ -925,7 +925,7 @@ export const TABLEWARE = [
   {
     id:"plate-butterfly", type:"plate", name:"Butterfly Plates",
     desc:"Whimsy meets glam with these butterfly paper plates. Ideal for bachelorettes, garden parties, and all things girly and gorgeous!",
-    bullets:["Set of 8 (2 designs, 4 of each)","Dimensions: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8 (2 designs, 4 of each)","Size: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$16.25",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/69be9296-1b04-4ba1-8309-1c422057481b/Ebook+Thumbnail+with+Video+-+2025-01-30T083952.589.png?format=500w",
@@ -940,7 +940,7 @@ export const TABLEWARE = [
   {
     id:"plate-cowboy-hat", type:"plate", name:"Cowboy Hat Plates",
     desc:"Yee-haw! Get ready to saddle up for a wild west bash with our cowboy tan hat paper plates. Let's get this party rodeo ready!",
-    bullets:["Set of 8","Dimensions: 9\"w x 12\"h","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 9\"w x 12\"h","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.33",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5fb0f5d5-fe62-4f33-a931-efdd1b4b8434/Ebook+Thumbnail+with+Video+-+2025-01-30T092019.581.png?format=500w",
@@ -953,7 +953,7 @@ export const TABLEWARE = [
   {
     id:"plate-clam-shell", type:"plate", name:"Clam Shell Plates",
     desc:"Add ocean magic to your party with these clam shell paper plates for mermaid birthdays, beach picnics, or under the sea adventures! Cute, coastal, and totally Insta-worthy!",
-    bullets:["Set of 8","Dimensions: 7.25\"l x 7.25\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 7.25\"l x 7.25\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$13.56",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/733589e0-e937-4be1-a014-3a53bface8b5/Ebook+Thumbnail+with+Video+-+2025-06-07T180250.169.png?format=500w",
@@ -966,7 +966,7 @@ export const TABLEWARE = [
   {
     id:"plate-disco-daisy-van", type:"plate", name:"Disco Daisy Van Plates",
     desc:"Let the good times roll with our disco daisy van paper plates! Designed like a vintage flower power van, these funky plates bring a retro vibe to any party.",
-    bullets:["Set of 8","Dimensions: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$13.76",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/e2376bd5-0596-4e4d-baaa-916a498de57f/Ebook+Thumbnail+with+Video+-+2025-05-08T104844.492.png?format=500w",
@@ -979,7 +979,7 @@ export const TABLEWARE = [
   {
     id:"plate-cowgirl-hat", type:"plate", name:"Cowgirl Hat Plates",
     desc:"8 ct · 9\" x 12\"", price:"$13.80",
-    bullets:["Set of 8","Dimensions: 9\"w x 12\"l"],
+    bullets:["Set of 8","Size: 9\"w x 12\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6849976ab91f060aa521e0e5/1767901042792/Ebook+Thumbnail+with+Video+-+2025-05-08T102554.943.png?format=1500w",
     bg:"#F4A7B9", accent:"#C4956A",
     tags:["hotpink","blush","baby-pink","pink","cameo","terracotta","muse","malted","champagne","lace","canyon-rose"],
@@ -987,7 +987,7 @@ export const TABLEWARE = [
   {
     id:"plate-book-of-spells", type:"plate", name:"Book of Spells Plates",
     desc:"These magical plates serve more than just snacks. They're serving full spellbinding vibes! Ideal for Halloween treats and bewitched bites.",
-    bullets:["Set of 8","Dimensions: 9\"l x 6\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 9\"l x 6\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.68",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/59129f20-a452-4dd0-ab96-b991c9e20082/Ebook+Thumbnail+with+Video+-+2025-07-10T170217.337.png?format=500w",
@@ -1000,7 +1000,7 @@ export const TABLEWARE = [
   {
     id:"plate-zebra", type:"plate", name:"Zebra Plates",
     desc:"Wildly fun and fiercely vibrant! This untamed zebra pattern brings bold energy to any party vibe.",
-    bullets:["Set of 8","Dimensions: 8\"w x 8\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 8\"w x 8\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/bc8489de-d564-4d08-ba84-81dba3a72845/Ebook+Thumbnail+with+Video+-+2025-07-05T094202.906.png?format=500w",
@@ -1013,7 +1013,7 @@ export const TABLEWARE = [
   {
     id:"plate-retro-blooms", type:"plate", name:"Retro Blooms Plates",
     desc:"Flower power meets party power! These retro floral decagon plates add a funky, fresh vibe to your table.",
-    bullets:["Set of 8","Dimensions: 9\"l x 9\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 9\"l x 9\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$15.78",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/06bb4244-9570-4308-b725-d9aa367d440e/Ebook+Thumbnail+with+Video+-+2025-11-06T112025.926.png?format=500w",
@@ -1026,7 +1026,7 @@ export const TABLEWARE = [
   {
     id:"plate-heartbeat-gang", type:"plate", name:"Heartbeat Gang Plates",
     desc:"For the girls who bring the glam and the giggles these heartbeat gang plates are the cutest sidekick to your sips and sweets!",
-    bullets:["Set of 8","Dimensions: 7.5\"w x 7.5\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 7.5\"w x 7.5\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.76",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/110895ce-549d-4ade-9670-ebc2756e8939/Ebook+Thumbnail+with+Video+-+2025-11-06T162327.491.png?format=500w",
@@ -1047,7 +1047,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-girl-power", type:"plate", name:"Girl Power Plates",
-    bullets:["Set of 8","Dimensions: 7.5\"l x 7.5\"w"],
+    bullets:["Set of 8","Size: 7.5\"l x 7.5\"w"],
     price:"$12.50",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68487d911ef4b52dec0565fb/1767901315872/Ebook+Thumbnail+with+Video+-+2025-05-18T120725.978.png?format=1500w",
     bg:"#F4A7B9", accent:"#C0C0C0",
@@ -1056,7 +1056,7 @@ export const TABLEWARE = [
   {
     id:"plate-vinyl-disco", type:"plate", name:"Vinyl Disco Plates",
     desc:"Spin into the party! These vinyl record-inspired plates bring retro disco energy to any bachelorette bash.",
-    bullets:["Set of 8","Dimensions: 9\"l x 9\"w"],
+    bullets:["Set of 8","Size: 9\"l x 9\"w"],
     price:"$11.22",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/9696d8c6-3996-422f-9838-c7f8493eaaa9/Ebook+Thumbnail+with+Video-123.png",
@@ -1069,7 +1069,7 @@ export const TABLEWARE = [
   {
     id:"plate-yolks", type:"plate", name:"Yolks on You Plates",
     desc:"8 ct · 9\" x 9\"", price:"$12.50",
-    bullets:["Set of 8","Dimensions: 9\"w x 9\"l"],
+    bullets:["Set of 8","Size: 9\"w x 9\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8a0e60d7-79ad-44d6-ba7e-7203b1ffea28/Ebook+Thumbnail+with+Video+-+2025-05-11T155238.849.png",
     bg:"#FFE800", accent:"#FF6B1A",
     tags:["yellow","lemonade","goldenrod","mustard","orange","aloha","cheeky","white","sugar","champagne"],
@@ -1077,14 +1077,14 @@ export const TABLEWARE = [
   {
     id:"plate-monsters-eye", type:"plate", name:"Monsters Eye Plates",
     desc:"8 ct · 7.5\" x 7.5\"", price:"$15.23",
-    bullets:["Set of 8","Dimensions: 7.5\"w x 7.5\"l"],
+    bullets:["Set of 8","Size: 7.5\"w x 7.5\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68ba53d90ddc3c70e0e57097/1767901398270/Ebook+Thumbnail+with+Video+-+2025-09-04T221241.884.png?format=1500w",
     bg:"#4CAF50", accent:"#E91E8C",
     tags:["green","lime-green","evergreen","metallic-green","black","purple","plum","orange","burnt-orange","gray-smoke"],
   },
   {
     id:"plate-sweet-spots", type:"plate", name:"Sweet Spots Plates",
-    bullets:["Set of 8","Dimensions: 7\"l x 7\"w"],
+    bullets:["Set of 8","Size: 7\"l x 7\"w"],
     price:"$12.66",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68ba43aa91ca2a75c5a96789/1767901430686/Ebook+Thumbnail+with+Video+-+2025-07-10T190101.641.png?format=1500w",
     bg:"#F4A7B9", accent:"#E91E8C",
@@ -1094,7 +1094,7 @@ export const TABLEWARE = [
     id:"plate-olive", type:"plate", name:"Olive Plates",
     desc:"A martini-worthy spread! These olive paper plates bring a playful, sophisticated touch to your cocktail-themed bachelorette party.",
     related:["napkin-dirty"],
-    bullets:["Set of 8","Dimensions: 6.75\"l x 8\"w"],
+    bullets:["Set of 8","Size: 6.75\"l x 8\"w"],
     price:"$12.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ff9c3a63-a31e-4200-b47c-e7c56bdad7c0/Ebook+Thumbnail+with+Video+-+2025-07-06T205033.943.png",
@@ -1107,7 +1107,7 @@ export const TABLEWARE = [
   {
     id:"plate-witchy-hat", type:"plate", name:"Witchy Hat Plates",
     desc:"8 ct · 12.5\" x 11.5\"", price:"$15.54",
-    bullets:["Set of 8","Dimensions: 12.5\"w x 11.5\"l"],
+    bullets:["Set of 8","Size: 12.5\"w x 11.5\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68b8e3ddd0ce84605cb7f6e8/1767899967128/Ebook+Thumbnail+with+Video+-+2025-08-27T224152.162.png?format=1500w",
     bg:"#1A1A1A", accent:"#9C27B0",
     tags:["black","purple","plum","crystal-purple","sangria","orange","burnt-orange","evergreen","gray-smoke","metallic-midnight-blue"],
@@ -1115,7 +1115,7 @@ export const TABLEWARE = [
   {
     id:"plate-frills-thrills", type:"plate", name:"Frills & Thrills Plates",
     desc:"8 ct · 8.25\" x 8.25\"", price:"$16.00",
-    bullets:["Set of 8","Dimensions: 8.25\"w x 8.25\"l"],
+    bullets:["Set of 8","Size: 8.25\"w x 8.25\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/af1aa9ef-9a7d-4292-8ef6-475591340b6f/Ebook+Thumbnail+with+Video+-+2025-09-02T173858.536.png",
     bg:"#FFB5C2", accent:"#E91E8C",
     tags:["hotpink","blush","baby-pink","pink","cameo","coral","taffy","lavender","white","sugar","gold","champagne"],
@@ -1123,7 +1123,7 @@ export const TABLEWARE = [
   {
     id:"plate-camp-bach", type:"plate", name:"Camp Bachelorette Plates",
     desc:"Get ready to party, patch style! These retro inspired plates bring serious camp vibes to your table, cute, colorful, and totally Instagram worthy!",
-    bullets:["Set of 8","Dimensions: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68acdc1610a90473ab295ae8/1767899924417/Ebook+Thumbnail+with+Video+-+2025-11-06T123554.536.png?format=1500w",
     bg:"#76A96C", accent:"#C4956A",
@@ -1132,7 +1132,7 @@ export const TABLEWARE = [
   {
     id:"plate-rock-on-skeleton", type:"plate", name:"Rock On Skeleton Plates",
     desc:"Who says skeletons can't party? These plates are loud, proud, and totally ready to turn your table into a rockin' good time!",
-    bullets:["Set of 8","Dimensions: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/690cf49b03d8727c4c7c0abc/1767899702325/Ebook+Thumbnail+with+Video+-+2025-11-07T112344.695.png?format=1500w",
     bg:"#1A1A1A", accent:"#E91E8C",
@@ -1141,7 +1141,7 @@ export const TABLEWARE = [
   {
     id:"plate-sugar-skull", type:"plate", name:"Sugar Skull Plates",
     desc:"8 ct · 10\" x 7.25\"", price:"$12.66",
-    bullets:["Set of 8","Dimensions: 10\"w x 7.25\"l"],
+    bullets:["Set of 8","Size: 10\"w x 7.25\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68b9d7f2bb187f4ec7c279e0/1767899670354/Ebook+Thumbnail+with+Video+-+2025-07-20T134000.393.png?format=1500w",
     bg:"#CE93D8", accent:"#E91E8C",
     tags:["purple","lavender","plum","crystal-purple","hotpink","coral","orange","yellow","lemonade","teal","turquoise","black","white"],
@@ -1161,7 +1161,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-summer-bow", type:"plate", name:"Summer Bow Plates",
-    bullets:["Set of 8","Dimensions: 9\"l x 9\"w"],
+    bullets:["Set of 8","Size: 9\"l x 9\"w"],
     price:"$13.21",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/2ffa8158-a306-49d8-a764-06fb1a2a998d/Ebook+Thumbnail+with+Video+-+2025-06-06T130811.387.png",
     bg:"#FFB5C2", accent:"#FFD700",
@@ -1170,7 +1170,7 @@ export const TABLEWARE = [
   {
     id:"plate-rainbow", type:"plate", name:"Rainbow Plates",
     desc:"8 ct · 9\" x 6\"", price:"$12.50",
-    bullets:["Set of 8","Dimensions: 9\"w x 6\"l"],
+    bullets:["Set of 8","Size: 9\"w x 6\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684881ae36c31823d93e6e25/1767899537951/Ebook+Thumbnail+with+Video+-+2025-05-08T105007.289.png?format=1500w",
     bg:"#FFE800", accent:"#E91E8C",
     tags:["confetti","hotpink","red","orange","yellow","lemonade","green","blue","lavender","turquoise","coral","lime-green"],
@@ -1178,14 +1178,14 @@ export const TABLEWARE = [
   {
     id:"plate-queen-of-hearts", type:"plate", name:"Queen of Hearts Plates",
     desc:"8 ct · 8\" x 10\"", price:"$14.50",
-    bullets:["Set of 8","Dimensions: 8\"w x 10\"l"],
+    bullets:["Set of 8","Size: 8\"w x 10\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/01f64bcb-5201-49c6-a7f7-14919103f9f3/Ebook+Thumbnail+with+Video+-+2025-06-08T010753.060.png",
     bg:"#E8112D", accent:"#FFD700",
     tags:["red","scarlett","samba","hotpink","crystal-red","gold","metallic-gold","black","white","sangria","crystal-burgundy"],
   },
   {
     id:"plate-ephemera-skeleton", type:"plate", name:"Ephemera Skeleton Plates",
-    bullets:["Set of 8","Dimensions: 5.5\"l x 9\"w"],
+    bullets:["Set of 8","Size: 5.5\"l x 9\"w"],
     price:"$12.10",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6793bc8c6c9a8e41d1c331e4/1767899122995/Ebook+Thumbnail+with+Video+-+2025-01-26T154613.995.png?format=1500w",
     bg:"#1A1A1A", accent:"#CE93D8",
@@ -1193,7 +1193,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-ditzy-floral", type:"plate", name:"Ditzy Floral Plates",
-    bullets:["Set of 8","Dimensions: 9\"l x 9\"w"],
+    bullets:["Set of 8","Size: 9\"l x 9\"w"],
     price:"$12.50",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/74f640a7-59c7-46f9-ab43-03a6cb3c7dc1/Ebook+Thumbnail+with+Video+-+2025-01-30T095126.115.png",
     bg:"#F4A7B9", accent:"#76A96C",
@@ -1202,14 +1202,14 @@ export const TABLEWARE = [
   {
     id:"plate-red-bow", type:"plate", name:"Red Bow Plates",
     desc:"8 ct · 9\" x 9\"", price:"$12.50",
-    bullets:["Set of 8","Dimensions: 9\"w x 9\"l"],
+    bullets:["Set of 8","Size: 9\"w x 9\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6793bc23268ad1226ad3646a/1767899095891/Ebook+Thumbnail+with+Video+-+2025-01-25T135854.526.png?format=1500w",
     bg:"#E8112D", accent:"#FFD700",
     tags:["red","scarlett","samba","crystal-red","gold","metallic-gold","champagne","white","black","sangria"],
   },
   {
     id:"plate-let-love-bloom", type:"plate", name:"Let Love Bloom Plates",
-    bullets:["Set of 8","Dimensions: 9\"l x 9\"w"],
+    bullets:["Set of 8","Size: 9\"l x 9\"w"],
     price:"$11.48",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6793bc689ae1111daaf83736/1767899074707/Ebook+Thumbnail+with+Video+-+2025-01-25T183851.969.png?format=1500w",
     bg:"#F4A7B9", accent:"#76A96C",
@@ -1217,7 +1217,7 @@ export const TABLEWARE = [
   },
   {
     id:"plate-floral-skull", type:"plate", name:"Floral Skull Spider Plates",
-    bullets:["Set of 8","Dimensions: 8.25\" diameter"],
+    bullets:["Set of 8","Size: 8.25\" diameter"],
     price:"$10.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6849a132b7ad9e539ec661a9/1767898996372/Ebook+Thumbnail+with+Video+-+2025-05-18T121452.243.png?format=1500w",
     bg:"#1A1A1A", accent:"#CE93D8",
@@ -1233,7 +1233,7 @@ export const TABLEWARE = [
   {
     id:"plate-bon-appetit", type:"plate", name:"Bon Appetit Plates",
     desc:"8 ct · 10\" x 10\"", price:"$12.00",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68abcdaa27630e0353af3e1b/1767898930623/Ebook+Thumbnail+with+Video+-+2025-11-07T113409.047.png?format=1500w",
     bg:"#A8D8D8", accent:"#C8A882",
     tags:["seafoam","teal","sea-glass","turquoise","mint","monet","baby-blue","lace","muse","stone","champagne","white"],
@@ -1241,7 +1241,7 @@ export const TABLEWARE = [
   {
     id:"plate-happy-disco", type:"plate", name:"Happy Disco Plates",
     desc:"8 ct · 7\" x 7\"", price:"$12.22",
-    bullets:["Set of 8","Dimensions: 7\"w x 7\"l"],
+    bullets:["Set of 8","Size: 7\"w x 7\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/208a4d42-7cec-40fa-bbe0-b5d3c72fc61a/Ebook+Thumbnail+with+Video+-+2025-05-18T191748.541.png",
     bg:"#E91E8C", accent:"#FF6B1A",
     tags:["hotpink","orange","coral","taffy","aloha","cheeky","pixie","metallic-fuchsia","yellow","lemonade","burnt-orange"],
@@ -1249,7 +1249,7 @@ export const TABLEWARE = [
   {
     id:"plate-checkered-heart", type:"plate", name:"Checkered Heart Plates",
     desc:"8 ct · 10\" x 10\"", price:"$12.50",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w"],
+    bullets:["Set of 8","Size: 10\"l x 10\"w"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/7223d6d3-2f33-46b6-88d5-e48e314796b8/Ebook+Thumbnail+with+Video+-+2025-01-23T140517.309.png",
     bg:"#E91E8C", accent:"#1A1A1A",
     tags:["hotpink","pink","blush","baby-pink","red","scarlett","black","white","crystal-magenta","metallic-fuchsia","pixie"],
@@ -1257,7 +1257,7 @@ export const TABLEWARE = [
   {
     id:"plate-sweet-strawberry", type:"plate", name:"Sweet Strawberry Plates",
     desc:"8 ct · 8.5\" x 8.5\"", price:"$11.00",
-    bullets:["Set of 8","Dimensions: 8.5\"w x 8.5\"l"],
+    bullets:["Set of 8","Size: 8.5\"w x 8.5\"l"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684a16ceb91f060aa5226859/1767898822640/Ebook+Thumbnail+with+Video+-+2025-05-18T120736.773.png?format=1500w",
     bg:"#E53935", accent:"#4CAF50",
     tags:["red","scarlett","hotpink","blush","coral","taffy","baby-pink","pink","green","lime-green","white","sugar"],
@@ -1265,7 +1265,7 @@ export const TABLEWARE = [
   {
     id:"plate-diamond", type:"plate", name:"Diamond Plates",
     desc:"8 ct · 10.5\" x 10.5\"", price:"$16.23",
-    bullets:["Set of 8","Dimensions: 10.5\"l x 10.5\"w"],
+    bullets:["Set of 8","Size: 10.5\"l x 10.5\"w"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68b7912a64121927f4c30afe/1767898776985/Ebook+Thumbnail+with+Video+-+2025-08-27T221852.336.png?format=1500w",
     bg:"#1A1A1A", accent:"#CE93D8",
     tags:["black","purple","plum","crystal-purple","sangria","lavender","silver","metallic-silver","gray-smoke","fog","crystal-clear"],
@@ -1273,7 +1273,7 @@ export const TABLEWARE = [
   {
     id:"plate-spooky-icons", type:"plate", name:"Spooky Icons Plates",
     desc:"8 ct · 9\" round", price:"$14.38",
-    bullets:["Set of 8","Dimensions: 9\"l x 9\"w"],
+    bullets:["Set of 8","Size: 9\"l x 9\"w"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6dc7c95c-7bf9-41f6-83c2-e9e5fdea2512/Ebook+Thumbnail+with+Video+-+2025-05-18T121452.243.png",
     bg:"#1A1A1A", accent:"#9C27B0",
     tags:["black","purple","plum","crystal-purple","sangria","evergreen","metallic-forest-green","orange","burnt-orange","gray-smoke"],
@@ -1281,7 +1281,7 @@ export const TABLEWARE = [
   {
     id:"plate-spicy-bottle", type:"plate", name:"Spicy Bottle Canape Plates",
     desc:"8 ct · 2.5\" x 5.5\"", price:"$10.22",
-    bullets:["Set of 8","Dimensions: 2.5\"w x 5.5\"l"],
+    bullets:["Set of 8","Size: 2.5\"w x 5.5\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8d160dad-74b6-4c50-aca5-29795e36f6cc/Ebook+Thumbnail+with+Video+-+2025-05-11T155124.164.png",
     bg:"#E8112D", accent:"#FF6B1A",
     tags:["red","scarlett","samba","crystal-red","orange","burnt-orange","taffy","coral","hotpink","black"],
@@ -1289,7 +1289,7 @@ export const TABLEWARE = [
   {
     id:"plate-shimmer-cake", type:"plate", name:"Shimmer Birthday Cake Plates",
     desc:"8 ct · 7.5\" x 9.5\"", price:"$14.36",
-    bullets:["Set of 8","Dimensions: 7.5\"l x 9.5\"w"],
+    bullets:["Set of 8","Size: 7.5\"l x 9.5\"w"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/93a7a212-3592-410e-87c8-db8286b3d9f8/Ebook+Thumbnail+with+Video+-+2025-05-12T192943.480.png",
     bg:"#F5DEB3", accent:"#FFD700",
     tags:["champagne","gold","metallic-gold","silver","white","sugar","lace","blush","baby-pink","lavender","crystal-clear"],
@@ -1299,7 +1299,7 @@ export const TABLEWARE = [
     desc:"Create a graceful and refined party setting with our swan paper plates, featuring shimmering gold foil details and a beautiful silhouette.",
     price:"$12.50",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684b17192427cd1f49ac3e1c/1767898667035/Ebook+Thumbnail+with+Video+-+2025-05-11T155407.049.png?format=1500w",
-    bullets:["Set of 8","Dimensions: 11.5\"l x 7.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 11.5\"l x 7.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#F8F8F8", accent:"#FFD700",
     tags:["white","sugar","champagne","gold","metallic-gold","silver","lace","blush","baby-pink","monet"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/swan-plates",
@@ -1307,7 +1307,7 @@ export const TABLEWARE = [
   {
     id:"plate-denim-star", type:"plate", name:"Denim Star Stripes Plates",
     desc:"8 ct · 9\" x 9\"", price:"$12.50",
-    bullets:["Set of 8","Dimensions: 9\"w x 9\"l"],
+    bullets:["Set of 8","Size: 9\"w x 9\"l"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3a6dc5b4-319a-4b72-b42f-74c2fb494cc6/Ebook+Thumbnail+with+Video+-+2025-05-09T083705.780.png",
     bg:"#1A3A6B", accent:"#E8112D",
     tags:["navy","naval","blue","royalty","metallic-blue","red","scarlett","white","crystal-sapphire","blue-slate"],
@@ -1320,7 +1320,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684ae85e64f4dd59c05b2093/1767898689607/Ebook+Thumbnail+with+Video+-+2025-05-18T191011.864.png?format=1500w",
     ],
-    bullets:["Set of 8","Dimensions: 8\"w x 8\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 8\"w x 8\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#FFB5C2", accent:"#E91E8C",
     tags:["hotpink","blush","baby-pink","pink","cameo","white","sugar","red","scarlett","lavender"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/hello-kitty-plates",
@@ -1333,7 +1333,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6849a8b1b7ad9e539ec6699e/1767898737677/Ebook+Thumbnail+with+Video+-+2025-05-18T120815.577.png?format=1500w",
     ],
-    bullets:["Set of 8","Dimensions: 9\"w x 9.25\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 9\"w x 9.25\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#76A96C", accent:"#F87171",
     tags:["meadow","green","sage","willow","empower-mint","fiona","coral","blush","baby-pink","lemonade","yellow","lavender"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/wildflowers-plates",
@@ -1346,7 +1346,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/69601037c85bb24f5c846130/1767917635112/Ebook+Thumbnail+with+Video-407.png?format=1500w",
     ],
-    bullets:["Set of 8","Dimensions: 10\"d (cake size)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"d (cake size)","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#E8112D", accent:"#1A1A1A",
     tags:["red","scarlett","samba","crystal-red","orange","burnt-orange","black","yellow","lemonade"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/hot-wheels-checker-plates",
@@ -1360,7 +1360,7 @@ export const TABLEWARE = [
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3341fb76-b418-4897-b3dd-a0c51d6a8f28/Ebook+Thumbnail+with+Video-401.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5c149ea0-ccb5-4a55-b64a-2d520158d8fc/Ebook+Thumbnail+with+Video-402.png?format=500w",
     ],
-    bullets:["Set of 8","Dimensions: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#FFE800", accent:"#4CAF50",
     tags:["yellow","lemonade","goldenrod","mustard","lime-green","green","meadow","orange","aloha","cheeky"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/bananas-for-you-plates",
@@ -1373,7 +1373,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684999f51ef4b52dec0631cd/1767898324611/Ebook+Thumbnail+with+Video+-+2025-06-13T132740.712.png?format=1500w",
     ],
-    bullets:["Set of 8","Dimensions: 7.5\"w x 11\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 7.5\"w x 11\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#FFEA5A", accent:"#FF6B8A",
     tags:["yellow","lemonade","goldenrod","hotpink","coral","taffy","blush","baby-pink","turquoise","seafoam","mint"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/summer-cake-plates",
@@ -1386,7 +1386,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6848ae27cc6de75b44de261f/1767898403813/Ebook+Thumbnail+with+Video+-+2025-05-18T120745.117.png?format=1500w",
     ],
-    bullets:["Set of 8","Dimensions: 10.5\"w x 10.5\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10.5\"w x 10.5\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#FFE800", accent:"#E91E8C",
     tags:["yellow","lemonade","hotpink","pink","coral","mint","turquoise","lavender","rainbow","confetti"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/happy-face-plates",
@@ -1399,7 +1399,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6793bc8ca165a16c98b66474/1767898308845/Ebook+Thumbnail+with+Video+-+2025-01-27T125554.572.png?format=1500w",
     ],
-    bullets:["Set of 8","Dimensions: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#D0D0D0", accent:"#9E9E9E",
     tags:["silver","white","crystal-clear","fog","gray-smoke","metallic-blue","navy","naval","metallic-midnight-blue","metallic-green","metallic-fuchsia","metallic-gold"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/silver-disco-plates",
@@ -1409,7 +1409,7 @@ export const TABLEWARE = [
     desc:"Spotted: the coolest party plates in the jungle! These jaguar paper plates are perfect for wild birthdays and untamed fun.",
     price:"$13.56",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68488a0f36c31823d93e78a2/1767898290723/Ebook+Thumbnail+with+Video+-+2025-06-07T234024.878.png?format=1500w",
-    bullets:["Set of 8","Dimensions: 8.75\"l x 7.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 8.75\"l x 7.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#C8A882", accent:"#1A1A1A",
     tags:["muse","malted","terracotta","stone","cocoa","lace","champagne","orange","burnt-orange","mustard","black"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/jaguar-plates",
@@ -1422,7 +1422,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684894bb1ef4b52dec058349/1767555917671/Ebook+Thumbnail+with+Video+-+2025-06-07T171246.235.png?format=1500w",
     ],
-    bullets:["Set of 12","Dimensions: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 12","Size: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#FFEE00", accent:"#4CAF50",
     tags:["yellow","lemonade","goldenrod","white","green","lime-green","meadow","empower-mint","sugar"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/daisy-plates",
@@ -1432,7 +1432,7 @@ export const TABLEWARE = [
     desc:"Pastel stripes + gold foil = instant party magic! Perfect for bridal showers, spring bachelorettes, and stylish table setups.",
     price:"$12.50",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684b291b0a63794fee8a83fe/1767898248315/Ebook+Thumbnail+with+Video+-+2025-06-18T113037.037.png?format=1500w",
-    bullets:["Set of 8","Dimensions: 9\"l x 9\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 9\"l x 9\"w","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#F4A7B9", accent:"#FFD700",
     tags:["blush","lavender","mint","baby-blue","baby-pink","gold","champagne","sugar","lemonade","monet","sea-glass"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/pastel-stripe-plates",
@@ -1445,7 +1445,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684aeb982427cd1f49ac1344/1767473564389/Ebook+Thumbnail+with+Video+-+2025-05-18T120827.502.png?format=1500w",
     ],
-    bullets:["Set of 8","Dimensions: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 9\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#E91E8C", accent:"#9C27B0",
     tags:["hotpink","red","scarlett","crystal-red","purple","plum","crystal-purple","sangria","metallic-fuchsia"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/disco-cherry-drink-plates",
@@ -1458,7 +1458,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6791a5e79ae1111daaf6920f/1767898212097/Ebook+Thumbnail+with+Video+-+2025-01-22T201457.935.png?format=1500w",
     ],
-    bullets:["Set of 8","Dimensions: 8.5\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 8.5\"w x 9\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#4CAF50", accent:"#C4956A",
     tags:["green","lime-green","evergreen","meadow","sage","empower-mint","terracotta","orange","mustard"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/cactus-plates",
@@ -1472,7 +1472,7 @@ export const TABLEWARE = [
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/208a4d42-7cec-40fa-bbe0-b5d3c72fc61a/Ebook+Thumbnail+with+Video+-+2025-05-18T191748.541.png?format=500w",
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/6848a1a41ef4b52dec059186/1767557348516/Ebook+Thumbnail+with+Video+-+2025-05-18T120703.581.png?format=1500w",
     ],
-    bullets:["Set of 24","2 designs: 12 of each","Dimensions: 9\"l x 9\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 24","2 designs: 12 of each","Size: 9\"l x 9\"w","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#F4A7B9", accent:"#C4956A",
     tags:["hotpink","blush","pink","baby-pink","cameo","mauve","canyon-rose","terracotta","champagne"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/pink-pony-club-plates",
@@ -1480,7 +1480,7 @@ export const TABLEWARE = [
   {
     id:"plate-foil-star", type:"plate", name:"Foil Star Plates",
     desc:"Shine bright, bride tribe! These silver star plates add glam to your bachelorette bash, perfect for snacks, sweets, and star studded vibes.",
-    bullets:["Set of 8","Dimensions: 11\"w x 11\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 11\"w x 11\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3032563d-005e-4659-834e-55f2fe71ad05/Ebook+Thumbnail+with+Video+-+2025-01-22T204555.167.png?format=500w",
@@ -1499,7 +1499,7 @@ export const TABLEWARE = [
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/67928a2ea165a16c98b562e9/1767557636786/Ebook+Thumbnail+with+Video+-+2025-01-23T122858.717.png?format=1500w",
     ],
-    bullets:["Set of 12","Dimensions: 10\"w x 10\"l","Durable, disposable plates for easy cleanup"],
+    bullets:["Set of 12","Size: 10\"w x 10\"l","Durable, disposable plates for easy cleanup"],
     bg:"#B8D8E8", accent:"#0084C1",
     tags:["blue","baby-blue","monet","georgia","blue-slate","seafoam","sea-glass","mint","lavender"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/blue-floral-plates",
@@ -1513,7 +1513,7 @@ export const TABLEWARE = [
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/d07abd32-5f07-40a5-8dea-a0c80d1b0fc5/Ebook+Thumbnail+with+Video+-+2025-08-04T203531.863.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/9f4437a6-cad7-435b-9df9-4fde717e2b41/Ebook+Thumbnail+with+Video+-+2025-08-04T203426.723.png?format=500w",
     ],
-    bullets:["Set of 8","Dimensions: 7\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 7\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#4CAF50", accent:"#388E3C",
     tags:["green","lime-green","meadow","empower-mint","mint","sage","evergreen"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/roller-skate-plates",
@@ -1527,7 +1527,7 @@ export const TABLEWARE = [
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68486d8cb91f060aa5210568/1767827872670/Ebook+Thumbnail+with+Video+-+2025-06-07T231851.197.png?format=1500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0526d9e2-c467-4fee-9c29-43219d45b557/Copy+of+Untitled+Design+-+2025-02-09T145327.990.png?format=500w",
     ],
-    bullets:["Set of 8","Dimensions: 9\"w x 12\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 9\"w x 12\"l","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#E53935", accent:"#FF6B1A",
     tags:["red","orange","hotpink","scarlett","samba","coral","taffy"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/flaming-heart-plates",
@@ -1541,7 +1541,7 @@ export const TABLEWARE = [
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/cd8ac1a1-9a8b-4129-86d1-d93a0fa17d8e/Ebook+Thumbnail+with+Video-411.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/109b3c7d-2761-494d-9446-08fecc58ef1a/Ebook+Thumbnail+with+Video-412.png?format=500w",
     ],
-    bullets:["Set of 8","Dimensions: 10.75\"l x 10.75\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 10.75\"l x 10.75\"w","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#1A3A6B", accent:"#FF6B1A",
     tags:["blue","orange","red","black","navy"],
     etsyUrl:"https://bachhotline.squarespace.com/decorations/p/fire-flames-checker-plates",
@@ -1550,7 +1550,7 @@ export const TABLEWARE = [
   {
     id:"napkin-black-heart", type:"napkin", name:"Mini Heart Napkins",
     desc:"Love is in the air and it is ready to be served with these sweet little details! Hand drawn with love, subtle, and style.",
-    bullets:["Set of 24","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 24","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$9.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6f3a7554-0330-4c94-88fb-51d1691727ee/Ebook+Thumbnail+with+Video+-+2025-01-30T091042.364.png?format=500w",
@@ -1563,7 +1563,7 @@ export const TABLEWARE = [
   {
     id:"napkin-dirty", type:"napkin", name:"I Like It Dirty Napkins",
     desc:"Shake things up with these I like it dirty cocktail paper napkins. The ultimate flirty touch for martini lovers, bachelorettes, and bold party vibes!",
-    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.62",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ed9a65c8-9466-470e-b819-96d76cc9b8e3/Ebook+Thumbnail+with+Video+-+2025-06-07T235757.012.png?format=500w",
@@ -1576,7 +1576,7 @@ export const TABLEWARE = [
   {
     id:"napkin-kiss-me", type:"napkin", name:"Kiss Me Napkins",
     desc:"Add a kiss of charm to any gathering! These shiny lip shaped napkins are perfect for Valentine's, bachelorettes, or just because you're feeling extra.",
-    bullets:["Set of 20","Dimensions: 5\"w x 5\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 5\"w x 5\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.94",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/99038bdd-49da-490d-99c2-d34f40d0891c/Ebook+Thumbnail+with+Video+-+2025-11-06T093347.207.png?format=500w",
@@ -1589,7 +1589,7 @@ export const TABLEWARE = [
   {
     id:"napkin-love-heart", type:"napkin", name:"Love Heart Napkins",
     desc:"Fall in love with these heart shaped napkins. Perfect for galentine's day or any sweet celebration!",
-    bullets:["Set of 24","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 24","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$9.99",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b490a606-eabd-42b0-a060-82f466e42a80/Ebook+Thumbnail+with+Video+-+2025-12-29T205724.491.png?format=500w",
@@ -1602,7 +1602,7 @@ export const TABLEWARE = [
   {
     id:"napkin-wavy", type:"napkin", name:"Wavy Napkins",
     desc:"For covens that love cocktails. These sun kissed napkins are all glam, no gloom.",
-    bullets:["Set of 16","Dimensions: 8\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/31ec6293-c535-47fe-a923-49fa134b18ed/Ebook+Thumbnail+with+Video+-+2025-12-29T205103.659.png?format=500w",
@@ -1615,7 +1615,7 @@ export const TABLEWARE = [
   {
     id:"napkin-yes-girl", type:"napkin", name:"Yes Girl Napkins",
     desc:"Channel your inner diva with these YES, GIRL napkins! Perfect for a girls' night out, bachelorette bash, or any celebration where sass is the dress code.",
-    bullets:["Set of 20","Dimensions: 6\"l x 6\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 6\"l x 6\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/9e2ee9ff-b4e4-4916-94d8-69e5dfa3852f/Ebook+Thumbnail+with+Video-53.png?format=500w",
@@ -1628,7 +1628,7 @@ export const TABLEWARE = [
   {
     id:"napkin-necktie", type:"napkin", name:"Necktie Napkins",
     desc:"Get fancy without the fuss! Our necktie napkins add a playful twist to your party table, keeping outfits clean and cocktails classy.",
-    bullets:["Set of 18","Dimensions: 7.75\"l x 3.75\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 18","Size: 7.75\"l x 3.75\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$13.82",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/33e274bd-63f3-4e2f-9b11-574c5b7e410c/Ebook+Thumbnail+with+Video+-+2025-07-10T203419.976.png?format=500w",
@@ -1641,7 +1641,7 @@ export const TABLEWARE = [
   {
     id:"napkin-stay-fierce", type:"napkin", name:"Stay Fierce Napkins",
     desc:"Keep it loud and proud with these fierce cheetah napkins. Embossed foil detailing makes these napkins fun and unique, and who doesn't love a pink cheetah?",
-    bullets:["Set of 16","Dimensions: 6\"w x 7.75\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 6\"w x 7.75\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$8.36",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/4d7ac248-efe7-47e9-a407-7ecf894e7b96/Ebook+Thumbnail+with+Video+-+2026-01-06T164649.173.png?format=500w",
     bg:"#E91E8C", accent:"#FFD700",
@@ -1650,7 +1650,7 @@ export const TABLEWARE = [
   {
     id:"napkin-tying-knot", type:"napkin", name:"Tying The Knot Napkins",
     desc:"With lace accents and a sweet blue bow, these napkins are made for clinking glasses and toasting your bride to be in style!",
-    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.22",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/29be21e2-c2ed-45a6-bd7b-20ab6f5082b0/Ebook+Thumbnail+with+Video+-+2025-11-06T084457.159.png?format=500w",
@@ -1663,7 +1663,7 @@ export const TABLEWARE = [
   {
     id:"napkin-ring-box", type:"napkin", name:"Ring Box Napkins",
     desc:"Get ready to pop the bubbly and wipe the spills. These engagement ring napkins are a flirty touch for your bachelorette bash!",
-    bullets:["Set of 16","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c864ad4a-a1d0-403b-b60a-ce179d8894e8/Ebook+Thumbnail+with+Video+-+2025-05-18T171533.911.png?format=500w",
@@ -1676,7 +1676,7 @@ export const TABLEWARE = [
   {
     id:"napkin-chill-pill", type:"napkin", name:"Chill Pill Napkins",
     desc:"Bachelorette chaos? No worries! Take a chill pill and wipe those cocktail spills with style and sass.",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$14.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/73e1e052-e772-4259-a1e9-df13495ae13f/Ebook+Thumbnail+with+Video+-+2025-07-10T205820.627.png?format=500w",
@@ -1689,7 +1689,7 @@ export const TABLEWARE = [
   {
     id:"napkin-drink-up", type:"napkin", name:"Drink Up Bitches Napkins",
     desc:"Keep it classy-ish with napkins that say what everyone's thinking. From champagne pops to shots o'clock, these are a must-have for your bach party setup!",
-    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$14.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/76f2640a-d5ef-4fcb-813b-cd6477020fb4/Ebook+Thumbnail+with+Video+-+2025-11-04T185532.784.png?format=500w",
@@ -1702,7 +1702,7 @@ export const TABLEWARE = [
   {
     id:"napkin-sun-cabana", type:"napkin", name:"Sun Kissed Cabana Napkins",
     desc:"For covens that love cocktails. These sunkissed napkins are all glam, no gloom.",
-    bullets:["Set of 20","Dimensions: 7.75\"l x 4.25\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 7.75\"l x 4.25\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/44bf9473-afbf-4dec-8825-19a50482e3b3/Ebook+Thumbnail+with+Video+-+2025-08-27T223748.256.png?format=500w",
@@ -1715,7 +1715,7 @@ export const TABLEWARE = [
   {
     id:"napkin-orchid", type:"napkin", name:"Orchid Napkins",
     desc:"Bring a burst of tropical beauty to your table with these orchid napkins! Their rich teal, cerise, and gold tones make every place setting feel like a paradise.",
-    bullets:["Set of 16","Dimensions: 6\"l x 6\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 6\"l x 6\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$14.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5a89a712-d29c-4a76-83cc-30f205e1f8ac/Ebook+Thumbnail+with+Video+-+2025-11-05T171549.970.png?format=500w",
@@ -1728,7 +1728,7 @@ export const TABLEWARE = [
   {
     id:"napkin-pies-guys", type:"napkin", name:"Pies Before Guys Napkins",
     desc:"Who needs a guy when you've got pie? These pies before guys napkins are the perfect way to add some dessert loving sass to your next party or girls' night.",
-    bullets:["Set of 20","Dimensions: 7\"l x 7\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 7\"l x 7\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c088153e-18fb-48e1-abae-5d393ac8b8aa/Ebook+Thumbnail+with+Video+-+2025-11-05T170905.079.png?format=500w",
@@ -1741,7 +1741,7 @@ export const TABLEWARE = [
   {
     id:"napkin-witch-hat-broom", type:"napkin", name:"Witch Hat & Broom Napkins",
     desc:"Add some sass to your spooky bash with these witchy napkins. Hats, brooms, and all the fun!",
-    bullets:["Set of 20","Dimensions: 6.5\"l x 6.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 6.5\"l x 6.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$14.36",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/028e46b2-e4a4-4c4e-a2c8-683260228cd2/Ebook+Thumbnail+with+Video+-+2025-09-02T172501.986.png?format=500w",
@@ -1754,7 +1754,7 @@ export const TABLEWARE = [
   {
     id:"napkin-ticket", type:"napkin", name:"Ticket Napkins",
     desc:"Your all access pass to nonstop fun. Grab a ticket napkin and let the show begin!",
-    bullets:["Set of 24","Dimensions: 7.75\"l x 4.25\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 24","Size: 7.75\"l x 4.25\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$13.90",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8f01a368-4027-41da-a0e0-a25476e8d587/Ebook+Thumbnail+with+Video+-+2025-07-10T194502.948.png?format=500w",
@@ -1767,7 +1767,7 @@ export const TABLEWARE = [
   {
     id:"napkin-taco-party", type:"napkin", name:"Taco Party Napkins",
     desc:"Let's taco 'bout the perfect party napkins! These cheeky napkins are a must have for bachelorette parties, girls' night, or any fiesta fun.",
-    bullets:["Set of 25","Dimensions: 7\"l x 4.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 25","Size: 7\"l x 4.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.33",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/92b46073-9cab-4ec0-9645-8b75c5f1d93b/Ebook+Thumbnail+with+Video+-+2025-07-10T203346.148.png?format=500w",
@@ -1780,7 +1780,7 @@ export const TABLEWARE = [
   {
     id:"napkin-pinky-minty", type:"napkin", name:"Pinky Minty Napkins",
     desc:"Sweet meets fresh! These pink and mint guest napkins add a pop of playful charm and breezy color. Perfect for parties that feel happy, light, and a little extra fun.",
-    bullets:["Set of 16 (2 designs, 8 of each)","Dimensions: 8\"l x 4.25\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16 (2 designs, 8 of each)","Size: 8\"l x 4.25\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6790153b-9fb3-4c0e-a32a-924e1443ecc9/Ebook+Thumbnail+with+Video+-+2026-01-06T163614.057.png?format=500w",
@@ -1795,7 +1795,7 @@ export const TABLEWARE = [
   {
     id:"napkin-love-bunches", type:"napkin", name:"Love You Bunches Napkins",
     desc:"Go bananas for love! These bright yellow napkins with a sweet 'Love You Bunches' message are the perfect way to show your a-peel for any special day.",
-    bullets:["Set of 16","Dimensions: 6\"l x 6\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 6\"l x 6\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ef33e837-8404-47b8-94bb-3f1ebb68a9c7/Ebook+Thumbnail+with+Video+-+2025-11-06T085748.248.png?format=500w",
@@ -1808,7 +1808,7 @@ export const TABLEWARE = [
   {
     id:"napkin-vampire-lips", type:"napkin", name:"Vampire Lips Napkins",
     desc:"Sink your teeth into stylish party decor with vampire lips paper napkins! Add a playful edge to your table with these spooky chic essentials.",
-    bullets:["Set of 24","Dimensions: 4.5\"w x 5\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 24","Size: 4.5\"w x 5\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a96f209c-7682-49ce-952c-9cabebae1593/Ebook+Thumbnail+with+Video+-+2025-05-18T171358.603.png?format=500w",
@@ -1821,7 +1821,7 @@ export const TABLEWARE = [
   {
     id:"napkin-party-zone", type:"napkin", name:"Party Zone Napkins",
     desc:"Warning: Wild night ahead! Our party zone construction sign napkins are the ultimate cheeky touch for your bachelorette party.",
-    bullets:["Set of 24","Dimensions: 7\"l x 7\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 24","Size: 7\"l x 7\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.58",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/764affd0-9a87-48e5-a93a-ad9dd7fff9df/Ebook+Thumbnail+with+Video+-+2025-05-19T215630.420.png?format=500w",
@@ -1834,7 +1834,7 @@ export const TABLEWARE = [
   {
     id:"napkin-music-note", type:"napkin", name:"Music Note Napkins",
     desc:"Turn up the volume on your party decor with these music note napkins. A fun and flirty design, they hit all the right notes for cocktails, snacks, and selfies.",
-    bullets:["Set of 16","Dimensions: 5\"w x 6.5\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 5\"w x 6.5\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0d094f6e-af4e-4707-8fd8-a0356a00f567/Ebook+Thumbnail+with+Video+-+2025-05-18T130657.292.png?format=500w",
@@ -1847,7 +1847,7 @@ export const TABLEWARE = [
   {
     id:"napkin-simple-blue", type:"napkin", name:"Simple Blue Napkins",
     desc:"Add a pop of style. A fun scalloped edge that brings a polished touch to a bachelorette bash or bridal shower!",
-    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.15",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b4eddbcd-dcb9-469e-a3cf-4e63ca48c840/Ebook+Thumbnail+with+Video-375.png?format=500w",
     bg:"#B8D8E8", accent:"#0084C1",
@@ -1856,7 +1856,7 @@ export const TABLEWARE = [
   {
     id:"napkin-game-controller", type:"napkin", name:"Game Controller Napkins",
     desc:"Press start on the fun! These gamer girl napkins bring playful vibes to your bachelorette, arcade night, or game themed bash.",
-    bullets:["Set of 16","Dimensions: 6.5\"l x 4.75\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 6.5\"l x 4.75\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$19.77",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c1561e18-e31b-4e05-a649-66af3914afef/Ebook+Thumbnail+with+Video+-+2025-05-18T124517.706.png?format=500w",
@@ -1869,7 +1869,7 @@ export const TABLEWARE = [
   {
     id:"napkin-witch-please", type:"napkin", name:"Witch Please Napkins",
     desc:"Sassy, spooky, and ready to party. These witch please napkins are made for ghouls who slay spooky style!",
-    bullets:["Set of 16","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/521ce0df-d35b-4e5c-a9fb-a54c01c15874/Ebook+Thumbnail+with+Video+-+2025-11-04T170641.337.png?format=500w",
@@ -1882,7 +1882,7 @@ export const TABLEWARE = [
   {
     id:"napkin-off-market", type:"napkin", name:"Off The Market Napkins",
     desc:"Celebrate the bride to be in style with off the market fringe paper napkins. Featuring playful fringe and bold lettering, these napkins are ready to party just like the bride.",
-    bullets:["Set of 8","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$9.36",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/149395c0-5bf6-4ac3-b1a9-e03105afdb4d/Ebook+Thumbnail+with+Video+-+2025-05-18T185535.880.png?format=500w",
@@ -1895,7 +1895,7 @@ export const TABLEWARE = [
   {
     id:"napkin-time-celebrate", type:"napkin", name:"Time To Celebrate Napkins",
     desc:"It's time to celebrate! These festive napkins are perfect for bachelorette parties, bridal showers, and all the big moments worth toasting.",
-    bullets:["Set of 18","Dimensions: 5\"w x 5\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 18","Size: 5\"w x 5\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$9.75",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a7d16c8d-0043-405e-a30a-7322bbe30775/Ebook+Thumbnail+with+Video+-+2025-07-21T170845.645.png?format=500w",
@@ -1908,7 +1908,7 @@ export const TABLEWARE = [
   {
     id:"napkin-pink-bow", type:"napkin", name:"Cottage Core Bow Napkins",
     desc:"Sweet, soft, and totally on trend. These cottage core bow napkins add a romantic, whimsical touch to any bachelorette table.",
-    bullets:["Set of 16","Dimensions: 6.5\"w x 5.25\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 6.5\"w x 5.25\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.50",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1f0f4d51-8246-46ed-8f37-72b313145bd4/Ebook+Thumbnail+with+Video+-+2025-05-13T195007.791.png?format=500w",
     bg:"#FFB5C2", accent:"#E91E8C",
@@ -1917,7 +1917,7 @@ export const TABLEWARE = [
   {
     id:"napkin-americana", type:"napkin", name:"Americana Polka Dot Napkins",
     desc:"Red, white, and ready to party! These star-spangled polka dot napkins bring patriotic charm to your bach bash or summer celebration.",
-    bullets:["Set of 24","Dimensions: 5\"w x 5\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 24","Size: 5\"w x 5\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.73",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ec696bd6-2c23-4e7c-9f31-b8c0bf0951b5/Ebook+Thumbnail+with+Video+-+2025-06-07T111545.457.png?format=500w",
@@ -1932,7 +1932,7 @@ export const TABLEWARE = [
   {
     id:"napkin-lemon-zest", type:"napkin", name:"Lemon Zest Napkins",
     desc:"Add citrus flair to your celebration! Perfect for summer brunches, citrus-themed parties, bachelorette events, bridal showers, or garden picnics.",
-    bullets:["Set of 20","Dimensions: 6.5\"l x 6.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 6.5\"l x 6.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$13.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a05405df-ed31-4b1b-bd9c-5eb28d37f0c4/Ebook+Thumbnail+with+Video+-+2025-05-18T125656.306.png?format=500w",
@@ -1945,7 +1945,7 @@ export const TABLEWARE = [
   {
     id:"napkin-luau", type:"napkin", name:"Luau Tropical Napkins",
     desc:"Bring the island vibes to your party with these luau tropical cocktail napkins! They'll add a splash of aloha to your drinks and decor.",
-    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.58",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/75e73ca1-3baf-40d8-bcec-952e3293ee6f/Ebook+Thumbnail+with+Video+-+2025-05-18T171244.102.png?format=500w",
@@ -1958,7 +1958,7 @@ export const TABLEWARE = [
   {
     id:"napkin-lemon", type:"napkin", name:"Lemon Napkins",
     desc:"When life gives you lemons… throw a party! Our lemon paper napkins are bursting with fruity fun and sunshine vibes.",
-    bullets:["Set of 16","Dimensions: 5\"l x 4.62\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 5\"l x 4.62\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.99",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8a2a6f3b-6b6f-48ab-9f97-6913a999e364/Ebook+Thumbnail+with+Video+-+2025-05-19T222647.996.png?format=500w",
@@ -1971,7 +1971,7 @@ export const TABLEWARE = [
   {
     id:"napkin-ring-on-it", type:"napkin", name:"Put A Ring On It Napkins",
     desc:"Put A Ring On It! Celebrate your engagement in style with these cheeky napkins that say it all.",
-    bullets:["Set of 25","Dimensions: 9\"l x 9\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 25","Size: 9\"l x 9\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/55cb6321-028f-4387-ac8b-845e0a2c7c89/Ebook+Thumbnail+with+Video+-+2025-05-18T171621.760.png?format=500w",
@@ -1984,7 +1984,7 @@ export const TABLEWARE = [
   {
     id:"napkin-hot-wheels", type:"napkin", name:"Hot Wheels Napkins",
     desc:"Rev up your bachelorette! These bold Hot Wheels inspired napkins bring racing vibes and party energy to your celebration.",
-    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$8.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8ba65571-28eb-4768-b638-c8302be1700d/Ebook+Thumbnail+with+Video-409.png?format=500w",
@@ -1997,7 +1997,7 @@ export const TABLEWARE = [
   {
     id:"napkin-diamond", type:"napkin", name:"Diamond Napkins",
     desc:"18 ct · 5\" x 5\"", price:"$9.99",
-    bullets:["Set of 18","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 18","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/78343a74-0323-41d2-a89d-e4525f43e6be/Ebook+Thumbnail+with+Video+-+2025-01-24T180336.314.png",
     bg:"#1A1A1A", accent:"#CE93D8",
     tags:["black","purple","plum","crystal-purple","silver","gray-smoke","lavender","navy","metallic-midnight-blue"],
@@ -2005,7 +2005,7 @@ export const TABLEWARE = [
   {
     id:"napkin-queen-card", type:"napkin", name:"Queen Card Napkins",
     desc:"16 ct · 5.5\" x 7\"", price:"$12.62",
-    bullets:["Set of 16","Dimensions: 5.5\"l x 7\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 5.5\"l x 7\"w","Durable, lightweight, and disposable for easy cleanup"],
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68499f331ef4b52dec0636bc/1767922376235/Ebook+Thumbnail+with+Video+-+2025-06-08T010753.060.png?format=1500w",
     bg:"#E8112D", accent:"#FFD700",
     tags:["red","scarlett","hotpink","black","white","gold","metallic-gold","champagne","crystal-red"],
@@ -2013,7 +2013,7 @@ export const TABLEWARE = [
   {
     id:"napkin-fries-guys", type:"napkin", name:"Fries Before Guys Napkins",
     desc:"16 ct · 6\" x 4\"", price:"$11.00",
-    bullets:["Set of 16","Dimensions: 6\"l x 4\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 6\"l x 4\"w","Durable, lightweight, and disposable for easy cleanup"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/e455f9c2-e856-4dd3-a236-f33b09625f0e/Ebook+Thumbnail+with+Video+-+2025-07-05T085433.945.png",
     bg:"#FFE800", accent:"#9C27B0",
     tags:["yellow","lemonade","goldenrod","mustard","crystal-yellow","purple","plum","lavender","blossom","peri","white","sugar"],
@@ -2021,7 +2021,7 @@ export const TABLEWARE = [
   {
     id:"napkin-milk-carton", type:"napkin", name:"Milk Carton Napkins",
     desc:"Serve up some smarts and style with our smarty pants milk carton napkins! Shaped like retro school milk cartons, these quirky napkins add an A+ in charm and cleanup!",
-    bullets:["Set of 16","Dimensions: 5\"w x 7\"l","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 5\"w x 7\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.50",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/7f770f8c-8cee-4a2f-b014-5a83ae3c029a/Ebook+Thumbnail+with+Video+-+2025-05-19T214459.044.png?format=500w",
@@ -2034,7 +2034,7 @@ export const TABLEWARE = [
   {
     id:"napkin-vegas", type:"napkin", name:"Vegas Casino Bachelorette Paper Napkins",
     desc:"Bachelorette Party", price:"$10.36",
-    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     image:"https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/0505db/7876408656/il_fullxfull.7876408656_mqya.jpg",
     bg:"#F4A7B9", accent:"#C4956A",
     tags:["hotpink","blush","gold","champagne","metallic-gold","black","red","scarlett","white"],
@@ -2042,7 +2042,7 @@ export const TABLEWARE = [
   {
     id:"napkin-bach-club", type:"napkin", name:"Bach Club Paper Napkins",
     desc:"Bachelorette Party", price:"$11.14",
-    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     image:"https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/efe7af/7876407064/il_fullxfull.7876407064_99vl.jpg",
     bg:"#E91E8C", accent:"#1A1A1A",
     tags:["hotpink","black","silver","white","metallic-fuchsia","crystal-magenta","gray-smoke","navy","metallic-midnight-blue"],
@@ -2058,7 +2058,7 @@ export const TABLEWARE = [
   {
     id:"napkin-jackpot", type:"napkin", name:"Jackpot Napkins",
     desc:"Your all access pass to nonstop fun. Grab a ticket napkin and let the show begin!",
-    bullets:["Set of 16","Dimensions: 6.5\"l x 6.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 6.5\"l x 6.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/106f8db7-e80b-480b-a579-982eb75700b8/Ebook+Thumbnail+with+Video-350.png?format=500w",
@@ -2071,7 +2071,7 @@ export const TABLEWARE = [
   {
     id:"napkin-rhombuses", type:"napkin", name:"Rhombuses Napkins",
     desc:"Fresh, fun patterned napkins made to brighten up your springtime celebration.",
-    bullets:["Set of 20","Dimensions: 6.5\"l x 6.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 6.5\"l x 6.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$9.75",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c1eaeb14-5c91-4852-baf1-a3f42f5ebfe2/Ebook+Thumbnail+with+Video-348.png?format=500w",
@@ -2085,7 +2085,7 @@ export const TABLEWARE = [
   {
     id:"napkin-zodiac", type:"napkin", name:"Zodiac Napkins",
     desc:"Serve cosmic vibes and star powered style with these zodiac paper napkins perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 20","Dimensions: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 20","Size: 5\"l x 5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/79657551-4204-487e-ad6d-67707692806c/Ebook+Thumbnail+with+Video+-+2025-06-24T144821.727.png?format=500w",
@@ -2099,7 +2099,7 @@ export const TABLEWARE = [
   {
     id:"napkin-capricorn", type:"napkin", name:"Capricorn Napkins",
     desc:"Serve cosmic vibes and star powered style with these capricorn paper napkins perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2120,7 +2120,7 @@ export const TABLEWARE = [
   {
     id:"napkin-aquarius", type:"napkin", name:"Aquarius Napkins",
     desc:"Serve cosmic vibes and star powered style with these aquarius paper napkins perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2141,7 +2141,7 @@ export const TABLEWARE = [
   {
     id:"napkin-pisces", type:"napkin", name:"Pisces Napkins",
     desc:"Serve cosmic vibes and star powered style with these pisces paper napkins perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2162,7 +2162,7 @@ export const TABLEWARE = [
   {
     id:"napkin-cancer", type:"napkin", name:"Cancer Napkins",
     desc:"Serve cosmic vibes and star powered style with these cancer paper napkins perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2183,7 +2183,7 @@ export const TABLEWARE = [
   {
     id:"napkin-aries", type:"napkin", name:"Aires Napkins",
     desc:"Serve cosmic vibes and star powered style with these aires paper napkins perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2204,7 +2204,7 @@ export const TABLEWARE = [
   {
     id:"napkin-taurus", type:"napkin", name:"Taurus Napkins",
     desc:"Serve cosmic vibes and star powered style with these taurus paper napkins perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2225,7 +2225,7 @@ export const TABLEWARE = [
   {
     id:"napkin-libra", type:"napkin", name:"Libra Napkins",
     desc:"Serve cosmic vibes and star powered style with these libra paper napkins perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2246,7 +2246,7 @@ export const TABLEWARE = [
   {
     id:"napkin-virgo", type:"napkin", name:"Virgo Napkins",
     desc:"Serve cosmic vibes and star powered style with these virgo paper napkins perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2267,7 +2267,7 @@ export const TABLEWARE = [
   {
     id:"napkin-gemini", type:"napkin", name:"Gemini Napkins",
     desc:"Serve cosmic vibes and star powered style with these gemini paper napkins perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2288,7 +2288,7 @@ export const TABLEWARE = [
   {
     id:"napkin-leo", type:"napkin", name:"Leo Napkins",
     desc:"Serve cosmic vibes and star powered style with these leo paper napkins perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2309,7 +2309,7 @@ export const TABLEWARE = [
   {
     id:"napkin-scorpio", type:"napkin", name:"Scorpio Napkins",
     desc:"Serve cosmic vibes and star powered style with these scorpio paper napkins perfect for celestial queens and astrology lovers alike!",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2330,7 +2330,7 @@ export const TABLEWARE = [
   {
     id:"napkin-sagittarius", type:"napkin", name:"Sagittarius Napkins",
     desc:"Serve cosmic vibes and star powered style with these sagittarius paper napkins perfect for celestial queens and astrology lovers alike! Make every gathering feel written in the stars.",
-    bullets:["Set of 16","Dimensions: 8\"l x 4.25\"w (guest napkins)","Dimensions: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 16","Size: 8\"l x 4.25\"w (guest napkins)","Size: 6.5\"l x 6.5\"w (large napkins)","Durable, lightweight, and disposable for easy cleanup"],
     price:"$10.00",
     variantLabel:"Size",
     variants:[
@@ -2352,7 +2352,7 @@ export const TABLEWARE = [
   {
     id:"cup-pink-lemonade", type:"cup", name:"Pink Lemonade Cups",
     desc:"Sip happy with our pink lemonade cups. Bright, bold, and full of fun.",
-    bullets:["Set of 8","Capacity: 12oz","Dimensions: 4.5\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 12oz","Size: 4.5\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$9.99",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/d391d853-11ef-4738-bec4-7ec8c077ece7/Ebook+Thumbnail+with+Video-378.png?format=500w",
@@ -2378,7 +2378,7 @@ export const TABLEWARE = [
   {
     id:"cup-3d-planet", type:"cup", name:"3D Planet Cups",
     desc:"Blast off into bridal fun with these galaxy chic cups! Add the space rings to turn each drink into a planet because your crew deserves a celebration that's truly stellar.",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/c4edd5ce-94a6-4f77-876f-6252fbd2ebe1/Ebook+Thumbnail+with+Video+-+2025-11-03T140309.152.png?format=500w",
@@ -2392,7 +2392,7 @@ export const TABLEWARE = [
   {
     id:"cup-test-tube", type:"cup", name:"Test Tube Shot Glasses",
     desc:"Take your shots to the lab! These test tube shot glasses are perfect for spooky parties, Halloween drinks, or mad scientist vibes!",
-    bullets:["Set of 10","Dimensions: 3.94\"l x 0.63\"w","Durable, lightweight, and reusable"],
+    bullets:["Set of 10","Size: 3.94\"l x 0.63\"w","Durable, lightweight, and reusable"],
     price:"$18.68",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b8d0c019-6fa9-4dd6-b2cc-d27e832c7170/Ebook+Thumbnail+with+Video+-+2025-09-02T190400.620.png?format=500w",
     bg:"#F8F8F8", accent:"#E91E8C",
@@ -2401,7 +2401,7 @@ export const TABLEWARE = [
   {
     id:"cup-love-notes", type:"cup", name:"Love Notes Cups",
     desc:"Send sweet sips with these love notes cups! Neon pops and gold foil details make them the perfect match for any Valentine's or Galentine's Day bash.",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ae6e5dd9-91ff-4706-91ae-1e9ca562149b/Ebook+Thumbnail+with+Video+-+2025-11-04T124253.381.png?format=500w",
@@ -2427,7 +2427,7 @@ export const TABLEWARE = [
   {
     id:"cup-girl-power", type:"cup", name:"Girl Power Cups",
     desc:"Zap! Bang! Pow! These pastel party cups pack a punch with silver foil details and bold superhero flair.",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/dfb6200c-71ef-4a00-9519-cdceee68c370/Ebook+Thumbnail+with+Video+-+2025-11-04T142254.958.png?format=500w",
@@ -2440,7 +2440,7 @@ export const TABLEWARE = [
   {
     id:"cup-palm-tree", type:"cup", name:"Palm Palm Tree Cups",
     desc:"Palm trees and pretty pink? Yes, please! These cups are the perfect way to add instant vacay energy to your summer celebration.",
-    bullets:["Set of 10","Capacity: 9oz","Dimensions: 4.5\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 10","Capacity: 9oz","Size: 4.5\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0461f780-782d-41ae-b2b0-d48e3909ac43/Ebook+Thumbnail+with+Video+-+2025-11-04T121323.219.png?format=500w",
@@ -2453,7 +2453,7 @@ export const TABLEWARE = [
   {
     id:"cup-heartbeat-gang", type:"cup", name:"Heartbeat Gang Cups",
     desc:"Hearts, neon, and sparkle? Say less! These heartbeat gang cups bring serious party energy to your Galentine's celebration!",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a1d64160-c511-4e4b-b0a6-6218be7049a1/Ebook+Thumbnail+with+Video+-+2025-11-03T172558.659.png?format=500w",
@@ -2466,7 +2466,7 @@ export const TABLEWARE = [
   {
     id:"cup-fiesta-striped", type:"cup", name:"Fiesta Striped Cups",
     desc:"From backyard fiestas to birthday bashes, these striped cups bring the flavor and flair! Easy to use, fun to look at, and made for good times.",
-    bullets:["Set of 8","Capacity: 12oz","Dimensions: 4.5\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 12oz","Size: 4.5\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/4b97b837-4d90-4c47-a721-fa3ab838c061/Ebook+Thumbnail+with+Video+-+2025-01-27T162539.289.png?format=500w",
@@ -2479,7 +2479,7 @@ export const TABLEWARE = [
   {
     id:"cup-butterfly", type:"cup", name:"Butterfly Cups",
     desc:"Beautiful butterflies! With dreamy pastels and shimmering holographic foil, these butterfly cups make your hearts flutter.",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/2320f49d-dc9e-42df-8dfe-25561541ee22/Ebook+Thumbnail+with+Video+-+2025-11-03T165151.639.png?format=500w",
@@ -2492,7 +2492,7 @@ export const TABLEWARE = [
   {
     id:"cup-mermaid-fringe", type:"cup", name:"Mermaid Fringe Cups",
     desc:"Sip like a sea queen! These dazzling mermaid cups shimmer with layered scalloped foil, making every drink feel like an under the sea adventure.",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/01258a5f-cabf-45d0-8b36-b60acdbb0c4b/Ebook+Thumbnail+with+Video+-+2025-09-04T225037.656.png?format=500w",
@@ -2505,7 +2505,7 @@ export const TABLEWARE = [
   {
     id:"cup-island-vibes", type:"cup", name:"Island Vibes Cups",
     desc:"Vibrant flower wrapped cups are your new fave party plus one; tropical, flirty, and 100% selfie approved.",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 4\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 4\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$20.00",
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68e2fb47f9144c3031441181/1767902090554/Ebook+Thumbnail+with+Video+-+2025-11-03T164536.370.png?format=500w",
@@ -2517,7 +2517,7 @@ export const TABLEWARE = [
   {
     id:"cup-iridescent-stripe", type:"cup", name:"Iridescent Stripe Cups",
     desc:"Cheers to cute cups! Iridescent stripes that sparkle with every sip.",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 6\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 6\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$9.12",
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/694d821a18bbbd208c50fef9/1767902114614/Ebook+Thumbnail+with+Video-371.png?format=500w",
@@ -2529,7 +2529,7 @@ export const TABLEWARE = [
   {
     id:"cup-blues-checker", type:"cup", name:"Blues Checker Cups",
     desc:"Soft hues, happy sips. Perfect for brunches, baby showers, and garden gatherings.",
-    bullets:["Set of 8","Capacity: 9.5oz","Dimensions: 6\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9.5oz","Size: 6\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$9.12",
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/69533cf93f4b3e6c55dde81f/1768082136340/Ebook+Thumbnail+with+Video+-+2025-12-29T203447.293.png?format=500w",
@@ -2541,7 +2541,7 @@ export const TABLEWARE = [
   {
     id:"cup-pop-petal", type:"cup", name:"Pop Petal Cups",
     desc:"Pop up petal adds instant flair to any bachelorette bash or brunch! Floral charm + a honeycomb pop = total party magic.",
-    bullets:["Set of 8","Capacity: 12oz","Dimensions: 4.5\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 12oz","Size: 4.5\"l x 3.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$13.25",
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/690a378362cc1b156338d5ba/1767902189676/Ebook+Thumbnail+with+Video+-+2025-11-04T113936.835.png?format=500w",
@@ -2553,7 +2553,7 @@ export const TABLEWARE = [
   {
     id:"cup-doomsday", type:"cup", name:"Doomsday Cups",
     desc:"Serve your sinister potions in cups that shimmer! With holographic foil and a hauntingly cool design, these are perfect for any spooky lab or party lair.",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68acda86c1bfc45b6dc378a3/1767375195900/Ebook+Thumbnail+with+Video+-+2025-11-03T162756.279.png?format=500w",
@@ -2565,7 +2565,7 @@ export const TABLEWARE = [
   {
     id:"cup-bow", type:"cup", name:"Bow Cups",
     desc:"Cheers to chic! With a bold black bow and modern vibe, these cups are a simple way to make your party table pop with sophistication.",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0baa6024-00a5-4ed8-a61b-31d6bdd331c4/Ebook+Thumbnail+with+Video+-+2025-11-03T140749.604.png?format=500w",
@@ -2577,7 +2577,7 @@ export const TABLEWARE = [
   {
     id:"cup-pixelation", type:"cup", name:"Pixelation Cups",
     desc:"Level up your party game! These pixel perfect cups rock a retro checkerboard design and a holographic foil border that's totally game night ready.",
-    bullets:["Set of 8","Capacity: 9oz","Dimensions: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
+    bullets:["Set of 8","Capacity: 9oz","Size: 3.5\"l x 3\"w","Durable, lightweight, and disposable for easy cleanup"],
     price:"$11.00",
     images:[
       "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/69093cb4251a3c395b53ba62/1767902239652/Ebook+Thumbnail+with+Video+-+2025-11-03T174833.491.png?format=500w",
@@ -2613,7 +2613,7 @@ export const TABLEWARE = [
   {
     id:"cup-penis-glasses", type:"cup", name:"Penis Shaped Glasses",
     desc:"This set of 4 penis shaped glass drinkware is for any bachelorette bash. They're great for shots, cocktails, or fun party toasts.",
-    bullets:["Set of 4","Capacity: 6oz","Dimensions: 5.5\" h"],
+    bullets:["Set of 4","Capacity: 6oz","Size: 5.5\" h"],
     price:"$34.07",
     images:[
       "https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/bb0263/6824885638/il_fullxfull.6824885638_mk0l.jpg",
@@ -2645,7 +2645,7 @@ export const TABLEWARE = [
   {
     id:"cup-patriotic-cake", type:"cup", name:"Patriotic Cake Slice Cups",
     desc:"Celebrate the 4th of July with our slice of fun patriotic sipper set. A party collection of six cake slice-shaped cups designed to add a festive twist to any gathering.",
-    bullets:["Set of 6","Capacity: 12oz","Dimensions: 4\"l x 5\"h x 4\"w","Includes reusable straws"],
+    bullets:["Set of 6","Capacity: 12oz","Size: 4\"l x 5\"h x 4\"w","Includes reusable straws"],
     price:"$49.99",
     images:[
       "https://images.weserv.nl/?url=i.etsystatic.com/40669879/r/il/545921/6902762281/il_fullxfull.6902762281_ck4m.jpg",
@@ -4297,7 +4297,7 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
   const getCountSize = (item) => {
     if (item.bullets?.length >= 2) {
       const b1 = item.bullets[1]
-        .replace(/^Dimensions:/i, "Size:")
+        .replace(/^Size:/i, "Size:")
         .replace(/^Capacity:\s*(\S+)/i, "$1 capacity");
       return `${item.bullets[0]} · ${b1}`;
     }
@@ -4324,10 +4324,10 @@ function ProductStep({ stepNum, emoji, title, subtitle, type, selectedColors, ca
               {mobile ? (
                 <>
                   <div>{item.bullets[0]}</div>
-                  {item.bullets[1] && <div>{item.bullets[1].replace(/^Dimensions:/i,"Size:")}</div>}
+                  {item.bullets[1] && <div>{item.bullets[1].replace(/^Size:/i,"Size:")}</div>}
                 </>
               ) : (
-                <div>{item.bullets[0]}{item.bullets[1] ? ` · ${item.bullets[1].replace(/^Dimensions:/i,"Size:")}` : ""}</div>
+                <div>{item.bullets[0]}{item.bullets[1] ? ` · ${item.bullets[1].replace(/^Size:/i,"Size:")}` : ""}</div>
               )}
             </div>
           )}
@@ -4378,7 +4378,7 @@ export const PARTY_ACCESSORIES = [
     name:"Kick The Dick Party Game",
     price:"$11.25",
     desc:"Say hello to your new favorite party stress reliever! Blow it up, line it up, and let the kicks fly. Bride's orders.",
-    bullets:["Set of 1","Dimensions: 5.5ft"],
+    bullets:["Set of 1","Size: 5.5ft"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/a579aa76-6511-4fd7-b15b-be8f4471f706/Ebook+Thumbnail+with+Video+-+2025-08-07T212529.590.png?format=500w",
     bg:"#F4A7B9", accent:"#E91E8C",
     etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/kick-the-dick-party-game",
@@ -4389,7 +4389,7 @@ export const PARTY_ACCESSORIES = [
     name:"Drink Chaps Drink Markers",
     price:"$16.00",
     desc:"Giddy up! These fun and flirty drink tags keep everyone's cocktails in check; no mix ups, just laughs!",
-    bullets:["Set of 4","Dimensions: 1.5\"l x 2.5\"w"],
+    bullets:["Set of 4","Size: 1.5\"l x 2.5\"w"],
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3643129d-50f4-4b44-8a99-5037ffb85c59/Ebook+Thumbnail+with+Video+-+2025-06-02T195713.079.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b782242b-dc11-411b-9eea-a3fdd22c0e9e/Ebook+Thumbnail+with+Video+-+2025-06-02T195703.327.png?format=500w",
@@ -4443,7 +4443,7 @@ export const PARTY_ACCESSORIES = [
     name:"Wine Charmers Drink Markers",
     price:"$15.00",
     desc:"Get ready to wine and swoon with these charming muscle men wine glass holders! Freddie, Jack, Blake, and Spencer are here to flex while you sip.",
-    bullets:["Set of 4","Dimensions: 1.5\"l x 2.5\"w"],
+    bullets:["Set of 4","Size: 1.5\"l x 2.5\"w"],
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3c5bc323-bc61-4783-b41f-d77f51c6a237/Ebook+Thumbnail+with+Video+-+2025-03-26T093257.985.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b3d17631-8226-4fcf-a30c-8bd861174522/Ebook+Thumbnail+with+Video+-+2025-03-26T093318.175.png?format=500w",
@@ -4459,7 +4459,7 @@ export const PARTY_ACCESSORIES = [
     name:"Boob Drink Markers",
     price:"$16.00",
     desc:"Because your drink deserves a little personality. Grab a boob bottle charm and keep the party going!",
-    bullets:["Set of 4","Dimensions: 2.5\"l x 2\"w"],
+    bullets:["Set of 4","Size: 2.5\"l x 2\"w"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0f9bd949-074d-4b7a-a279-181a334286d0/Ebook+Thumbnail+with+Video+-+2025-07-18T080459.625.png?format=500w",
     bg:"#F4A7B9", accent:"#E91E8C",
     etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/boob-drink-markers",
@@ -4470,7 +4470,7 @@ export const PARTY_ACCESSORIES = [
     name:"Cactus Pool Float",
     price:"$56.00",
     desc:"Saddle up for sunshine, babe! This oversized cactus pool float brings major desert glam to your western theme bachelorette bash, add SPF and cocktails.",
-    bullets:["Set of 1","Dimensions: 44.75\"l x 6.25\"w x 69.5\"h","Material: PVC plastic","Manual or electric pump compatible","Includes 1 repair patch"],
+    bullets:["Set of 1","Size: 44.75\"l x 6.25\"w x 69.5\"h","Material: PVC plastic","Manual or electric pump compatible","Includes 1 repair patch"],
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/82b086c9-fd5b-4995-9101-6ed78043bee9/Ebook+Thumbnail+with+Video+-+2025-02-18T194517.243.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8db95fa1-7609-4a5e-87ae-01b9eaf8e3af/Ebook+Thumbnail+with+Video+-+2025-02-18T194500.592.png?format=500w",
@@ -4485,7 +4485,7 @@ export const PARTY_ACCESSORIES = [
     name:"Silver Disco Ice Bucket",
     price:"$52.00",
     desc:"Shine bright, sip bold! This silver disco ball ice bucket isn't just functional. It's the party centerpiece your bar cart's been begging for.",
-    bullets:["Set of 1","Dimensions: 10\"l x 10\"w"],
+    bullets:["Set of 1","Size: 10\"l x 10\"w"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ad5570a3-6f00-4548-83ba-de8b87a9aeb3/Ebook+Thumbnail+with+Video+-+2025-03-01T121735.163.png?format=500w",
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ad5570a3-6f00-4548-83ba-de8b87a9aeb3/Ebook+Thumbnail+with+Video+-+2025-03-01T121735.163.png?format=500w",
@@ -4516,7 +4516,7 @@ export const PARTY_ACCESSORIES = [
     name:"Men in Uniform Drink Markers",
     price:"$16.00",
     desc:"Hot guys + cold drinks = party perfection. Our men in uniform drink markers are here to tag your glass and steal your heart (just a little).",
-    bullets:["Set of 4","Dimensions: 2\"l x 1\"w"],
+    bullets:["Set of 4","Size: 2\"l x 1\"w"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0b21511c-1176-4e40-a303-7e680fbb3c5f/Ebook+Thumbnail+with+Video+-+2025-02-16T151446.198.png?format=500w",
     bg:"#F4A7B9", accent:"#E91E8C",
     etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/men-in-uniform-drink-markers",
@@ -4527,7 +4527,7 @@ export const PARTY_ACCESSORIES = [
     name:"Dice Ice Bucket",
     price:"$45.50",
     desc:"Ice cold drinks? You just rolled a 10/10. Our jumbo dice ice bucket is the perfect party sidekick fun, functional, and totally fabulous for any celebration.",
-    bullets:["Set of 1","Dimensions: 10\"l x 10\"w"],
+    bullets:["Set of 1","Size: 10\"l x 10\"w"],
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/50d3d033-146d-48c6-b768-e62b68bb533b/Ebook+Thumbnail+with+Video+-+2025-02-25T100739.771.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/7e9c674a-913f-46a3-b4fe-05f05f09cb1e/Ebook+Thumbnail+with+Video+-+2025-02-25T100950.695.png?format=500w",
@@ -4558,7 +4558,7 @@ export const PARTY_ACCESSORIES = [
     name:"Disco Stars Headband",
     price:"$23.00",
     desc:"Ready to shine? This disco ball headband is the perfect party starter for the bride tribe, adding a fun, glittery vibe to your celebration!",
-    bullets:["Set of 1","Dimensions: 4.5\"w x 7.5\"l","One size fits all"],
+    bullets:["Set of 1","Size: 4.5\"w x 7.5\"l","One size fits all"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0b21511c-1176-4e40-a303-7e680fbb3c5f/Ebook+Thumbnail+with+Video+-+2025-02-16T151446.198.png?format=500w",
     bg:"#F4A7B9", accent:"#E91E8C",
     etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/disco-stars-headband",
@@ -4569,7 +4569,7 @@ export const PARTY_ACCESSORIES = [
     name:"Something Blue Sunglasses",
     price:"$19.00",
     desc:"Make a statement with our something blue sunnies! Fun, stylish, and embossed for a fresh twist on bridal accessories.",
-    bullets:["Set of 1","Dimensions: 6\"w"],
+    bullets:["Set of 1","Size: 6\"w"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/f6d55d6f-c4ca-4099-b490-4ed707a30292/Ebook+Thumbnail+with+Video+-+2025-01-20T134834.956.png?format=500w",
     bg:"#87CEEB", accent:"#4A90D9",
     etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/something-blue-sunglasses",
@@ -4580,7 +4580,7 @@ export const PARTY_ACCESSORIES = [
     name:"Seashell Pool Float",
     price:"$61.00",
     desc:"Bring the magical escape to your pool with our inflatable iridescent seashell pool float! This oversized float is the perfect way to relax, soak up the sun, and add a fun, stylish element to your pool parties.",
-    bullets:["Set of 1","Dimensions: 54\"l x 10\"w x 61.75\"h","Manual or electric pump compatible","Includes 1 repair patch"],
+    bullets:["Set of 1","Size: 54\"l x 10\"w x 61.75\"h","Manual or electric pump compatible","Includes 1 repair patch"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/1767934960350/Ebook+Thumbnail+with+Video+-+2025-02-18T195035.694.png?format=1500w",
     bg:"#FFDAB9", accent:"#E8A87C",
     etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/seashell-pool-float",
@@ -4591,7 +4591,7 @@ export const PARTY_ACCESSORIES = [
     name:"Disco Cowboy Drink Markers",
     price:"$16.00",
     desc:"Yeehaw, bride tribe! Add a disco twist to your wild west bash with our disco cowboy drink markers! They bring the glam to your country bash; no lost cocktails, just nonstop fun!",
-    bullets:["Set of 4","Dimensions: 2.5\"l x 2\"w"],
+    bullets:["Set of 4","Size: 2.5\"l x 2\"w"],
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/8177a69f-6352-47ac-9801-a64b4c703ca2/Ebook+Thumbnail+with+Video+-+2025-04-22T155722.481.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/2cfb5bb6-df4d-46e1-9161-ee74ee7ac089/Ebook+Thumbnail+with+Video+-+2025-04-22T155756.552.png?format=500w",
@@ -4607,7 +4607,7 @@ export const PARTY_ACCESSORIES = [
     name:"Cheeky Wine Stopper",
     price:"$14.00",
     desc:"This little stopper's got big party energy! A humorous accessory perfect for bachelorette celebrations and girls' nights out.",
-    bullets:["Set of 1","Dimensions: 3.3\"l x 5.6\"h x 1.2\"w"],
+    bullets:["Set of 1","Size: 3.3\"l x 5.6\"h x 1.2\"w"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/08a548e6-9c7f-4b9d-860b-5eaf4766ba7f/Ebook+Thumbnail+with+Video+-+2025-03-01T155823.154.png?format=500w",
     bg:"#FFDAB9", accent:"#E8A87C",
     etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/cheeky-wine-stopper",
@@ -4618,7 +4618,7 @@ export const PARTY_ACCESSORIES = [
     name:"Magic Mike Drink Markers",
     price:"$16.00",
     desc:"Sips, laughs, and six packs. Our magic mike inspired drink markers keep your cocktails safe and your party wild!",
-    bullets:["Set of 4","Dimensions: 2\"l x 1.5\"w"],
+    bullets:["Set of 4","Size: 2\"l x 1.5\"w"],
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/de2cd38a-da05-4cb2-8093-42969a6fc3b8/Ebook+Thumbnail+with+Video+-+2025-03-16T183111.495.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b9d7c7e3-c44e-4f46-a87b-e4d477382f3b/Ebook+Thumbnail+with+Video+-+2025-03-16T183212.205.png?format=500w",
@@ -4643,7 +4643,7 @@ export const PARTY_ACCESSORIES = [
     name:"Diamond Ring Pool Float",
     price:"$28.00",
     desc:"Bling it on! This oversized diamond ring float is your ultimate summer sidekick for pool parties, beach hangs, and turning heads in the sunshine.",
-    bullets:["Set of 1","Dimensions: 43\"l x 34\"w","Manual or electric pump compatible","Includes 1 repair patch"],
+    bullets:["Set of 1","Size: 43\"l x 34\"w","Manual or electric pump compatible","Includes 1 repair patch"],
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/ff8cbe41-5735-4a70-abc1-f38e9f7bbf26/Ebook+Thumbnail+with+Video+-+2025-02-17T203136.876.png?format=500w",
     bg:"#E8F4FD", accent:"#87CEEB",
     etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/diamond-ring-pool-float",
@@ -4654,7 +4654,7 @@ export const PARTY_ACCESSORIES = [
     name:"Size Matters Drink Markers",
     price:"$16.50",
     desc:"Let's get naughty! No more drink mix ups. Just sass, style, and a whole lot of fun!",
-    bullets:["Set of 4","Dimensions: 2.5\"l x 1.5\"w"],
+    bullets:["Set of 4","Size: 2.5\"l x 1.5\"w"],
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/08a548e6-9c7f-4b9d-860b-5eaf4766ba7f/Ebook+Thumbnail+with+Video+-+2025-03-01T155823.154.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/43e3a688-10ef-4a05-a9ef-0314cd615a92/Ebook+Thumbnail+with+Video+-+2025-03-01T155845.847.png?format=500w",
@@ -4670,7 +4670,7 @@ export const PARTY_ACCESSORIES = [
     name:"Pink Disco Ice Bucket",
     price:"$57.00",
     desc:"Serving cold drinks and hot disco energy! Our pink disco ice bucket is the ultimate party centerpiece for any glam loving bride or her sparkle squad.",
-    bullets:["Set of 1","Dimensions: 10\"l x 10\"w"],
+    bullets:["Set of 1","Size: 10\"l x 10\"w"],
     images:[
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/872acb99-83b0-4754-b9a6-fe9be7fac322/Ebook+Thumbnail+with+Video+-+2025-02-25T101251.742.png?format=500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5c818187-b073-4796-8615-8452d081271e/Ebook+Thumbnail+with+Video+-+2025-02-25T101147.048.png?format=500w",
@@ -4849,7 +4849,7 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
   const getCountSize = (item) => {
     if (item.bullets?.length >= 2) {
       const b1 = item.bullets[1]
-        .replace(/^Dimensions:/i, "Size:")
+        .replace(/^Size:/i, "Size:")
         .replace(/^Capacity:\s*(\S+)/i, "$1 capacity");
       return `${item.bullets[0]} · ${b1}`;
     }
@@ -4874,10 +4874,10 @@ function PartyAccessoriesStep({ stepNum, cart, setCart }) {
               {mobile ? (
                 <>
                   <div>{item.bullets[0]}</div>
-                  {item.bullets[1] && <div>{item.bullets[1].replace(/^Dimensions:/i,"Size:")}</div>}
+                  {item.bullets[1] && <div>{item.bullets[1].replace(/^Size:/i,"Size:")}</div>}
                 </>
               ) : (
-                <div>{item.bullets[0]}{item.bullets[1] ? ` · ${item.bullets[1].replace(/^Dimensions:/i,"Size:")}` : ""}</div>
+                <div>{item.bullets[0]}{item.bullets[1] ? ` · ${item.bullets[1].replace(/^Size:/i,"Size:")}` : ""}</div>
               )}
             </div>
           )}
