@@ -4692,6 +4692,7 @@ export const PARTY_ACCESSORIES = [
     type:"accessory",
     name:"Palm Leaf Pool Float",
     price:"$26.00",
+    desc:"Bring the tropical vibes to your pool with our inflatable palm leaf pool float! This oversized float is the perfect way to relax, soak up the sun, and add a fun, stylish element to your pool parties.",
     bullets:["Size: 41\"l x 12\"w","Set of 1","Manual or electric pump compatible","Includes 1 repair patch"],
     image:"https://images.weserv.nl/?url=images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b4902972-c1ce-4548-a892-314d22301f6e/Ebook+Thumbnail+with+Video+-+2025-02-17T202053.165.png&w=400&output=jpg",
     bg:"#A8D8A8", accent:"#4CAF50",
