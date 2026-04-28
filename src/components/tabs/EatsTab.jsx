@@ -3847,7 +3847,7 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
 
         {/* ── About this restaurant ── */}
         <div style={{ ...C, marginBottom:14 }}>
-          <div style={{ fontSize:16, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:10 }}>
+          <div style={{ fontSize:16, fontWeight:300, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:10 }}>
             About this Restaurant
           </div>
           <p style={{ fontSize:13, color:DARK, fontFamily:"'Nunito',sans-serif", lineHeight:1.8, margin:"0 0 16px" }}>
@@ -3879,7 +3879,7 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
 
         {/* ── Menu Highlights ── */}
         <div style={{ ...C, marginBottom:14 }}>
-          <div style={{ fontSize:16, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:12 }}>
+          <div style={{ fontSize:16, fontWeight:300, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:12 }}>
             Menu Highlights
           </div>
           <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
@@ -3897,7 +3897,7 @@ function RestaurantDetail({ r, onBack, groupSize, date }) {
 
         {/* ── Why we love it ── */}
         <div style={{ ...C, marginBottom:14 }}>
-          <div style={{ fontSize:16, fontWeight:700, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:12 }}>
+          <div style={{ fontSize:16, fontWeight:300, fontFamily:"'Playfair Display',Georgia,serif", color:DARK, marginBottom:12 }}>
             Why We Love It for Your Group
           </div>
           {r.whyWeLoveIt.map((reason, i) => (
