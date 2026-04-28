@@ -59,7 +59,7 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
   image:     imgs[0] || "",
   images:    imgs,
   url:       p.etsyUrl || "",
-  desc:      p.type === "foil" ? (() => { const m = p.name.match(/^(\d+)"/); return m ? `Set of 1 · Size: ${m[1]}"` : p.desc || ""; })() : p.desc || "",
+  desc:      p.desc || (p.type === "foil" ? (() => { const m = p.name.match(/^(\d+)"/); return m ? `Set of 1 · Size: ${m[1]}"` : ""; })() : ""),
   bullets:   p.bullets || [],
   tags:      p.tags || [],
   related:   p.related || [],
@@ -117,7 +117,16 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView, setCart 
   const [qty,      setQty]      = useState(1);
   const [variantI, setVariantI] = useState(0);
   const [recQty,   setRecQty]   = useState({});
+  const [zoomed,   setZoomed]   = useState(false);
+  const [zoomOrigin, setZoomOrigin] = useState("50% 50%");
   const mobile = useIsMobile();
+
+  const handleZoomMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+    const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+    setZoomOrigin(`${x}% ${y}%`);
+  };
 
   if (!p) return null;
 
@@ -147,18 +156,24 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView, setCart 
       {/* Image with arrows overlaid */}
       <div style={{ flex:1, position:"relative" }}>
         <div style={{ aspectRatio:"1/1", background:"#fff", borderRadius:16, overflow:"hidden" }}>
-          {src ? <img src={src} alt={p.name||""} style={{ width:"100%", height:"100%", objectFit:"contain", objectPosition:"center", padding:8, boxSizing:"border-box", display:"block" }}/> : <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", fontSize:52 }}>🎀</div>}
+          {src
+            ? <img src={src} alt={p.name||""}
+                onMouseEnter={()=>setZoomed(true)}
+                onMouseLeave={()=>{ setZoomed(false); setZoomOrigin("50% 50%"); }}
+                onMouseMove={handleZoomMove}
+                style={{ width:"100%", height:"100%", objectFit:"contain", objectPosition:"center", padding:8, boxSizing:"border-box", display:"block", transition:"transform 0.2s ease", transform:zoomed?"scale(2.5)":"scale(1)", transformOrigin:zoomOrigin, cursor:zoomed?"crosshair":"default" }}/>
+            : <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", fontSize:52 }}>🎀</div>}
         </div>
         {total > 1 && <>
-          <button onClick={()=>setImgIdx(i=>(i-1+total)%total)} style={{ position:"absolute", left:-20, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", padding:"0 8px", opacity:0.8 }}>{ChevronLeft}</button>
-          <button onClick={()=>setImgIdx(i=>(i+1)%total)} style={{ position:"absolute", right:-20, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", padding:"0 8px", opacity:0.8 }}>{ChevronRight}</button>
+          <button onClick={()=>{ setImgIdx(i=>(i-1+total)%total); setZoomed(false); }} style={{ position:"absolute", left:-20, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", padding:"0 8px", opacity:0.8 }}>{ChevronLeft}</button>
+          <button onClick={()=>{ setImgIdx(i=>(i+1)%total); setZoomed(false); }} style={{ position:"absolute", right:-20, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", padding:"0 8px", opacity:0.8 }}>{ChevronRight}</button>
         </>}
       </div>
       {/* Thumbnail column */}
       {total > 1 && (
         <div style={{ display:"flex", flexDirection:"column", gap:8, flexShrink:0 }}>
           {imgs.map((url,i) => (
-            <div key={i} onClick={()=>setImgIdx(i)} style={{ width:64, height:64, borderRadius:10, overflow:"hidden", border: i===imgIdx ? `2px solid ${HOT}` : `1.5px solid ${BORDER}`, background:WHITE, cursor:"pointer" }}>
+            <div key={i} onClick={()=>{ setImgIdx(i); setZoomed(false); }} style={{ width:64, height:64, borderRadius:10, overflow:"hidden", border: i===imgIdx ? `2px solid ${HOT}` : `1.5px solid ${BORDER}`, background:WHITE, cursor:"pointer" }}>
               <img src={url} alt="" style={{ width:"100%", height:"100%", objectFit:"contain", padding:4, boxSizing:"border-box" }}/>
             </div>
           ))}
