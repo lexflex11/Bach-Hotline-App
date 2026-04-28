@@ -69,10 +69,11 @@ export default function App() {
           {/* Nav + icons */}
           <div style={{ display:"flex", alignItems:"center", gap:4 }}>
             {[
-              { id:"home",  label:"Home"     },
-              { id:"shop",  label:"Shop"     },
-              { id:"decor", label:"Party Box" },
-              { id:"more",  label:"Planning" },
+              { id:"home",    label:"Home"      },
+              { id:"shop",    label:"Shop"      },
+              { id:"decor",   label:"Party Box" },
+              { id:"more",    label:"Planning"  },
+              { id:"profile", label:"My Profile" },
             ].map(n => {
               const isMore   = n.id === "more";
               const isActive = isMore ? drawerOpen : (tab === n.id && !drawerOpen);
@@ -106,13 +107,6 @@ export default function App() {
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
               </svg>
               <span style={{ fontSize:13, fontWeight:700, fontFamily:"'Nunito',sans-serif", color:DARK }}>{cart.length}</span>
-            </div>
-            {/* Profile */}
-            <div onClick={()=>setTab("profile")} style={{ width:28, height:28, borderRadius:"50%", background:"none", border:`1.5px solid ${HOT}`, display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", marginLeft:4 }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={HOT} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-              </svg>
             </div>
           </div>
         </div>
