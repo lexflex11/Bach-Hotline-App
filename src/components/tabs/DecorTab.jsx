@@ -2802,8 +2802,9 @@ export const TABLEWARE = [
     desc:"Wild style meets party chic! These bold 40\" zebra print foil number balloons are a statement piece for any bachelorette bash, safari party, or black and white themed celebration.",
     bullets:["1 count, each number is sold separately","Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
     price:"$8.99",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/fdba2d25-53b1-4db7-8cf2-5f9fcff2c5cb/Ebook+Thumbnail+with+Video+-+2025-01-06T171546.183.png",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/678ec191cd961b05ac3e19d0/1768009838283/Ebook+Thumbnail+with+Video+-+2025-01-20T133502.239.png?format=1500w",
     images:[
+      "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/678ec191cd961b05ac3e19d0/1768009838283/Ebook+Thumbnail+with+Video+-+2025-01-20T133502.239.png?format=1500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/fdba2d25-53b1-4db7-8cf2-5f9fcff2c5cb/Ebook+Thumbnail+with+Video+-+2025-01-06T171546.183.png",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5daa3d3b-50bd-45ec-8dfd-4968ae2c52e0/Ebook+Thumbnail+with+Video+-+2025-01-06T165405.036.png",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/891228ac-7b63-4fdc-a774-47f2db428a40/Ebook+Thumbnail+with+Video+-+2025-01-06T171234.878.png",
