@@ -117,7 +117,7 @@ export default function FlightsTab({ groupSize }) {
       </div>
 
       {/* ── STEP 3 — Dates & Times ── */}
-      <div style={{...C, marginBottom:14}}>
+      <div style={{...C, marginBottom:14, overflow:"hidden"}}>
 
 
         {/* Departure row */}
@@ -129,7 +129,7 @@ export default function FlightsTab({ groupSize }) {
               value={depDate}
               min={minDate}
               onChange={e => { setDepDate(e.target.value); if(retDate && e.target.value >= retDate) setRetDate(""); }}
-              style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${depDate?HOT:BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box"}}
+              style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${depDate?HOT:BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box",maxWidth:"100%"}}
             />
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:6}}>
@@ -152,7 +152,7 @@ export default function FlightsTab({ groupSize }) {
               value={retDate}
               min={depDate || minDate}
               onChange={e => setRetDate(e.target.value)}
-              style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${retDate?HOT:BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box"}}
+              style={{width:"100%",padding:"10px 8px",borderRadius:10,border:`1.5px solid ${retDate?HOT:BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:12,color:DARK,background:WHITE,boxSizing:"border-box",maxWidth:"100%"}}
             />
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:6}}>
