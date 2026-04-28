@@ -52,7 +52,7 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
   if (main && !imgs.includes(main)) imgs.unshift(main);
   return {
   id:        p.id,
-  name:      p.name,
+  name:      p.type === "foil" ? p.name.replace(/^\d+"\s*/, "") : p.name,
   fullName:  p.name,
   price:     typeof p.price === "number" ? p.price : (parseFloat(String(p.price || "0").replace(/[^0-9.]/g, "")) || 0),
   category:  TYPE_TO_CAT[p.type] || "Party Accessories",
@@ -64,9 +64,7 @@ const DECOR_PRODUCTS = [...TABLEWARE, ...PARTY_ACCESSORIES].map(p => {
     const base = p.bullets || [];
     if (p.type === "foil") {
       const m = p.name.match(/^(\d+)"/);
-      if (m && !base.some(b => b.startsWith("1 count"))) {
-        return [`Set of 1 · Size: ${m[1]}"`, ...base];
-      }
+      if (m) return [`Size: ${m[1]}"`, ...base];
     }
     return base;
   })(),
