@@ -3624,7 +3624,10 @@ export const TABLEWARE = [
   },
   {
     id:"treatbag-fast-lane", type:"treatbag", name:"Fast Lane Treat Boxes",
-    desc:"8 ct · 3.5\"l × 2.5\"w × 5\"h", bullets:["Set of 8","Size: 3.5\"l x 2.5\"w x 5\"h"], price:"$16.38",
+    desc:"Vroom vroom, babes! These treat boxes are just what your wild bride crew needs to keep the party in high gear. Fill 'em with treats, mini shots, or hangover kits and race into the night!",
+    bullets:["Set of 8","Size: 3.5\"l x 2.5\"w x 5\"h","Ships flat, easy to assemble"],
+    price:"$16.38",
+    etsyUrl:"https://bachhotline.squarespace.com/decorations/p/fast-lane-treat-boxes",
     image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/dfcae7f3-8390-40b8-9d93-11757814f71f/Ebook+Thumbnail+with+Video+-+2025-07-21T223405.337.png",
     bg:"#212121", accent:"#FFD700",
     tags:["black","gold","red","white","silver","dark","glam","bachelorette"],
