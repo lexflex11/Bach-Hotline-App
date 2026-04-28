@@ -3668,8 +3668,11 @@ export const TABLEWARE = [
   },
   {
     id:"banner-metallic-pink-fringe-backdrop", type:"banner", name:"Metallic Pink Foil Fringe Backdrop",
-    desc:"3ft w × 7ft l", price:"$6.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/3032563d-005e-4659-834e-55f2fe71ad05/Ebook+Thumbnail+with+Video+-+2025-01-22T204555.167.png",
+    desc:"Bring the party sparkle! This fringe curtain hangs floor length; it instantly adds fun, flair, and photo ready vibes.",
+    bullets:["Set of 1","Size: 3ft w × 7ft l"],
+    price:"$6.50",
+    etsyUrl:"https://bachhotline.squarespace.com/decorations/p/baby-pink-foil-fringe-backdrop",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/79f8ea53-981a-4e77-9cca-1acd214ebc97/Ebook+Thumbnail+with+Video-404.png",
     bg:"#F8BBD0", accent:"#E91E8C",
     tags:["hotpink","pink","baby-pink","blush","iridescent","silver","glam","bachelorette","bride"],
   },
