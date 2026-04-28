@@ -4570,7 +4570,11 @@ export const PARTY_ACCESSORIES = [
     price:"$19.00",
     desc:"Make a statement with our something blue sunnies! Fun, stylish, and embossed for a fresh twist on bridal accessories.",
     bullets:["Set of 1","Size: 6\"w"],
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/f6d55d6f-c4ca-4099-b490-4ed707a30292/Ebook+Thumbnail+with+Video+-+2025-01-20T134834.956.png?format=500w",
+    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5d674121-becd-4106-95fc-9b588397637e/Ebook+Thumbnail+with+Video+-+2025-02-20T183644.520.png",
+    images:[
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5d674121-becd-4106-95fc-9b588397637e/Ebook+Thumbnail+with+Video+-+2025-02-20T183644.520.png",
+      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/09dade37-2a47-440e-87da-bd4bdfe2102d/Ebook+Thumbnail+with+Video+-+2025-02-20T183811.614.png",
+    ],
     bg:"#87CEEB", accent:"#4A90D9",
     etsyUrl:"https://bachhotline.squarespace.com/party-accessories/p/something-blue-sunglasses",
   },
