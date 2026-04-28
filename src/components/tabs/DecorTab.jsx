@@ -1298,11 +1298,7 @@ export const TABLEWARE = [
     id:"plate-swan", type:"plate", name:"Swan Plates",
     desc:"Create a graceful and refined party setting with our swan paper plates, featuring shimmering gold foil details and a beautiful silhouette.",
     price:"$12.50",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6709dc75a2dcc752c42d290e/1767898667035/Ebook+Thumbnail+with+Video+-+2025-05-11T155407.049.png?format=1500w",
-    images:[
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/6709dc75a2dcc752c42d290e/1767898667035/Ebook+Thumbnail+with+Video+-+2025-05-11T155407.049.png?format=1500w",
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0526d9e2-c467-4fee-9c29-43219d45b557/Copy+of+Untitled+Design+-+2025-02-09T145327.990.png?format=1500w",
-    ],
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/684b17192427cd1f49ac3e1c/1767898667035/Ebook+Thumbnail+with+Video+-+2025-05-11T155407.049.png?format=1500w",
     bullets:["Set of 8","Dimensions: 11.5\"l x 7.5\"w","Durable, lightweight, and disposable for easy cleanup"],
     bg:"#F8F8F8", accent:"#FFD700",
     tags:["white","sugar","champagne","gold","metallic-gold","silver","lace","blush","baby-pink","monet"],
