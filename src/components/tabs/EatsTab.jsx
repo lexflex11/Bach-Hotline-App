@@ -4039,13 +4039,17 @@ export default function EatsTab({ groupSize: initialGroupSize }) {
       </div>
 
       <div style={{ ...C, marginBottom:12, display:"flex", gap:10, overflow:"hidden" }}>
-        <div style={{ flex:1, minWidth:0 }}>
+        <div style={{ flex:1, minWidth:0, overflow:"hidden" }}>
           <div style={labelStyle}>Date</div>
-          <input type="date" value={date} onChange={e=>setDate(e.target.value)} style={{...inputStyle, minWidth:0}} />
+          <div style={{ overflow:"hidden", borderRadius:10 }}>
+            <input type="date" value={date} onChange={e=>setDate(e.target.value)} style={{...inputStyle, minWidth:0, display:"block"}} />
+          </div>
         </div>
-        <div style={{ flex:1, minWidth:0 }}>
+        <div style={{ flex:1, minWidth:0, overflow:"hidden" }}>
           <div style={labelStyle}>Time</div>
-          <input type="time" value={time} onChange={e=>setTime(e.target.value)} style={{...inputStyle, minWidth:0}} />
+          <div style={{ overflow:"hidden", borderRadius:10 }}>
+            <input type="time" value={time} onChange={e=>setTime(e.target.value)} style={{...inputStyle, minWidth:0, display:"block"}} />
+          </div>
         </div>
       </div>
 
