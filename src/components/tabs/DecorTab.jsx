@@ -1127,7 +1127,8 @@ export const TABLEWARE = [
   },
   {
     id:"plate-camp-bach", type:"plate", name:"Camp Bachelorette Plates",
-    bullets:["Set of 8","Dimensions: 10\"l x 10\"w"],
+    desc:"Get ready to party, patch style! These retro inspired plates bring serious camp vibes to your table, cute, colorful, and totally Instagram worthy!",
+    bullets:["Set of 8","Dimensions: 10\"w x 10\"l","Durable, lightweight, and disposable for easy cleanup"],
     price:"$12.00",
     image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68acdc1610a90473ab295ae8/1767899924417/Ebook+Thumbnail+with+Video+-+2025-11-06T123554.536.png?format=1500w",
     bg:"#76A96C", accent:"#C4956A",
