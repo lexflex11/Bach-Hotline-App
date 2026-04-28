@@ -211,13 +211,13 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView, setCart 
       </div>
       {p.variants?.length > 0 && (
         <div style={{ marginBottom:20, paddingBottom:20, borderBottom:`1px solid ${BORDER}` }}>
-          <div style={{ fontSize:12, fontWeight:700, fontFamily:"'Nunito',sans-serif", color:DARK, marginBottom:10, textTransform:"uppercase", letterSpacing:"0.08em" }}>
+          <div style={{ fontSize:12, fontWeight:300, fontFamily:"'Nunito',sans-serif", color:DARK, marginBottom:10, textTransform:"uppercase", letterSpacing:"0.08em" }}>
             {p.variantLabel || "Color"}: <span style={{ color:HOT }}>{p.variants[variantI].label}</span>
           </div>
           <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
             {p.variants.map((v,i) => (
               <button key={i} onClick={()=>{ setVariantI(i); setImgIdx(v.imgIdx ?? i); }} style={{
-                padding:"7px 14px", borderRadius:50, fontSize:12, fontWeight:700,
+                padding:"7px 14px", borderRadius:50, fontSize:12, fontWeight:300,
                 fontFamily:"'Nunito',sans-serif", cursor:"pointer",
                 background: i===variantI ? "#F496C2" : WHITE,
                 color: i===variantI ? WHITE : DARK,
