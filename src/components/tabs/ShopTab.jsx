@@ -141,17 +141,19 @@ function ProductDetail({ p, onBack, onAdd, inCart, recommended, onView, setCart 
     </div>
   );
 
-  /* ── Desktop image gallery: arrow | image | arrow | thumbnails ── */
+  /* ── Desktop image gallery: image (with overlapping arrows) | thumbnails ── */
   const DesktopGallery = (
-    <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-      {/* Prev arrow */}
-      <button onClick={()=>setImgIdx(i=>(i-1+total)%total)} style={{ background:"none", border:"none", cursor:"pointer", padding:"0 8px", opacity: total>1?1:0.2, flexShrink:0 }}>{ChevronLeft}</button>
-      {/* Main image */}
-      <div style={{ flex:1, aspectRatio:"1/1", background:"#fff", borderRadius:16, overflow:"hidden" }}>
-        {src ? <img src={src} alt={p.name||""} style={{ width:"100%", height:"100%", objectFit:"contain", objectPosition:"center", padding:8, boxSizing:"border-box", display:"block" }}/> : <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", fontSize:52 }}>🎀</div>}
+    <div style={{ display:"flex", alignItems:"flex-start", gap:8 }}>
+      {/* Image with arrows overlaid */}
+      <div style={{ flex:1, position:"relative" }}>
+        <div style={{ aspectRatio:"1/1", background:"#fff", borderRadius:16, overflow:"hidden" }}>
+          {src ? <img src={src} alt={p.name||""} style={{ width:"100%", height:"100%", objectFit:"contain", objectPosition:"center", padding:8, boxSizing:"border-box", display:"block" }}/> : <div style={{ width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center", fontSize:52 }}>🎀</div>}
+        </div>
+        {total > 1 && <>
+          <button onClick={()=>setImgIdx(i=>(i-1+total)%total)} style={{ position:"absolute", left:-20, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", padding:"0 8px", opacity:0.8 }}>{ChevronLeft}</button>
+          <button onClick={()=>setImgIdx(i=>(i+1)%total)} style={{ position:"absolute", right:-20, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", padding:"0 8px", opacity:0.8 }}>{ChevronRight}</button>
+        </>}
       </div>
-      {/* Next arrow */}
-      <button onClick={()=>setImgIdx(i=>(i+1)%total)} style={{ background:"none", border:"none", cursor:"pointer", padding:"0 8px", opacity: total>1?1:0.2, flexShrink:0 }}>{ChevronRight}</button>
       {/* Thumbnail column */}
       {total > 1 && (
         <div style={{ display:"flex", flexDirection:"column", gap:8, flexShrink:0 }}>

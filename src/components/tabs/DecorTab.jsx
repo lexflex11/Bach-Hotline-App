@@ -2780,9 +2780,9 @@ export const TABLEWARE = [
     desc:"Sleek, striking, and ready to party! These 34\" foil number balloons are your go to for cool, custom decor.",
     bullets:["1 count, each number is sold separately","Ships flat and uninflated","Fill with helium for floating","Hand pump or straw not included","Do not overinflate, foil balloons can pop"],
     price:"$8.99",
-    image:"https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/677a73d7-f871-42e1-9e37-a7faeab22506/Ebook+Thumbnail+with+Video+-+2025-05-18T120712.700.png",
+    image:"https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68c71ad48328676059d2a9dd/1768010705285/Ebook+Thumbnail+with+Video+-+2025-01-04T203015.755.png?format=1500w",
     images:[
-      "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/677a73d7-f871-42e1-9e37-a7faeab22506/Ebook+Thumbnail+with+Video+-+2025-05-18T120712.700.png",
+      "https://static1.squarespace.com/static/66c512fff5e80a05a6127fea/678ec191cd961b05ac3e19ad/68c71ad48328676059d2a9dd/1768010705285/Ebook+Thumbnail+with+Video+-+2025-01-04T203015.755.png?format=1500w",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/b22c403e-50df-4c60-b2e1-3c839ea2a26a/Ebook+Thumbnail+with+Video-120.png",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/0f0cadfc-9874-4db9-8580-0f4cdb775fc1/Ebook+Thumbnail+with+Video+-+2025-01-04T203135.075.png",
       "https://images.squarespace-cdn.com/content/v1/66c512fff5e80a05a6127fea/5f6c74e2-ee11-4d4d-b088-ca9eeee57f84/Ebook+Thumbnail+with+Video+-+2025-01-04T203249.660.png",
