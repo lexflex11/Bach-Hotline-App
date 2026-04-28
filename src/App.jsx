@@ -157,8 +157,6 @@ export default function App() {
                 { id:"stays",       label:"Stays"        },
                 { id:"eats",        label:"Bites & Sips" },
                 { id:"experiences", label:"Experiences"  },
-                { id:"plan",        label:"Itinerary"    },
-                { id:"mood",        label:"Mood Board"   },
                 { id:"profile",     label:"My Profile"   },
                 ...(user.email ? [
                   { id:"split",  label:"Split"   },
