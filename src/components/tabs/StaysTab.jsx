@@ -1,8 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SOFT, MID, HOT, PUNCH, DARK, BORDER, WHITE } from '../../constants/colors.js';
 import { C, BP } from '../../constants/styles.js';
 import { DESTS } from '../../constants/data.js';
 import SH from '../ui/SH.jsx';
+
+function ExpediaWidget() {
+  useEffect(() => {
+    if (!document.querySelector('.eg-widgets-script')) {
+      const script = document.createElement('script');
+      script.className = 'eg-widgets-script';
+      script.src = 'https://creator.expediagroup.com/products/widgets/assets/eg-widgets.js';
+      script.async = true;
+      document.body.appendChild(script);
+    } else if (window.EGWidgets) {
+      window.EGWidgets.init();
+    }
+  }, []);
+  return (
+    <div
+      className="eg-widget"
+      data-widget="search"
+      data-program="us-expedia"
+      data-lobs="stays,flights"
+      data-network="pz"
+      data-camref="1011l4ma3h"
+      data-pubref=""
+    />
+  );
+}
 
 //  Curated stay listings per destination 
 const STAYS = {
@@ -20,7 +45,7 @@ const STAYS = {
       desc:"A stunning 4-bedroom penthouse in the heart of Brickell with wraparound skyline views, a private rooftop infinity pool, and a chef's kitchen. Walk to Komodo, Swan, and all of Brickell's hottest spots.",
       amenities:["Private Rooftop Pool","City & Bay Views","Chef's Kitchen","Concierge Service","Parking Included","Smart Home"],
       whyWeLoveIt:["Rooftop pool with 360 skyline + bay views — perfect for group photos","Steps from Brickell's best bars and restaurants","Concierge can arrange private chef, boat rentals, and more"],
-      airbnbUrl:"https://www.airbnb.com/s/Miami--FL/homes?adults=10&place_id=ChIJEcHIDqKw2YgRZU-t3XHylv8",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=10&destination=Miami+FL",
     },
     {
       id:"miami-s2", name:"South Beach Art Deco Villa", type:"Villa",
@@ -35,7 +60,7 @@ const STAYS = {
       desc:"A fully restored 1930s Art Deco villa two blocks from the beach. Five bedrooms, a private courtyard pool, outdoor bar, and a statement living room that screams bachelorette glam. The perfect South Beach basecamp.",
       amenities:["Private Courtyard Pool","Outdoor Bar","2 Blocks to Beach","Outdoor Shower","Bluetooth Sound System","BBQ Grill"],
       whyWeLoveIt:["Iconic South Beach architecture — every inch is photo-ready","Private outdoor bar great for pre-game nights in","Walk to Ocean Drive, Lincoln Road, and beach clubs"],
-      airbnbUrl:"https://www.airbnb.com/s/South-Beach--Miami-Beach--FL/homes?adults=12",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=12&destination=South+Beach+Miami+Beach+FL",
     },
     {
       id:"miami-s3", name:"Wynwood Luxury Loft — Pool & Mural Garden", type:"Loft",
@@ -50,7 +75,7 @@ const STAYS = {
       desc:"An architecturally designed loft in the heart of Wynwood, surrounded by world-class street murals. Features a private splash pool, rooftop terrace, and walls of glass. Walk to Wynwood Walls, craft cocktail bars, and trendy brunch spots.",
       amenities:["Private Splash Pool","Rooftop Terrace","Designer Interiors","Mural Garden","Smart TV","Full Kitchen"],
       whyWeLoveIt:["Wynwood Walls literally outside your door — effortless content","Unique industrial-chic design unlike anything else","Short Uber to South Beach or Brickell nightlife"],
-      airbnbUrl:"https://www.airbnb.com/s/Wynwood--Miami--FL/homes?adults=8",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=8&destination=Wynwood+Miami+FL",
     },
   ],
   nashville: [
@@ -67,7 +92,7 @@ const STAYS = {
       desc:"A fully renovated Nashville bungalow in the heart of 12South — the most walkable bachelorette neighborhood in the city. Four bedrooms, a private hot tub, big back deck, and neon sign included. Walk to brunch, boutiques, and bars in minutes.",
       amenities:["Private Hot Tub","Back Deck","Neon Sign","Full Kitchen","Smart TV","1 Block to 12South Shops"],
       whyWeLoveIt:["12South's best brunch spots are literally walkable","Private hot tub for end-of-night wind-down sessions","Custom neon sign for group photos — already included"],
-      airbnbUrl:"https://www.airbnb.com/s/12South--Nashville--TN/homes?adults=10",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=10&destination=12South+Nashville+TN",
     },
     {
       id:"nashville-s2", name:"Downtown Honky Tonk Penthouse", type:"Penthouse",
@@ -82,7 +107,7 @@ const STAYS = {
       desc:"Sleep right above the action on Broadway. This luxury penthouse sleeps 14, with a rooftop terrace overlooking the neon lights of Lower Broadway. Party all night and roll straight to bed — no Uber needed.",
       amenities:["Rooftop Terrace","Broadway Views","5 Bedrooms","Game Room","Bar Cart","Elevator Access"],
       whyWeLoveIt:["Walk to every honky tonk on Broadway in under 2 minutes","Rooftop terrace for group toast before hitting the strip","Sleeps 14 — bring the whole crew"],
-      airbnbUrl:"https://www.airbnb.com/s/Downtown-Nashville--Nashville--TN/homes?adults=14",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=14&destination=Downtown+Nashville+Nashville+TN",
     },
     {
       id:"nashville-s3", name:"East Nashville Boho House", type:"House",
@@ -97,7 +122,7 @@ const STAYS = {
       desc:"Colorful, cozy, and so Nashville. This East Nashville boho house features an eclectic mix of vintage finds, a sprawling backyard with string lights, and a fire pit. The indie dining and bar scene is steps away.",
       amenities:["Private Backyard","Fire Pit","String Lights","Full Kitchen","Vinyl Record Collection","2 Bikes Included"],
       whyWeLoveIt:["East Nashville's coolest bars and restaurants walkable","Backyard fire pit for night cap under the stars","Laid-back alternative to Downtown — great for low-key squads"],
-      airbnbUrl:"https://www.airbnb.com/s/East-Nashville--Nashville--TN/homes?adults=8",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=8&destination=East+Nashville+Nashville+TN",
     },
   ],
   vegas: [
@@ -114,7 +139,7 @@ const STAYS = {
       desc:"The ultimate Vegas bachelorette base camp: a sky-high luxury suite on the Las Vegas Strip with floor-to-ceiling windows, a private plunge pool, and panoramic views of the Strip. Concierge, limo service, and bottle service arrangements available.",
       amenities:["Private Plunge Pool","Strip Views","Concierge Service","Limo Service Available","Full Bar Setup","4 Bedrooms"],
       whyWeLoveIt:["Floor-to-ceiling Strip views that hit different at night","Concierge handles nightclub reservations and VIP access","Private plunge pool for pre-game or morning recovery"],
-      airbnbUrl:"https://www.airbnb.com/s/Las-Vegas-Strip--Las-Vegas--NV/homes?adults=12",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=12&destination=Las+Vegas+Strip+Las+Vegas+NV",
     },
     {
       id:"vegas-s2", name:"Henderson Desert Oasis — Pool & Cabana", type:"Villa",
@@ -129,7 +154,7 @@ const STAYS = {
       desc:"Six bedrooms, a resort-style pool with swim-up bar, private cabana, and jaw-dropping mountain and desert views. The ideal mix of Vegas energy and a peaceful retreat — 20 minutes from the Strip.",
       amenities:["Resort-Style Pool","Swim-Up Bar","Cabana","Desert + Mountain Views","Outdoor Kitchen","Game Room"],
       whyWeLoveIt:["Swim-up bar makes for an incredible pool day without leaving home","Sleeps 16 — everyone under one roof","20 minutes to the Strip; peaceful enough to actually sleep"],
-      airbnbUrl:"https://www.airbnb.com/s/Henderson--NV/homes?adults=16",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=16&destination=Henderson+NV",
     },
   ],
   nola: [
@@ -146,7 +171,7 @@ const STAYS = {
       desc:"A jaw-dropping 19th-century mansion steps from Bourbon Street, with a private courtyard pool, iron balconies dripping in charm, and five luxury bedrooms. Sip Sazeracs on the balcony, then stumble into the French Quarter below.",
       amenities:["Private Courtyard Pool","Bourbon Street Balcony","5 Bedrooms","Full Bar","Period Architecture","Concierge"],
       whyWeLoveIt:["Literally steps from Bourbon Street — the ultimate NOLA location","Courtyard pool for lazy afternoon recovery sessions","That balcony is going to be in every photo you take"],
-      airbnbUrl:"https://www.airbnb.com/s/French-Quarter--New-Orleans--LA/homes?adults=14",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=14&destination=French+Quarter+New+Orleans+LA",
     },
     {
       id:"nola-s2", name:"Garden District Victorian", type:"House",
@@ -161,7 +186,7 @@ const STAYS = {
       desc:"An authentic Garden District Victorian loaded with original details: hardwood floors, 12-foot ceilings, a wraparound porch, and a full chef's kitchen. Walk to Magazine Street boutiques, Commander's Palace, and the St. Charles streetcar.",
       amenities:["Wraparound Porch","Chef's Kitchen","12-Ft Ceilings","Hardwood Floors","Streetcar Access","Outdoor Dining"],
       whyWeLoveIt:["Garden District's most photogenic street — magic hour photos are unreal","Walkable to top NOLA restaurants on Magazine Street","Authentic New Orleans architecture you cannot find in a hotel"],
-      airbnbUrl:"https://www.airbnb.com/s/Garden-District--New-Orleans--LA/homes?adults=10",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=10&destination=Garden+District+New+Orleans+LA",
     },
   ],
   scottsdale: [
@@ -178,7 +203,7 @@ const STAYS = {
       desc:"A sleek desert-modern villa in Old Town Scottsdale with a heated pool, spa, and mountain views. Walk to all the best bars and rooftops — then come home to your private oasis. Bachelorette perfection.",
       amenities:["Heated Pool","Hot Tub","Mountain Views","Outdoor Kitchen","Pool Floats Provided","Walk to Old Town"],
       whyWeLoveIt:["Walk to Old Town's restaurant and bar scene in under 5 minutes","Heated pool means a perfect day no matter the season","Pool floats included — no hauling them from home"],
-      airbnbUrl:"https://www.airbnb.com/s/Old-Town-Scottsdale--Scottsdale--AZ/homes?adults=12",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=12&destination=Old+Town+Scottsdale+Scottsdale+AZ",
     },
     {
       id:"scottsdale-s2", name:"Desert Retreat — Private Pool + Saguaro Views", type:"House",
@@ -193,7 +218,7 @@ const STAYS = {
       desc:"Six bedrooms, a resort-style pool with saguaro cactus views, a hot tub, fire pit, and an outdoor kitchen. The ultimate Scottsdale bachelorette compound for a group that wants to do it big in the desert.",
       amenities:["Resort Pool","Hot Tub","Saguaro Views","Fire Pit","Outdoor Kitchen","6 Bedrooms"],
       whyWeLoveIt:["That golden hour pool light with saguaro backdrops is everything","Fire pit nights under the Arizona stars are unforgettable","Space for 16 means no one gets left out"],
-      airbnbUrl:"https://www.airbnb.com/s/Scottsdale--AZ/homes?adults=16",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=16&destination=Scottsdale+AZ",
     },
   ],
   austin: [
@@ -210,7 +235,7 @@ const STAYS = {
       desc:"A beautifully renovated Austin bungalow on South Congress, steps from the city's best boutiques, restaurants, and live music. Private pool, screened-in porch, and full chef's kitchen. Keep Austin weird from your perfect basecamp.",
       amenities:["Private Pool","Screened-In Porch","Chef's Kitchen","Walk to SoCo","Fire Pit","Smart Home"],
       whyWeLoveIt:["South Congress is Austin's most iconic bachelorette neighborhood","Pool makes the afternoon before going out extra magical","Fire pit for late-night wind-downs between bar nights"],
-      airbnbUrl:"https://www.airbnb.com/s/South-Congress--Austin--TX/homes?adults=10",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=10&destination=South+Congress+Austin+TX",
     },
     {
       id:"austin-s2", name:"East Austin Modern — Rooftop Deck", type:"House",
@@ -225,7 +250,7 @@ const STAYS = {
       desc:"Sleek, modern, and in the heart of East Austin's coolest streets. Five bedrooms, a rooftop deck with skyline views, and a short walk to the city's hottest bars, taquerias, and live music venues.",
       amenities:["Rooftop Deck","Skyline Views","5 Bedrooms","Full Kitchen","Bike Rentals Nearby","Smart Home"],
       whyWeLoveIt:["East Austin rooftop sunsets are absolutely stunning","Walking distance to bars, tacos, and live music","Modern finishes make every common space feel photo-ready"],
-      airbnbUrl:"https://www.airbnb.com/s/East-Austin--Austin--TX/homes?adults=12",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=12&destination=East+Austin+Austin+TX",
     },
   ],
   portaransas: [
@@ -242,7 +267,7 @@ const STAYS = {
       desc:"Wake up to Gulf Coast waves from this stunning 5-bedroom beachfront home. Private pool, direct beach access, wrap-around decks, and an outdoor shower. Sunsets from the upper deck will make your whole group emotional.",
       amenities:["Direct Beach Access","Private Pool","Wraparound Decks","Outdoor Shower","Gulf Views","Fully Equipped Kitchen"],
       whyWeLoveIt:["Private beach access — no hiking to the water with chairs and coolers","Upper deck sunset views are absolutely breathtaking","Pool plus Gulf is the ultimate bachelorette beach day combo"],
-      airbnbUrl:"https://www.airbnb.com/s/Port-Aransas--TX/homes?adults=14",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=14&destination=Port+Aransas+TX",
     },
     {
       id:"portaransas-s2", name:"Island Escape — Pool, Hot Tub & Golf Cart", type:"House",
@@ -257,7 +282,7 @@ const STAYS = {
       desc:"The quintessential Port Aransas bachelorette house: private pool, hot tub, a golf cart for buzzing around the island, and a massive deck built for group hangs. Minutes from the beach, restaurants, and the ferry dock.",
       amenities:["Private Pool","Hot Tub","Golf Cart Included","Large Deck","Outdoor Grill","Steps to Beach"],
       whyWeLoveIt:["Golf cart included — the Port A way to get around the island","Hot tub under the Gulf Coast stars is a bucket-list moment","Pool + hot tub combo covers morning, afternoon, AND night"],
-      airbnbUrl:"https://www.airbnb.com/s/Port-Aransas--TX/homes?adults=12",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=12&destination=Port+Aransas+TX",
     },
   ],
   charleston: [
@@ -274,7 +299,7 @@ const STAYS = {
       desc:"A classic Charleston 'single house' on the historic peninsula — pastel exterior, private garden with hanging ferns, and four beautiful bedrooms. Walk to King Street boutiques, rooftop bars, and the city market.",
       amenities:["Private Garden","Historic Architecture","Walk to King Street","Full Kitchen","Piazza Porch","Outdoor Dining"],
       whyWeLoveIt:["That pastel Charleston exterior is worth the trip alone","Private garden makes for an intimate group dinner outside","Walk to every top restaurant and bar on King Street"],
-      airbnbUrl:"https://www.airbnb.com/s/Downtown-Charleston--Charleston--SC/homes?adults=10",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=10&destination=Downtown+Charleston+Charleston+SC",
     },
   ],
   cabo: [
@@ -291,7 +316,7 @@ const STAYS = {
       desc:"Perched on the cliffs of Pedregal, this 5-bedroom villa has an infinity pool that spills toward the Pacific, panoramic views of Land's End, and a private chef available on request. This is the Cabo bachelorette experience.",
       amenities:["Infinity Pool","Pacific & Land's End Views","Private Chef Available","Butler Service","5 Bedrooms","Boat Charter Arrangements"],
       whyWeLoveIt:["Infinity pool at sunset with Land's End behind you — unmatched","Private chef means you can eat in on days between adventures","Butler can arrange yacht charters, tours, and club reservations"],
-      airbnbUrl:"https://www.airbnb.com/s/Cabo-San-Lucas--Mexico/homes?adults=12",
+      bookingUrl:"https://www.expedia.com/Hotel-Search?adults=12&destination=Cabo+San+Lucas+Mexico",
     },
   ],
 };
@@ -418,10 +443,10 @@ function StayDetail({ stay, onBack }) {
       {/* Book CTA */}
       <div style={{ ...C, background:SOFT, border:`1.5px solid ${MID}`, textAlign:"center" }}>
         <div style={{ fontSize:11, color:HOT, fontFamily:"'Plus Jakarta Sans',sans-serif", marginBottom:12, opacity:0.8 }}>
-          Prices are estimated — check Airbnb for real-time availability
+          Prices are estimated — check Expedia for real-time availability
         </div>
         <button
-          onClick={() => window.open(stay.airbnbUrl, "_blank")}
+          onClick={() => window.open(stay.bookingUrl, "_blank")}
           style={{
             width:"100%",
             background:`linear-gradient(135deg,#f472b0,${HOT})`,
@@ -431,7 +456,7 @@ function StayDetail({ stay, onBack }) {
             letterSpacing:"0.3px",
           }}
         >
-          Book on Airbnb
+          Book on Expedia
         </button>
       </div>
     </div>
@@ -472,9 +497,7 @@ export default function StaysTab({ groupSize: initialGroupSize, initialCity }) {
       // Fallback: open Airbnb directly if no curated data
       const dest = encodeURIComponent(selectedDest?.name || city);
       const url = checkIn && checkOut
-        ? `https://www.airbnb.com/s/${dest}/homes?checkin=${checkIn}&checkout=${checkOut}&adults=${groupSize}`
-        : `https://www.airbnb.com/s/${dest}/homes?adults=${groupSize}`;
-      window.open(url, "_blank");
+        ? `https://www.expedia.com/Hotel-Search?adults=8&destination=${dest}"_blank");
     }
     setSelected(null);
   }
@@ -561,8 +584,8 @@ export default function StaysTab({ groupSize: initialGroupSize, initialCity }) {
             onClick={() => {
               const dest = encodeURIComponent(selectedDest?.name || city);
               const url = checkIn && checkOut
-                ? `https://www.airbnb.com/s/${dest}/homes?checkin=${checkIn}&checkout=${checkOut}&adults=${groupSize}`
-                : `https://www.airbnb.com/s/${dest}/homes?adults=${groupSize}`;
+                ? `https://www.expedia.com/Hotel-Search?adults=${groupSize}&destination=${dest}&startDate=${checkIn}&endDate=${checkOut}`
+                : `https://www.expedia.com/Hotel-Search?adults=${groupSize}&destination=${dest}`;
               window.open(url, "_blank");
             }}
             style={{
@@ -571,7 +594,7 @@ export default function StaysTab({ groupSize: initialGroupSize, initialCity }) {
               fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:12, fontWeight:700,
             }}
           >
-            Search all of Airbnb
+            Search on Expedia
           </button>
         </div>
       </div>
@@ -664,16 +687,18 @@ export default function StaysTab({ groupSize: initialGroupSize, initialCity }) {
         )}
       </div>
 
-      {/* CTA */}
-      <div style={{ ...C, background: SOFT, border: `1.5px solid ${MID}`, marginBottom: 14 }}>
+      {/* Expedia Widget */}
+      <ExpediaWidget />
+
+      {/* CTA — curated stays */}
+      <div style={{ ...C, background: SOFT, border: `1.5px solid ${MID}`, marginBottom: 14, marginTop: 16 }}>
         {city ? (
           <>
-            <div style={{ fontSize: 14, fontWeight: 400, fontFamily: "'Plus Jakarta Sans',sans-serif", color: DARK, marginBottom: 4 }}>
-              {selectedDest?.name}
+            <div style={{ fontSize: 13, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", color: DARK, marginBottom: 4 }}>
+              Or browse our curated picks for {selectedDest?.name}
             </div>
             <div style={{ fontSize: 11, color: HOT, fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: 14, opacity: 0.85 }}>
-              {groupSize} guests
-              {nights > 0 ? ` · ${nights} nights · ${checkIn} → ${checkOut}` : " · flexible dates"}
+              {groupSize} guests · hand-picked villas & homes
             </div>
             <button onClick={findStays} style={{
               width: "100%",
@@ -683,11 +708,8 @@ export default function StaysTab({ groupSize: initialGroupSize, initialCity }) {
               fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 14, fontWeight: 800,
               letterSpacing: "0.3px",
             }}>
-              Find Best Stays
+              See Curated Stays
             </button>
-            <div style={{ fontSize: 10, color: "#bbb", fontFamily: "'Plus Jakarta Sans',sans-serif", marginTop: 8, textAlign: "center" }}>
-              We'll surface the best available options for your group
-            </div>
           </>
         ) : (
           <div style={{ textAlign: "center", padding: "8px 0" }}>
