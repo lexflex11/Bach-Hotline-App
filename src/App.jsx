@@ -95,29 +95,85 @@ export default function App() {
             </div>
           ) : (
             /* ── DESKTOP HEADER ── */
-            <div style={{ display:"flex", alignItems:"center", gap:4 }}>
-              {[
-                { id:"home",    label:"Home"      },
-                { id:"shop",    label:"Shop"      },
-                { id:"decor",   label:"Party Box" },
-                { id:"more",    label:"Planning"  },
-                { id:"profile", label:"My Profile" },
-              ].map(n => {
-                const isMore   = n.id === "more";
-                const isActive = isMore ? drawerOpen : (tab === n.id && !drawerOpen);
-                return (
-                  <button key={n.id}
-                    onClick={() => isMore ? setDrawerOpen(p => !p) : (navigateTo(n.id), setDrawerOpen(false))}
-                    style={{ background:"none", border:"none", cursor:"pointer", padding:"6px 14px",
-                      fontSize:15, fontFamily:"'Nunito',sans-serif", fontWeight:400,
-                      color: isActive ? HOT : DARK,
-                      borderBottom: isActive ? `2px solid ${HOT}` : "2px solid transparent",
-                      transition:"color 0.18s",
-                    }}>
-                    {n.label}
-                  </button>
-                );
-              })}
+            <div style={{ display:"flex", alignItems:"center", gap:4 }} onMouseLeave={()=>setDrawerOpen(false)}>
+              {/* Home */}
+              <button onClick={()=>{ navigateTo("home"); setDrawerOpen(false); }}
+                style={{ background:"none", border:"none", cursor:"pointer", padding:"6px 14px", fontSize:15, fontFamily:"'Nunito',sans-serif", fontWeight:400, color: tab==="home" && !drawerOpen ? HOT : DARK, borderBottom: tab==="home" && !drawerOpen ? `2px solid ${HOT}` : "2px solid transparent", transition:"color 0.18s" }}>
+                Home
+              </button>
+
+              {/* Shop dropdown */}
+              <div style={{ position:"relative" }} onMouseEnter={()=>setDrawerOpen("shop")} >
+                <button style={{ background:"none", border:"none", cursor:"pointer", padding:"6px 14px", fontSize:15, fontFamily:"'Nunito',sans-serif", fontWeight:400, color: drawerOpen==="shop" || ["shop","decor"].includes(tab) && !drawerOpen ? HOT : DARK, borderBottom: drawerOpen==="shop" || (["shop","decor"].includes(tab) && !drawerOpen) ? `2px solid ${HOT}` : "2px solid transparent", transition:"color 0.18s", display:"flex", alignItems:"center", gap:4 }}>
+                  Shop <span style={{ fontSize:10 }}>▾</span>
+                </button>
+                {drawerOpen==="shop" && (
+                  <div style={{ position:"absolute", top:"100%", left:0, background:WHITE, border:`1.5px solid ${BORDER}`, borderRadius:14, boxShadow:"0 8px 32px rgba(230,101,130,0.14)", minWidth:180, zIndex:200, padding:"8px 0" }}>
+                    {[
+                      { id:"shop",  label:"Party Supplies", sub:"Cups, confetti & more" },
+                      { id:"decor", label:"Party Box",      sub:"Decor packages"         },
+                    ].map(item => (
+                      <button key={item.id} onClick={()=>{ navigateTo(item.id); setDrawerOpen(false); }}
+                        style={{ display:"block", width:"100%", background:"none", border:"none", padding:"10px 18px", cursor:"pointer", textAlign:"left" }}>
+                        <div style={{ fontSize:13, fontFamily:"'Playfair Display',Georgia,serif", fontWeight:400, color:tab===item.id?HOT:DARK }}>{item.label}</div>
+                        <div style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif", opacity:0.7, marginTop:2 }}>{item.sub}</div>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Planning dropdown */}
+              <div style={{ position:"relative" }} onMouseEnter={()=>setDrawerOpen("planning")}>
+                <button style={{ background:"none", border:"none", cursor:"pointer", padding:"6px 14px", fontSize:15, fontFamily:"'Nunito',sans-serif", fontWeight:400, color: drawerOpen==="planning" || ["flights","stays","eats","experiences","plan"].includes(tab) ? HOT : DARK, borderBottom: drawerOpen==="planning" || ["flights","stays","eats","experiences","plan"].includes(tab) ? `2px solid ${HOT}` : "2px solid transparent", transition:"color 0.18s", display:"flex", alignItems:"center", gap:4 }}>
+                  Planning <span style={{ fontSize:10 }}>▾</span>
+                </button>
+                {drawerOpen==="planning" && (
+                  <div style={{ position:"absolute", top:"100%", left:0, background:WHITE, border:`1.5px solid ${BORDER}`, borderRadius:14, boxShadow:"0 8px 32px rgba(230,101,130,0.14)", minWidth:200, zIndex:200, padding:"8px 0" }}>
+                    {[
+                      { id:"flights",     label:"Flights",     sub:"Search & compare"           },
+                      { id:"stays",       label:"Stays",       sub:"Airbnb, Vrbo & hotels"      },
+                      { id:"eats",        label:"Bites & Sips", sub:"Restaurants & brunch"      },
+                      { id:"experiences", label:"Experiences", sub:"Activities & adventures"    },
+                      { id:"plan",        label:"Itinerary",   sub:"Build your schedule"        },
+                      ...(user.email ? [
+                        { id:"split", label:"Split",   sub:"Divide expenses"   },
+                        { id:"dayof", label:"Day-Of",  sub:"Live itinerary mode" },
+                      ] : []),
+                    ].map(item => (
+                      <button key={item.id} onClick={()=>{ navigateTo(item.id); setDrawerOpen(false); }}
+                        style={{ display:"block", width:"100%", background:"none", border:"none", padding:"10px 18px", cursor:"pointer", textAlign:"left" }}>
+                        <div style={{ fontSize:13, fontFamily:"'Playfair Display',Georgia,serif", fontWeight:400, color:tab===item.id?HOT:DARK }}>{item.label}</div>
+                        <div style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif", opacity:0.7, marginTop:2 }}>{item.sub}</div>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* My Profile dropdown */}
+              <div style={{ position:"relative" }} onMouseEnter={()=>setDrawerOpen("profile")}>
+                <button style={{ background:"none", border:"none", cursor:"pointer", padding:"6px 14px", fontSize:15, fontFamily:"'Nunito',sans-serif", fontWeight:400, color: drawerOpen==="profile" || ["profile","alerts","mood"].includes(tab) ? HOT : DARK, borderBottom: drawerOpen==="profile" || ["profile","alerts","mood"].includes(tab) ? `2px solid ${HOT}` : "2px solid transparent", transition:"color 0.18s", display:"flex", alignItems:"center", gap:4 }}>
+                  My Profile <span style={{ fontSize:10 }}>▾</span>
+                </button>
+                {drawerOpen==="profile" && (
+                  <div style={{ position:"absolute", top:"100%", right:0, background:WHITE, border:`1.5px solid ${BORDER}`, borderRadius:14, boxShadow:"0 8px 32px rgba(230,101,130,0.14)", minWidth:200, zIndex:200, padding:"8px 0" }}>
+                    {[
+                      { id:"profile", label:"My Profile",  sub:"Your bach hub"        },
+                      { id:"mood",    label:"Mood Board",   sub:"Your vibe & aesthetic" },
+                      ...(user.email ? [
+                        { id:"alerts", label:"Alerts",  sub:"Price drop notifications" },
+                      ] : []),
+                    ].map(item => (
+                      <button key={item.id} onClick={()=>{ navigateTo(item.id); setDrawerOpen(false); }}
+                        style={{ display:"block", width:"100%", background:"none", border:"none", padding:"10px 18px", cursor:"pointer", textAlign:"left" }}>
+                        <div style={{ fontSize:13, fontFamily:"'Playfair Display',Georgia,serif", fontWeight:400, color:tab===item.id?HOT:DARK }}>{item.label}</div>
+                        <div style={{ fontSize:11, color:HOT, fontFamily:"'Nunito',sans-serif", opacity:0.7, marginTop:2 }}>{item.sub}</div>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
               {/* Bell */}
               {user.email && (
                 <div onClick={()=>setTab("alerts")} style={{ position:"relative", cursor:"pointer", display:"flex", alignItems:"center", marginLeft:12 }}>
