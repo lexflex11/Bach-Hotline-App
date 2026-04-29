@@ -32,6 +32,8 @@ export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [tabHistory, setTabHistory] = useState(() => [localStorage.getItem("bh_tab") || "home"]);
+  const [city, setCity] = useState(() => localStorage.getItem("bh_city") || "");
+  const setCityPersist = (c) => { localStorage.setItem("bh_city", c); setCity(c); };
   const [mobile, setMobile] = useState(() => window.innerWidth < 768);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   useEffect(() => {
@@ -175,11 +177,11 @@ export default function App() {
         </>
       )}
       <div style={{ padding:"16px 14px 32px", background:PAGE, maxWidth:1200, margin:"0 auto" }}>
-        {tab==="home"    && <HomeTab groupSize={groupSize} setGroupSize={setGroupSize} setTab={setTab} user={user} />}
-        {tab==="flights" && <FlightsTab groupSize={groupSize} />}
-        {tab==="stays"   && <StaysTab groupSize={groupSize} />}
-        {tab==="eats"        && <EatsTab groupSize={groupSize} />}
-        {tab==="experiences" && <ExperiencesTab groupSize={groupSize} setGroupSize={setGroupSize} user={user} />}
+        {tab==="home"    && <HomeTab groupSize={groupSize} setGroupSize={setGroupSize} setTab={setTab} user={user} city={city} setCity={setCityPersist} />}
+        {tab==="flights" && <FlightsTab groupSize={groupSize} initialDest={city} />}
+        {tab==="stays"   && <StaysTab groupSize={groupSize} initialCity={city} />}
+        {tab==="eats"        && <EatsTab groupSize={groupSize} initialCity={city} />}
+        {tab==="experiences" && <ExperiencesTab groupSize={groupSize} setGroupSize={setGroupSize} user={user} initialCity={city} />}
         {tab==="plan"    && <PlanTab groupSize={groupSize} setGroupSize={setGroupSize} setTab={setTab} user={user} onSignUp={()=>setUser(null)} />}
         {tab==="mood"    && <MoodTab setTab={setTab} />}
         {tab==="moh"     && <MOHTab groupSize={groupSize} />}

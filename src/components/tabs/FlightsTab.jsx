@@ -42,13 +42,13 @@ const AIRPORTS = [
 const usDests    = DESTS.filter(d => !d.international);
 const intlDests  = DESTS.filter(d =>  d.international);
 
-export default function FlightsTab({ groupSize }) {
+export default function FlightsTab({ groupSize, initialDest }) {
   const [fromCode, setFromCode]   = useState("IAH");
   const [depDate,  setDepDate]    = useState("");
   const [retDate,  setRetDate]    = useState("");
   const [depTime,  setDepTime]    = useState("ANYTIME");
   const [retTime,  setRetTime]    = useState("ANYTIME");
-  const [dest,     setDest]       = useState(null);
+  const [dest,     setDest]       = useState(initialDest || null);
   const [section,  setSection]    = useState("us"); // "us" | "intl"
 
   const TIMES = [

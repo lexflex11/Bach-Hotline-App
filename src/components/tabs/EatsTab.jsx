@@ -4005,13 +4005,13 @@ function matchCategory(r, cat) {
   return (map[cat]||[]).some(kw => haystack.includes(kw));
 }
 
-export default function EatsTab({ groupSize: initialGroupSize }) {
-  const [city,       setCity]       = useState("");
+export default function EatsTab({ groupSize: initialGroupSize, initialCity }) {
+  const [city,       setCity]       = useState(initialCity || "");
   const [date,       setDate]       = useState("");
   const [time,       setTime]       = useState("");
   const [groupSize,  setGroupSize]  = useState(initialGroupSize || 8);
   const [category,   setCategory]   = useState("all");
-  const [results,    setResults]    = useState(null);  // null = not searched yet
+  const [results,    setResults]    = useState(() => initialCity ? (RESTAURANTS[initialCity] || DEFAULT_RESTAURANTS) : null);
   const [selected,   setSelected]   = useState(null);  // restaurant detail view
 
   const selectedDest = DESTS.find(d => d.id === city);

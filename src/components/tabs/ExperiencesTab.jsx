@@ -239,12 +239,12 @@ function ExperienceDetail({ item, onBack, groupSize, date }) {
 }
 
 // ─── Main ExperiencesTab ──────────────────────────────────────────────────────
-export default function ExperiencesTab({ groupSize: initialGroupSize, setGroupSize: setGlobalGroupSize, user }) {
-  const [city,       setCity]      = useState("");
+export default function ExperiencesTab({ groupSize: initialGroupSize, setGroupSize: setGlobalGroupSize, user, initialCity }) {
+  const [city,       setCity]      = useState(initialCity || "");
   const [date,       setDate]      = useState("");
   const [vibe,       setVibe]      = useState("");
   const [groupSize,  setGroupSize] = useState(initialGroupSize || 8);
-  const [results,    setResults]   = useState(null);   // null = not searched
+  const [results,    setResults]   = useState(() => initialCity ? (EXPERIENCES[initialCity] || null) : null);
   const [selected,   setSelected]  = useState(null);   // detail view
 
   const savedKey = user ? `bh_exp_saved_${user.id}` : null;

@@ -442,12 +442,12 @@ function StayDetail({ stay, onBack }) {
 const usDests   = DESTS.filter(d => !d.international && d.id !== "all");
 const intlDests = DESTS.filter(d =>  d.international);
 
-export default function StaysTab({ groupSize: initialGroupSize }) {
+export default function StaysTab({ groupSize: initialGroupSize, initialCity }) {
   const [groupSize, setGroupSize] = useState(initialGroupSize || 8);
-  const [city,      setCity]      = useState("");
+  const [city,      setCity]      = useState(initialCity || "");
   const [checkIn,   setCheckIn]   = useState("");
   const [checkOut,  setCheckOut]  = useState("");
-  const [results,   setResults]   = useState(null); // null = not searched yet
+  const [results,   setResults]   = useState(() => { if (!initialCity) return null; const s = STAYS[initialCity]; return s?.length ? s.filter(x=>x.sleeps>=(initialGroupSize||8)) || s : null; });
   const [selected,  setSelected]  = useState(null);
 
   const nights = (() => {
