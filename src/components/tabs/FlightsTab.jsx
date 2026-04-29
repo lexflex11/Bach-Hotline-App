@@ -185,7 +185,7 @@ export default function FlightsTab({ groupSize, initialDest }) {
               letterSpacing:"0.2px",
               boxShadow:"0 4px 16px rgba(244,114,176,0.4)",
             }}>
-              Search Flights on Expedia
+              Search Flights
             </button>
             <div style={{ fontFamily:NUN, fontSize:10, color:"#bbb", marginTop:10, textAlign:"center" }}>
               Real-time prices · Booking handled securely on Expedia.com
