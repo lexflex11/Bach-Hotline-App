@@ -497,7 +497,9 @@ export default function StaysTab({ groupSize: initialGroupSize, initialCity }) {
       // Fallback: open Airbnb directly if no curated data
       const dest = encodeURIComponent(selectedDest?.name || city);
       const url = checkIn && checkOut
-        ? `https://www.expedia.com/Hotel-Search?adults=8&destination=${dest}"_blank");
+        ? `https://www.expedia.com/Hotel-Search?adults=${groupSize}&destination=${dest}&startDate=${checkIn}&endDate=${checkOut}`
+        : `https://www.expedia.com/Hotel-Search?adults=${groupSize}&destination=${dest}`;
+      window.open(url, "_blank");
     }
     setSelected(null);
   }
