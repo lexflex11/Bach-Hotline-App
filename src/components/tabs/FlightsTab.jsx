@@ -323,7 +323,7 @@ export default function FlightsTab({ groupSize, initialDest }) {
                     fontFamily:"'Nunito',sans-serif",cursor:"pointer",
                     boxShadow:"0 4px 16px rgba(244,150,194,0.4)",
                   }}>
-                    See Fares on Expedia
+                    Book Flight
                   </button>
                   <div style={{fontSize:10,color:"#bbb",fontFamily:"'Nunito',sans-serif",textAlign:"center",marginTop:10}}>
                     You'll be taken to Expedia to view live prices and book
