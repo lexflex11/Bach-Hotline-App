@@ -19,7 +19,7 @@ const CATEGORIES = [
   { label:"Accommodations",    sub:"Stay together in style",                     tab:"stays",       img:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" },
   { label:"Bites & Sips",      sub:"Top spots for every vibe",                  tab:"eats",        img:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" },
   { label:"Experiences",       sub:"Curated activities for your crew",           tab:"experiences", img:"https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=400&q=80" },
-  { label:"Party Supply Shop", sub:"Decor & party must-haves",                  tab:"shop",        img:"https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&q=80" },
+  { label:"Party Supplies",    sub:"Decor & party must-haves",                  tab:"shop",        img:"https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&q=80" },
   { label:"Party Box",         sub:"Curated boxes delivered to your door",       tab:"decor",       img:"https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80" },
 ];
 
