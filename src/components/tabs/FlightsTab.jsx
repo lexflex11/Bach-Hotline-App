@@ -60,6 +60,7 @@ export default function FlightsTab({ groupSize, initialDest }) {
   const [dest,     setDest]       = useState(initialDest || null);
   const [section,  setSection]    = useState("us"); // "us" | "intl"
   const [showResults, setShowResults] = useState(false);
+  const [detailOpen,  setDetailOpen]  = useState(false);
 
   // Auto-detect nearest airport on first visit
   useEffect(() => {
@@ -227,29 +228,91 @@ export default function FlightsTab({ groupSize, initialDest }) {
       {showResults && selectedDest && (() => {
         const toCode = selectedDest.airportCode;
         const url = expediaFlightUrl(fromCode, toCode, depDate, retDate, groupSize, depTime, retTime);
+        const fromAirport = AIRPORTS.find(a => a.code === fromCode);
         return (
           <div>
             <div style={{fontSize:11,fontWeight:700,color:HOT,fontFamily:"'Nunito',sans-serif",textTransform:"uppercase",letterSpacing:"1.5px",marginBottom:12}}>
-              Live Flight Results — {fromCode} → {selectedDest.name}
+              Flight Summary
             </div>
-            <div style={{...C, marginBottom:10, cursor:"pointer"}} onClick={()=>window.open(url,"_blank")}>
+            <div style={{...C, marginBottom:10, cursor:"pointer"}} onClick={()=>setDetailOpen(true)}>
               <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
                 <div style={{display:"flex", alignItems:"center", gap:14}}>
                   <div style={{fontSize:32}}>✈️</div>
                   <div>
-                    <div style={{fontSize:15,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>Expedia</div>
-                    <div style={{fontSize:11,color:HOT,fontFamily:"'Nunito',sans-serif",marginTop:2,opacity:0.8}}>Compare hundreds of airlines — real-time fares for your group</div>
+                    <div style={{fontSize:15,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{fromCode} → {selectedDest.airportCode || selectedDest.name}</div>
+                    <div style={{fontSize:11,color:HOT,fontFamily:"'Nunito',sans-serif",marginTop:2,opacity:0.8}}>{groupSize} travelers · {depDate || "flexible dates"}{retDate ? ` → ${retDate}` : ""}</div>
                   </div>
                 </div>
-                <span style={{color:HOT,fontSize:22,flexShrink:0}}>›</span>
-              </div>
-              <div style={{marginTop:12,padding:"10px 14px",background:SOFT,borderRadius:10,fontSize:11,fontFamily:"'Nunito',sans-serif",color:HOT}}>
-                {groupSize} travelers · {depDate || "flexible dates"}{retDate ? ` → ${retDate}` : ""} · tap to see live prices
+                <button style={{background:"none",border:`1.5px solid ${HOT}`,borderRadius:50,padding:"6px 14px",color:HOT,fontFamily:"'Nunito',sans-serif",fontSize:12,fontWeight:700,cursor:"pointer",whiteSpace:"nowrap"}}>
+                  Flight Details
+                </button>
               </div>
             </div>
-            <div style={{fontSize:10,color:"#bbb",fontFamily:"'Nunito',sans-serif",textAlign:"center",marginBottom:16}}>
-              Prices update in real time on Expedia
-            </div>
+
+            {/* ── FLIGHT DETAIL MODAL ── */}
+            {detailOpen && (
+              <>
+                <div onClick={()=>setDetailOpen(false)} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:500,backdropFilter:"blur(4px)"}}/>
+                <div style={{position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:"min(92%,520px)",background:WHITE,borderRadius:20,zIndex:501,padding:"24px",boxShadow:"0 20px 60px rgba(0,0,0,0.25)",maxHeight:"90vh",overflowY:"auto"}}>
+                  {/* Header */}
+                  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:20}}>
+                    <div style={{fontSize:18,fontWeight:400,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>Flight Details</div>
+                    <button onClick={()=>setDetailOpen(false)} style={{width:32,height:32,borderRadius:"50%",border:`1.5px solid ${BORDER}`,background:"none",fontSize:18,cursor:"pointer",color:DARK,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
+                  </div>
+
+                  {/* Flight card */}
+                  <div style={{background:"#f8f9fa",borderRadius:14,padding:"18px",marginBottom:18}}>
+                    <div style={{fontSize:12,fontWeight:700,fontFamily:"'Nunito',sans-serif",color:"#555",marginBottom:14}}>✈️ Multiple Airlines Available</div>
+                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+                      <div>
+                        <div style={{fontSize:22,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{fromAirport?.label?.split(",")[0] || fromCode}</div>
+                        <div style={{fontSize:11,color:"#888",fontFamily:"'Nunito',sans-serif",marginTop:2}}>{fromCode}</div>
+                        <div style={{fontSize:11,color:"#aaa",fontFamily:"'Nunito',sans-serif",marginTop:4}}>{depDate || "Flexible date"}</div>
+                      </div>
+                      <div style={{textAlign:"center",padding:"0 12px",color:"#ccc"}}>
+                        <div style={{fontSize:10,fontFamily:"'Nunito',sans-serif",color:"#aaa",marginBottom:4}}>Nonstop & 1-stop options</div>
+                        <div style={{borderTop:"1.5px solid #ddd",width:80,margin:"0 auto"}}/>
+                        <div style={{fontSize:18,marginTop:4}}>✈</div>
+                      </div>
+                      <div style={{textAlign:"right"}}>
+                        <div style={{fontSize:22,fontWeight:700,fontFamily:"'Playfair Display',Georgia,serif",color:DARK}}>{selectedDest.name}</div>
+                        <div style={{fontSize:11,color:"#888",fontFamily:"'Nunito',sans-serif",marginTop:2}}>{selectedDest.airportCode}</div>
+                        <div style={{fontSize:11,color:"#aaa",fontFamily:"'Nunito',sans-serif",marginTop:4}}>{retDate || "Return flexible"}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Trip details */}
+                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:18}}>
+                    {[
+                      {label:"Travelers", value:`${groupSize} passengers`},
+                      {label:"Trip Type",  value:retDate ? "Round Trip" : "One Way"},
+                      {label:"Departure",  value:depDate || "Flexible"},
+                      {label:"Return",     value:retDate || "—"},
+                    ].map(r => (
+                      <div key={r.label} style={{padding:"10px 12px",background:"#f8f9fa",borderRadius:10}}>
+                        <div style={{fontSize:10,color:"#aaa",fontFamily:"'Nunito',sans-serif",textTransform:"uppercase",letterSpacing:0.5,marginBottom:3}}>{r.label}</div>
+                        <div style={{fontSize:13,fontWeight:400,color:DARK,fontFamily:"'Playfair Display',Georgia,serif"}}>{r.value}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* See Fares button */}
+                  <button onClick={()=>{ window.open(url,"_blank"); setDetailOpen(false); }} style={{
+                    width:"100%",padding:"15px",borderRadius:50,
+                    background:`linear-gradient(135deg,#f472b0,${HOT})`,
+                    color:WHITE,border:"none",fontSize:15,fontWeight:700,
+                    fontFamily:"'Nunito',sans-serif",cursor:"pointer",
+                    boxShadow:"0 4px 16px rgba(244,150,194,0.4)",
+                  }}>
+                    See Fares on Expedia
+                  </button>
+                  <div style={{fontSize:10,color:"#bbb",fontFamily:"'Nunito',sans-serif",textAlign:"center",marginTop:10}}>
+                    You'll be taken to Expedia to view live prices and book
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         );
       })()}
