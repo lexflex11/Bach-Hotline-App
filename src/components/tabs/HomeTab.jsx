@@ -15,11 +15,12 @@ const DEST_IMAGES = {
 };
 
 const CATEGORIES = [
-  { label:"Group Flights",     sub:"Seamless travel for your entire crew",       tab:"flights",     img:"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=80" },
+  { label:"Group Flights",     sub:"Seamless travel for your crew",              tab:"flights",     img:"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=80" },
   { label:"Accommodations",    sub:"Stay together in style",                     tab:"stays",       img:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" },
   { label:"Bites & Sips",      sub:"Top spots for every vibe",                  tab:"eats",        img:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" },
   { label:"Experiences",       sub:"Curated activities for your crew",           tab:"experiences", img:"https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=400&q=80" },
-  { label:"Party Supply Shop", sub:"Decor, details, and party must-haves",      tab:"shop",        img:"https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&q=80" },
+  { label:"Party Supply Shop", sub:"Decor & party must-haves",                  tab:"shop",        img:"https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&q=80" },
+  { label:"Party Box",         sub:"Curated boxes delivered to your door",       tab:"decor",       img:"https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80" },
 ];
 
 const NUN = "'Plus Jakarta Sans',sans-serif";
@@ -105,21 +106,21 @@ export default function HomeTab({ groupSize, setGroupSize, setTab, user, city, s
           Everything for your bach
         </h2>
 
-        {/* Horizontal scroll row */}
-        <div style={{ display:"flex", gap:14, overflowX:"auto", WebkitOverflowScrolling:"touch", scrollbarWidth:"none", margin:"0 -14px", padding:"0 14px 4px" }}>
+        {/* 3×2 grid — fills full width */}
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:12 }}>
           {CATEGORIES.map(cat => (
             <button
               key={cat.tab}
               onClick={() => setTab(cat.tab)}
-              style={{ flexShrink:0, width:155, background:"none", border:"none", cursor:"pointer", textAlign:"left", padding:0 }}
+              style={{ background:"none", border:"none", cursor:"pointer", textAlign:"left", padding:0, minWidth:0 }}
             >
-              <div style={{ width:155, height:155, borderRadius:16, overflow:"hidden", marginBottom:10 }}>
+              <div style={{ width:"100%", aspectRatio:"1/1", borderRadius:14, overflow:"hidden", marginBottom:8 }}>
                 <img src={cat.img} alt={cat.label} style={{ width:"100%", height:"100%", objectFit:"cover" }} />
               </div>
-              <div style={{ fontFamily:NUN, fontSize:13, fontWeight:800, color:DARK, marginBottom:3 }}>
+              <div style={{ fontFamily:NUN, fontSize:11, fontWeight:800, color:DARK, marginBottom:2, lineHeight:1.3 }}>
                 {cat.label} &rsaquo;
               </div>
-              <div style={{ fontFamily:NUN, fontSize:11, color:"#999", lineHeight:1.4, fontWeight:600 }}>
+              <div style={{ fontFamily:NUN, fontSize:10, color:"#999", lineHeight:1.3, fontWeight:500 }}>
                 {cat.sub}
               </div>
             </button>
