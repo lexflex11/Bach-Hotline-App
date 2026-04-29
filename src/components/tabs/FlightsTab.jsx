@@ -1,55 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SOFT, MID, HOT, PUNCH, DARK, BORDER, WHITE, GREEN } from '../../constants/colors.js';
 import { C, BP, BS, BG } from '../../constants/styles.js';
 import { DESTS } from '../../constants/data.js';
 import { expediaFlightUrl, kayakFlightUrl, skyscannerUrl, googleFlightsUrl, AFFILIATE } from '../../constants/api.js';
 import SH from '../ui/SH.jsx';
 
-// Common US departure airports — sorted by bachelorette trip volume
+// Common US departure airports with coordinates for geolocation detection
 const AIRPORTS = [
-  { code:"IAH", label:"Houston, TX (IAH)" },
-  { code:"HOU", label:"Houston Hobby, TX (HOU)" },
-  { code:"DFW", label:"Dallas, TX (DFW)" },
-  { code:"ATL", label:"Atlanta, GA (ATL)" },
-  { code:"JFK", label:"New York, NY (JFK)" },
-  { code:"LGA", label:"New York LaGuardia (LGA)" },
-  { code:"ORD", label:"Chicago, IL (ORD)" },
-  { code:"LAX", label:"Los Angeles, CA (LAX)" },
-  { code:"MIA", label:"Miami, FL (MIA)" },
-  { code:"SFO", label:"San Francisco, CA (SFO)" },
-  { code:"DEN", label:"Denver, CO (DEN)" },
-  { code:"PHX", label:"Phoenix, AZ (PHX)" },
-  { code:"SEA", label:"Seattle, WA (SEA)" },
-  { code:"BOS", label:"Boston, MA (BOS)" },
-  { code:"DCA", label:"Washington DC (DCA)" },
-  { code:"CLT", label:"Charlotte, NC (CLT)" },
-  { code:"TPA", label:"Tampa, FL (TPA)" },
-  { code:"MSY", label:"New Orleans, LA (MSY)" },
-  { code:"AUS", label:"Austin, TX (AUS)" },
-  { code:"SAT", label:"San Antonio, TX (SAT)" },
-  { code:"MSP", label:"Minneapolis, MN (MSP)" },
-  { code:"DTW", label:"Detroit, MI (DTW)" },
-  { code:"PHL", label:"Philadelphia, PA (PHL)" },
-  { code:"BWI", label:"Baltimore/DC (BWI)" },
-  { code:"SAN", label:"San Diego, CA (SAN)" },
-  { code:"PDX", label:"Portland, OR (PDX)" },
-  { code:"STL", label:"St. Louis, MO (STL)" },
-  { code:"BNA", label:"Nashville, TN (BNA)" },
-  { code:"RDU", label:"Raleigh-Durham, NC (RDU)" },
-  { code:"SLC", label:"Salt Lake City, UT (SLC)" },
+  { code:"IAH", label:"Houston, TX (IAH)",           lat:29.9902, lng:-95.3368 },
+  { code:"HOU", label:"Houston Hobby, TX (HOU)",     lat:29.6454, lng:-95.2789 },
+  { code:"DFW", label:"Dallas, TX (DFW)",            lat:32.8998, lng:-97.0403 },
+  { code:"ATL", label:"Atlanta, GA (ATL)",           lat:33.6407, lng:-84.4277 },
+  { code:"JFK", label:"New York, NY (JFK)",          lat:40.6413, lng:-73.7781 },
+  { code:"LGA", label:"New York LaGuardia (LGA)",    lat:40.7772, lng:-73.8726 },
+  { code:"ORD", label:"Chicago, IL (ORD)",           lat:41.9742, lng:-87.9073 },
+  { code:"LAX", label:"Los Angeles, CA (LAX)",       lat:33.9425, lng:-118.4081 },
+  { code:"MIA", label:"Miami, FL (MIA)",             lat:25.7959, lng:-80.2870 },
+  { code:"SFO", label:"San Francisco, CA (SFO)",     lat:37.6213, lng:-122.3790 },
+  { code:"DEN", label:"Denver, CO (DEN)",            lat:39.8561, lng:-104.6737 },
+  { code:"PHX", label:"Phoenix, AZ (PHX)",           lat:33.4373, lng:-112.0078 },
+  { code:"SEA", label:"Seattle, WA (SEA)",           lat:47.4502, lng:-122.3088 },
+  { code:"BOS", label:"Boston, MA (BOS)",            lat:42.3656, lng:-71.0096 },
+  { code:"DCA", label:"Washington DC (DCA)",         lat:38.8521, lng:-77.0377 },
+  { code:"CLT", label:"Charlotte, NC (CLT)",         lat:35.2140, lng:-80.9431 },
+  { code:"TPA", label:"Tampa, FL (TPA)",             lat:27.9755, lng:-82.5332 },
+  { code:"MSY", label:"New Orleans, LA (MSY)",       lat:29.9934, lng:-90.2580 },
+  { code:"AUS", label:"Austin, TX (AUS)",            lat:30.1975, lng:-97.6664 },
+  { code:"SAT", label:"San Antonio, TX (SAT)",       lat:29.5337, lng:-98.4698 },
+  { code:"MSP", label:"Minneapolis, MN (MSP)",       lat:44.8848, lng:-93.2223 },
+  { code:"DTW", label:"Detroit, MI (DTW)",           lat:42.2162, lng:-83.3554 },
+  { code:"PHL", label:"Philadelphia, PA (PHL)",      lat:39.8744, lng:-75.2424 },
+  { code:"BWI", label:"Baltimore/DC (BWI)",          lat:39.1754, lng:-76.6682 },
+  { code:"SAN", label:"San Diego, CA (SAN)",         lat:32.7338, lng:-117.1933 },
+  { code:"PDX", label:"Portland, OR (PDX)",          lat:45.5898, lng:-122.5951 },
+  { code:"STL", label:"St. Louis, MO (STL)",         lat:38.7487, lng:-90.3700 },
+  { code:"BNA", label:"Nashville, TN (BNA)",         lat:36.1245, lng:-86.6782 },
+  { code:"RDU", label:"Raleigh-Durham, NC (RDU)",    lat:35.8776, lng:-78.7875 },
+  { code:"SLC", label:"Salt Lake City, UT (SLC)",    lat:40.7884, lng:-111.9778 },
 ];
+
+function getNearestAirport(lat, lng) {
+  let nearest = AIRPORTS[0], minDist = Infinity;
+  for (const a of AIRPORTS) {
+    const d = Math.hypot(a.lat - lat, a.lng - lng);
+    if (d < minDist) { minDist = d; nearest = a; }
+  }
+  return nearest.code;
+}
 
 const usDests    = DESTS.filter(d => !d.international);
 const intlDests  = DESTS.filter(d =>  d.international);
 
 export default function FlightsTab({ groupSize, initialDest }) {
-  const [fromCode, setFromCode]   = useState("IAH");
+  const [fromCode, setFromCode]   = useState(() => localStorage.getItem("bh_airport") || "IAH");
   const [depDate,  setDepDate]    = useState("");
   const [retDate,  setRetDate]    = useState("");
   const [depTime,  setDepTime]    = useState("ANYTIME");
   const [retTime,  setRetTime]    = useState("ANYTIME");
   const [dest,     setDest]       = useState(initialDest || null);
   const [section,  setSection]    = useState("us"); // "us" | "intl"
+
+  // Auto-detect nearest airport on first visit
+  useEffect(() => {
+    if (localStorage.getItem("bh_airport")) return; // already detected
+    if (!navigator.geolocation) return;
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        const code = getNearestAirport(coords.latitude, coords.longitude);
+        setFromCode(code);
+        localStorage.setItem("bh_airport", code);
+      },
+      () => {} // silently ignore if denied
+    );
+  }, []);
 
   const TIMES = [
     { code:"ANYTIME",   label:"Any Time",  icon:null },
@@ -87,7 +110,7 @@ export default function FlightsTab({ groupSize, initialDest }) {
         </div>
         <select
           value={fromCode}
-          onChange={e => setFromCode(e.target.value)}
+          onChange={e => { setFromCode(e.target.value); localStorage.setItem("bh_airport", e.target.value); }}
           style={{width:"100%",padding:"10px 12px",borderRadius:10,border:`1.5px solid ${BORDER}`,fontFamily:"'Nunito',sans-serif",fontSize:13,color:DARK,background:WHITE,appearance:"none",cursor:"pointer"}}
         >
           {AIRPORTS.map(a => (
