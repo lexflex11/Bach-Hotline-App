@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { HOT, DARK, WHITE, BORDER, SOFT, MID } from '../../constants/colors.js';
+import React, { useState } from 'react';
+import { HOT, DARK, WHITE, BORDER, SOFT } from '../../constants/colors.js';
 import { C } from '../../constants/styles.js';
 import { DESTS } from '../../constants/data.js';
 import SH from '../ui/SH.jsx';
@@ -39,59 +39,84 @@ const AIRPORTS = [
   { code:"STL", label:"St. Louis, MO (STL)" },
 ];
 
-const label = {
+const TIME_OPTIONS = [
+  { key:"any",       label:"Any Time",  min:0,  max:24 },
+  { key:"morning",   label:"Morning",   min:5,  max:12 },
+  { key:"afternoon", label:"Afternoon", min:12, max:18 },
+  { key:"night",     label:"Night",     min:18, max:24 },
+];
+
+const labelStyle = {
   fontFamily: NUN, fontSize: 10, fontWeight: 700,
   color: "#aaa", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6,
 };
 
-function fmt(iso) {
+function fmt12(iso) {
   if (!iso) return null;
   const d = new Date(iso);
-  return d.toLocaleDateString("en-US", { weekday:"short", month:"short", day:"numeric" });
+  let h = d.getHours(), m = d.getMinutes(), ampm = h >= 12 ? "pm" : "am";
+  h = h % 12 || 12;
+  return `${h}:${String(m).padStart(2,"0")}${ampm}`;
+}
+
+function fmtDate(iso) {
+  if (!iso) return null;
+  return new Date(iso).toLocaleDateString("en-US", { weekday:"short", month:"short", day:"numeric" });
 }
 
 function StopBadge({ stops }) {
   const text  = stops === 0 ? "Nonstop" : stops === 1 ? "1 Stop" : `${stops} Stops`;
   const color = stops === 0 ? "#2e7d32" : stops === 1 ? "#c9612a" : HOT;
-  return (
-    <span style={{ fontFamily:NUN, fontSize:10, fontWeight:700, color,
-      background: stops === 0 ? "#e8f5e9" : stops === 1 ? "#fff3e0" : "#ffe7f9",
-      padding:"2px 8px", borderRadius:20 }}>
-      {text}
-    </span>
-  );
+  const bg    = stops === 0 ? "#e8f5e9" : stops === 1 ? "#fff3e0" : "#ffe7f9";
+  return <span style={{ fontFamily:NUN, fontSize:10, fontWeight:700, color, background:bg, padding:"2px 8px", borderRadius:20 }}>{text}</span>;
 }
 
 function FlightCard({ f, groupSize }) {
+  const depTime = fmt12(f.departureAt);
+  const retTime = fmt12(f.returnAt);
+
   return (
-    <div style={{ border:`1.5px solid ${BORDER}`, borderRadius:16, padding:"16px 16px 14px", marginBottom:12, background:WHITE }}>
-      {/* Airline + price row */}
-      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:10 }}>
+    <div style={{ border:`1.5px solid ${BORDER}`, borderRadius:16, padding:"16px", marginBottom:12, background:WHITE }}>
+      {/* Top row: airline + price */}
+      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:12 }}>
         <div>
-          <div style={{ fontFamily:NUN, fontSize:14, fontWeight:800, color:DARK }}>{f.airline}</div>
-          <div style={{ marginTop:4 }}><StopBadge stops={f.stops} /></div>
+          <div style={{ fontFamily:NUN, fontSize:14, fontWeight:800, color:DARK, marginBottom:4 }}>{f.airline}</div>
+          <StopBadge stops={f.stops} />
         </div>
         <div style={{ textAlign:"right" }}>
-          <div style={{ fontFamily:NUN, fontSize:20, fontWeight:900, color:HOT }}>${f.price}<span style={{ fontSize:11, fontWeight:600, color:"#aaa" }}>/person</span></div>
-          <div style={{ fontFamily:NUN, fontSize:10, color:"#999", marginTop:2 }}>Total for {groupSize}: <strong style={{ color:DARK }}>${f.totalPrice}</strong></div>
+          <div style={{ fontFamily:NUN, fontSize:22, fontWeight:900, color:HOT, lineHeight:1 }}>
+            ${f.price}<span style={{ fontSize:11, fontWeight:600, color:"#aaa" }}>/person</span>
+          </div>
+          <div style={{ fontFamily:NUN, fontSize:11, color:"#999", marginTop:3 }}>
+            Total for {groupSize}: <strong style={{ color:DARK }}>${f.totalPrice}</strong>
+          </div>
         </div>
       </div>
 
-      {/* Dates */}
-      {f.departureAt && (
-        <div style={{ fontFamily:NUN, fontSize:11, color:"#888", marginBottom:12 }}>
-          Departs {fmt(f.departureAt)}{f.returnAt ? ` · Returns ${fmt(f.returnAt)}` : ""}
+      {/* Time row */}
+      {(depTime || fmtDate(f.departureAt)) && (
+        <div style={{ background:SOFT, borderRadius:10, padding:"10px 12px", marginBottom:12 }}>
+          {depTime ? (
+            <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+              <div style={{ fontFamily:NUN, fontSize:15, fontWeight:800, color:DARK }}>{depTime}</div>
+              <div style={{ flex:1, height:1.5, background:`linear-gradient(to right,${HOT},#f472b0)`, borderRadius:2 }} />
+              {retTime && <div style={{ fontFamily:NUN, fontSize:15, fontWeight:800, color:DARK }}>{retTime}</div>}
+            </div>
+          ) : null}
+          <div style={{ fontFamily:NUN, fontSize:11, color:"#888", marginTop:depTime ? 6 : 0 }}>
+            Departs {fmtDate(f.departureAt)}{f.returnAt ? ` · Returns ${fmtDate(f.returnAt)}` : ""}
+          </div>
         </div>
       )}
 
       <button
         onClick={() => window.open(f.bookingUrl, "_blank")}
         style={{
-          width:"100%", padding:"12px", borderRadius:50,
+          width:"100%", padding:"13px", borderRadius:50,
           background:`linear-gradient(135deg,#f472b0,${HOT})`,
           color:WHITE, border:"none", fontFamily:NUN,
           fontSize:13, fontWeight:800, cursor:"pointer",
-          boxShadow:"0 3px 12px rgba(230,101,130,0.4)",
+          boxShadow:"0 3px 12px rgba(230,101,130,0.35)",
         }}
       >
         Book This Flight
@@ -106,15 +131,21 @@ export default function FlightsTab({ groupSize, initialDest }) {
   const [showDestPicker, setShowDestPicker] = useState(!initialDest);
   const [depDate,        setDepDate]        = useState("");
   const [retDate,        setRetDate]        = useState("");
+  const [timeFilter,     setTimeFilter]     = useState("any");
   const [flights,        setFlights]        = useState(null);
   const [loading,        setLoading]        = useState(false);
   const [error,          setError]          = useState(null);
 
   const selectedDest = DESTS.find(d => d.id === dest);
   const minDate      = new Date().toISOString().split("T")[0];
+  const usDests      = DESTS.filter(d => !d.international);
+  const intlDests    = DESTS.filter(d =>  d.international);
 
-  const usDests   = DESTS.filter(d => !d.international);
-  const intlDests = DESTS.filter(d =>  d.international);
+  const visibleFlights = (flights || []).filter(f => {
+    if (timeFilter === "any" || f.depHour === null) return true;
+    const t = TIME_OPTIONS.find(t => t.key === timeFilter);
+    return f.depHour >= t.min && f.depHour < t.max;
+  });
 
   async function search() {
     if (!selectedDest) return;
@@ -122,20 +153,14 @@ export default function FlightsTab({ groupSize, initialDest }) {
     setError(null);
     setFlights(null);
     try {
-      const params = new URLSearchParams({
-        from:   fromCode,
-        to:     selectedDest.airportCode,
-        adults: String(groupSize),
-      });
-      if (depDate)  params.set("date",       depDate);
-      if (retDate)  params.set("returnDate",  retDate);
-
+      const params = new URLSearchParams({ from: fromCode, to: selectedDest.airportCode, adults: String(groupSize) });
+      if (depDate) params.set("date",       depDate);
+      if (retDate) params.set("returnDate",  retDate);
       const res  = await fetch(`/api/flights?${params}`);
       const data = await res.json();
-
       if (data.error) { setError(data.error); return; }
       setFlights(data.flights || []);
-    } catch (e) {
+    } catch {
       setError("Could not load flights. Please try again.");
     } finally {
       setLoading(false);
@@ -148,7 +173,7 @@ export default function FlightsTab({ groupSize, initialDest }) {
 
       {/* From */}
       <div style={{ ...C, marginBottom:12 }}>
-        <div style={label}>Flying from</div>
+        <div style={labelStyle}>Flying from</div>
         <select
           value={fromCode}
           onChange={e => { setFromCode(e.target.value); localStorage.setItem("bh_airport", e.target.value); }}
@@ -161,7 +186,7 @@ export default function FlightsTab({ groupSize, initialDest }) {
       {/* To */}
       <div style={{ ...C, marginBottom:12 }}>
         <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:6 }}>
-          <div style={label}>Flying to</div>
+          <div style={labelStyle}>Flying to</div>
           {dest && !showDestPicker && (
             <button onClick={() => setShowDestPicker(true)} style={{ fontSize:11, color:HOT, fontFamily:NUN, background:"none", border:"none", cursor:"pointer", textDecoration:"underline", padding:0 }}>Change</button>
           )}
@@ -185,16 +210,16 @@ export default function FlightsTab({ groupSize, initialDest }) {
       </div>
 
       {/* Dates */}
-      <div style={{ ...C, marginBottom:14, display:"flex", gap:10 }}>
+      <div style={{ ...C, marginBottom:12, display:"flex", gap:10 }}>
         <div style={{ flex:1, minWidth:0 }}>
-          <div style={{ ...label, marginBottom:6 }}>Departure</div>
+          <div style={{ ...labelStyle, marginBottom:6 }}>Departure</div>
           <input type="date" value={depDate} min={minDate}
             onChange={e => { setDepDate(e.target.value); if (retDate && e.target.value >= retDate) setRetDate(""); }}
             style={{ width:"100%", padding:"10px 8px", borderRadius:10, border:`1.5px solid ${depDate?HOT:BORDER}`, fontFamily:NUN, fontSize:13, color:DARK, background:WHITE, boxSizing:"border-box", display:"block" }}
           />
         </div>
         <div style={{ flex:1, minWidth:0 }}>
-          <div style={{ ...label, marginBottom:6 }}>Return <span style={{ textTransform:"none", fontWeight:400, color:"#ccc" }}>(opt)</span></div>
+          <div style={{ ...labelStyle, marginBottom:6 }}>Return <span style={{ textTransform:"none", fontWeight:400, color:"#ccc" }}>(opt)</span></div>
           <input type="date" value={retDate} min={depDate || minDate}
             onChange={e => setRetDate(e.target.value)}
             style={{ width:"100%", padding:"10px 8px", borderRadius:10, border:`1.5px solid ${retDate?HOT:BORDER}`, fontFamily:NUN, fontSize:13, color:DARK, background:WHITE, boxSizing:"border-box", display:"block" }}
@@ -202,7 +227,29 @@ export default function FlightsTab({ groupSize, initialDest }) {
         </div>
       </div>
 
-      {/* Search button */}
+      {/* Preferred Time */}
+      <div style={{ ...C, marginBottom:14 }}>
+        <div style={{ ...labelStyle, marginBottom:8 }}>Preferred Departure Time</div>
+        <div style={{ display:"flex", gap:8 }}>
+          {TIME_OPTIONS.map(t => (
+            <button
+              key={t.key}
+              onClick={() => setTimeFilter(t.key)}
+              style={{
+                flex:1, padding:"8px 4px", borderRadius:10, border:`1.5px solid ${timeFilter===t.key ? HOT : BORDER}`,
+                background: timeFilter===t.key ? SOFT : WHITE,
+                fontFamily:NUN, fontSize:11, fontWeight:700,
+                color: timeFilter===t.key ? HOT : "#aaa",
+                cursor:"pointer",
+              }}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Search Button */}
       <button
         onClick={search}
         disabled={!selectedDest || loading}
@@ -227,17 +274,21 @@ export default function FlightsTab({ groupSize, initialDest }) {
 
       {/* Results */}
       {flights !== null && (
-        flights.length === 0 ? (
+        visibleFlights.length === 0 ? (
           <div style={{ textAlign:"center", padding:"24px 0" }}>
-            <div style={{ fontFamily:NUN, fontSize:14, fontWeight:700, color:DARK }}>No flights found</div>
-            <div style={{ fontFamily:NUN, fontSize:12, color:"#999", marginTop:4 }}>Try different dates or a nearby airport</div>
+            <div style={{ fontFamily:NUN, fontSize:14, fontWeight:700, color:DARK }}>
+              {flights.length > 0 ? "No flights match that time preference" : "No flights found"}
+            </div>
+            <div style={{ fontFamily:NUN, fontSize:12, color:"#999", marginTop:4 }}>
+              {flights.length > 0 ? "Try \"Any Time\" to see all results" : "Try different dates or a nearby airport"}
+            </div>
           </div>
         ) : (
           <>
             <div style={{ fontFamily:NUN, fontSize:13, fontWeight:700, color:DARK, marginBottom:12 }}>
-              {flights.length} flights found · {fromCode} → {selectedDest?.name}
+              {visibleFlights.length} flights · {fromCode} → {selectedDest?.name}
             </div>
-            {flights.map(f => <FlightCard key={f.id} f={f} groupSize={groupSize} />)}
+            {visibleFlights.map(f => <FlightCard key={f.id} f={f} groupSize={groupSize} />)}
             <div style={{ fontFamily:NUN, fontSize:10, color:"#bbb", textAlign:"center", marginTop:4, marginBottom:8 }}>
               Prices per person · Booking completed securely on Aviasales
             </div>
