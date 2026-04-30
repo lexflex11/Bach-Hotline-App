@@ -72,16 +72,20 @@ function StopBadge({ stops }) {
 }
 
 function FlightCard({ f, groupSize }) {
-  const depTime = fmt12(f.departureAt);
-  const retTime = fmt12(f.returnAt);
-
   return (
     <div style={{ border:`1.5px solid ${BORDER}`, borderRadius:16, padding:"16px", marginBottom:12, background:WHITE }}>
-      {/* Top row: airline + price */}
+      {/* Top row: route + price */}
       <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:12 }}>
         <div>
-          <div style={{ fontFamily:NUN, fontSize:14, fontWeight:800, color:DARK, marginBottom:4 }}>{f.airline}</div>
-          <StopBadge stops={f.stops} />
+          <div style={{ fontFamily:NUN, fontSize:14, fontWeight:800, color:DARK, marginBottom:4 }}>
+            {f.origin} → {f.dest}
+          </div>
+          <div style={{ display:"flex", gap:6, alignItems:"center" }}>
+            <StopBadge stops={f.stops} />
+            {f.duration && (
+              <span style={{ fontFamily:NUN, fontSize:10, color:"#999", fontWeight:600 }}>{f.duration}</span>
+            )}
+          </div>
         </div>
         <div style={{ textAlign:"right" }}>
           <div style={{ fontFamily:NUN, fontSize:22, fontWeight:900, color:HOT, lineHeight:1 }}>
@@ -93,18 +97,12 @@ function FlightCard({ f, groupSize }) {
         </div>
       </div>
 
-      {/* Time row */}
-      {(depTime || fmtDate(f.departureAt)) && (
+      {/* Date row */}
+      {f.departureDate && (
         <div style={{ background:SOFT, borderRadius:10, padding:"10px 12px", marginBottom:12 }}>
-          {depTime ? (
-            <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-              <div style={{ fontFamily:NUN, fontSize:15, fontWeight:800, color:DARK }}>{depTime}</div>
-              <div style={{ flex:1, height:1.5, background:`linear-gradient(to right,${HOT},#f472b0)`, borderRadius:2 }} />
-              {retTime && <div style={{ fontFamily:NUN, fontSize:15, fontWeight:800, color:DARK }}>{retTime}</div>}
-            </div>
-          ) : null}
-          <div style={{ fontFamily:NUN, fontSize:11, color:"#888", marginTop:depTime ? 6 : 0 }}>
-            Departs {fmtDate(f.departureAt)}{f.returnAt ? ` · Returns ${fmtDate(f.returnAt)}` : ""}
+          <div style={{ fontFamily:NUN, fontSize:11, color:"#888" }}>
+            Departs {fmtDate(f.departureDate)}
+            {f.returnDate ? ` · Returns ${fmtDate(f.returnDate)}` : ""}
           </div>
         </div>
       )}
@@ -141,8 +139,9 @@ export default function FlightsTab({ groupSize, initialDest }) {
   const usDests      = DESTS.filter(d => !d.international);
   const intlDests    = DESTS.filter(d =>  d.international);
 
+  // Time filter applied when hour data is available
   const visibleFlights = (flights || []).filter(f => {
-    if (timeFilter === "any" || f.depHour === null) return true;
+    if (timeFilter === "any" || f.depHour == null) return true;
     const t = TIME_OPTIONS.find(t => t.key === timeFilter);
     return f.depHour >= t.min && f.depHour < t.max;
   });
