@@ -29,10 +29,13 @@ export default async function handler(req, res) {
     if (!returnDate) params.set("one_way", "true");
 
     const response = await fetch(`https://api.travelpayouts.com/v1/prices/month-matrix?${params}`);
-    const data     = await response.json();
+    const raw  = await response.text();
+    let data;
+    try { data = JSON.parse(raw); }
+    catch { return res.status(500).json({ error: `API returned non-JSON: ${raw.substring(0, 200)}` }); }
 
     if (!response.ok || !data.success) {
-      return res.status(500).json({ error: data.message || "Flight search failed" });
+      return res.status(500).json({ error: data.message || data.error || JSON.stringify(data) });
     }
 
     const flights = (data.data || [])
