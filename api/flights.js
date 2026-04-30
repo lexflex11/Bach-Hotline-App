@@ -1,5 +1,14 @@
-// Vercel serverless function — proxies Kiwi Tequila Flight Search API
-// API key stays server-side, never exposed to the browser
+// Vercel serverless function — proxies Travelpayouts Flight API
+// Token stays server-side, never exposed to the browser
+
+const MARKER = "523908";
+
+const AIRLINE_NAMES = {
+  WN:"Southwest", AA:"American Airlines", DL:"Delta", UA:"United",
+  B6:"JetBlue", NK:"Spirit", F9:"Frontier", AS:"Alaska Airlines",
+  G4:"Allegiant", SY:"Sun Country", HA:"Hawaiian", VX:"Virgin America",
+  AC:"Air Canada", WS:"WestJet", AM:"Aeromexico", MX:"Breeze",
+};
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -8,94 +17,74 @@ export default async function handler(req, res) {
 
   const { from, to, date, returnDate, adults = "1" } = req.query;
 
-  if (!from || !to || !date) {
-    return res.status(400).json({ error: "Missing params: from, to, date" });
+  if (!from || !to) {
+    return res.status(400).json({ error: "Missing params: from, to" });
   }
 
-  const apiKey = process.env.KIWI_API_KEY;
-  if (!apiKey) {
-    return res.status(500).json({ error: "Missing KIWI_API_KEY — add it in Vercel Environment Variables" });
+  const token = process.env.TP_API_TOKEN;
+  if (!token) {
+    return res.status(500).json({ error: "Missing TP_API_TOKEN — add it in Vercel Environment Variables" });
   }
 
   try {
-    // Kiwi Tequila expects dates as DD/MM/YYYY
-    function toKiwiDate(iso) {
-      const [y, m, d] = iso.split("-");
-      return `${d}/${m}/${y}`;
-    }
-
-    const depKiwi = toKiwiDate(date);
-    const retKiwi = returnDate ? toKiwiDate(returnDate) : null;
+    const numAdults = Math.max(1, Math.min(9, parseInt(adults) || 1));
+    const fromCode  = from.toUpperCase();
+    const toCode    = to.toUpperCase();
 
     const params = new URLSearchParams({
-      fly_from:       from.toUpperCase(),
-      fly_to:         to.toUpperCase(),
-      date_from:      depKiwi,
-      date_to:        depKiwi,
-      adults:         String(Math.min(Number(adults) || 1, 9)),
-      curr:           "USD",
-      limit:          "15",
-      sort:           "price",
-      flight_type:    retKiwi ? "round" : "oneway",
-      max_stopovers:  "2",
+      origin:      fromCode,
+      destination: toCode,
+      currency:    "usd",
+      token,
+      limit:       "20",
     });
 
-    if (retKiwi) {
-      params.set("return_from", retKiwi);
-      params.set("return_to",   retKiwi);
-    }
+    // Use month format (YYYY-MM) for the cheap prices API
+    if (date)       params.set("depart_date", date.substring(0, 7));
+    if (returnDate) params.set("return_date",  returnDate.substring(0, 7));
 
     const response = await fetch(
-      `https://api.tequila.kiwi.com/v2/search?${params}`,
-      { headers: { apikey: apiKey } }
+      `https://api.travelpayouts.com/v1/prices/cheap?${params}`
     );
-
     const data = await response.json();
 
-    if (!response.ok || data.error) {
-      return res.status(500).json({ error: data.error || "Flight search failed" });
+    if (!response.ok || !data.success) {
+      return res.status(500).json({ error: data.message || "Flight search failed" });
     }
 
-    // Normalize to a simple format the UI can use
-    const flights = (data.data || []).map(f => ({
-      id:         f.id,
-      airline:    f.airlines?.[0] || f.operating_carrier || "—",
-      price:      parseFloat(f.price),
-      currency:   "USD",
-      outbound: {
-        depCode:  f.flyFrom,
-        arrCode:  f.flyTo,
-        depTime:  new Date(f.local_departure).toISOString(),
-        arrTime:  new Date(f.local_arrival).toISOString(),
-        duration: f.duration?.departure,   // seconds
-        stops:    f.route?.filter(r => r.return === 0).length - 1,
-        segments: (f.route || []).filter(r => r.return === 0).map(r => ({
-          dep: r.flyFrom, arr: r.flyTo,
-          depTime: new Date(r.local_departure).toISOString(),
-          arrTime: new Date(r.local_arrival).toISOString(),
-          carrier: r.airline,
-          flightNo: `${r.airline}${r.flight_no}`,
-        })),
-      },
-      inbound: retKiwi ? {
-        depCode:  f.flyTo,
-        arrCode:  f.flyFrom,
-        depTime:  new Date(f.route?.find(r => r.return === 1)?.local_departure || f.local_arrival).toISOString(),
-        arrTime:  new Date(f.local_arrival).toISOString(),
-        duration: f.duration?.return,
-        stops:    Math.max(0, f.route?.filter(r => r.return === 1).length - 1),
-        segments: (f.route || []).filter(r => r.return === 1).map(r => ({
-          dep: r.flyFrom, arr: r.flyTo,
-          depTime: new Date(r.local_departure).toISOString(),
-          arrTime: new Date(r.local_arrival).toISOString(),
-          carrier: r.airline,
-          flightNo: `${r.airline}${r.flight_no}`,
-        })),
-      } : null,
-      deepLink: f.deep_link || null,
-    }));
+    // API returns data keyed by destination code, then by index "0","1",...
+    const destData = data.data?.[toCode] || {};
 
-    return res.status(200).json({ flights, groupSize: Number(adults) });
+    const flights = Object.values(destData).map((f, i) => {
+      const dep = f.departure_at ? new Date(f.departure_at) : null;
+      const ret = f.return_at    ? new Date(f.return_at)    : null;
+
+      // Build Aviasales deep link with affiliate marker
+      const depPart = dep
+        ? `${String(dep.getDate()).padStart(2,"0")}${String(dep.getMonth()+1).padStart(2,"0")}`
+        : "0101";
+      const retPart = ret
+        ? `${String(ret.getDate()).padStart(2,"0")}${String(ret.getMonth()+1).padStart(2,"0")}`
+        : null;
+
+      const bookingUrl = retPart
+        ? `https://www.aviasales.com/search/${fromCode}${depPart}/${toCode}${retPart}/${numAdults}1?marker=${MARKER}`
+        : `https://www.aviasales.com/search/${fromCode}${depPart}/${toCode}${numAdults}1?marker=${MARKER}`;
+
+      return {
+        id:          i,
+        airline:     AIRLINE_NAMES[f.airline] || f.airline || "Unknown Airline",
+        airlineCode: f.airline || "??",
+        price:       Math.round(f.price),
+        totalPrice:  Math.round(f.price * numAdults),
+        stops:       f.transfers ?? 0,
+        departureAt: dep ? dep.toISOString() : null,
+        returnAt:    ret ? ret.toISOString() : null,
+        bookingUrl,
+      };
+    }).sort((a, b) => a.price - b.price);
+
+    return res.status(200).json({ flights, groupSize: numAdults });
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
