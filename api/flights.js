@@ -1,5 +1,5 @@
 // Vercel serverless function — Travelpayouts v2 flight prices API
-const MARKER = "523908";
+const EXPEDIA_CAMREF = "1011l4ma3h";
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -57,13 +57,18 @@ export default async function handler(req, res) {
         // duration is in minutes
         const dur = f.duration ? `${Math.floor(f.duration/60)}h ${f.duration%60}m` : null;
 
-        // Build Aviasales booking URL — correct format: {from}{DDMM}{to}{DDMM}/{pax}
-        const depPart = depDate ? depDate.slice(8,10) + depDate.slice(5,7) : "0101";
-        const retPart = retDate && retDate !== "" ? retDate.slice(8,10) + retDate.slice(5,7) : null;
-
-        const bookingUrl = retPart
-          ? `https://www.aviasales.com/search/${origin}${depPart}${dest}${retPart}/${numAdults}?marker=${MARKER}`
-          : `https://www.aviasales.com/search/${origin}${depPart}${dest}/${numAdults}?marker=${MARKER}`;
+        // Build Expedia affiliate URL
+        const expParams = new URLSearchParams({
+          trip:         retDate && retDate !== "" ? "roundtrip" : "oneway",
+          mode:         "search",
+          adults:       String(numAdults),
+          origin1:      origin,
+          destination1: dest,
+          camref:       EXPEDIA_CAMREF,
+        });
+        if (depDate) expParams.set("departuredate1", depDate);
+        if (retDate && retDate !== "") expParams.set("returndate", retDate);
+        const bookingUrl = `https://www.expedia.com/Flights-Search?${expParams}`;
 
         return {
           id:         i,
