@@ -10,11 +10,9 @@ const CAMREF = "1011l4ma3h";
 function buildExpediaUrl(from, to, depDate, retDate, adults) {
   const p = new URLSearchParams({
     trip:         retDate ? "roundtrip" : "oneway",
-    mode:         "search",
     adults:       String(adults),
     origin1:      from,
     destination1: to,
-    camref:       CAMREF,
   });
   if (depDate) p.set("departuredate1", depDate);
   if (retDate) p.set("returndate",     retDate);
