@@ -5,6 +5,21 @@ import { DESTS } from '../../constants/data.js';
 import SH from '../ui/SH.jsx';
 
 const NUN = "'Plus Jakarta Sans',sans-serif";
+const CAMREF = "1011l4ma3h";
+
+function buildExpediaUrl(from, to, depDate, retDate, adults) {
+  const p = new URLSearchParams({
+    trip:         retDate ? "roundtrip" : "oneway",
+    mode:         "search",
+    adults:       String(adults),
+    origin1:      from,
+    destination1: to,
+    camref:       CAMREF,
+  });
+  if (depDate) p.set("departuredate1", depDate);
+  if (retDate) p.set("returndate",     retDate);
+  return `https://www.expedia.com/Flights-Search?${p}`;
+}
 
 const AIRPORTS = [
   { code:"IAH", label:"Houston, TX (IAH)" },
@@ -181,7 +196,7 @@ function FlightDetailsModal({ f, groupSize, onClose, onSeeFares }) {
 }
 
 // ── Fares Panel (Images #205-206) ────────────────────────────────────────────
-function FaresPanel({ f, groupSize, onClose }) {
+function FaresPanel({ f, groupSize, onClose, expediaUrl }) {
   return (
     <Overlay onClose={onClose}>
       <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:6 }}>
@@ -212,7 +227,7 @@ function FaresPanel({ f, groupSize, onClose }) {
               </div>
             ))}
             <button
-              onClick={() => window.open(f.bookingUrl, "_blank")}
+              onClick={() => window.open(expediaUrl, "_blank")}
               style={{ width:"100%", padding:"12px", borderRadius:50, background:`linear-gradient(135deg,#f472b0,${HOT})`, color:WHITE, border:"none", fontFamily:NUN, fontSize:13, fontWeight:800, cursor:"pointer", marginTop:12, boxShadow:"0 3px 12px rgba(230,101,130,0.35)" }}
             >
               Select
@@ -221,14 +236,14 @@ function FaresPanel({ f, groupSize, onClose }) {
         );
       })}
       <div style={{ fontFamily:NUN, fontSize:10, color:"#bbb", textAlign:"center", marginTop:8 }}>
-        Estimated fare tiers · Actual price confirmed at checkout on Aviasales
+        Estimated fare tiers · Actual price confirmed at checkout on Expedia
       </div>
     </Overlay>
   );
 }
 
 // ── Flight Row (Image #203 style) ────────────────────────────────────────────
-function FlightRow({ f, groupSize, onDetails }) {
+function FlightRow({ f, groupSize, onDetails, expediaUrl }) {
   return (
     <div style={{ borderBottom:`1px solid ${BORDER}`, padding:"16px 0" }}>
       <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between" }}>
@@ -430,10 +445,11 @@ export default function FlightsTab({ groupSize, initialDest }) {
               {visibleFlights.length} options · {fromCode} → {selectedDest?.name}
             </div>
             {visibleFlights.map(f => (
-              <FlightRow key={f.id} f={f} groupSize={groupSize} onDetails={setDetailFlight} />
+              <FlightRow key={f.id} f={f} groupSize={groupSize} onDetails={setDetailFlight}
+                expediaUrl={buildExpediaUrl(fromCode, selectedDest.airportCode, depDate, retDate, groupSize)} />
             ))}
             <div style={{ fontFamily:NUN, fontSize:10, color:"#bbb", textAlign:"center", marginTop:12, paddingTop:8 }}>
-              Prices per person · Booking on Aviasales
+              Prices per person · Booking completed securely on Expedia
             </div>
           </div>
         )
@@ -455,6 +471,7 @@ export default function FlightsTab({ groupSize, initialDest }) {
           f={faresFlight}
           groupSize={groupSize}
           onClose={() => setFaresFlight(null)}
+          expediaUrl={buildExpediaUrl(fromCode, selectedDest?.airportCode, depDate, retDate, groupSize)}
         />
       )}
     </div>
